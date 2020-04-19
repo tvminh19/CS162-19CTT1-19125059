@@ -9,6 +9,9 @@
 using namespace std;
 
 /* ----------------------------- Minh's funtions ---------------------------- */
+//W00
+//this is example
+int sum(int a, int b);
 
 
 

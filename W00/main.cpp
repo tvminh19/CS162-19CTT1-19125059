@@ -8,6 +8,10 @@
 /* -------------------------- this is main function ------------------------- */
 int main(){
     //code here 
+    //this is example
+    int a, b;
+    cin >> a >> b;
+    cout << "Result: " << sum(a, b) << endl;
     return 0;
 }
 
