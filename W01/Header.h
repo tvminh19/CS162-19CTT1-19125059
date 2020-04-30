@@ -35,6 +35,8 @@ struct staff{
     bool sexual;
 };
 
+int login(ifstream& in, student*& stu, lecture*& lec, staff*& sta);
+
 
 
 

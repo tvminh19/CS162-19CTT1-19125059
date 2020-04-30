@@ -3,27 +3,59 @@
 
 /* ----------------------------- login function ----------------------------- */
 int login(ifstream& in, student*& stu, lecture*& lec, staff*& sta){
-     loadLoginFile(in, stu, lec, sta);
+    //load file 
+    int n1, n2, n3;
+    loadLoginFile(in, stu, lec, sta, n1, n2, n3);
+
+    //intro
+    cout << "--------------------------------------------------\n";
+    cout << "------------------- WELCOME ----------------------\n";
+    cout << "---------------- TO MINI MODDLE ------------------\n";
+    cout << "--------------------------------------------------\n";
+    system("clr");
+
+    //input from keyboard
+    //ID
+    cout << "ID: ";
+    char id[200];
+    cin.get(id, 200, '\n');
+    //password
+    cout << "Password: ";
+    char pass[200];
+    cin.ignore(200, '\n');
+    cin.get(pass, 200, '\n');
+
+    //check if account is exist
+    int result = checkExistAccount(stu, lec, sta, n1, n2, n3, id, pass);
+    //control
+    if (result == 0){
+        cout << "Sorry, Wrong account!\n";
+        return 0;
+    }
+    else{
+        return result;
+    }
+    //remove in heap memory
+    removeLogin(stu, lec, sta, n1, n2, n3);
 }
 
 /* -------------------------------- load file ------------------------------- */
-void loadLoginFile(ifstream& in, student*& stu, lecture*& lec, staff*& sta){
-    loadStudentFile(in, stu);
-    loadLectureFile(in, lec);
-    loadStaffFile(in, sta);
+void loadLoginFile(ifstream& in, student*& stu, lecture*& lec, staff*& sta, int& n1, int& n2, int& n3){
+    loadStudentFile(in, stu, n1);
+    loadLectureFile(in, lec, n2);
+    loadStaffFile(in, sta, n3);
 }
 
-void loadStudentFile(ifstream& in, student*& stu){
+void loadStudentFile(ifstream& in, student*& stu, int& n1){
     in.open("D:\\Github\\CS162-19CTT1-19125059\\W01\\PMS\\menu\\Student.txt");
     if (!in.is_open()){
         cout << "error at line 15 of minh.cpp.\n";
         return;
     }
     else{
-        int n;
-        in >> n;
-        stu = new student[n];
-        for (int i = 0; i < n; ++i){
+        in >> n1;
+        stu = new student[n1];
+        for (int i = 0; i < n1; ++i){
             in.ignore(1000, '\n');
 
             //input name of account
@@ -63,17 +95,16 @@ void loadStudentFile(ifstream& in, student*& stu){
     in.close();
 }
 
-void loadLectureFile(ifstream& in, lecture*& lec){
+void loadLectureFile(ifstream& in, lecture*& lec, int& n2){
     in.open("D:\\Github\\CS162-19CTT1-19125059\\W01\\PMS\\menu\\Lecturer.txt");
     if (!in.is_open()){
         cout << "error at line 64 of minh.cpp.\n";
         return;
     }
     else{
-        int n;
-        in >> n;
-        lec = new lecture[n];
-        for (int i = 0; i < n; ++i){
+        in >> n2;
+        lec = new lecture[n2];
+        for (int i = 0; i < n2; ++i){
             in.ignore(1000, '\n');
 
             //input name of account
@@ -107,17 +138,16 @@ void loadLectureFile(ifstream& in, lecture*& lec){
     in.close();
 }
 
-void loadStaffFile(ifstream& in, staff*& sta){
+void loadStaffFile(ifstream& in, staff*& sta, int& n3){
     in.open("D:\\Github\\CS162-19CTT1-19125059\\W01\\PMS\\menu\\Staff.txt");
     if (!in.is_open()){
         cout << "error at line 107 of minh.cpp.\n";
         return;
     }
     else{
-        int n;
-        in >> n;
-        sta = new staff[n];
-        for (int i = 0; i < n; ++i){
+        in >> n3;
+        sta = new staff[n3];
+        for (int i = 0; i < n3; ++i){
             in.ignore(1000, '\n');
 
             //input name of account
@@ -146,6 +176,65 @@ void loadStaffFile(ifstream& in, staff*& sta){
 }
 
 /* --------------------------- check exist account -------------------------- */
-bool checkExistAccount(ifstream& in){
+int checkExistAccount(student*& stu, lecture*& lec, staff*& sta, int& n1, int& n2, int& n3, char id[], char pass[]){
+    //student
+    for (int i = 0; i < n1; i++){
+        if (checkSame(stu[i].account, id) && checkSame(stu[i].password, pass)){
+            return 1;
+        }
+    }
 
+    //lecture 
+    for (int i = 0; i < n2; ++i){
+        if (checkSame(lec[i].account, id), checkSame(lec[i].password, pass)){
+            return 2;
+        } 
+    }
+
+    //staff
+    for (int i = 0; i < n3; ++i){
+        if (checkSame(sta[i].account, id), checkSame(sta[i].password, pass)){
+            return 3;
+        }
+    }
+    
+    return 0;
+}
+
+bool checkSame(char a[], char b[]){
+    if (strlen(a) != strlen(b)) return false;
+    else{
+        for (int i = 0; i < strlen(a); i++){
+            if (a[i] != b[i]) return false;
+        }
+        return true;
+    }
+}
+
+/* ------------------ remove heap memory in login functions ----------------- */
+void removeLogin(student*& stu, lecture*& lec, staff*& sta, int n1, int n2, int n3){
+    //delete student
+    for (int i = 0; i < n1; i++){
+        delete stu[i].account;
+        delete stu[i].password;
+        delete stu[i].name;
+        delete stu[i].dob;
+        delete stu[i].className;
+    }
+    delete[] stu;
+    //delete lecture
+    for (int i = 0; i < n2; i++){
+        delete lec[i].account;
+        delete lec[i].password;
+        delete lec[i].name;
+        delete lec[i].academy;
+    }
+    delete[] lec;
+    //delete staff
+    for (int i = 0; i < n3; i++){
+        delete sta[i].account;
+        delete sta[i].password;
+        delete sta[i].name;
+    }
+    delete[] sta;
 }
