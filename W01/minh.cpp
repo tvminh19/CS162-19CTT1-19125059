@@ -16,7 +16,7 @@ bool checkSame(char a[], char b[]){
 
 int checkExistAccount(student*& stu, lecture*& lec, staff*& sta, int& n1, int& n2, int& n3, char id[], char pass[]){
     //student
-    for (int i = 0; i < n1; i++){
+    for (int i = 0; i < n1; ++i){
         if (checkSame(stu[i].account, id) && checkSame(stu[i].password, pass)){
             return 1;
         }
@@ -24,14 +24,14 @@ int checkExistAccount(student*& stu, lecture*& lec, staff*& sta, int& n1, int& n
 
     //lecture 
     for (int i = 0; i < n2; ++i){
-        if (checkSame(lec[i].account, id), checkSame(lec[i].password, pass)){
+        if (checkSame(lec[i].account, id) && checkSame(lec[i].password, pass)){
             return 2;
         } 
     }
 
     //staff
     for (int i = 0; i < n3; ++i){
-        if (checkSame(sta[i].account, id), checkSame(sta[i].password, pass)){
+        if (checkSame(sta[i].account, id) && checkSame(sta[i].password, pass)){
             return 3;
         }
     }
@@ -65,6 +65,8 @@ void removeLogin(student*& stu, lecture*& lec, staff*& sta, int n1, int n2, int 
         delete sta[i].name;
     }
     delete[] sta;
+    delete[] stu;
+    delete[] lec;
 }
 
 /* -------------------------------- load file ------------------------------- */
@@ -108,7 +110,7 @@ void loadStaffFile(ifstream& in, staff*& sta, int& n3){
 void loadLectureFile(ifstream& in, lecture*& lec, int& n2){
     in.open("D:\\Github\\CS162-19CTT1-19125059\\W01\\PMS\\menu\\Lecturer.txt");
     if (!in.is_open()){
-        cout << "error at line 64 of minh.cpp.\n";
+        cout << "error at line 111 of minh.cpp.\n";
         return;
     }
     else{
