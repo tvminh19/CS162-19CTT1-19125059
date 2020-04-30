@@ -214,7 +214,8 @@ int login(ifstream& in, student*& stu, lecture*& lec, staff*& sta){
     cout << "------------------- WELCOME ----------------------\n";
     cout << "---------------- TO MINI MODDLE ------------------\n";
     cout << "--------------------------------------------------\n";
-    system("clr");
+    Sleep(1000);
+    system("cls");
 
     //input from keyboard
     //ID

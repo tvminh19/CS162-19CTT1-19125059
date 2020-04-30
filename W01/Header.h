@@ -5,6 +5,7 @@
 #include <cstring>
 #include <cmath>
 #include <cstdlib>
+#include <windows.h>
 #include <ctime>
 using namespace std;
 
