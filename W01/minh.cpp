@@ -151,7 +151,7 @@ void loadLectureFile(ifstream& in, lecture*& lec, int& n2){
 void loadStudentFile(ifstream& in, student*& stu, int& n1){
     in.open("D:\\Github\\CS162-19CTT1-19125059\\W01\\PMS\\menu\\Student.txt");
     if (!in.is_open()){
-        cout << "error at line 15 of minh.cpp.\n";
+        cout << "error at line 154 of minh.cpp.\n";
         return;
     }
     else{
@@ -164,35 +164,30 @@ void loadStudentFile(ifstream& in, student*& stu, int& n1){
             char a[1000];
             in.get(a, 1000, '\n');
             stu[i].account = new char[strlen(a) + 1];
-            //strcpy(stu[i].account, a);
             strcpy(stu[i].account, a);
 
             //input password of account
             in.ignore(1000, '\n');
             in.get(a, 1000, '\n');
             stu[i].password = new char[strlen(a) + 1];
-            //strcpy(stu[i].password, a);
             strcpy(stu[i].password, a);
 
             //input name of student
             in.ignore(1000, '\n');
             in.get(a, 1000, '\n');
             stu[i].name = new char[strlen(a) + 1];
-            //strcpy(stu[i].name, a);
             strcpy(stu[i].name, a);
 
             //input day of birth with syntax  yyyy/mm/dd
             in.ignore(1000, '\n');
             in.get(a, 1000, '\n');
             stu[i].dob = new char[strlen(a) + 1];
-            //strcpy(stu[i].dob, a);
             strcpy(stu[i].dob, a);
 
             //input class name  
             in.ignore(1000, '\n');
             in.get(a, 1000, '\n');
             stu[i].className = new char[strlen(a) + 1];
-            //strcpy(stu[i].className, a);
             strcpy(stu[i].className, a);
 
             //input sexual
@@ -241,6 +236,7 @@ int login(ifstream& in, student*& stu, lecture*& lec, staff*& sta){
         return 0;
     }
     else{
+        cout << result << "\n";
         return result;
     }
     //remove in heap memory
