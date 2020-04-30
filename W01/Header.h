@@ -2,7 +2,7 @@
 #define function
 #include <iostream>
 #include <fstream>
-#include <string.h>
+#include <cstring>
 #include <cmath>
 #include <cstdlib>
 #include <ctime>
