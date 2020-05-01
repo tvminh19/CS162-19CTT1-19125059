@@ -231,6 +231,7 @@ int login(ifstream& in, student*& stu, lecture*& lec, staff*& sta){
     loadLoginFile(in, stu, lec, sta, n1, n2, n3);
 
     //intro
+    system("color 6");
     cout << "--------------------------------------------------\n";
     cout << "------------------- WELCOME ----------------------\n";
     cout << "---------------- TO MINI MODDLE ------------------\n";
