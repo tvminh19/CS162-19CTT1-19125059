@@ -3,7 +3,7 @@
 #include <iostream>
 #include <fstream>
 #include <string.h>
-#include <typeinfo>
+#include <conio.h>
 #include <cmath>
 #include <cstdlib>
 #include <windows.h>

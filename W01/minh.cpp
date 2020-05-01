@@ -248,14 +248,24 @@ int resultLogin(int result, bool sexual, char nameLogin[], student*& stu, lectur
 }
 
 /* --------------------- input id and pass from keyboard -------------------- */
-void inputLogin(char id[], char pass[]){
-    //ID
-    cout << "ID: ";
-    cin.get(id, 200, '\n');
-    //password
-    cout << "Password: ";
-    cin.ignore(200, '\n');
-    cin.get(pass, 200, '\n');
+void inputLogin(char user[], char passwd[]){
+    int ch;
+	int pos = 0;
+    cout<<"User name: ";
+    cin>>user;
+    cout<<"Password: ";
+    while(ch = getch()){
+    	if(ch == 13){
+			break;
+		}
+		else {
+			cout<<"*";
+			passwd[pos++] = ch;
+		}
+	}
+	passwd[pos] = '\0';
+    cout << "\n";
+    return;
 }
 
 /* ---------------------------- intro when login ---------------------------- */
