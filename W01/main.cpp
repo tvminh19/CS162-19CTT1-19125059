@@ -7,9 +7,15 @@
 
 /* -------------------------- this is main function ------------------------- */
 int main(){
+    ifstream in;
+    ofstream out;
+
+    student* stu = nullptr;
+    lecture* lec = nullptr;
+    staff* sta = nullptr; 
     //W01
     //menu function
-    //
+    login(in, stu, lec, sta);
     return 0;
 }
 
