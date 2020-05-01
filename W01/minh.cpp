@@ -209,6 +209,7 @@ void loadLoginFile(ifstream& in, student*& stu, lecture*& lec, staff*& sta, int&
     loadStaffFile(in, sta, n3);
 }
 
+/* ------------------------------ to know time ------------------------------ */
 void timeNow(){
     time_t now = time(0);
     tm *cptr = localtime(&now);
@@ -231,7 +232,7 @@ int login(ifstream& in, student*& stu, lecture*& lec, staff*& sta){
     loadLoginFile(in, stu, lec, sta, n1, n2, n3);
 
     //intro
-    system("color 6");
+    system("color a");
     cout << "--------------------------------------------------\n";
     cout << "------------------- WELCOME ----------------------\n";
     cout << "---------------- TO MINI MODDLE ------------------\n";
@@ -273,4 +274,9 @@ int login(ifstream& in, student*& stu, lecture*& lec, staff*& sta){
     removeLogin(stu, lec, sta, n1, n2, n3);
     //return funciton 
     return result;
+}
+
+/* ---------------------------- log out functions --------------------------- */
+void logout(){
+    return;
 }
