@@ -258,13 +258,8 @@ void inputLogin(char id[], char pass[]){
     cin.get(pass, 200, '\n');
 }
 
-/* ----------------------------- login function ----------------------------- */
-int login(ifstream& in, student*& stu, lecture*& lec, staff*& sta){
-    //load file 
-    int n1, n2, n3;
-    loadLoginFile(in, stu, lec, sta, n1, n2, n3);
-
-    //intro
+/* ---------------------------- intro when login ---------------------------- */
+void introLogin(){
     system("color a");
     cout << "--------------------------------------------------\n";
     cout << "------------------- WELCOME ----------------------\n";
@@ -272,6 +267,16 @@ int login(ifstream& in, student*& stu, lecture*& lec, staff*& sta){
     cout << "--------------------------------------------------\n";
     Sleep(600);
     system("cls");
+}
+
+/* ----------------------------- login function ----------------------------- */
+int login(ifstream& in, student*& stu, lecture*& lec, staff*& sta){
+    //load file 
+    int n1, n2, n3;
+    loadLoginFile(in, stu, lec, sta, n1, n2, n3);
+
+    //intro
+    introLogin();
 
     //input from keyboard
     char id[200];
