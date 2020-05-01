@@ -225,6 +225,7 @@ void timeNow(){
     }
 }
 
+/* --------------- show display hello then remove heap memory --------------- */
 int resultLogin(int result, bool sexual, char nameLogin[], student*& stu, lecture*& lec, staff*& sta, int n1, int n2, int n3){
     if (result == 0){
         cout << "Sorry, Wrong account!\n";
@@ -246,6 +247,17 @@ int resultLogin(int result, bool sexual, char nameLogin[], student*& stu, lectur
     return result;
 }
 
+/* --------------------- input id and pass from keyboard -------------------- */
+void inputLogin(char id[], char pass[]){
+    //ID
+    cout << "ID: ";
+    cin.get(id, 200, '\n');
+    //password
+    cout << "Password: ";
+    cin.ignore(200, '\n');
+    cin.get(pass, 200, '\n');
+}
+
 /* ----------------------------- login function ----------------------------- */
 int login(ifstream& in, student*& stu, lecture*& lec, staff*& sta){
     //load file 
@@ -262,15 +274,9 @@ int login(ifstream& in, student*& stu, lecture*& lec, staff*& sta){
     system("cls");
 
     //input from keyboard
-    //ID
-    cout << "ID: ";
     char id[200];
-    cin.get(id, 200, '\n');
-    //password
-    cout << "Password: ";
     char pass[200];
-    cin.ignore(200, '\n');
-    cin.get(pass, 200, '\n');
+    inputLogin(id, pass);
 
     //check if account is exist
     char nameLogin[100];
