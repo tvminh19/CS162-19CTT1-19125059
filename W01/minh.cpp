@@ -225,6 +225,27 @@ void timeNow(){
     }
 }
 
+int resultLogin(int result, bool sexual, char nameLogin[], student*& stu, lecture*& lec, staff*& sta, int n1, int n2, int n3){
+    if (result == 0){
+        cout << "Sorry, Wrong account!\n";
+        return 0;
+    }
+    else{
+        timeNow();
+        if (sexual){
+            cout << "Mr.";
+        }
+        else{
+            cout << "Ms.";
+        }
+        cout << nameLogin << "!" << endl;
+    }
+    //remove in heap memory
+    removeLogin(stu, lec, sta, n1, n2, n3);
+    //return funciton 
+    return result;
+}
+
 /* ----------------------------- login function ----------------------------- */
 int login(ifstream& in, student*& stu, lecture*& lec, staff*& sta){
     //load file 
@@ -255,25 +276,9 @@ int login(ifstream& in, student*& stu, lecture*& lec, staff*& sta){
     char nameLogin[100];
     bool sexual;
     int result = checkExistAccount(stu, lec, sta, n1, n2, n3, id, pass, nameLogin, sexual);
-    //control
-    if (result == 0){
-        cout << "Sorry, Wrong account!\n";
-        return 0;
-    }
-    else{
-        timeNow();
-        if (sexual){
-            cout << "Mr.";
-        }
-        else{
-            cout << "Ms.";
-        }
-        cout << nameLogin << "!" << endl;
-    }
-    //remove in heap memory
-    removeLogin(stu, lec, sta, n1, n2, n3);
-    //return funciton 
-    return result;
+    //result and compele funtions
+    resultLogin(result, sexual, nameLogin, stu, lec, sta, n1, n2, n3);
+    return 0;
 }
 
 /* ---------------------------- log out functions --------------------------- */
