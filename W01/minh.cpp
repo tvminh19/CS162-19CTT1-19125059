@@ -209,6 +209,21 @@ void loadLoginFile(ifstream& in, student*& stu, lecture*& lec, staff*& sta, int&
     loadStaffFile(in, sta, n3);
 }
 
+void timeNow(){
+    time_t now = time(0);
+    tm *cptr = localtime(&now);
+    int t = cptr->tm_hour;
+    if (0 <= t && t <= 11){
+        cout << "Good morning, ";
+    }
+    else if (12 <= t && t <= 18){
+        cout << "Good afternoon, ";
+    }
+    else{
+        cout << "Good evening, ";
+    }
+}
+
 /* ----------------------------- login function ----------------------------- */
 int login(ifstream& in, student*& stu, lecture*& lec, staff*& sta){
     //load file 
@@ -244,8 +259,7 @@ int login(ifstream& in, student*& stu, lecture*& lec, staff*& sta){
         return 0;
     }
     else{
-        cout << result << "\n";
-        cout << "Good morning, ";
+        timeNow();
         if (sexual){
             cout << "Mr.";
         }
