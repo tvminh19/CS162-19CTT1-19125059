@@ -16,6 +16,7 @@ int main(){
     //W01
     //menu function
     login(in, stu, lec, sta);
+    system("pause");
     return 0;
 }
 

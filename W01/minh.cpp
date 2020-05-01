@@ -251,14 +251,23 @@ int resultLogin(int result, bool sexual, char nameLogin[], student*& stu, lectur
 void inputLogin(char user[], char passwd[]){
     int ch;
 	int pos = 0;
-    cout<<"User name: ";
-    cin>>user;
-    cout<<"Password: ";
+    cout<<"User name: \n";
+    cout << "> ";
+    cin.get(user, 200, '\n');
+    cout << "Password: \n";
+    cout << "> ";
     while(ch = getch()){
-    	if(ch == 13){
+        if (ch == 8 && strlen(passwd) - 1 == 0){
+            continue;
+        }
+    	else if(ch == 13){
 			break;
 		}
-		else {
+        else if (ch == 8 && strlen(passwd) > 0){
+            passwd[pos--] = '\0';
+            cout << "\b \b";
+        }
+		else{
 			cout<<"*";
 			passwd[pos++] = ch;
 		}
