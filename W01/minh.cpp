@@ -1,8 +1,6 @@
 /* -------------------- this is Minh's file for functions ------------------- */
 #include "Header.h"
 
-
-
 /* --------------------------- check exist account -------------------------- */
 bool checkSame(char a[], char b[]){
     if (strlen(a) != strlen(b)) return false;
@@ -14,10 +12,12 @@ bool checkSame(char a[], char b[]){
     }
 }
 
-int checkExistAccount(student*& stu, lecture*& lec, staff*& sta, int& n1, int& n2, int& n3, char id[], char pass[]){
+int checkExistAccount(student*& stu, lecture*& lec, staff*& sta, int& n1, int& n2, int& n3, char id[], char pass[], char name[], bool& sexual){
     //student
     for (int i = 0; i < n1; ++i){
         if (checkSame(stu[i].account, id) && checkSame(stu[i].password, pass)){
+            strcpy(name, stu[i].name);
+            sexual = stu[i].sexual;
             return 1;
         }
     }
@@ -25,6 +25,8 @@ int checkExistAccount(student*& stu, lecture*& lec, staff*& sta, int& n1, int& n
     //lecture 
     for (int i = 0; i < n2; ++i){
         if (checkSame(lec[i].account, id) && checkSame(lec[i].password, pass)){
+            strcpy(name, lec[i].name);
+            sexual = lec[i].sexual;
             return 2;
         } 
     }
@@ -32,6 +34,8 @@ int checkExistAccount(student*& stu, lecture*& lec, staff*& sta, int& n1, int& n
     //staff
     for (int i = 0; i < n3; ++i){
         if (checkSame(sta[i].account, id) && checkSame(sta[i].password, pass)){
+            strcpy(name, sta[i].name);
+            sexual = sta[i].sexual;
             return 3;
         }
     }
@@ -216,7 +220,7 @@ int login(ifstream& in, student*& stu, lecture*& lec, staff*& sta){
     cout << "------------------- WELCOME ----------------------\n";
     cout << "---------------- TO MINI MODDLE ------------------\n";
     cout << "--------------------------------------------------\n";
-    Sleep(1000);
+    Sleep(600);
     system("cls");
 
     //input from keyboard
@@ -231,7 +235,9 @@ int login(ifstream& in, student*& stu, lecture*& lec, staff*& sta){
     cin.get(pass, 200, '\n');
 
     //check if account is exist
-    int result = checkExistAccount(stu, lec, sta, n1, n2, n3, id, pass);
+    char nameLogin[100];
+    bool sexual;
+    int result = checkExistAccount(stu, lec, sta, n1, n2, n3, id, pass, nameLogin, sexual);
     //control
     if (result == 0){
         cout << "Sorry, Wrong account!\n";
@@ -239,8 +245,17 @@ int login(ifstream& in, student*& stu, lecture*& lec, staff*& sta){
     }
     else{
         cout << result << "\n";
-        return result;
+        cout << "Good morning, ";
+        if (sexual){
+            cout << "Mr.";
+        }
+        else{
+            cout << "Ms.";
+        }
+        cout << nameLogin << "!" << endl;
     }
     //remove in heap memory
     removeLogin(stu, lec, sta, n1, n2, n3);
+    //return funciton 
+    return result;
 }
