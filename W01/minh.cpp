@@ -247,7 +247,7 @@ int resultLogin(ifstream& in, int& result, int& countLogin, bool sexual, char na
             system("cls");
             cout << "You have " << countLogin << " time(s) to try!\n";
             countLogin--;
-            return login(in, stu, lec, sta, result, countLogin);
+            login(in, stu, lec, sta, result, countLogin); //TODO
         }
         else{
             system("cls");
@@ -320,7 +320,7 @@ int login(ifstream& in, student*& stu, lecture*& lec, staff*& sta, int& result, 
     system("color a");
 
     //load file 
-        loadLoginFile(in, stu, lec, sta, n1, n2, n3);
+    loadLoginFile(in, stu, lec, sta, n1, n2, n3);
 
     //check replay main function
     if (countLogin == 4){ 
