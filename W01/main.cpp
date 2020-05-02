@@ -26,7 +26,7 @@ int main(){
     //W01
     //menu function
     login(in, stu, lec, sta, typeAccount, countLogin);
-    cout << "TypeAccount";
+    cout << typeAccount;
     system("pause");
     return 0;
 }
