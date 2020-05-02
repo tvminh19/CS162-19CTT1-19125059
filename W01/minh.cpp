@@ -317,6 +317,7 @@ void introLogin(){
     Sleep(1000);
     system("cls");
 }
+
 void introMenu(){
     system("cls");
     cout << "/* -------------------------------------------------------------------------- */\n";
@@ -325,6 +326,7 @@ void introMenu(){
     Sleep(600);
     system("cls");
 }
+
 /* ----------------------------- login function ----------------------------- */
 int login(ifstream& in, student*& stu, lecture*& lec, staff*& sta, int& result, int& countLogin){
     //slots of account
