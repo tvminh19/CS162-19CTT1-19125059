@@ -28,6 +28,10 @@ int main(){
     //menu function
     login(in, stu, lec, sta, typeAccount, countLogin);
     cout << typeAccount;
+
+    //W01 --- Vu
+    displayAllroles(typeAccount);
+
     system("pause");
     return 0;
 }
