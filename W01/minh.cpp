@@ -1,5 +1,11 @@
 /* -------------------- this is Minh's file for functions ------------------- */
 #include "Header.h"
+/* ---------------------------------- outro --------------------------------- */
+void outro(){
+    system("cls");
+    cout << "/* Thank for using */\n";
+    system("pause");
+}
 
 /* --------------------------- check exist account -------------------------- */
 bool checkSame(char a[], char b[]){
@@ -251,8 +257,7 @@ int resultLogin(ifstream& in, int& result, int& countLogin, bool sexual, char na
             return login(in, stu, lec, sta, result, countLogin); //TODO
         }
         else{
-            system("cls");
-            cout << "Thank for using !\n";
+            outro();
             return 0;
         }
     }
@@ -305,18 +310,18 @@ void inputLogin(char user[], char passwd[]){
 
 /* ---------------------------- intro when login ---------------------------- */
 void introLogin(){
-    cout << "--------------------------------------------------\n";
-    cout << "------------------- WELCOME ----------------------\n";
-    cout << "---------------- TO MINI MODDLE ------------------\n";
-    cout << "--------------------------------------------------\n";
-    Sleep(600);
+    cout << "/* -------------------------------------------------------------------------- */\n";
+    cout << "/* ---------------------- This is final project - cs162 --------------------- */\n";
+    cout << "/* ------------------------------ from M2V Team ----------------------------- */\n";
+    cout << "/* ------------------------------------o0o----------------------------------- */\n";
+    Sleep(1000);
     system("cls");
 }
 void introMenu(){
     system("cls");
-    cout << "--------------------------------------------------\n";
-    cout << "------------------- LOADING ----------------------\n";
-    cout << "--------------------------------------------------\n";
+    cout << "/* -------------------------------------------------------------------------- */\n";
+    cout << "/* ---------------------------------- LOADING ------------------------------- */\n";
+    cout << "/* -------------------------------------------------------------------------- */\n";
     Sleep(600);
     system("cls");
 }
@@ -383,26 +388,15 @@ int menu(int& typeAcc){
     cout << "[1]. Login.\n";
     cout << "[2]. Exit.\n";
     cout << "> ";
-    int n;
+    char n;
     cin >> n;
-    while (n <= 0 || n > 2){
-        cout << "===============================\n";
-        cout << "Wrong! please try again!\n";
-        Sleep(500);
-        system("cls");
-        cout << "[1]. Login.\n";
-        cout << "[2]. Exit.\n";
-        cout << "> ";
-        cin >> n;
-    }
-    if (n == 1){
+    if (n == '1'){
         cin.ignore(1000, '\n');
         login(in, stu, lec, sta, typeAcc, countLogin);
         cout << typeAcc;
     }
     else{
-        system("cls");
-        cout << "thanks for using!\n";
+        outro();
         return 0;
     }
     system("pause");
