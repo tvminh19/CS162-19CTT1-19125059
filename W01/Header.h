@@ -37,8 +37,8 @@ struct staff{
     bool sexual;
 };
 
+int menu(int& typeAcc);
 int login(ifstream& in, student*& stu, lecture*& lec, staff*& sta, int& result, int& countLogin);
-
 
 
 

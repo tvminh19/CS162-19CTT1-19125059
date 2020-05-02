@@ -214,6 +214,7 @@ void timeNow(){
     time_t now = time(0);
     tm *cptr = localtime(&now);
     int t = cptr->tm_hour;
+    system("cls");
     if (0 <= t && t <= 11){
         cout << "Good morning, ";
     }
@@ -247,7 +248,7 @@ int resultLogin(ifstream& in, int& result, int& countLogin, bool sexual, char na
             system("cls");
             cout << "You have " << countLogin << " time(s) to try!\n";
             countLogin--;
-            login(in, stu, lec, sta, result, countLogin); //TODO
+            return login(in, stu, lec, sta, result, countLogin); //TODO
         }
         else{
             system("cls");
@@ -264,6 +265,7 @@ int resultLogin(ifstream& in, int& result, int& countLogin, bool sexual, char na
             cout << "Ms.";
         }
         cout << nameLogin << "!" << endl;
+        Sleep(500);
     }
     //remove in heap memory
     removeLogin(stu, lec, sta, n1, n2, n3);
@@ -310,7 +312,14 @@ void introLogin(){
     Sleep(600);
     system("cls");
 }
-
+void introMenu(){
+    system("cls");
+    cout << "--------------------------------------------------\n";
+    cout << "------------------- LOADING ----------------------\n";
+    cout << "--------------------------------------------------\n";
+    Sleep(600);
+    system("cls");
+}
 /* ----------------------------- login function ----------------------------- */
 int login(ifstream& in, student*& stu, lecture*& lec, staff*& sta, int& result, int& countLogin){
     //slots of account
@@ -325,7 +334,7 @@ int login(ifstream& in, student*& stu, lecture*& lec, staff*& sta, int& result, 
     //check replay main function
     if (countLogin == 4){ 
         //intro
-        introLogin();
+        introMenu();
         
         //reback isFirst
         countLogin--;
@@ -347,4 +356,55 @@ int login(ifstream& in, student*& stu, lecture*& lec, staff*& sta, int& result, 
 /* ---------------------------- log out functions --------------------------- */
 void logout(){
     return;
+}
+
+int menu(int& typeAcc){
+    system("color a");
+    ifstream in;
+    ofstream out;
+
+    //W00
+    student* stu = nullptr;
+    lecture* lec = nullptr;
+    staff* sta = nullptr; 
+    /**type of account 
+     * 1 -> student
+     * 2 -> lecturer
+     * 3 -> staff
+     * 0 -> Wrong account
+     */
+    //DO_NOT change countLogin !!! => some bug if you change
+    int countLogin = 4; 
+    
+    //W01
+    //menu function
+    system("cls");
+    introLogin();
+    cout << "[1]. Login.\n";
+    cout << "[2]. Exit.\n";
+    cout << "> ";
+    int n;
+    cin >> n;
+    while (n <= 0 || n > 2){
+        cout << "===============================\n";
+        cout << "Wrong! please try again!\n";
+        Sleep(500);
+        system("cls");
+        cout << "[1]. Login.\n";
+        cout << "[2]. Exit.\n";
+        cout << "> ";
+        cin >> n;
+    }
+    if (n == 1){
+        cin.ignore(1000, '\n');
+        login(in, stu, lec, sta, typeAcc, countLogin);
+        cout << typeAcc;
+    }
+    else{
+        system("cls");
+        cout << "thanks for using!\n";
+        return 0;
+    }
+    system("pause");
+    return 0;
 }
