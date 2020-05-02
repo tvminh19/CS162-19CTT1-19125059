@@ -226,10 +226,34 @@ void timeNow(){
 }
 
 /* --------------- show display hello then remove heap memory --------------- */
-int resultLogin(int result, bool sexual, char nameLogin[], student*& stu, lecture*& lec, staff*& sta, int n1, int n2, int n3){
+int resultLogin(ifstream& in, int& result, int& countLogin, bool sexual, char nameLogin[], student*& stu, lecture*& lec, staff*& sta, int n1, int n2, int n3){
     if (result == 0){
-        cout << "Sorry, Wrong account!\n";
-        return 0;
+        char choosen;
+        if (countLogin != 0){
+            cout << "========================\n";
+            cout << "Sorry, Wrong account!\n";
+            cout << "Do you want to try again (y/n) ?\n";
+            cout << "> ";
+            cin >> choosen;
+        }
+        else{
+            cout << "You have exceeded the number of times allowed!\n";
+            return 0;
+        }
+        if (choosen == 'y' || choosen == 'Y'){
+            //remove before you make a new once
+            removeLogin(stu, lec, sta, n1, n2, n3);
+            cin.ignore();
+            system("cls");
+            cout << "You have " << countLogin << " time(s) to try!\n";
+            countLogin--;
+            return login(in, stu, lec, sta, result, countLogin);
+        }
+        else{
+            system("cls");
+            cout << "Thank for using !\n";
+            return 0;
+        }
     }
     else{
         timeNow();
@@ -279,7 +303,6 @@ void inputLogin(char user[], char passwd[]){
 
 /* ---------------------------- intro when login ---------------------------- */
 void introLogin(){
-    system("color a");
     cout << "--------------------------------------------------\n";
     cout << "------------------- WELCOME ----------------------\n";
     cout << "---------------- TO MINI MODDLE ------------------\n";
@@ -289,14 +312,24 @@ void introLogin(){
 }
 
 /* ----------------------------- login function ----------------------------- */
-int login(ifstream& in, student*& stu, lecture*& lec, staff*& sta){
-    //load file 
+int login(ifstream& in, student*& stu, lecture*& lec, staff*& sta, int& result, int& countLogin){
+    //slots of account
     int n1, n2, n3;
-    loadLoginFile(in, stu, lec, sta, n1, n2, n3);
 
-    //intro
-    introLogin();
+    //make color
+    system("color a");
 
+    //load file 
+        loadLoginFile(in, stu, lec, sta, n1, n2, n3);
+
+    //check replay main function
+    if (countLogin == 4){ 
+        //intro
+        introLogin();
+        
+        //reback isFirst
+        countLogin--;
+    }
     //input from keyboard
     char id[200];
     char pass[200];
@@ -305,9 +338,9 @@ int login(ifstream& in, student*& stu, lecture*& lec, staff*& sta){
     //check if account is exist
     char nameLogin[100];
     bool sexual;
-    int result = checkExistAccount(stu, lec, sta, n1, n2, n3, id, pass, nameLogin, sexual);
+    result = checkExistAccount(stu, lec, sta, n1, n2, n3, id, pass, nameLogin, sexual);
     //result and compele funtions
-    resultLogin(result, sexual, nameLogin, stu, lec, sta, n1, n2, n3);
+    resultLogin(in, result, countLogin, sexual, nameLogin, stu, lec, sta, n1, n2, n3);
     return 0;
 }
 
