@@ -10,10 +10,16 @@ int main(){
     ifstream in;
     ofstream out;
 
+    //W00
     student* stu = nullptr;
     lecture* lec = nullptr;
     staff* sta = nullptr; 
-    //to know what is type of account
+    /**type of account 
+     * 1 -> student
+     * 2 -> lecturer
+     * 3 -> staff
+     * 0 -> Wrong account
+     */
     int typeAccount = 0;
     //DO_NOT change countLogin !!! => some bug if you change
     int countLogin = 4; 
