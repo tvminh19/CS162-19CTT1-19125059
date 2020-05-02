@@ -1,6 +1,6 @@
 5
 19125059
-123456
+admin
 Trinh Van Minh
 2001 04 01
 19APCS1

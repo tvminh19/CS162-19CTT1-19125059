@@ -3,7 +3,7 @@
 #include <iostream>
 #include <fstream>
 #include <string.h>
-#include <typeinfo>
+#include <conio.h>
 #include <cmath>
 #include <cstdlib>
 #include <windows.h>
@@ -37,7 +37,7 @@ struct staff{
     bool sexual;
 };
 
-int login(ifstream& in, student*& stu, lecture*& lec, staff*& sta);
+int login(ifstream& in, student*& stu, lecture*& lec, staff*& sta, int& result, int& countLogin);
 
 
 

@@ -13,9 +13,15 @@ int main(){
     student* stu = nullptr;
     lecture* lec = nullptr;
     staff* sta = nullptr; 
+
+    int resultLogin = 0;
+    //DO_NOT change countLogin !!! => some bug if you change
+    int countLogin = 4; 
     //W01
     //menu function
-    login(in, stu, lec, sta);
+    login(in, stu, lec, sta, resultLogin, countLogin);
+    cout <<  resultLogin;
+    system("pause");
     return 0;
 }
 
