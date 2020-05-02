@@ -365,6 +365,7 @@ void logout(){
     return;
 }
 
+/* ---------------------------------- menu ---------------------------------- */
 int menu(int& typeAcc){
     system("color a");
     ifstream in;
