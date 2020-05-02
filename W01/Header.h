@@ -48,7 +48,8 @@ int login(ifstream& in, student*& stu, lecture*& lec, staff*& sta, int& result, 
 
 
 /* ------------------------------ Vu's funtions ----------------------------- */
-
+void displayAllroles(int typeAccount);
+void menuStaffRole();
 
 
 
