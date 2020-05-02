@@ -23,6 +23,7 @@ int main(){
     int typeAccount = 0;
     //DO_NOT change countLogin !!! => some bug if you change
     int countLogin = 4; 
+    
     //W01
     //menu function
     login(in, stu, lec, sta, typeAccount, countLogin);
