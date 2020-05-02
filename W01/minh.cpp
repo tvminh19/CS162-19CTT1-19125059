@@ -47,26 +47,26 @@ int checkExistAccount(student*& stu, lecture*& lec, staff*& sta, int& n1, int& n
 void removeLogin(student*& stu, lecture*& lec, staff*& sta, int n1, int n2, int n3){
     //delete student
     for (int i = 0; i < n1; i++){
-        delete stu[i].account;
-        delete stu[i].password;
-        delete stu[i].name;
-        delete stu[i].dob;
-        delete stu[i].className;
+        delete[] stu[i].account;
+        delete[] stu[i].password;
+        delete[] stu[i].name;
+        delete[] stu[i].dob;
+        delete[] stu[i].className;
     }
     delete[] stu;
     //delete lecture
     for (int i = 0; i < n2; i++){
-        delete lec[i].account;
-        delete lec[i].password;
-        delete lec[i].name;
-        delete lec[i].academy;
+        delete[] lec[i].account;
+        delete[] lec[i].password;
+        delete[] lec[i].name;
+        delete[] lec[i].academy;
     }
     delete[] lec;
     //delete staff
     for (int i = 0; i < n3; i++){
-        delete sta[i].account;
-        delete sta[i].password;
-        delete sta[i].name;
+        delete[] sta[i].account;
+        delete[] sta[i].password;
+        delete[] sta[i].name;
     }
     delete[] sta;
     delete[] stu;
@@ -247,7 +247,7 @@ int resultLogin(ifstream& in, int& result, int& countLogin, bool sexual, char na
             system("cls");
             cout << "You have " << countLogin << " time(s) to try!\n";
             countLogin--;
-            return login(in, stu, lec, sta, result, countLogin);
+            login(in, stu, lec, sta, result, countLogin); //TODO
         }
         else{
             system("cls");
@@ -320,7 +320,7 @@ int login(ifstream& in, student*& stu, lecture*& lec, staff*& sta, int& result, 
     system("color a");
 
     //load file 
-        loadLoginFile(in, stu, lec, sta, n1, n2, n3);
+    loadLoginFile(in, stu, lec, sta, n1, n2, n3);
 
     //check replay main function
     if (countLogin == 4){ 
