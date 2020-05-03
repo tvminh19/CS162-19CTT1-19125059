@@ -8,8 +8,9 @@
 /* -------------------------- this is main function ------------------------- */
 int main(){
     int typeAcc;
-    char idAfterLogin[20];
+    //char idAfterLogin[20];
     menu(typeAcc);
+    //show menu after login
     displayAllroles(typeAcc);
 }
 

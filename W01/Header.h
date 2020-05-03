@@ -25,7 +25,7 @@ struct student{
     char* account;
     char* password;
     char* name;
-    Date dob;
+    char* dob;
     char* className;
     bool sexual;
 };
