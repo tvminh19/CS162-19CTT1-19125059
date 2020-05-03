@@ -369,7 +369,6 @@ int menu(int& typeAcc){
     ifstream in;
     ofstream out;
 
-    //W00
     student* stu = nullptr;
     lecture* lec = nullptr;
     staff* sta = nullptr;
