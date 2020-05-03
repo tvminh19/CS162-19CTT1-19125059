@@ -1,7 +1,8 @@
 /* -------------------- this is Vu's file for functions ------------------- */
 #include "Header.h"
 
-//W01
+
+/*---------------------------------------- W01 ----------------------------------------*/
 void notCorrect()
 {
 	system("cls");
@@ -401,6 +402,7 @@ void displayAllroles(int typeAccount)
 	else if (strcmp(c, "4") == 0) {
 		//1.5
 		menu(typeAccount);
+		logout();
 	}
 
 	else {
