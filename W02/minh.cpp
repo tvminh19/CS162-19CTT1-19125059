@@ -353,6 +353,7 @@ int login(ifstream& in, student*& stu, lecture*& lec, staff*& sta, int& result, 
     char nameLogin[100];
     bool sexual;
     result = checkExistAccount(stu, lec, sta, n1, n2, n3, id, pass, nameLogin, sexual);
+    
     //result and compele funtions
     resultLogin(in, result, countLogin, sexual, nameLogin, stu, lec, sta, n1, n2, n3);
     return 0;
@@ -365,17 +366,20 @@ void logout(){
 
 /* ---------------------------------- menu ---------------------------------- */
 int menu(int& typeAcc){
+
+    //setup color and I/O file
     system("color a");
     ifstream in;
     ofstream out;
 
+    //struct
     student* stu = nullptr;
     lecture* lec = nullptr;
     staff* sta = nullptr;
+
     //DO_NOT change countLogin !!! => some bug if you change
     int countLogin = 4;
 
-    //W01
     //menu function
     system("cls");
     introLogin();
@@ -383,18 +387,21 @@ int menu(int& typeAcc){
     cout << "[1]. Login.\n";
     cout << "[2]. Exit.\n";
     cout << "> ";
+
+    //input 
     char n;
     cin >> n;
     if (n == '1'){
         cin.ignore(1000, '\n');
         login(in, stu, lec, sta, typeAcc, countLogin);
-        //cout << typeAcc;
     }
     else {
         outro();
         typeAcc = 0;
-        return 0;
+        logout();
     }
+
+    //preview
     system("pause");
     return 0;
 }
