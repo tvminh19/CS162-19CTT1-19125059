@@ -381,7 +381,7 @@ int menu(int& typeAcc){
     if (n == '1'){
         cin.ignore(1000, '\n');
         login(in, stu, lec, sta, typeAcc, countLogin);
-        cout << typeAcc;
+        //cout << typeAcc;
     }
     else{
         outro();
