@@ -1,5 +1,26 @@
 /* -------------------- this is Minh's file for functions ------------------- */
 #include "Header.h"
+/* ---------------------------- string to number ---------------------------- */
+int ston(char a[]){
+    int sum = 0;
+    for (int i = 0; i < strlen(a); ++i){
+        a[i] -= '0';
+        sum += a[i];
+        sum *= 10;
+    }
+    return sum / 10;
+}
+
+/* ------------------------------- safe input ------------------------------- */
+bool safeInput(char a[]){
+    for (int i = 0; i < strlen(a); ++i){
+        //difference number [0~9]
+        if (48 <= a[i] && a[i] >= 57)   return false;
+    }
+    return true;
+}
+
+
 /* ---------------------------------- outro --------------------------------- */
 void outro(){
     system("cls");
@@ -353,7 +374,7 @@ int login(ifstream& in, student*& stu, lecture*& lec, staff*& sta, int& result, 
     char nameLogin[100];
     bool sexual;
     result = checkExistAccount(stu, lec, sta, n1, n2, n3, id, pass, nameLogin, sexual);
-    
+
     //result and compele funtions
     resultLogin(in, result, countLogin, sexual, nameLogin, stu, lec, sta, n1, n2, n3);
     return 0;
@@ -389,19 +410,61 @@ int menu(int& typeAcc){
     cout << "> ";
 
     //input 
-    char n;
-    cin >> n;
-    if (n == '1'){
+    char n[3];
+    cin.get(n, 3, '\n');
+    while (!safeInput(n)){
+        system("cls");
+        cout <<  "================================\n";
+        cout << "Wrong! please try again !\n";
+        cout << "=================================\n";
+        cout << "[1]. Login.\n";
+        cout << "[2]. Exit.\n";
+        cout << "> ";
+        cin.ignore(1000, '\n');
+        cin.get(n, 3, '\n');
+    }
+    if (safeInput(n) && ston(n) == 1){
         cin.ignore(1000, '\n');
         login(in, stu, lec, sta, typeAcc, countLogin);
     }
-    else {
+    else{
         outro();
         typeAcc = 0;
         logout();
     }
-
-    //preview
-    system("pause");
     return 0;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
