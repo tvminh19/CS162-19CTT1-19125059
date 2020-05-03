@@ -6,7 +6,7 @@
 #include "Header.h"
 
 /* -------------------------- this is main function ------------------------- */
-int main(){
+int main() {
     int typeAcc;
     //char idAfterLogin[20];
     menu(typeAcc);

@@ -1,27 +1,27 @@
 /* -------------------- this is Minh's file for functions ------------------- */
 #include "Header.h"
 /* ---------------------------------- outro --------------------------------- */
-void outro(){
+void outro() {
     system("cls");
     cout << "/* Thank for using */\n";
     system("pause");
 }
 
 /* --------------------------- check exist account -------------------------- */
-bool checkSame(char a[], char b[]){
+bool checkSame(char a[], char b[]) {
     if (strlen(a) != strlen(b)) return false;
-    else{
-        for (int i = 0; i < strlen(a); i++){
+    else {
+        for (int i = 0; i < strlen(a); i++) {
             if (a[i] != b[i]) return false;
         }
         return true;
     }
 }
 
-int checkExistAccount(student*& stu, lecture*& lec, staff*& sta, int& n1, int& n2, int& n3, char id[], char pass[], char name[], bool& sexual){
+int checkExistAccount(student*& stu, lecture*& lec, staff*& sta, int& n1, int& n2, int& n3, char id[], char pass[], char name[], bool& sexual) {
     //student
-    for (int i = 0; i < n1; ++i){
-        if (checkSame(stu[i].account, id) && checkSame(stu[i].password, pass)){
+    for (int i = 0; i < n1; ++i) {
+        if (checkSame(stu[i].account, id) && checkSame(stu[i].password, pass)) {
             strcpy(name, stu[i].name);
             sexual = stu[i].sexual;
             return 1;
@@ -29,42 +29,42 @@ int checkExistAccount(student*& stu, lecture*& lec, staff*& sta, int& n1, int& n
     }
 
     //lecture 
-    for (int i = 0; i < n2; ++i){
-        if (checkSame(lec[i].account, id) && checkSame(lec[i].password, pass)){
+    for (int i = 0; i < n2; ++i) {
+        if (checkSame(lec[i].account, id) && checkSame(lec[i].password, pass)) {
             strcpy(name, lec[i].name);
             sexual = lec[i].sexual;
             return 2;
-        } 
+        }
     }
 
     //staff
-    for (int i = 0; i < n3; ++i){
-        if (checkSame(sta[i].account, id) && checkSame(sta[i].password, pass)){
+    for (int i = 0; i < n3; ++i) {
+        if (checkSame(sta[i].account, id) && checkSame(sta[i].password, pass)) {
             strcpy(name, sta[i].name);
             sexual = sta[i].sexual;
             return 3;
         }
     }
-    
+
     return 0;
 }
 
 /* ------------------ remove heap memory in login functions ----------------- */
-void removeLogin(student*& stu, lecture*& lec, staff*& sta, int n1, int n2, int n3){
+void removeLogin(student*& stu, lecture*& lec, staff*& sta, int n1, int n2, int n3) {
     //delete student
-    for (int i = 0; i < n1; i++){
+    for (int i = 0; i < n1; i++) {
         delete[] stu[i].account;
         delete[] stu[i].password;
     }
     delete[] stu;
     //delete lecture
-    for (int i = 0; i < n2; i++){
+    for (int i = 0; i < n2; i++) {
         delete[] lec[i].account;
         delete[] lec[i].password;
     }
     delete[] lec;
     //delete staff
-    for (int i = 0; i < n3; i++){
+    for (int i = 0; i < n3; i++) {
         delete[] sta[i].account;
         delete[] sta[i].password;
     }
@@ -74,16 +74,16 @@ void removeLogin(student*& stu, lecture*& lec, staff*& sta, int n1, int n2, int 
 }
 
 /* -------------------------------- load file ------------------------------- */
-void loadStaffFile(ifstream& in, staff*& sta, int& n3){
+void loadStaffFile(ifstream& in, staff*& sta, int& n3) {
     in.open("D:\\Github\\CS162-19CTT1-19125059\\W01\\PMS\\menu\\Staff.txt");
-    if (!in.is_open()){
+    if (!in.is_open()) {
         cout << "error at line 107 of minh.cpp.\n";
         return;
     }
-    else{
+    else {
         in >> n3;
         sta = new staff[n3];
-        for (int i = 0; i < n3; ++i){
+        for (int i = 0; i < n3; ++i) {
             in.ignore(1000, '\n');
 
             //input name of account
@@ -111,16 +111,16 @@ void loadStaffFile(ifstream& in, staff*& sta, int& n3){
     in.close();
 }
 
-void loadLectureFile(ifstream& in, lecture*& lec, int& n2){
+void loadLectureFile(ifstream& in, lecture*& lec, int& n2) {
     in.open("D:\\Github\\CS162-19CTT1-19125059\\W01\\PMS\\menu\\Lecturer.txt");
-    if (!in.is_open()){
+    if (!in.is_open()) {
         cout << "error at line 111 of minh.cpp.\n";
         return;
     }
-    else{
+    else {
         in >> n2;
         lec = new lecture[n2];
-        for (int i = 0; i < n2; ++i){
+        for (int i = 0; i < n2; ++i) {
             in.ignore(1000, '\n');
 
             //input name of account
@@ -154,16 +154,16 @@ void loadLectureFile(ifstream& in, lecture*& lec, int& n2){
     in.close();
 }
 
-void loadStudentFile(ifstream& in, student*& stu, int& n1){
+void loadStudentFile(ifstream& in, student*& stu, int& n1) {
     in.open("D:\\Github\\CS162-19CTT1-19125059\\W01\\PMS\\menu\\Student.txt");
-    if (!in.is_open()){
+    if (!in.is_open()) {
         cout << "error at line 154 of minh.cpp.\n";
         return;
     }
-    else{
+    else {
         in >> n1;
         stu = new student[n1];
-        for (int i = 0; i < n1; ++i){
+        for (int i = 0; i < n1; ++i) {
             in.ignore(1000, '\n');
 
             //input name of account
@@ -203,45 +203,45 @@ void loadStudentFile(ifstream& in, student*& stu, int& n1){
     in.close();
 }
 
-void loadLoginFile(ifstream& in, student*& stu, lecture*& lec, staff*& sta, int& n1, int& n2, int& n3){
+void loadLoginFile(ifstream& in, student*& stu, lecture*& lec, staff*& sta, int& n1, int& n2, int& n3) {
     loadStudentFile(in, stu, n1);
     loadLectureFile(in, lec, n2);
     loadStaffFile(in, sta, n3);
 }
 
 /* ------------------------------ to know time ------------------------------ */
-void timeNow(){
+void timeNow() {
     time_t now = time(0);
-    tm *cptr = localtime(&now);
+    tm* cptr = localtime(&now);
     int t = cptr->tm_hour;
     system("cls");
-    if (0 <= t && t <= 11){
+    if (0 <= t && t <= 11) {
         cout << "Good morning, ";
     }
-    else if (12 <= t && t <= 18){
+    else if (12 <= t && t <= 18) {
         cout << "Good afternoon, ";
     }
-    else{
+    else {
         cout << "Good evening, ";
     }
 }
 
 /* --------------- show display hello then remove heap memory --------------- */
-int resultLogin(ifstream& in, int& result, int& countLogin, bool sexual, char nameLogin[], student*& stu, lecture*& lec, staff*& sta, int n1, int n2, int n3){
-    if (result == 0){
+int resultLogin(ifstream& in, int& result, int& countLogin, bool sexual, char nameLogin[], student*& stu, lecture*& lec, staff*& sta, int n1, int n2, int n3) {
+    if (result == 0) {
         char choosen;
-        if (countLogin != 0){
+        if (countLogin != 0) {
             cout << "========================\n";
             cout << "Sorry, Wrong account!\n";
             cout << "Do you want to try again (y/n) ?\n";
             cout << "> ";
             cin >> choosen;
         }
-        else{
+        else {
             cout << "You have exceeded the number of times allowed!\n";
             return 0;
         }
-        if (choosen == 'y' || choosen == 'Y'){
+        if (choosen == 'y' || choosen == 'Y') {
             //remove before you make a new once
             removeLogin(stu, lec, sta, n1, n2, n3);
             cin.ignore();
@@ -250,17 +250,17 @@ int resultLogin(ifstream& in, int& result, int& countLogin, bool sexual, char na
             countLogin--;
             return login(in, stu, lec, sta, result, countLogin); //TODO
         }
-        else{
+        else {
             outro();
             return 0;
         }
     }
-    else{
+    else {
         timeNow();
-        if (sexual){
+        if (sexual) {
             cout << "Mr.";
         }
-        else{
+        else {
             cout << "Ms.";
         }
         cout << nameLogin << "!" << endl;
@@ -273,37 +273,37 @@ int resultLogin(ifstream& in, int& result, int& countLogin, bool sexual, char na
 }
 
 /* --------------------- input id and pass from keyboard -------------------- */
-void inputLogin(char user[], char passwd[]){
+void inputLogin(char user[], char passwd[]) {
     int ch;
-	int pos = 0;
-    cout<<"User name: \n";
+    int pos = 0;
+    cout << "User name: \n";
     cout << "> ";
     cin.get(user, 200, '\n');
     cout << "Password: \n";
     cout << "> ";
-    while(ch = getch()){
-        if (ch == 8 && strlen(passwd) - 1 == 0){
+    while (ch = getch()) {
+        if (ch == 8 && strlen(passwd) - 1 == 0) {
             continue;
         }
-    	else if(ch == 13){
-			break;
-		}
-        else if (ch == 8 && strlen(passwd) > 0){
+        else if (ch == 13) {
+            break;
+        }
+        else if (ch == 8 && strlen(passwd) > 0) {
             passwd[pos--] = '\0';
             cout << "\b \b";
         }
-		else{
-			cout<<"*";
-			passwd[pos++] = ch;
-		}
-	}
-	passwd[pos] = '\0';
+        else {
+            cout << "*";
+            passwd[pos++] = ch;
+        }
+    }
+    passwd[pos] = '\0';
     cout << "\n";
     return;
 }
 
 /* ---------------------------- intro when login ---------------------------- */
-void introLogin(){
+void introLogin() {
     cout << "/* -------------------------------------------------------------------------- */\n";
     cout << "/* ---------------------- This is final project - cs162 --------------------- */\n";
     cout << "/* ------------------------------ from M2V Team ----------------------------- */\n";
@@ -312,7 +312,7 @@ void introLogin(){
     system("cls");
 }
 
-void introMenu(){
+void introMenu() {
     system("cls");
     cout << "/* -------------------------------------------------------------------------- */\n";
     cout << "/* ---------------------------------- LOADING ------------------------------- */\n";
@@ -322,7 +322,7 @@ void introMenu(){
 }
 
 /* ----------------------------- login function ----------------------------- */
-int login(ifstream& in, student*& stu, lecture*& lec, staff*& sta, int& result, int& countLogin){
+int login(ifstream& in, student*& stu, lecture*& lec, staff*& sta, int& result, int& countLogin) {
     //slots of account
     int n1, n2, n3;
 
@@ -333,10 +333,10 @@ int login(ifstream& in, student*& stu, lecture*& lec, staff*& sta, int& result, 
     loadLoginFile(in, stu, lec, sta, n1, n2, n3);
 
     //check replay main function
-    if (countLogin == 4){ 
+    if (countLogin == 4) {
         //intro
         introMenu();
-        
+
         //reback isFirst
         countLogin--;
     }
@@ -355,12 +355,12 @@ int login(ifstream& in, student*& stu, lecture*& lec, staff*& sta, int& result, 
 }
 
 /* ---------------------------- log out functions --------------------------- */
-void logout(){
+void logout() {
     return;
 }
 
 /* ---------------------------------- menu ---------------------------------- */
-int menu(int& typeAcc){
+int menu(int& typeAcc) {
     system("color a");
     ifstream in;
     ofstream out;
@@ -368,16 +368,16 @@ int menu(int& typeAcc){
     //W00
     student* stu = nullptr;
     lecture* lec = nullptr;
-    staff* sta = nullptr; 
-    /**type of account 
+    staff* sta = nullptr;
+    /**type of account
      * 1 -> student
      * 2 -> lecturer
      * 3 -> staff
      * 0 -> Wrong account
      */
-    //DO_NOT change countLogin !!! => some bug if you change
-    int countLogin = 4; 
-    
+     //DO_NOT change countLogin !!! => some bug if you change
+    int countLogin = 4;
+
     //W01
     //menu function
     system("cls");
@@ -387,12 +387,12 @@ int menu(int& typeAcc){
     cout << "> ";
     char n;
     cin >> n;
-    if (n == '1'){
+    if (n == '1') {
         cin.ignore(1000, '\n');
         login(in, stu, lec, sta, typeAcc, countLogin);
         //cout << typeAcc;
     }
-    else{
+    else {
         outro();
         return 0;
     }
