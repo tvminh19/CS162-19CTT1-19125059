@@ -8,6 +8,7 @@
 /* -------------------------- this is main function ------------------------- */
 int main(){
     int typeAcc = 0;
+    char idAfterLogin[20];
     menu(typeAcc);
 }
 
