@@ -372,13 +372,7 @@ int menu(int& typeAcc){
     student* stu = nullptr;
     lecture* lec = nullptr;
     staff* sta = nullptr;
-    /**type of account
-     * 1 -> student
-     * 2 -> lecturer
-     * 3 -> staff
-     * 0 -> Wrong account
-     */
-     //DO_NOT change countLogin !!! => some bug if you change
+    //DO_NOT change countLogin !!! => some bug if you change
     int countLogin = 4;
 
     //W01
