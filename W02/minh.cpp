@@ -385,6 +385,7 @@ int menu(int& typeAcc){
     //menu function
     system("cls");
     introLogin();
+    cout << "================\n";
     cout << "[1]. Login.\n";
     cout << "[2]. Exit.\n";
     cout << "> ";
@@ -397,6 +398,7 @@ int menu(int& typeAcc){
     }
     else {
         outro();
+        typeAcc = 0;
         return 0;
     }
     system("pause");
