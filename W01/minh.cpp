@@ -55,24 +55,18 @@ void removeLogin(student*& stu, lecture*& lec, staff*& sta, int n1, int n2, int 
     for (int i = 0; i < n1; i++){
         delete[] stu[i].account;
         delete[] stu[i].password;
-        delete[] stu[i].name;
-        delete[] stu[i].dob;
-        delete[] stu[i].className;
     }
     delete[] stu;
     //delete lecture
     for (int i = 0; i < n2; i++){
         delete[] lec[i].account;
         delete[] lec[i].password;
-        delete[] lec[i].name;
-        delete[] lec[i].academy;
     }
     delete[] lec;
     //delete staff
     for (int i = 0; i < n3; i++){
         delete[] sta[i].account;
         delete[] sta[i].password;
-        delete[] sta[i].name;
     }
     delete[] sta;
     delete[] stu;
@@ -107,11 +101,10 @@ void loadStaffFile(ifstream& in, staff*& sta, int& n3){
             //input name
             in.ignore(1000, '\n');
             in.get(a, 1000, '\n');
-            sta[i].name = new char[strlen(a) + 1];
-            strcpy(sta[i].name, a);
 
             //input sexual
-            in >> sta[i].sexual;
+            in.ignore(1000, '\n');
+            in.get(a, 1000, '\n');
         }
     }
     in.close();
@@ -144,17 +137,14 @@ void loadLectureFile(ifstream& in, lecture*& lec, int& n2){
             //input name
             in.ignore(1000, '\n');
             in.get(a, 1000, '\n');
-            lec[i].name = new char[strlen(a) + 1];
-            strcpy(lec[i].name, a);
 
             //input academy
             in.ignore(1000, '\n');
             in.get(a, 1000, '\n');
-            lec[i].academy = new char[strlen(a) + 1];
-            strcpy(lec[i].academy, a);
 
             //input sexual
-            in >> lec[i].sexual;
+            in.ignore(1000, '\n');
+            in.get(a, 1000, '\n');
         }
     }
     in.close();
@@ -187,23 +177,18 @@ void loadStudentFile(ifstream& in, student*& stu, int& n1){
             //input name of student
             in.ignore(1000, '\n');
             in.get(a, 1000, '\n');
-            stu[i].name = new char[strlen(a) + 1];
-            strcpy(stu[i].name, a);
 
             //input day of birth with syntax  yyyy/mm/dd
             in.ignore(1000, '\n');
             in.get(a, 1000, '\n');
-            stu[i].dob = new char[strlen(a) + 1];
-            strcpy(stu[i].dob, a);
 
             //input class name  
             in.ignore(1000, '\n');
             in.get(a, 1000, '\n');
-            stu[i].className = new char[strlen(a) + 1];
-            strcpy(stu[i].className, a);
 
             //input sexual
-            in >> stu[i].sexual;
+            in.ignore(1000, '\n');
+            in.get(a, 1000, '\n');
         }
     }
     in.close();

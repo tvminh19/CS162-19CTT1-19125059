@@ -13,11 +13,18 @@ using namespace std;
 /* ----------------------------- Minh's funtions ---------------------------- */
 //W00
 //W01
+
+struct Date{
+    int day;
+    int month;
+    int year;
+};
+
 struct student{
     char* account;
     char* password;
     char* name;
-    char* dob;
+    Date dob;
     char* className;
     bool sexual;
 };
@@ -27,7 +34,7 @@ struct lecture{
     char* password;
     char* name;
     char* academy;
-    bool sexual;
+    bool sexual; 
 };
 
 struct staff{
@@ -39,7 +46,6 @@ struct staff{
 
 int menu(int& typeAcc);
 int login(ifstream& in, student*& stu, lecture*& lec, staff*& sta, int& result, int& countLogin);
-
 
 
 
