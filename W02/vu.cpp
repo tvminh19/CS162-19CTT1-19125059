@@ -400,6 +400,7 @@ void displayAllroles(int typeAccount)
 	//Logout
 	else if (strcmp(c, "4") == 0) {
 		//1.5
+		cin.ignore();
 		menu(typeAccount);
 	}
 
