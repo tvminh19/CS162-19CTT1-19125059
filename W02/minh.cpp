@@ -242,7 +242,6 @@ void timeNow(){
     time_t now = time(0);
     tm* cptr = localtime(&now);
     int t = cptr->tm_hour;
-    system("cls");
     if (0 <= t && t <= 11){
         cout << "Good morning, ";
     }
@@ -284,6 +283,8 @@ int resultLogin(ifstream& in, int& result, int& countLogin, bool sexual, char na
         }
     }
     else {
+        system("cls");
+        cout << "===========================================\n";
         timeNow();
         if (sexual){
             cout << "Mr.";
@@ -292,7 +293,9 @@ int resultLogin(ifstream& in, int& result, int& countLogin, bool sexual, char na
             cout << "Ms.";
         }
         cout << nameLogin << "!" << endl;
+        cout << "===========================================\n";
         Sleep(1000);
+        system("pause");
     }
     //remove in heap memory
     removeLogin(stu, lec, sta, n1, n2, n3);
@@ -336,7 +339,7 @@ void introLogin(){
     cout << "+ ----------------------- This is final project - cs162 ---------------------- +\n";
     cout << "+ ------------------------------- from M2V Team ------------------------------ +\n";
     cout << "================================================================================\n";
-    Sleep(1000);
+    system("pause");
     system("cls");
 }
 
@@ -407,9 +410,10 @@ int menu(int& typeAcc){
     //menu function
     system("cls");
     introLogin();
-    cout << "================\n";
-    cout << "[1]. Login.\n";
-    cout << "[2]. Exit.\n";
+    cout << "=~=~=~=~=~=~=~=~=\n";
+    cout << "+  [1]. Login.  +\n";
+    cout << "+  [2]. Exit.   +\n";
+    cout << "=~=~=~=~=~=~=~=~=\n";
     cout << "> ";
 
     //input 
@@ -417,11 +421,13 @@ int menu(int& typeAcc){
     cin.get(n, 3, '\n');
     while (!safeInput(n)){
         system("cls");
-        cout <<  "================================\n";
-        cout << "Wrong! please try again !\n";
-        cout << "=================================\n";
-        cout << "[1]. Login.\n";
-        cout << "[2]. Exit.\n";
+        cout << "=~=~=~=~=~=~=~=~=~=~=~=~=~=\n";
+        cout << "+ Wrong! please try again +\n";
+        cout << "=~=~=~=~=~=~=~=~=~=~=~=~=~=\n";
+        cout << "=~=~=~=~=~=~=~=~=\n";
+        cout << "+  [1]. Login.  +\n";
+        cout << "+  [2]. Exit.   +\n";
+        cout << "=~=~=~=~=~=~=~=~=\n";
         cout << "> ";
         cin.ignore(1000, '\n');
         cin.get(n, 3, '\n');
