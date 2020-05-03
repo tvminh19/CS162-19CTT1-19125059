@@ -7,9 +7,10 @@
 
 /* -------------------------- this is main function ------------------------- */
 int main(){
-    int typeAcc = 0;
+    int typeAcc;
     char idAfterLogin[20];
     menu(typeAcc);
+    displayAllroles(typeAcc);
 }
 
 /* ---------------------- this is end of main function ---------------------- */
