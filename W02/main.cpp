@@ -19,6 +19,7 @@ int main() {
     int accType;
     char idAfterLogin[20];
 
+    //menu function
     menu(accType, idAfterLogin);
     
     //stop program if wrong account!
