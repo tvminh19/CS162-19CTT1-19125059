@@ -18,12 +18,12 @@ bool checkSame(char a[], char b[]) {
     }
 }
 
-int checkExistAccount(student*& stu, lecture*& lec, staff*& sta, int& n1, int& n2, int& n3, char id[], char pass[], char name[], bool& sexual) {
+int checkExistAccount(student*& stu, lecture*& lec, staff*& sta, int& n1, int& n2, int& n3, char id[], char pass[], char name[], bool& gender) {
     //student
     for (int i = 0; i < n1; ++i) {
         if (checkSame(stu[i].account, id) && checkSame(stu[i].password, pass)) {
             strcpy(name, stu[i].name);
-            sexual = stu[i].sexual;
+            gender = stu[i].gender;
             return 1;
         }
     }
@@ -32,7 +32,7 @@ int checkExistAccount(student*& stu, lecture*& lec, staff*& sta, int& n1, int& n
     for (int i = 0; i < n2; ++i) {
         if (checkSame(lec[i].account, id) && checkSame(lec[i].password, pass)) {
             strcpy(name, lec[i].name);
-            sexual = lec[i].sexual;
+            gender = lec[i].gender;
             return 2;
         }
     }
@@ -41,7 +41,7 @@ int checkExistAccount(student*& stu, lecture*& lec, staff*& sta, int& n1, int& n
     for (int i = 0; i < n3; ++i) {
         if (checkSame(sta[i].account, id) && checkSame(sta[i].password, pass)) {
             strcpy(name, sta[i].name);
-            sexual = sta[i].sexual;
+            gender = sta[i].gender;
             return 3;
         }
     }
@@ -104,8 +104,8 @@ void loadStaffFile(ifstream& in, staff*& sta, int& n3) {
             sta[i].name = new char[strlen(a) + 1];
             strcpy(sta[i].name, a);
 
-            //input sexual
-            in >> sta[i].sexual;
+            //input gender
+            in >> sta[i].gender;
         }
     }
     in.close();
@@ -147,8 +147,8 @@ void loadLectureFile(ifstream& in, lecture*& lec, int& n2) {
             lec[i].academy = new char[strlen(a) + 1];
             strcpy(lec[i].academy, a);
 
-            //input sexual
-            in >> lec[i].sexual;
+            //input gender
+            in >> lec[i].gender;
         }
     }
     in.close();
@@ -196,8 +196,8 @@ void loadStudentFile(ifstream& in, student*& stu, int& n1) {
             stu[i].className = new char[strlen(a) + 1];
             strcpy(stu[i].className, a);
 
-            //input sexual
-            in >> stu[i].sexual;
+            //input gender
+            in >> stu[i].gender;
         }
     }
     in.close();
@@ -227,7 +227,7 @@ void timeNow() {
 }
 
 /* --------------- show display hello then remove heap memory --------------- */
-int resultLogin(ifstream& in, int& result, int& countLogin, bool sexual, char nameLogin[], student*& stu, lecture*& lec, staff*& sta, int n1, int n2, int n3) {
+int resultLogin(ifstream& in, int& result, int& countLogin, bool gender, char nameLogin[], student*& stu, lecture*& lec, staff*& sta, int n1, int n2, int n3) {
     if (result == 0) {
         char choosen;
         if (countLogin != 0) {
@@ -257,7 +257,7 @@ int resultLogin(ifstream& in, int& result, int& countLogin, bool sexual, char na
     }
     else {
         timeNow();
-        if (sexual) {
+        if (gender) {
             cout << "Mr.";
         }
         else {
@@ -347,10 +347,10 @@ int login(ifstream& in, student*& stu, lecture*& lec, staff*& sta, int& result, 
 
     //check if account is exist
     char nameLogin[100];
-    bool sexual;
-    result = checkExistAccount(stu, lec, sta, n1, n2, n3, id, pass, nameLogin, sexual);
+    bool gender;
+    result = checkExistAccount(stu, lec, sta, n1, n2, n3, id, pass, nameLogin, gender);
     //result and compele funtions
-    resultLogin(in, result, countLogin, sexual, nameLogin, stu, lec, sta, n1, n2, n3);
+    resultLogin(in, result, countLogin, gender, nameLogin, stu, lec, sta, n1, n2, n3);
     return 0;
 }
 
