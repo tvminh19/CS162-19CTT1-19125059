@@ -3,6 +3,7 @@
 #include <iostream>
 #include <fstream>
 #include <string.h>
+#include <string>
 #include <conio.h>
 #include <cmath>
 #include <cstdlib>
@@ -15,13 +16,13 @@ using namespace std;
 //W00
 //W01
 
-struct Date{
+struct Date {
     int day;
     int month;
     int year;
 };
 
-struct student{
+struct student {
     char* account;
     char* password;
     char* name;
@@ -30,15 +31,15 @@ struct student{
     bool gender;
 };
 
-struct lecture{
+struct lecture {
     char* account;
     char* password;
     char* name;
     char* academy;
-    bool gender; 
+    bool gender;
 };
 
-struct staff{
+struct staff {
     char* account;
     char* password;
     char* name;
@@ -68,11 +69,21 @@ bool checkSame(char a[], char b[]);
 
 /* ------------------------------ Vu's funtions ----------------------------- */
 //W01
-void displayAllroles(int typeAccount);
+
+void notCorrect();
+void menuStudent();                     //7
+void menuLecturer();                    //6
+void Staff_class();                     //2
+void Staff_course();                    //3
+void Staff_scoreboard();                //4
+void Staff_attendanceList();            //5
 void menuStaffRole();
+void showMenu(int typeAccount);         //1.2
+void displayAllroles(int typeAccount);  //1
 
+//W02
 
-
+void Year_Semester();                   //3.1
 
 
 
