@@ -21,7 +21,7 @@ int main() {
 
     menu(accType, idAfterLogin);
     
-    //stop program if wrong account or hack !
+    //stop program if wrong account!
     if (accType == 0) return 0;
 
     //show menu after login
