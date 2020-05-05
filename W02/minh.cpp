@@ -1,9 +1,10 @@
 /* -------------------- this is Minh's file for functions ------------------- */
 #include "header.h"
 /* ---------------------------- string to number ---------------------------- */
-int ston(char a[]){
+
+int ston(char a[]) {
     int sum = 0;
-    for (int i = 0; i < strlen(a); ++i){
+    for (int i = 0; i < strlen(a); ++i) {
         a[i] -= '0';
         sum += a[i];
         sum *= 10;
@@ -12,8 +13,8 @@ int ston(char a[]){
 }
 
 /* ------------------------------- safe input ------------------------------- */
-bool safeInput(char a[]){
-    for (int i = 0; i < strlen(a); ++i){
+bool safeInput(char a[]) {
+    for (int i = 0; i < strlen(a); ++i) {
         //difference number [0~9]
         if (48 <= a[i] && a[i] >= 57)   return false;
     }
@@ -42,13 +43,13 @@ bool checkSame(char a[], char b[]){
     }
 }
 
-int checkExistAccount(student*& stu, lecture*& lec, staff*& sta, int& n1, int& n2, int& n3, char id[], char pass[], char name[], bool& sexual){
+int checkExistAccount(student*& stu, lecture*& lec, staff*& sta, int& n1, int& n2, int& n3, char id[], char pass[], char name[], bool& gender) {
     //student
     for (int i = 0; i < n1; ++i){
         if (checkSame(stu[i].account, id) && checkSame(stu[i].password, pass)){
             strcpy(name, stu[i].name);
             strcpy(id, stu[i].account);
-            sexual = stu[i].sexual;
+            gender = stu[i].gender;
             return 1;
         }
     }
@@ -58,7 +59,7 @@ int checkExistAccount(student*& stu, lecture*& lec, staff*& sta, int& n1, int& n
         if (checkSame(lec[i].account, id) && checkSame(lec[i].password, pass)){
             strcpy(name, lec[i].name);
             strcpy(id, lec[i].account);
-            sexual = lec[i].sexual;
+            gender = lec[i].gender;
             return 2;
         }
     }
@@ -68,7 +69,7 @@ int checkExistAccount(student*& stu, lecture*& lec, staff*& sta, int& n1, int& n
         if (checkSame(sta[i].account, id) && checkSame(sta[i].password, pass)){
             strcpy(name, sta[i].name);
             strcpy(id, sta[i].account);
-            sexual = sta[i].sexual;
+            gender = sta[i].gender;
             return 3;
         }
     }
@@ -135,8 +136,8 @@ void loadStaffFile(ifstream& in, staff*& sta, int& n3){
             sta[i].name = new char[strlen(a) + 1];
             strcpy(sta[i].name, a);
 
-            //input sexual
-            in >> sta[i].sexual;
+            //input gender
+            in >> sta[i].gender;
         }
     }
     in.close();
@@ -178,8 +179,8 @@ void loadLectureFile(ifstream& in, lecture*& lec, int& n2){
             lec[i].academy = new char[strlen(a) + 1];
             strcpy(lec[i].academy, a);
 
-            //input sexual
-            in >> lec[i].sexual;
+            //input gender
+            in >> lec[i].gender;
         }
     }
     in.close();
@@ -227,8 +228,8 @@ void loadStudentFile(ifstream& in, student*& stu, int& n1){
             stu[i].className = new char[strlen(a) + 1];
             strcpy(stu[i].className, a);
 
-            //input sexual
-            in >> stu[i].sexual;
+            //input gender
+            in >> stu[i].gender;
         }
     }
     in.close();
@@ -245,7 +246,7 @@ void timeNow(){
     time_t now = time(0);
     tm* cptr = localtime(&now);
     int t = cptr->tm_hour;
-    if (0 <= t && t <= 11){
+    if (0 <= t && t <= 11) {
         cout << "Good morning, ";
     }
     else if (12 <= t && t <= 18){
@@ -257,8 +258,8 @@ void timeNow(){
 }
 
 /* --------------- show display hello then remove heap memory --------------- */
-int resultLogin(ifstream& in, int& result, int& countLogin, bool sexual, char nameLogin[], student*& stu, lecture*& lec, staff*& sta, int n1, int n2, int n3){
-    if (result == 0){
+int resultLogin(ifstream& in, int& result, int& countLogin, bool gender, char nameLogin[], student*& stu, lecture*& lec, staff*& sta, int n1, int n2, int n3) {
+    if (result == 0) {
         char choosen;
         if (countLogin != 0){
             cout << "========================\n";
@@ -289,7 +290,7 @@ int resultLogin(ifstream& in, int& result, int& countLogin, bool sexual, char na
         system("cls");
         cout << "===========================================\n";
         timeNow();
-        if (sexual){
+        if (gender) {
             cout << "Mr.";
         }
         else {
@@ -337,7 +338,7 @@ void inputLogin(char user[], char passwd[]){
 }
 
 /* ---------------------------- intro when login ---------------------------- */
-void introLogin(){
+void introLogin() {
     cout << "================================================================================\n";
     cout << "+ ----------------------- This is final project - cs162 ---------------------- +\n";
     cout << "+ ------------------------------- from M2V Team ------------------------------ +\n";
@@ -356,7 +357,7 @@ void introMenu(){
 }
 
 /* ----------------------------- login function ----------------------------- */
-int login(ifstream& in, student*& stu, lecture*& lec, staff*& sta, int& result, int& countLogin, char id[]){
+int login(ifstream& in, student*& stu, lecture*& lec, staff*& sta, int& result, int& countLogin, char id[]) {
     //slots of account
     int n1, n2, n3;
 
@@ -380,11 +381,11 @@ int login(ifstream& in, student*& stu, lecture*& lec, staff*& sta, int& result, 
 
     //check if account is exist
     char name[20];
-    bool sexual;
-    result = checkExistAccount(stu, lec, sta, n1, n2, n3, id, pass, name, sexual);
+    bool gender;
+    result = checkExistAccount(stu, lec, sta, n1, n2, n3, id, pass, name, gender);
 
     //result and compele funtions
-    resultLogin(in, result, countLogin, sexual, name, stu, lec, sta, n1, n2, n3);
+    resultLogin(in, result, countLogin, gender, name, stu, lec, sta, n1, n2, n3);
     return 0;
 }
 
@@ -394,7 +395,7 @@ void logout(){
 }
 
 /* ---------------------------------- menu ---------------------------------- */
-int menu(int& typeAcc, char id[]){
+int menu(int& typeAcc, char id[]) {
 
     //setup color and I/O file
     system("color a");
@@ -421,7 +422,7 @@ int menu(int& typeAcc, char id[]){
     //input 
     char n[3];
     cin.get(n, 3, '\n');
-    while (!safeInput(n)){
+    while (!safeInput(n)) {
         system("cls");
         cout << "=~=~=~=~=~=~=~=~=~=~=~=~=~=\n";
         cout << "+ Wrong! please try again +\n";
@@ -445,37 +446,3 @@ int menu(int& typeAcc, char id[]){
     }
     return 0;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
