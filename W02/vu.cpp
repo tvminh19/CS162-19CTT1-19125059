@@ -1,5 +1,5 @@
 /* -------------------- this is Vu's file for functions ------------------- */
-#include "Header.h"
+#include "header.h"
 
 //W01
 void notCorrect()
@@ -373,6 +373,7 @@ void displayAllroles(int typeAccount)
 	char c[5];
 
 	//All roles
+	cout << "======== MENU ========\n";
 	cout << "1. Show menu" << endl;
 	cout << "2. View profile info" << endl;
 	cout << "3. Change password" << endl;
@@ -400,7 +401,9 @@ void displayAllroles(int typeAccount)
 	//Logout
 	else if (strcmp(c, "4") == 0) {
 		//1.5
-		menu(typeAccount);
+		cin.ignore();
+		char id[20];
+		menu(typeAccount, id);
 	}
 
 	else {

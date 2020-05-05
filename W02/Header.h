@@ -45,9 +45,9 @@ struct staff{
     bool gender;
 };
 
-int menu(int& typeAcc);
-int login(ifstream& in, student*& stu, lecture*& lec, staff*& sta, int& result, int& countLogin);
-
+int menu(int& typeAcc, char id[]);
+void introLogin();
+int login(ifstream& in, student*& stu, lecture*& lec, staff*& sta, int& result, int& countLogin, char id[]);
 
 
 
