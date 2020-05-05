@@ -45,11 +45,23 @@ struct staff{
     bool gender;
 };
 
+//menu function
 int menu(int& typeAcc, char id[]);
+
+//intro
 void introLogin();
+
+//sub function in menu function
 int login(ifstream& in, student*& stu, lecture*& lec, staff*& sta, int& result, int& countLogin, char id[]);
 
+//safe to check input
+bool safeInput(char a[]);
 
+//string to number
+int ston(char a[]);
+
+//check is same string
+bool checkSame(char a[], char b[]);
 
 
 
