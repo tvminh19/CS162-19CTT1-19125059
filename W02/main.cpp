@@ -15,17 +15,17 @@ int main() {
      * 3 -> staff
      * 0 -> Wrong account
      */
-    int typeAcc;
-
-    //save user name after login
+    //save the user ID after Login
+    int accType;
     char idAfterLogin[20];
-    menu(typeAcc);
+
+    menu(accType, idAfterLogin);
     
     //stop program if wrong account or hack !
-    if (typeAcc == 0) return 0;
+    if (accType == 0) return 0;
 
     //show menu after login
-    displayAllroles(typeAcc);
+    displayAllroles(accType);
 }
 
 /* ---------------------- this is end of main function ---------------------- */

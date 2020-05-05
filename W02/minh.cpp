@@ -47,6 +47,7 @@ int checkExistAccount(student*& stu, lecture*& lec, staff*& sta, int& n1, int& n
     for (int i = 0; i < n1; ++i){
         if (checkSame(stu[i].account, id) && checkSame(stu[i].password, pass)){
             strcpy(name, stu[i].name);
+            strcpy(id, stu[i].account);
             sexual = stu[i].sexual;
             return 1;
         }
@@ -56,6 +57,7 @@ int checkExistAccount(student*& stu, lecture*& lec, staff*& sta, int& n1, int& n
     for (int i = 0; i < n2; ++i){
         if (checkSame(lec[i].account, id) && checkSame(lec[i].password, pass)){
             strcpy(name, lec[i].name);
+            strcpy(id, lec[i].account);
             sexual = lec[i].sexual;
             return 2;
         }
@@ -65,6 +67,7 @@ int checkExistAccount(student*& stu, lecture*& lec, staff*& sta, int& n1, int& n
     for (int i = 0; i < n3; ++i){
         if (checkSame(sta[i].account, id) && checkSame(sta[i].password, pass)){
             strcpy(name, sta[i].name);
+            strcpy(id, sta[i].account);
             sexual = sta[i].sexual;
             return 3;
         }
@@ -275,7 +278,7 @@ int resultLogin(ifstream& in, int& result, int& countLogin, bool sexual, char na
             system("cls");
             cout << "You have " << countLogin << " time(s) to try!\n";
             countLogin--;
-            return login(in, stu, lec, sta, result, countLogin); //TODO
+            return login(in, stu, lec, sta, result, countLogin, nameLogin); //TODO
         }
         else {
             outro();
@@ -353,7 +356,7 @@ void introMenu(){
 }
 
 /* ----------------------------- login function ----------------------------- */
-int login(ifstream& in, student*& stu, lecture*& lec, staff*& sta, int& result, int& countLogin){
+int login(ifstream& in, student*& stu, lecture*& lec, staff*& sta, int& result, int& countLogin, char id[]){
     //slots of account
     int n1, n2, n3;
 
@@ -372,17 +375,16 @@ int login(ifstream& in, student*& stu, lecture*& lec, staff*& sta, int& result, 
         countLogin--;
     }
     //input from keyboard
-    char id[200];
     char pass[200];
     inputLogin(id, pass);
 
     //check if account is exist
-    char nameLogin[100];
+    char name[20];
     bool sexual;
-    result = checkExistAccount(stu, lec, sta, n1, n2, n3, id, pass, nameLogin, sexual);
+    result = checkExistAccount(stu, lec, sta, n1, n2, n3, id, pass, name, sexual);
 
     //result and compele funtions
-    resultLogin(in, result, countLogin, sexual, nameLogin, stu, lec, sta, n1, n2, n3);
+    resultLogin(in, result, countLogin, sexual, name, stu, lec, sta, n1, n2, n3);
     return 0;
 }
 
@@ -392,7 +394,7 @@ void logout(){
 }
 
 /* ---------------------------------- menu ---------------------------------- */
-int menu(int& typeAcc){
+int menu(int& typeAcc, char id[]){
 
     //setup color and I/O file
     system("color a");
@@ -434,7 +436,7 @@ int menu(int& typeAcc){
     }
     if (safeInput(n) && ston(n) == 1){
         cin.ignore(1000, '\n');
-        login(in, stu, lec, sta, typeAcc, countLogin);
+        login(in, stu, lec, sta, typeAcc, countLogin, id);
     }
     else{
         outro();

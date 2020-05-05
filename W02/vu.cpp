@@ -373,6 +373,7 @@ void displayAllroles(int typeAccount)
 	char c[5];
 
 	//All roles
+	cout << "======== MENU ========\n";
 	cout << "1. Show menu" << endl;
 	cout << "2. View profile info" << endl;
 	cout << "3. Change password" << endl;
@@ -401,7 +402,8 @@ void displayAllroles(int typeAccount)
 	else if (strcmp(c, "4") == 0) {
 		//1.5
 		cin.ignore();
-		menu(typeAccount);
+		char id[20];
+		menu(typeAccount, id);
 	}
 
 	else {
