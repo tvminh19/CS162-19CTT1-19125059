@@ -1,5 +1,5 @@
 /* -------------------- this is Minh's file for functions ------------------- */
-#include "Header.h"
+#include "header.h"
 /* ---------------------------- string to number ---------------------------- */
 int ston(char a[]){
     int sum = 0;
