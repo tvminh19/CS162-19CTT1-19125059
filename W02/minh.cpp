@@ -1,9 +1,33 @@
 /* -------------------- this is Minh's file for functions ------------------- */
-#include "Header.h"
+#include "header.h"
+/* ---------------------------- string to number ---------------------------- */
+int ston(char a[]) {
+    int sum = 0;
+    for (int i = 0; i < strlen(a); ++i) {
+        a[i] -= '0';
+        sum += a[i];
+        sum *= 10;
+    }
+    return sum / 10;
+}
+
+/* ------------------------------- safe input ------------------------------- */
+bool safeInput(char a[]) {
+    for (int i = 0; i < strlen(a); ++i) {
+        //difference number [0~9]
+        if (48 <= a[i] && a[i] >= 57)   return false;
+    }
+    return true;
+}
+
+
 /* ---------------------------------- outro --------------------------------- */
 void outro() {
     system("cls");
-    cout << "/* Thank for using */\n";
+    introLogin();
+    cout << "===================\n";
+    cout << "+ Thank for using +\n";
+    cout << "===================\n";
     system("pause");
 }
 
@@ -23,6 +47,7 @@ int checkExistAccount(student*& stu, lecture*& lec, staff*& sta, int& n1, int& n
     for (int i = 0; i < n1; ++i) {
         if (checkSame(stu[i].account, id) && checkSame(stu[i].password, pass)) {
             strcpy(name, stu[i].name);
+            strcpy(id, stu[i].account);
             gender = stu[i].gender;
             return 1;
         }
@@ -32,6 +57,7 @@ int checkExistAccount(student*& stu, lecture*& lec, staff*& sta, int& n1, int& n
     for (int i = 0; i < n2; ++i) {
         if (checkSame(lec[i].account, id) && checkSame(lec[i].password, pass)) {
             strcpy(name, lec[i].name);
+            strcpy(id, lec[i].account);
             gender = lec[i].gender;
             return 2;
         }
@@ -41,6 +67,7 @@ int checkExistAccount(student*& stu, lecture*& lec, staff*& sta, int& n1, int& n
     for (int i = 0; i < n3; ++i) {
         if (checkSame(sta[i].account, id) && checkSame(sta[i].password, pass)) {
             strcpy(name, sta[i].name);
+            strcpy(id, sta[i].account);
             gender = sta[i].gender;
             return 3;
         }
@@ -55,18 +82,22 @@ void removeLogin(student*& stu, lecture*& lec, staff*& sta, int n1, int n2, int 
     for (int i = 0; i < n1; i++) {
         delete[] stu[i].account;
         delete[] stu[i].password;
+        delete[] stu[i].name;
+        delete[] stu[i].className;
+        delete[] stu[i].dob;
     }
-    delete[] stu;
     //delete lecture
     for (int i = 0; i < n2; i++) {
         delete[] lec[i].account;
         delete[] lec[i].password;
+        delete[] lec[i].name;
+        delete[] lec[i].academy;
     }
-    delete[] lec;
     //delete staff
     for (int i = 0; i < n3; i++) {
         delete[] sta[i].account;
         delete[] sta[i].password;
+        delete[] sta[i].name;
     }
     delete[] sta;
     delete[] stu;
@@ -214,7 +245,6 @@ void timeNow() {
     time_t now = time(0);
     tm* cptr = localtime(&now);
     int t = cptr->tm_hour;
-    system("cls");
     if (0 <= t && t <= 11) {
         cout << "Good morning, ";
     }
@@ -248,7 +278,7 @@ int resultLogin(ifstream& in, int& result, int& countLogin, bool gender, char na
             system("cls");
             cout << "You have " << countLogin << " time(s) to try!\n";
             countLogin--;
-            return login(in, stu, lec, sta, result, countLogin); //TODO
+            return login(in, stu, lec, sta, result, countLogin, nameLogin); //TODO
         }
         else {
             outro();
@@ -256,6 +286,8 @@ int resultLogin(ifstream& in, int& result, int& countLogin, bool gender, char na
         }
     }
     else {
+        system("cls");
+        cout << "===========================================\n";
         timeNow();
         if (gender) {
             cout << "Mr.";
@@ -264,7 +296,9 @@ int resultLogin(ifstream& in, int& result, int& countLogin, bool gender, char na
             cout << "Ms.";
         }
         cout << nameLogin << "!" << endl;
-        Sleep(500);
+        cout << "===========================================\n";
+        Sleep(1000);
+        system("pause");
     }
     //remove in heap memory
     removeLogin(stu, lec, sta, n1, n2, n3);
@@ -304,25 +338,25 @@ void inputLogin(char user[], char passwd[]) {
 
 /* ---------------------------- intro when login ---------------------------- */
 void introLogin() {
-    cout << "/* -------------------------------------------------------------------------- */\n";
-    cout << "/* ---------------------- This is final project - cs162 --------------------- */\n";
-    cout << "/* ------------------------------ from M2V Team ----------------------------- */\n";
-    cout << "/* ------------------------------------o0o----------------------------------- */\n";
-    Sleep(1000);
+    cout << "================================================================================\n";
+    cout << "+ ----------------------- This is final project - cs162 ---------------------- +\n";
+    cout << "+ ------------------------------- from M2V Team ------------------------------ +\n";
+    cout << "================================================================================\n";
+    system("pause");
     system("cls");
 }
 
 void introMenu() {
     system("cls");
-    cout << "/* -------------------------------------------------------------------------- */\n";
+    cout << "/* ========================================================================== */\n";
     cout << "/* ---------------------------------- LOADING ------------------------------- */\n";
-    cout << "/* -------------------------------------------------------------------------- */\n";
+    cout << "/* ========================================================================== */\n";
     Sleep(600);
     system("cls");
 }
 
 /* ----------------------------- login function ----------------------------- */
-int login(ifstream& in, student*& stu, lecture*& lec, staff*& sta, int& result, int& countLogin) {
+int login(ifstream& in, student*& stu, lecture*& lec, staff*& sta, int& result, int& countLogin, char id[]) {
     //slots of account
     int n1, n2, n3;
 
@@ -341,16 +375,16 @@ int login(ifstream& in, student*& stu, lecture*& lec, staff*& sta, int& result, 
         countLogin--;
     }
     //input from keyboard
-    char id[200];
     char pass[200];
     inputLogin(id, pass);
 
     //check if account is exist
-    char nameLogin[100];
+    char name[20];
     bool gender;
-    result = checkExistAccount(stu, lec, sta, n1, n2, n3, id, pass, nameLogin, gender);
+    result = checkExistAccount(stu, lec, sta, n1, n2, n3, id, pass, name, gender);
+
     //result and compele funtions
-    resultLogin(in, result, countLogin, gender, nameLogin, stu, lec, sta, n1, n2, n3);
+    resultLogin(in, result, countLogin, gender, name, stu, lec, sta, n1, n2, n3);
     return 0;
 }
 
@@ -360,42 +394,54 @@ void logout() {
 }
 
 /* ---------------------------------- menu ---------------------------------- */
-int menu(int& typeAcc) {
+int menu(int& typeAcc, char id[]) {
+
+    //setup color and I/O file
     system("color a");
     ifstream in;
     ofstream out;
 
-    //W00
+    //struct
     student* stu = nullptr;
     lecture* lec = nullptr;
     staff* sta = nullptr;
-    /**type of account
-     * 1 -> student
-     * 2 -> lecturer
-     * 3 -> staff
-     * 0 -> Wrong account
-     */
-     //DO_NOT change countLogin !!! => some bug if you change
+
+    //DO_NOT change countLogin !!! => some bug if you change
     int countLogin = 4;
 
-    //W01
     //menu function
     system("cls");
     introLogin();
-    cout << "[1]. Login.\n";
-    cout << "[2]. Exit.\n";
+    cout << "=~=~=~=~=~=~=~=~=\n";
+    cout << "+  [1]. Login.  +\n";
+    cout << "+  [2]. Exit.   +\n";
+    cout << "=~=~=~=~=~=~=~=~=\n";
     cout << "> ";
-    char n;
-    cin >> n;
-    if (n == '1') {
+
+    //input 
+    char n[3];
+    cin.get(n, 3, '\n');
+    while (!safeInput(n)) {
+        system("cls");
+        cout << "=~=~=~=~=~=~=~=~=~=~=~=~=~=\n";
+        cout << "+ Wrong! please try again +\n";
+        cout << "=~=~=~=~=~=~=~=~=~=~=~=~=~=\n";
+        cout << "=~=~=~=~=~=~=~=~=\n";
+        cout << "+  [1]. Login.  +\n";
+        cout << "+  [2]. Exit.   +\n";
+        cout << "=~=~=~=~=~=~=~=~=\n";
+        cout << "> ";
         cin.ignore(1000, '\n');
-        login(in, stu, lec, sta, typeAcc, countLogin);
-        //cout << typeAcc;
+        cin.get(n, 3, '\n');
+    }
+    if (safeInput(n) && ston(n) == 1) {
+        cin.ignore(1000, '\n');
+        login(in, stu, lec, sta, typeAcc, countLogin, id);
     }
     else {
         outro();
-        return 0;
+        typeAcc = 0;
+        logout();
     }
-    system("pause");
     return 0;
 }
