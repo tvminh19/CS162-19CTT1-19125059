@@ -102,19 +102,6 @@ char* genPassword(Date DOB)
 	return pass;
 }
 
-void createAccount(Student& stu)
-{
-	int len = strlen(stu.ID);
-	stu.account.userName = new char[len + 2];
-	for (int i = 0; i < len; i++)
-		stu.account.userName[i] = stu.ID[i];
-	stu.account.userName[len] = '\0';
-
-	//cout << "Username: " << stu.account.userName << '\n';
-
-	stu.account.password = genPassword(stu.DOB);
-}
-
 Student importStudent(char str[])
 {
 	Student stu;
@@ -128,22 +115,29 @@ Student importStudent(char str[])
 	stu.DOB = getDOB(str, index);
 	stu.sClass = getsClass(str, index);
 	stu.gender = getGender(str, index);
-	createAccount(stu);
+	stu.password = genPassword(stu.DOB);
 
 	return stu;
 }
 
 void displayAccount(const Student& stu)
 {
-	cout << "Username: " << stu.account.userName << '\n';
-	cout << "Password: " << stu.account.password << '\n';
+	cout << "Username: " << stu.ID << '\n';
+	cout << "Password: " << stu.password << '\n';
+}
+
+void displayDate(Date date)
+{
+	if (date.day < 10) cout << '0'; cout << date.day << '/';
+	if (date.month < 10) cout << '0'; cout << date.month << '/';
+	cout << date.year << '\n';
 }
 
 void displayStudent(const Student& stu)
 {
 	cout << "ID: " << stu.ID << '\n';
 	cout << "Name: " << stu.sName << '\n';
-	cout << "DOB: " << stu.DOB.day << "/" << stu.DOB.month << "/" << stu.DOB.year << '\n';
+	cout << "DOB: "; displayDate(stu.DOB);
 	cout << "Class: " << stu.sClass << '\n';
 	cout << "Gender: "; if (stu.gender) cout << "Female\n"; else cout << "Male\n";
 }
@@ -220,15 +214,11 @@ Student loadStudent()
 	char tmp[1005];
 	fi.getline(tmp, 1000, '\n');
 	//fi.get();
-	stu.account.userName = cpyStr(tmp);
-
-	fi.getline(tmp, 1000, '\n');
-	//fi.get();
-	stu.account.password = cpyStr(tmp);
-
-	fi.getline(tmp, 1000, '\n');
-	//fi.get();
 	stu.ID = cpyStr(tmp);
+
+	fi.getline(tmp, 1000, '\n');
+	//fi.get();
+	stu.password = cpyStr(tmp);
 
 	fi.getline(tmp, 1000, '\n');
 	//fi.get();
@@ -296,9 +286,9 @@ void displayClass(StuNode* pHead, const int& n)
 bool loginStu(StuNode* pHead, char userName[], char password[], StuNode*& pStu)
 {
 	StuNode* pCur = pHead;
-	while (pCur != nullptr && !sameStr(pCur->stu.account.userName, userName))
+	while (pCur != nullptr && !sameStr(pCur->stu.ID, userName))
 		pCur = pCur->pNext;
-	if (pCur == nullptr || !sameStr(pCur->stu.account.password, password))
+	if (pCur == nullptr || !sameStr(pCur->stu.password, password))
 		return false;
 	pStu = pCur;
 	return true;
@@ -307,12 +297,12 @@ bool loginStu(StuNode* pHead, char userName[], char password[], StuNode*& pStu)
 
 bool changePassword(Student& stu)
 {
-	if (stu.account.password == nullptr)
+	if (stu.password == nullptr)
 		return false;
 	cout << "Enter the old password: ";
 	char pass[1005];
 	cin.getline(pass, 1000, '\n');
-	if (!sameStr(pass, stu.account.password))
+	if (!sameStr(pass, stu.password))
 		return false;
 	while (1)
 	{
@@ -326,18 +316,24 @@ bool changePassword(Student& stu)
 		cout << "The new passwords don't match! Try again!\n";
 	}
 
-	delete[] stu.account.password;
-	stu.account.password = cpyStr(pass);
+	delete[] stu.password;
+	stu.password = cpyStr(pass);
 	return true;
+}
+
+void saveDate(Date date)
+{
+	fo << date.year << ' ';
+	if (date.month < 10) fo << '0'; fo << date.month << ' ';
+	if (date.day < 10) fo << '0'; fo << date.day << '\n';
 }
 
 void saveStudent(const Student& stu)
 {
-	fo << stu.account.userName << '\n';
-	fo << stu.account.password << '\n';
 	fo << stu.ID << '\n';
+	fo << stu.password << '\n';
 	fo << stu.sName << '\n';
-	fo << stu.DOB.year << ' ' << stu.DOB.month << ' ' << stu.DOB.day << '\n';
+	saveDate(stu.DOB);
 	fo << stu.sClass << '\n';
 	fo << stu.gender << "\n\n";
 }
@@ -362,9 +358,8 @@ void saveClass(StuNode* pHead, const int& n)
 
 void deleteStudent(Student stu)
 {
-	delete[] stu.account.userName;
-	delete[] stu.account.password;
 	delete[] stu.ID;
+	delete[] stu.password;
 	delete[] stu.sName;
 	delete[] stu.sClass;
 }

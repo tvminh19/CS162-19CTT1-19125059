@@ -91,16 +91,10 @@ void Year_Semester();                   //3.1
 /* ----------------------------- Van's functions ---------------------------- */
 // W02
 
-struct Account
-{
-    char* userName;
-    char* password;
-};
-
 struct Student
 {
-    Account account;
     char* ID;
+    char* password;
     char* sName;
     Date DOB;
     char* sClass;
@@ -118,7 +112,6 @@ char* getsName(char str[], int& index);
 Date getDOB(char str[], int& index);
 char* getsClass(char str[], int& index);
 char* genPassword(Date DOB);
-void createAccount(Student& stu);
 
 void displayAccount(const Student& stu);
 void displayStudent(const Student& stu);
