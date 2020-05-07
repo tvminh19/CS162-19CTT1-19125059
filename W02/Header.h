@@ -29,10 +29,11 @@ struct student {
     char* dob;
     char* className;
     bool gender;
+    bool isActive;
 };
 
 struct lecture {
-    char* account;
+    char* account; //username
     char* password;
     char* name;
     char* academy;
@@ -82,6 +83,41 @@ void showMenu(int typeAccount);         //1.2
 void displayAllroles(int typeAccount);  //1
 
 //W02
+struct Time{
+    int hours;
+    int mins;
+};
+
+struct schedule{
+    int no;
+    char* courseID;
+    char* courseName;
+    char* Class;
+    lecture* lec;
+    Date Sdate;
+    Date Edate;
+    char* dayofweek;
+    Time Stime;
+    Time Etime;
+    char* room;
+};
+
+struct score{
+    float midterm;
+    float final;
+    float bonus;
+    float total;
+};
+
+struct checkin{
+    bool w[10];
+};
+struct course{
+    student* stu;
+    score* sco;
+    checkin* ck;
+    char* timeStudy[10];
+};
 
 void Year_Semester();                   //3.1
 
@@ -91,12 +127,18 @@ void Year_Semester();                   //3.1
 /* ----------------------------- Van's functions ---------------------------- */
 // W02
 
+struct Account
+{
+    char* userName;
+    char* password;
+};
+
 struct Student
 {
+    Account account;
     char* ID;
-    char* password;
     char* sName;
-    Date DOB;
+    Date DOB; 
     char* sClass;
     int gender; // 1 if female
 };
@@ -112,6 +154,7 @@ char* getsName(char str[], int& index);
 Date getDOB(char str[], int& index);
 char* getsClass(char str[], int& index);
 char* genPassword(Date DOB);
+void createAccount(Student& stu);
 
 void displayAccount(const Student& stu);
 void displayStudent(const Student& stu);
