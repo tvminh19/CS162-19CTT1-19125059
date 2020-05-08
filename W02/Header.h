@@ -127,15 +127,10 @@ void Year_Semester();                   //3.1
 /* ----------------------------- Van's functions ---------------------------- */
 // W02
 
-struct Account
+struct Student
 {
     char* userName;
     char* password;
-};
-
-struct Student
-{
-    Account account;
     char* ID;
     char* sName;
     Date DOB; 
