@@ -1,3 +1,4 @@
+
 /* -------------------- this is Minh's file for functions ------------------- */
 #include "header.h"
 /* ---------------------------- string to number ---------------------------- */
@@ -447,3 +448,86 @@ int menu(int& typeAcc, char id[]) {
     return 0;
 }
 
+/* -------------------------------------------------------------------------- */
+/*                        INPUT COURSE FROM A CSV FILE                        */
+/* -------------------------------------------------------------------------- */
+
+//ask class
+void inputClassName(char a[]){
+    cout << "Please enter the name of class: ";
+    cin.get(a, 10, '\n');
+}
+
+//check is exist class
+bool isExistClass(ifstream& in, char a[]){
+    in.open("D:/Github/CS162-19CTT1-19125059/W02/PMS/Class.txt");
+    if (!in.is_open()){
+        cout << "Error at checkClassExist function.\n";
+        return false;
+    }
+    else{
+        int n;
+        in >> n;
+        char str[10];
+        
+        for (int i = 0; i < n; i++){
+            in.ignore(100, '\n');
+            in.get(str, 10, '\n');
+            if (checkSame(str, a)) return true;
+        }
+        return false;
+    }
+}
+
+//ask file address
+void inputFileAddress(char a[]){
+    cout << "File address: ";
+    cin.get(a, 100, '\n');
+}
+
+//getNode schedule
+void getNodeSchedule(Node*& phead, schedule* sch){
+    if (!phead){
+        phead = new Node;
+        phead->schedule->no = sch->no;
+        phead->schedule->courseID = sch->courseID;
+        phead->schedule->courseName = sch->courseName;
+        phead->schedule->Class = sch->Class;
+        phead->schedule->lec->account = sch->lec->account;
+        //TODO
+    }
+}
+
+//import file
+void importFile(ofstream& in, Node*& sch, char nameClass[]){
+    //create address of file
+    char fileAdd[100];
+    strcat(fileAdd, "D:/Github/CS162-19CTT1-19125059/W02/PMS/class/");
+    strcat(fileAdd, nameClass);
+    
+    //load file
+    int h = 0;
+    while(!in.eof()){
+        sch = new schedule;
+        
+    }
+
+}
+
+//input course
+void inputCourse(ifstream& in, schedule*& sch){
+    //input from staff
+    char a[10];
+    inputClassName(a);
+    
+    //check
+    if (!isExistClass(in, a)){
+        system("cls");
+        cout << "Wrong Name, Please enter again !\n";
+        inputCourse(in, sch);
+    }
+    else{
+        //import
+    }
+    return;
+}

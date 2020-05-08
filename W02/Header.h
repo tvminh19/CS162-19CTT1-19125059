@@ -83,6 +83,11 @@ void showMenu(int typeAccount);         //1.2
 void displayAllroles(int typeAccount);  //1
 
 //W02
+struct Node{
+    schedule* schedule;
+    Node* next = nullptr;
+};
+
 struct Time{
     int hours;
     int mins;
