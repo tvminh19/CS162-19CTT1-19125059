@@ -660,7 +660,6 @@ void getNodeSchedule(ifstream& in, Node*& phead, Node*& pcur){
     if (!phead){
         phead = new Node;
         getNo(in, phead, a);
-        if (a == "") return;
         getCourseID(in, phead, a);
         getCourseName(in, phead, a);
         getClassName(in, phead, a);
@@ -767,7 +766,7 @@ void aPartOfinputCourse(ifstream& in, Node*& phead, Node*& pcur, char a[]){
 
 //make file
 void outputSchedule(ofstream& out, Node* phead, char className[]){
-    char fileAdd[100];
+    char fileAdd[500];
     makeClassAdd(className, fileAdd);
 
     out.open(fileAdd);
