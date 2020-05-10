@@ -485,49 +485,306 @@ void inputFileAddress(char a[]){
     cin.get(a, 100, '\n');
 }
 
+//getNo
+void getNo(ifstream& in, Node*& p, char a[]){
+    in.get(a, 200, ',');
+    p->schedule->no = ston(a);
+    cout << p->schedule->no << "\n";
+}
+
+//get Course ID
+void getCourseID(ifstream& in, Node*& p, char a[]){
+    in.ignore(200, ',');
+    in.get(a, 200, ',');
+    p->schedule->courseID = new char[strlen(a) + 1];
+    strcpy(p->schedule->courseID, a);
+    cout << p->schedule->courseID << "\n";
+}
+
+//get course name
+void getCourseName(ifstream& in, Node*& p, char a[]){
+    in.ignore(200, ',');
+    in.get(a, 200, ',');
+    p->schedule->courseName = new char[strlen(a) + 1];
+    strcpy(p->schedule->courseName, a);
+    cout << p->schedule->courseName << "\n";
+}
+
+//get class
+void getClassName(ifstream& in, Node*& p, char a[]){
+    in.ignore(200, ',');
+    in.get(a, 200, ',');
+    p->schedule->Class = new char[strlen(a) + 1];
+    strcpy(p->schedule->Class, a);
+    cout << p->schedule->Class << "\n";
+}
+
+//get lec user name
+void getLecUserName(ifstream& in, Node*& p, char a[]){
+    p->schedule->lec = new lecture;
+
+    in.ignore(200, ',');
+    in.get(a, 200, ',');
+    p->schedule->lec->account = new char[strlen(a) + 1];
+    strcpy(p->schedule->lec->account, a);
+    cout << p->schedule->lec->account << "\n";
+}
+
+//get lec name
+void getLecName(ifstream& in, Node*& p, char a[]){
+    in.ignore(200, ',');
+    in.get(a, 200, ',');
+    p->schedule->lec->name = new char[strlen(a) + 1];
+    strcpy(p->schedule->lec->name, a);
+    cout << p->schedule->lec->name << "\n";
+}
+
+//get lec gender
+void getLecGender(ifstream& in, Node*& p, char a[]){
+    in.ignore(200, ',');
+    in.get(a, 200, ',');
+    p->schedule->lec->gender = ston(a);
+}
+
+//get Start date
+void getSdate(ifstream& in, Node*& p, char a[]){
+    //start day month year
+    in.ignore(200, ',');
+    in.get(a, 200, '/');
+    p->schedule->Sdate.day = ston(a);
+    cout << p->schedule->Sdate.day << "\n";
+
+    in.ignore(200, '/');
+    in.get(a, 200, '/');
+    p->schedule->Sdate.month = ston(a);
+    cout << p->schedule->Sdate.month << "\n";
+
+    in.ignore(200, '/');
+    in.get(a, 200, ',');
+    p->schedule->Sdate.year = ston(a);
+    cout << p->schedule->Sdate.year << "\n";
+}
+
+//get End date
+void getEdate(ifstream& in, Node*& p, char a[]){
+    //start day month year
+    in.ignore(200, ',');
+    in.get(a, 200, '/');
+    p->schedule->Edate.day = ston(a);
+    cout << p->schedule->Edate.day << "\n";
+
+    in.ignore(200, '/');
+    in.get(a, 200, '/');
+    p->schedule->Edate.month = ston(a);
+    cout << p->schedule->Edate.month << "\n";
+
+    in.ignore(200, '/');
+    in.get(a, 200, ',');
+    p->schedule->Edate.year = ston(a);
+    cout << p->schedule->Edate.year << "\n";
+}
+
+//get day of week
+void getDayOfWeek(ifstream& in, Node*& p, char a[]){
+    in.ignore(200, ',');
+    in.get(a, 200, ',');
+    p->schedule->dayofweek = new char[strlen(a) + 1];
+    strcpy(p->schedule->dayofweek, a);
+    cout << p->schedule->dayofweek << "\n";
+}
+
+//get Start time
+void getSTime(ifstream& in, Node*& p, char a[]){
+    //start time hour and min
+    in.ignore(200, ',');
+    in.get(a, 200, ',');
+    p->schedule->Stime.hours = ston(a);
+    cout << p->schedule->Stime.hours << "\n";
+
+    in.ignore(200, ',');
+    in.get(a, 200, ',');
+    p->schedule->Stime.mins = ston(a);
+    cout << p->schedule->Stime.mins << "\n";
+}
+
+//get end time
+void getETime(ifstream& in, Node*& p, char a[]){
+    //start time hour and min
+    in.ignore(200, ',');
+    in.get(a, 200, ',');
+    p->schedule->Etime.hours = ston(a);
+    cout << p->schedule->Etime.hours << "\n";
+
+    in.ignore(200, ',');
+    in.get(a, 200, ',');
+    p->schedule->Etime.mins = ston(a);
+    cout << p->schedule->Etime.mins << "\n";
+}
+
+//get room 
+void getRoom(ifstream& in, Node*& p, char a[]){
+    in.ignore(100, ',');
+    in.get(a, 100, '\n');
+    p->schedule->room = new char[strlen(a) + 1];
+    strcpy(p->schedule->room, a);
+    cout << p->schedule->room << "\n";
+
+    in.ignore(1000, '\n');
+}
+
 //getNode schedule
-void getNodeSchedule(Node*& phead, schedule* sch){
+void getNodeSchedule(ifstream& in, Node*& phead, Node*& pcur){
+    char a[200];
     if (!phead){
         phead = new Node;
-        phead->schedule->no = sch->no;
-        phead->schedule->courseID = sch->courseID;
-        phead->schedule->courseName = sch->courseName;
-        phead->schedule->Class = sch->Class;
-        phead->schedule->lec->account = sch->lec->account;
-        //TODO
+       
+        getNo(in, phead, a);
+        getCourseID(in, phead, a);
+        getCourseName(in, phead, a);
+        getClassName(in, phead, a);
+        getLecUserName(in, phead, a);
+        getLecName(in, phead, a);
+        getLecGender(in, phead, a);
+        getSdate(in, phead, a);
+        getEdate(in, phead, a);
+        getDayOfWeek(in, phead, a);
+        getSTime(in, phead, a);
+        getETime(in, phead, a);
+        getRoom(in, phead, a);
+
+        phead->next = nullptr;
+        pcur = phead;
     }
+    else{
+        pcur->next = new Node;
+        pcur = pcur->next;
+        
+        getNo(in, pcur, a);
+        getCourseID(in, pcur, a);
+        getCourseName(in, pcur, a);
+        getClassName(in, pcur, a);
+        getLecUserName(in, pcur, a);
+        getLecName(in, pcur, a);
+        getLecGender(in, pcur, a);
+        getSdate(in, pcur, a);
+        getEdate(in, pcur, a);
+        getDayOfWeek(in, pcur, a);
+        getSTime(in, pcur, a);
+        getETime(in, pcur, a);
+        getRoom(in, pcur, a);
+
+        pcur->next = nullptr;
+    }
+}
+
+//make address of class
+void makeClassAdd(char nameClass[], char str[]){
+    strcat(str, "D:/Github/CS162-19CTT1-19125059/W02/PMS/class/");
+    strcat(str, nameClass);
+    strcat(str, "/");
+    strcat(str, "Schedule.txt");
 }
 
 //import file
-void importFile(ofstream& in, Node*& sch, char nameClass[]){
-    //create address of file
-    char fileAdd[100];
-    strcat(fileAdd, "D:/Github/CS162-19CTT1-19125059/W02/PMS/class/");
-    strcat(fileAdd, nameClass);
-    
-    //load file
-    int h = 0;
-    while(!in.eof()){
-        sch = new schedule;
-        
+void importFile(ifstream& in, Node*& phead, Node*& pcur){
+    //input address of file
+    char filepath[100];
+    inputFileAddress(filepath);
+
+    //load file and check
+    in.open(filepath);
+    if (!in.is_open()){
+        cout << "Error loading.\n";
+        return;
     }
 
+    //don't read the 1st line
+    in.ignore(1000, '\n');
+    while(!in.eof()){
+        getNodeSchedule(in, phead, pcur);
+    }
+    in.close();
 }
 
-//input course
-void inputCourse(ifstream& in, schedule*& sch){
+//clean heap memory
+void cleanScheduleNode(Node*& phead){
+    Node* pcur = phead;
+    while (phead){
+        pcur = pcur->next;
+        delete[] phead->schedule->courseID;
+        delete[] phead->schedule->courseName;
+        delete[] phead->schedule->Class;
+        delete[] phead->schedule->lec->account;
+        delete[] phead->schedule->lec->name;
+        delete[] phead->schedule->dayofweek;
+        delete[] phead->schedule->room;
+        delete phead;
+        phead = pcur;
+    }
+}
+
+//a part of input course
+void aPartOfinputCourse(ifstream& in, Node*& phead, Node*& pcur, char a[]){
     //input from staff
-    char a[10];
     inputClassName(a);
     
     //check
     if (!isExistClass(in, a)){
         system("cls");
         cout << "Wrong Name, Please enter again !\n";
-        inputCourse(in, sch);
+        aPartOfinputCourse(in, phead, pcur, a);
     }
     else{
-        //import
+        importFile(in, phead, pcur);
     }
     return;
+}
+
+//make file
+void outputSchedule(ofstream& out, Node* phead, char className[]){
+    char fileAdd[100];
+    makeClassAdd(className, fileAdd);
+
+    out.open(fileAdd);
+    if (!out.is_open()){
+        cout << "Error.\n";
+        return;
+    }
+    else{
+        Node* pcur = phead;
+        while (pcur){
+            out << pcur->schedule->no << "\n";
+            out << pcur->schedule->courseID << "\n";
+            out << pcur->schedule->courseName << "\n";
+            out << pcur->schedule->Class << "\n";
+            out << pcur->schedule->lec->account << "\n";
+            out << pcur->schedule->lec->name << "\n";
+            out << pcur->schedule->lec->gender << "\n";
+            out << pcur->schedule->Sdate.day << "\n";
+            out << pcur->schedule->Sdate.month << "\n";
+            out << pcur->schedule->Sdate.year << "\n";
+            out << pcur->schedule->Edate.day << "\n";
+            out << pcur->schedule->Edate.month << "\n";
+            out << pcur->schedule->Edate.year << "\n";
+            out << pcur->schedule->dayofweek << "\n";
+            out << pcur->schedule->Stime.hours << "\n";
+            out << pcur->schedule->Stime.mins << "\n";
+            out << pcur->schedule->Etime.hours << "\n";
+            out << pcur->schedule->Etime.mins << "\n";
+            out << pcur->schedule->room << "\n";
+            pcur = pcur->next;
+        }
+    }
+}
+
+//input course
+void inputCourse(){
+    ifstream in;
+    ofstream out;
+    Node* phead = nullptr;
+    Node* pcur = nullptr;
+    char className[10];
+    aPartOfinputCourse(in, phead, pcur, className);
+    outputSchedule(out, phead, className);
+    cleanScheduleNode(phead);
 }
