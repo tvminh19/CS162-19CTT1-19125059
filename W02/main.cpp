@@ -20,11 +20,9 @@ int main() {
     char idAfterLogin[20];
 
     //menu function
-    //menu(accType, idAfterLogin);
+    menu(accType, idAfterLogin);
     
     //stop program if wrong account!
-    //test
-    accType = 3;
     if (accType == 0) return 0;
 
 
