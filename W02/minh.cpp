@@ -3,6 +3,27 @@
 #include "header.h"
 /* ---------------------------- string to number ---------------------------- */
 
+//intro Done
+void introDone(){
+    system("cls");
+    cout << "+=======================================+\n";
+    cout << "+------------------DONE-----------------+\n";
+    cout << "+=======================================+\n";
+    system("pause");
+}
+
+//count line
+int countLine(ifstream& in, int group){
+    char a[200];
+    int count = 0;
+    while (!in.eof()){
+        in.getline(a, 200);
+        ++count;
+    }
+    return count / group;
+}
+
+//conver strong to number
 int ston(char a[]) {
     int sum = 0;
     for (int i = 0; i < strlen(a); ++i) {
@@ -34,20 +55,18 @@ void outro(){
 }
 
 /* --------------------------- check exist account -------------------------- */
-bool checkSame(char a[], char b[]){
+bool isSameStr(char a[], char b[]){
     if (strlen(a) != strlen(b)) return false;
-    else {
-        for (int i = 0; i < strlen(a); i++){
-            if (a[i] != b[i]) return false;
-        }
-        return true;
+    for (int i = 0; i < strlen(a); ++i){
+        if (a[i] != b[i]) return false;
     }
+    return true;
 }
 
 int checkExistAccount(student*& stu, lecture*& lec, staff*& sta, int& n1, int& n2, int& n3, char id[], char pass[], char name[], bool& gender) {
     //student
     for (int i = 0; i < n1; ++i){
-        if (checkSame(stu[i].account, id) && checkSame(stu[i].password, pass)){
+        if (isSameStr(stu[i].account, id) && isSameStr(stu[i].password, pass)){
             strcpy(name, stu[i].name);
             strcpy(id, stu[i].account);
             gender = stu[i].gender;
@@ -57,7 +76,7 @@ int checkExistAccount(student*& stu, lecture*& lec, staff*& sta, int& n1, int& n
 
     //lecture 
     for (int i = 0; i < n2; ++i){
-        if (checkSame(lec[i].account, id) && checkSame(lec[i].password, pass)){
+        if (isSameStr(lec[i].account, id) && isSameStr(lec[i].password, pass)){
             strcpy(name, lec[i].name);
             strcpy(id, lec[i].account);
             gender = lec[i].gender;
@@ -67,7 +86,7 @@ int checkExistAccount(student*& stu, lecture*& lec, staff*& sta, int& n1, int& n
 
     //staff
     for (int i = 0; i < n3; ++i){
-        if (checkSame(sta[i].account, id) && checkSame(sta[i].password, pass)){
+        if (isSameStr(sta[i].account, id) && isSameStr(sta[i].password, pass)){
             strcpy(name, sta[i].name);
             strcpy(id, sta[i].account);
             gender = sta[i].gender;
@@ -454,6 +473,7 @@ int menu(int& typeAcc, char id[]) {
 
 //ask class
 void inputClassName(char a[]){
+    cin.ignore(100, '\n');
     cout << "Please enter the name of class: ";
     cin.get(a, 10, '\n');
 }
@@ -473,23 +493,26 @@ bool isExistClass(ifstream& in, char a[]){
         for (int i = 0; i < n; i++){
             in.ignore(100, '\n');
             in.get(str, 10, '\n');
-            if (checkSame(str, a)) return true;
+            if (isSameStr(str, a)) return true;
         }
         return false;
     }
+    in.close();
 }
 
 //ask file address
 void inputFileAddress(char a[]){
+    cin.ignore(100, '\n');
     cout << "File address: ";
     cin.get(a, 100, '\n');
 }
 
 //getNo
 void getNo(ifstream& in, Node*& p, char a[]){
+    p->schedule = new schedule;
     in.get(a, 200, ',');
     p->schedule->no = ston(a);
-    cout << p->schedule->no << "\n";
+    //cout << p->schedule->no << "\n";
 }
 
 //get Course ID
@@ -498,7 +521,7 @@ void getCourseID(ifstream& in, Node*& p, char a[]){
     in.get(a, 200, ',');
     p->schedule->courseID = new char[strlen(a) + 1];
     strcpy(p->schedule->courseID, a);
-    cout << p->schedule->courseID << "\n";
+    //cout << p->schedule->courseID << "\n";
 }
 
 //get course name
@@ -507,7 +530,7 @@ void getCourseName(ifstream& in, Node*& p, char a[]){
     in.get(a, 200, ',');
     p->schedule->courseName = new char[strlen(a) + 1];
     strcpy(p->schedule->courseName, a);
-    cout << p->schedule->courseName << "\n";
+    //cout << p->schedule->courseName << "\n";
 }
 
 //get class
@@ -516,7 +539,7 @@ void getClassName(ifstream& in, Node*& p, char a[]){
     in.get(a, 200, ',');
     p->schedule->Class = new char[strlen(a) + 1];
     strcpy(p->schedule->Class, a);
-    cout << p->schedule->Class << "\n";
+    //cout << p->schedule->Class << "\n";
 }
 
 //get lec user name
@@ -527,7 +550,7 @@ void getLecUserName(ifstream& in, Node*& p, char a[]){
     in.get(a, 200, ',');
     p->schedule->lec->account = new char[strlen(a) + 1];
     strcpy(p->schedule->lec->account, a);
-    cout << p->schedule->lec->account << "\n";
+    //cout << p->schedule->lec->account << "\n";
 }
 
 //get lec name
@@ -536,7 +559,7 @@ void getLecName(ifstream& in, Node*& p, char a[]){
     in.get(a, 200, ',');
     p->schedule->lec->name = new char[strlen(a) + 1];
     strcpy(p->schedule->lec->name, a);
-    cout << p->schedule->lec->name << "\n";
+    //cout << p->schedule->lec->name << "\n";
 }
 
 //get lec gender
@@ -552,17 +575,17 @@ void getSdate(ifstream& in, Node*& p, char a[]){
     in.ignore(200, ',');
     in.get(a, 200, '/');
     p->schedule->Sdate.day = ston(a);
-    cout << p->schedule->Sdate.day << "\n";
+    //cout << p->schedule->Sdate.day << "\n";
 
     in.ignore(200, '/');
     in.get(a, 200, '/');
     p->schedule->Sdate.month = ston(a);
-    cout << p->schedule->Sdate.month << "\n";
+    //cout << p->schedule->Sdate.month << "\n";
 
     in.ignore(200, '/');
     in.get(a, 200, ',');
     p->schedule->Sdate.year = ston(a);
-    cout << p->schedule->Sdate.year << "\n";
+    //cout << p->schedule->Sdate.year << "\n";
 }
 
 //get End date
@@ -571,17 +594,17 @@ void getEdate(ifstream& in, Node*& p, char a[]){
     in.ignore(200, ',');
     in.get(a, 200, '/');
     p->schedule->Edate.day = ston(a);
-    cout << p->schedule->Edate.day << "\n";
+    //cout << p->schedule->Edate.day << "\n";
 
     in.ignore(200, '/');
     in.get(a, 200, '/');
     p->schedule->Edate.month = ston(a);
-    cout << p->schedule->Edate.month << "\n";
+    //cout << p->schedule->Edate.month << "\n";
 
     in.ignore(200, '/');
     in.get(a, 200, ',');
     p->schedule->Edate.year = ston(a);
-    cout << p->schedule->Edate.year << "\n";
+    //cout << p->schedule->Edate.year << "\n";
 }
 
 //get day of week
@@ -590,7 +613,7 @@ void getDayOfWeek(ifstream& in, Node*& p, char a[]){
     in.get(a, 200, ',');
     p->schedule->dayofweek = new char[strlen(a) + 1];
     strcpy(p->schedule->dayofweek, a);
-    cout << p->schedule->dayofweek << "\n";
+    //cout << p->schedule->dayofweek << "\n";
 }
 
 //get Start time
@@ -599,12 +622,12 @@ void getSTime(ifstream& in, Node*& p, char a[]){
     in.ignore(200, ',');
     in.get(a, 200, ',');
     p->schedule->Stime.hours = ston(a);
-    cout << p->schedule->Stime.hours << "\n";
+    //cout << p->schedule->Stime.hours << "\n";
 
     in.ignore(200, ',');
     in.get(a, 200, ',');
     p->schedule->Stime.mins = ston(a);
-    cout << p->schedule->Stime.mins << "\n";
+    //cout << p->schedule->Stime.mins << "\n";
 }
 
 //get end time
@@ -613,12 +636,12 @@ void getETime(ifstream& in, Node*& p, char a[]){
     in.ignore(200, ',');
     in.get(a, 200, ',');
     p->schedule->Etime.hours = ston(a);
-    cout << p->schedule->Etime.hours << "\n";
+    //cout << p->schedule->Etime.hours << "\n";
 
     in.ignore(200, ',');
     in.get(a, 200, ',');
     p->schedule->Etime.mins = ston(a);
-    cout << p->schedule->Etime.mins << "\n";
+    //cout << p->schedule->Etime.mins << "\n";
 }
 
 //get room 
@@ -627,8 +650,7 @@ void getRoom(ifstream& in, Node*& p, char a[]){
     in.get(a, 100, '\n');
     p->schedule->room = new char[strlen(a) + 1];
     strcpy(p->schedule->room, a);
-    cout << p->schedule->room << "\n";
-
+    //cout << p->schedule->room << "\n";
     in.ignore(1000, '\n');
 }
 
@@ -637,8 +659,8 @@ void getNodeSchedule(ifstream& in, Node*& phead, Node*& pcur){
     char a[200];
     if (!phead){
         phead = new Node;
-       
         getNo(in, phead, a);
+        if (a == "") return;
         getCourseID(in, phead, a);
         getCourseName(in, phead, a);
         getClassName(in, phead, a);
@@ -686,7 +708,8 @@ void makeClassAdd(char nameClass[], char str[]){
 }
 
 //import file
-void importFile(ifstream& in, Node*& phead, Node*& pcur){
+void importFile(Node*& phead, Node*& pcur){
+    ifstream in;
     //input address of file
     char filepath[100];
     inputFileAddress(filepath);
@@ -694,8 +717,9 @@ void importFile(ifstream& in, Node*& phead, Node*& pcur){
     //load file and check
     in.open(filepath);
     if (!in.is_open()){
-        cout << "Error loading.\n";
-        return;
+        system("cls");
+        cout << "Not exist file.\n";
+        return importFile(phead, pcur);
     }
 
     //don't read the 1st line
@@ -718,6 +742,8 @@ void cleanScheduleNode(Node*& phead){
         delete[] phead->schedule->lec->name;
         delete[] phead->schedule->dayofweek;
         delete[] phead->schedule->room;
+        delete phead->schedule->lec;
+        delete phead->schedule;
         delete phead;
         phead = pcur;
     }
@@ -732,12 +758,11 @@ void aPartOfinputCourse(ifstream& in, Node*& phead, Node*& pcur, char a[]){
     if (!isExistClass(in, a)){
         system("cls");
         cout << "Wrong Name, Please enter again !\n";
-        aPartOfinputCourse(in, phead, pcur, a);
+        return inputCourse();
     }
     else{
-        importFile(in, phead, pcur);
+        importFile(phead, pcur);
     }
-    return;
 }
 
 //make file
@@ -746,35 +771,30 @@ void outputSchedule(ofstream& out, Node* phead, char className[]){
     makeClassAdd(className, fileAdd);
 
     out.open(fileAdd);
-    if (!out.is_open()){
-        cout << "Error.\n";
-        return;
+    Node* pcur = phead;
+    while (pcur){
+        out << pcur->schedule->no << "\n";
+        out << pcur->schedule->courseID << "\n";
+        out << pcur->schedule->courseName << "\n";
+        out << pcur->schedule->Class << "\n";
+        out << pcur->schedule->lec->account << "\n";
+        out << pcur->schedule->lec->name << "\n";
+        out << pcur->schedule->lec->gender << "\n";
+        out << pcur->schedule->Sdate.day << "\n";
+        out << pcur->schedule->Sdate.month << "\n";
+        out << pcur->schedule->Sdate.year << "\n";
+        out << pcur->schedule->Edate.day << "\n";
+        out << pcur->schedule->Edate.month << "\n";
+        out << pcur->schedule->Edate.year << "\n";
+        out << pcur->schedule->dayofweek << "\n";
+        out << pcur->schedule->Stime.hours << "\n";
+        out << pcur->schedule->Stime.mins << "\n";
+        out << pcur->schedule->Etime.hours << "\n";
+        out << pcur->schedule->Etime.mins << "\n";
+        out << pcur->schedule->room;
+        pcur = pcur->next;
     }
-    else{
-        Node* pcur = phead;
-        while (pcur){
-            out << pcur->schedule->no << "\n";
-            out << pcur->schedule->courseID << "\n";
-            out << pcur->schedule->courseName << "\n";
-            out << pcur->schedule->Class << "\n";
-            out << pcur->schedule->lec->account << "\n";
-            out << pcur->schedule->lec->name << "\n";
-            out << pcur->schedule->lec->gender << "\n";
-            out << pcur->schedule->Sdate.day << "\n";
-            out << pcur->schedule->Sdate.month << "\n";
-            out << pcur->schedule->Sdate.year << "\n";
-            out << pcur->schedule->Edate.day << "\n";
-            out << pcur->schedule->Edate.month << "\n";
-            out << pcur->schedule->Edate.year << "\n";
-            out << pcur->schedule->dayofweek << "\n";
-            out << pcur->schedule->Stime.hours << "\n";
-            out << pcur->schedule->Stime.mins << "\n";
-            out << pcur->schedule->Etime.hours << "\n";
-            out << pcur->schedule->Etime.mins << "\n";
-            out << pcur->schedule->room << "\n";
-            pcur = pcur->next;
-        }
-    }
+    out.close();
 }
 
 //input course
@@ -787,4 +807,6 @@ void inputCourse(){
     aPartOfinputCourse(in, phead, pcur, className);
     outputSchedule(out, phead, className);
     cleanScheduleNode(phead);
+    introDone();
+    return;
 }
