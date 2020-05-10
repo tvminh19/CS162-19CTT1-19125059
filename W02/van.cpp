@@ -1,5 +1,5 @@
 /* -------------------- this is Van's file for functions ------------------- */
-#include "header.h"
+#include "Header.h"
 
 using namespace std;
 

@@ -15,6 +15,7 @@ using namespace std;
 /* ----------------------------- Minh's funtions ---------------------------- */
 //W00
 //W01
+bool isSameStr(char a[], char b[]);
 
 struct Date {
     int day;
@@ -28,8 +29,8 @@ struct student {
     char* name;
     char* dob;
     char* className;
-    bool gender;
-    bool isActive;
+    int gender;
+    int isActive;
 };
 
 struct lecture {
@@ -37,14 +38,14 @@ struct lecture {
     char* password;
     char* name;
     char* academy;
-    bool gender;
+    int gender;
 };
 
 struct staff {
     char* account;
     char* password;
     char* name;
-    bool gender;
+    int gender;
 };
 
 //menu function
@@ -63,8 +64,10 @@ bool safeInput(char a[]);
 int ston(char a[]);
 
 //check is same string
-bool checkSame(char a[], char b[]);
+bool isSameStr(char a[], char b[]);
 
+//3.2 input course
+void inputCourse();
 
 
 
@@ -83,10 +86,6 @@ void showMenu(int typeAccount);         //1.2
 void displayAllroles(int typeAccount);  //1
 
 //W02
-struct Node{
-    schedule* schedule;
-    Node* next = nullptr;
-};
 
 struct Time{
     int hours;
@@ -178,5 +177,15 @@ bool changePassword(Student& stu);
 
 void deleteStudent(Student stu);
 void deleteStuNodes(StuNode*& pHead);
+
+
+
+
+/* ----------------------------- this is nothing ---------------------------- */
+struct Node{
+    student* stu;
+    schedule* schedule;
+    Node* next = nullptr;
+};
 
 #endif //function

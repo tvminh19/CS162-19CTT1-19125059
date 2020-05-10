@@ -1,5 +1,5 @@
 /* -------------------- this is Vu's file for functions ------------------- */
-#include "header.h"
+#include "Header.h"
 
 //W01----------------------------------------------------------------------------------------------------
 
@@ -203,7 +203,7 @@ void Staff_course()
 		//Back
 		menuStaffRole();
 	}
-
+ 
 	else if (strcmp(c, "1") == 0) {
 		//3.1
 		Year_Semester();
@@ -211,6 +211,7 @@ void Staff_course()
 
 	else if (strcmp(c, "2") == 0) {
 		//3.2
+		inputCourse();
 	}
 
 	else if (strcmp(c, "3") == 0) {
