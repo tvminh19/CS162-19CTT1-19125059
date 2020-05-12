@@ -479,8 +479,15 @@ void inputClassName(char a[]){
 }
 
 //check is exist class
-bool isExistClass(ifstream& in, char a[]){
-    in.open("D:/Github/CS162-19CTT1-19125059/W02/PMS/Class.txt");
+bool isExistClass(ifstream& in, char className[], char sem[], char year[]){
+    char fileAdd[500];
+    strcat(fileAdd, "D:/Github/CS162-19CTT1-19125059/ZPMS/");
+    strcat(fileAdd, year);
+    strcat(fileAdd, "/");
+    strcat(fileAdd, sem);
+    strcat(fileAdd, "/");
+    strcat(fileAdd, "class.txt");
+    in.open(fileAdd);
     if (!in.is_open()){
         cout << "Error at checkClassExist function.\n";
         return false;
@@ -748,18 +755,62 @@ void cleanScheduleNode(Node*& phead){
     }
 }
 
-void isExistYear(ifstream& in, char year[]){
+//input year 
+void inputYSC(char year[], char semester[], char className[]){
+    cin.ignore(100, '\n');
+    cout << "Please enter Year: ";
+    cin.get(year, 20, '\n');
 
+    cin.ignore(100, '\n');
+    cout << "Please enter semester: ";
+    cin.get(semester, 20, '\n');
+
+    cin.ignore(100, '\n');
+    cout << "Please enter Name of class: ";
+    cin.get(className, 20, '\n');
+    cin.ignore(100, '\n');
+}
+
+//is exit year
+bool isExistYear(char year[]){
+    ifstream in;
+    in.open("D:/Github/CS162-19CTT1-19125059/ZPMS/year.txt");
+    if (!in.is_open()){
+        cout << "Error opening year.txt\n";
+        return;
+    }
+    else{
+        int n;
+        in >> n;
+        char a[50];
+        for (int i = 0; i < n; i++){
+            in.ignore(100, '\n');
+            in.get(a, 20, '\n');
+            if (strcmp(a, year) != 0) return false;
+        }
+    }
+    return true;
 }
 
 //a part of input course
 void aPartOfinputCourse(ifstream& in, Node*& phead, Node*& pcur, char a[]){
+    char year[20];
+    //input year
+    inputYear(year);
+
+    //check is exist year
+    if (!isExistYear(year)){
+        system("cls");
+        cout << "We can't find year !\n";
+        cout << "Please input Again: ";
+        return inputCourse();
+    }
 
     //input from staff
     inputClassName(a);
     
     //check
-    if (!isExistClass(in, a)){
+    if (!isExistClass(in, a, year)){
         system("cls");
         cout << "Wrong Name, Please enter again !\n";
         return inputCourse();
