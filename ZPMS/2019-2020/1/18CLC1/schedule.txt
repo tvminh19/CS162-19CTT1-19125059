@@ -4,7 +4,7 @@ Introduction to Computer Science
 19CTT1
 dbtien
 Dinh Ba Tien
-34553
+1
 16
 3
 20
@@ -22,7 +22,7 @@ Communication Management
 19CTT1
 dnvu
 Duong Nguyen Vu
-34553
+1
 21
 3
 20
@@ -40,7 +40,7 @@ Physics
 19CTT1
 nhnha
 Nguyen Huu Nha
-34553
+1
 18
 3
 20
@@ -58,7 +58,7 @@ Calculus II
 19CTT1
 nhanh
 Nguyen Huu Anh
-34553
+1
 17
 3
 20
@@ -76,7 +76,7 @@ Introduction to Laws
 19CTT1
 dctrang
 Dang Cong Trang
-34553
+1
 16
 3
 20
@@ -94,7 +94,7 @@ Marxism and Leninism
 19CTT1
 nqhuy
 Ngo Quang Huy
-34553
+1
 17
 3
 20

@@ -713,7 +713,7 @@ void makeClassAdd(char year[], char semester[], char className[], char fileAdd[]
     strcat(fileAdd, "/");
     strcat(fileAdd, className);
     strcat(fileAdd, "/");
-    strcat(fileAdd, "schedule.txt");
+    strcat(fileAdd, "Schedule.txt");
 }
 
 //import file
@@ -973,9 +973,23 @@ void inputCourse(){
 /*                            3.3 ADD A NEW COURSE                            */
 /* -------------------------------------------------------------------------- */
 
+
+//clean heap memory
+void cleanInputCourse(schedule& c){
+    delete[] c.courseID;
+    delete[] c.courseName;
+    delete[] c.Class;
+    delete[] c.lec->account;
+    delete[] c.lec->name;
+    delete c.lec;
+    delete[] c.dayofweek;
+    delete[] c.room;
+}
+
 //check if the course is exiting ?
 bool isExistCourse(char courseID[], char year[], char semester[], char className[], char fileAdd[], int maxno){
     ifstream in;
+    schedule c;
     strcat(fileAdd, "D:/Github/CS162-19CTT1-19125059/ZPMS/");
     strcat(fileAdd, year);
     strcat(fileAdd, "/");
@@ -991,58 +1005,70 @@ bool isExistCourse(char courseID[], char year[], char semester[], char className
     else{
         char a[200];
         while (!in.eof()){
-            in >> maxno;
-
-            in.get(a, 200, '\n');
-            if (isSameStr(a, courseID)) return true;
-            in.ignore(100, '\n');
-
-            in.get(a, 200, '\n');
-            in.ignore(100, '\n');
-
-            in.get(a, 200, '\n');
-            in.ignore(100, '\n');
-
-            in.get(a, 200, '\n');            
-            in.ignore(100, '\n');
-            in.get(a, 200, '\n');
-            in.ignore(100, '\n');
-            in.get(a, 200, '\n');
-            in.ignore(100, '\n');
+            in >> c.no;
+            maxno = c.no; 
             
-            in.get(a, 200, '\n');            
-            in.ignore(100, '\n');
+            in.ignore(200, '\n');
             in.get(a, 200, '\n');
-            in.ignore(100, '\n');
-            in.get(a, 200, '\n');
-            in.ignore(100, '\n');
+            c.courseID = new char[strlen(a) + 1];
+            strcpy(c.courseID, a);
 
-            in.get(a, 200, '\n');            
-            in.ignore(100, '\n');
+            in.ignore(200, '\n');
             in.get(a, 200, '\n');
-            in.ignore(100, '\n');
-            in.get(a, 200, '\n');
-            in.ignore(100, '\n');
+            c.courseName = new char[strlen(a) + 1];
+            strcpy(c.courseName, a);
 
-            in.get(a, 200, '\n');
-            in.ignore(100, '\n');
+            c.Class = new char[strlen(className) + 1];
+            strcpy(c.Class, className);
 
-            in.get(a, 200, '\n');            
-            in.ignore(100, '\n');
-            in.get(a, 200, '\n');
-            in.ignore(100, '\n');
+            c.lec = new lecture;
 
-            in.get(a, 200, '\n');            
-            in.ignore(100, '\n');
+            in.ignore(200, '\n');
             in.get(a, 200, '\n');
-            in.ignore(100, '\n');
-            
+            c.lec->account = new char[strlen(a) + 1];
+            strcpy(c.lec->account, a);
+
+            in.ignore(200, '\n');
             in.get(a, 200, '\n');
-            in.ignore(100, '\n');
+            c.lec->name = new char[strlen(a) + 1];
+            strcpy(c.lec->name, a);
+
+            in >> c.lec->gender;
+
+            in >> c.Sdate.day;
+            in >> c.Sdate.month;
+            in  >> c.Sdate.year;
+
+            in >> c.Edate.day;
+            in >> c.Edate.month;
+            in >> c.Edate.year;
+
+            in.ignore(200, '\n');
+            in.get(a, 200, '\n');
+            c.dayofweek = new char[strlen(a) + 1];
+            strcpy(c.dayofweek, a);
+
+            in >> c.Stime.hours;
+            in >> c.Stime.mins;
+
+            in >> c.Etime.hours;
+            in >> c.Etime.mins;
+
+            in.ignore(200, '\n');
+            in.get(a, 200, '\n');
+            c.room = new char[strlen(a) + 1];
+            strcpy(c.room, a);
+
+            //delete
+            if (isSameStr(c.courseID, courseID)){
+                cleanInputCourse(c);
+                return true;
+            } 
+            cleanInputCourse(c);
         }
     }
     in.close();
-    return true;
+    return false;
 }
 
 //input data of course
@@ -1065,7 +1091,6 @@ void inputCourseData(schedule& c, char id[], int maxno, char className[]){
     c.lec = new lecture;
 
     cout << "Lecturer's username: ";
-    char a[200];
     cin.ignore(200, '\n');
     cin.get(a, 200, '\n');
     c.lec->account = new char[strlen(a) + 1];
@@ -1117,25 +1142,14 @@ void inputCourseData(schedule& c, char id[], int maxno, char className[]){
     strcpy(c.room, a);
 }
 
-//clean heap memory
-void cleanInputCourse(schedule& c){
-    delete[] c.courseID;
-    delete[] c.courseName;
-    delete[] c.Class;
-    delete[] c.lec->account;
-    delete[] c.lec->name;
-    delete c.lec;
-    delete[] c.dayofweek;
-    delete[] c.room;
-}
-
 //input data of course
 void inputCourse(schedule& c, char year[], char semester[], char className[], char fileAdd[]){
     system("cls");
     cout << "=== PLEASE INPUT SOME INFORMATION ===\n";
     char id[20];
     cout << "Course ID: ";
-    cin.get(id, 20, '\n');
+    cin.ignore(200, '\n');
+    cin.get(id, 20, '\n'); //ANCHOR
 
     //check if the course is existing
     int maxno;

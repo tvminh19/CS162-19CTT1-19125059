@@ -216,6 +216,7 @@ void Staff_course()
 
 	else if (strcmp(c, "3") == 0) {
 		//3.3
+		addANewCourse();
 	}
 
 	else if (strcmp(c, "4") == 0) {
