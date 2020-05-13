@@ -471,8 +471,9 @@ int menu(int& typeAcc, char id[]) {
 /*                        INPUT COURSE FROM A CSV FILE                        */
 /* -------------------------------------------------------------------------- */
 //check is exist class
-bool isExistClass(ifstream& in, char className[], char sem[], char year[]){
-    char fileAdd[500];
+bool isExistClass(char className[], char sem[], char year[]){
+    ifstream in;
+    char fileAdd[500] = {};
     strcat(fileAdd, "D:/Github/CS162-19CTT1-19125059/ZPMS/");
     strcat(fileAdd, year);
     strcat(fileAdd, "/");
@@ -494,9 +495,9 @@ bool isExistClass(ifstream& in, char className[], char sem[], char year[]){
             in.ignore(100, '\n');
             if (isSameStr(str, className)) return true;
         }
-        return false;
     }
     in.close();
+    return false;
 }
 
 //ask file address
@@ -705,6 +706,8 @@ void makeClassAdd(char year[], char semester[], char className[], char fileAdd[]
     strcat(fileAdd, semester);
     strcat(fileAdd, "/");
     strcat(fileAdd, className);
+    strcat(fileAdd, "/");
+    strcat(fileAdd, "schedule.txt");
 }
 
 //import file
@@ -822,7 +825,6 @@ void inputYSC(char year[], char semester[], char className[]){
         cout << "Please input year: ";
         cin.ignore(100, '\n');
         cin.get(year, 20, '\n');
-        cin.ignore(100, '\n');
     }
     if (!isExistYear(year)){
         system("cls");
@@ -877,9 +879,6 @@ void inputYSC(char year[], char semester[], char className[]){
     strcat(fileAdd1, "class.txt");
     in.open(fileAdd1);
 
-    cout << fileAdd1 << endl;
-    system("pause"); //TODO
-
     if (!in.is_open()){
         cout << "Error opening\n";
         return;
@@ -898,29 +897,26 @@ void inputYSC(char year[], char semester[], char className[]){
         cout << "Please input class: ";
         cin.ignore(20, '\n');
         cin.get(className, 20, '\n');
-        cin.ignore(20, '\n');
     }
-    if (!isExistClass(in, className, semester, year)){
+    if (!isExistClass(className, semester, year)){
         system("cls");
         cout << "Wrong!, Please enter again !\n";
         return inputYSC(year, semester, className);
     }
     in.close();
+    return;
 }
 
 //a part of input course
-void aPartOfinputCourse(ifstream& in, Node*& phead, Node*& pcur, char a[]){
-    //input year semester class
-    char year[20], semester[20], className[20];
+void aPartOfinputCourse(ifstream& in, Node*& phead, Node*& pcur, char year[], char semester[], char className[]){
     inputYSC(year, semester, className);
-
     //inport file
     importFile(phead, pcur);
 }
 
 //make file
 void outputSchedule(ofstream& out, Node* phead, char year[], char semester[], char className[]){
-    char fileAdd[500];
+    char fileAdd[500] = {};
     makeClassAdd(year, semester, className, fileAdd);
 
     out.open(fileAdd);
@@ -948,7 +944,7 @@ void outputSchedule(ofstream& out, Node* phead, char year[], char semester[], ch
         pcur = pcur->next;
     }
     out.close();
-}
+} 
 
 //input course
 void inputCourse(){
@@ -959,7 +955,7 @@ void inputCourse(){
     char className[10];
     char year[20];
     char semester[10];
-    aPartOfinputCourse(in, phead, pcur, className);
+    aPartOfinputCourse(in, phead, pcur, year, semester, className);
     outputSchedule(out, phead, year, semester, className);
     cleanScheduleNode(phead);
     introDone();
