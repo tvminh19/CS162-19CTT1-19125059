@@ -982,6 +982,7 @@ bool isExistCourse(char courseID[], char year[], char semester[], char className
     strcat(fileAdd, semester);
     strcat(fileAdd, "/");
     strcat(fileAdd, className);
+    strcat(fileAdd, "/Schedule.txt");
     in.open(fileAdd);
     if (!in.is_open()){
         cout << "error openning ata isExistCourse function\n";
@@ -1150,7 +1151,28 @@ void inputCourse(schedule& c, char year[], char semester[], char className[], ch
 }
 
 //update course data
-
+void updateCourseData(schedule c, char fileAdd[]){
+    ofstream out(fileAdd, ios::app);
+    out << "\n";
+    out << c.no << "\n";
+    out << c.courseID << "\n";
+    out << c.Class << "\n";
+    out << c.lec->account << "\n";
+    out << c.lec->name << "\n";
+    out << c.lec->gender << "\n";
+    out << c.Sdate.day << "\n";
+    out << c.Sdate.month << "\n";
+    out << c.Sdate.year << "\n";
+    out << c.Edate.day << "\n";
+    out << c.Edate.month << "\n";
+    out << c.Edate.year << "\n";
+    out << c.dayofweek << "\n";
+    out << c.Stime.hours << "\n";
+    out << c.Stime.mins << "\n";
+    out << c.Etime.hours << "\n";
+    out << c.Etime.mins << "\n";
+    out << c.room;
+}
 
 //add a new course
 void addANewCourse(){
@@ -1166,5 +1188,8 @@ void addANewCourse(){
     inputCourse(c, year, semester, className, fileAdd);
 
     //update the data of schedule.txt file
-    
+    updateCourseData(c, fileAdd);
+
+    //clean heap memory
+    cleanInputCourse(c);
 }

@@ -70,6 +70,9 @@ bool isSameStr(char a[], char b[]);
 //3.2 input course
 void inputCourse();
 
+//3.3 input a new course
+void addANewCourse();
+
 
 
 /* ------------------------------ Vu's funtions ----------------------------- */
