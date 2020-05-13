@@ -755,6 +755,7 @@ bool isExistSem(char year[], char sem[]){
     char fileAdd[500];
     strcat(fileAdd, "D:/Github/CS162-19CTT1-19125059/ZPMS/");
     strcat(fileAdd, year);
+    strcat(fileAdd, "/");
     strcat(fileAdd, "semester.txt");
     in.open(fileAdd);
     if (!in.is_open()){
@@ -799,6 +800,7 @@ bool isExistYear(char year[]){
 
 //input year - semester - year
 void inputYSC(char year[], char semester[], char className[]){
+    //year
     ifstream in;
     in.open("D:/Github/CS162-19CTT1-19125059/ZPMS/year.txt");
     if (!in.is_open()){
@@ -813,56 +815,60 @@ void inputYSC(char year[], char semester[], char className[]){
         in >> n;
         for (int i = 0; i < n; ++i){
             in.ignore(100, '\n');
-            in.get(a, 200, '\n');
+            in.get(a, 20, '\n');
             cout << "[" << i + 1 << "]. " << a << '\n';
         }
         cout << "==================\n";
         cout << "Please input year: ";
         cin.ignore(100, '\n');
-        cin.get(year, 200, '\n');
+        cin.get(year, 20, '\n');
         cin.ignore(100, '\n');
     }
     if (!isExistYear(year)){
         system("cls");
         cout << "Wrong!, Please enter again !\n";
-        return inputCourse();
+        return inputYSC(year, semester, className);
     }
     in.close();
 
-    char fileAdd[500];
+    //semester
+    char fileAdd[499] = {};
     strcat(fileAdd, "D:/Github/CS162-19CTT1-19125059/ZPMS/");
     strcat(fileAdd, year);
     strcat(fileAdd, "/");
-    strcat(fileAdd, "semesters.txt");
+    strcat(fileAdd, "semester.txt");
+
     in.open(fileAdd);
     if (!in.is_open()){
-        cout << "Error at inputYSC\n";
+        cout << "Error at input semester\n";
         return;
     }
     else{
         char a[20];
         system("cls");
+        cout << "==== LIST ====\n";
         int n;
         in >> n;
-        for (int i = 0; i < n; i++){
-            in.ignore(100, '\n');
-            in.get(a, 200, '\n');
+        in.ignore(20, '\n');
+        for (int i = 0; i < n; ++i){
+            in.get(a, 20, '\n');
+            in.ignore(20, '\n');
             cout << "[" << i + 1 << "]. " << a << '\n';
         }
         cout << "==================\n";
         cout << "Please input semester: ";
-        cin.ignore(100, '\n');
-        cin.get(semester, 200, '\n');
-        cin.ignore(100, '\n');
+        cin.ignore(10, '\n');
+        cin.get(semester, 10, '\n');
+        cout << "semester: " << semester << endl;
     }
     if (!isExistSem(year, semester)){
         system("cls");
         cout << "Wrong!, Please enter again !\n";
-        return inputCourse();
+        return inputYSC(year, semester, className);
     }
     in.close();
 
-    char fileAdd1[500];
+    char fileAdd1[500] = {};
     strcat(fileAdd1, "D:/Github/CS162-19CTT1-19125059/ZPMS/");
     strcat(fileAdd1, year);
     strcat(fileAdd1, "/");
@@ -870,6 +876,10 @@ void inputYSC(char year[], char semester[], char className[]){
     strcat(fileAdd1, "/");
     strcat(fileAdd1, "class.txt");
     in.open(fileAdd1);
+
+    cout << fileAdd1 << endl;
+    system("pause"); //TODO
+
     if (!in.is_open()){
         cout << "Error opening\n";
         return;
@@ -880,20 +890,20 @@ void inputYSC(char year[], char semester[], char className[]){
         int n;
         in >> n;
         for (int i = 0; i < n; i++){
-            in.ignore(100, '\n');
-            in.get(a, 200, '\n');
+            in.ignore(20, '\n');
+            in.get(a, 20, '\n');
             cout << "[" << i + 1 << "]. " << a << '\n';
         }
         cout << "==================\n";
-        cout << "Please input semester: ";
-        cin.ignore(100, '\n');
-        cin.get(className, 200, '\n');
-        cin.ignore(100, '\n');
+        cout << "Please input class: ";
+        cin.ignore(20, '\n');
+        cin.get(className, 20, '\n');
+        cin.ignore(20, '\n');
     }
     if (!isExistClass(in, className, semester, year)){
         system("cls");
         cout << "Wrong!, Please enter again !\n";
-        return inputCourse();
+        return inputYSC(year, semester, className);
     }
     in.close();
 }
