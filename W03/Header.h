@@ -4,6 +4,7 @@
 #include <fstream>
 #include <string.h>
 #include <string>
+#include <cstring>
 #include <conio.h>
 #include <cmath>
 #include <cstdlib>

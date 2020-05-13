@@ -1,6 +1,6 @@
 
 /* -------------------- this is Minh's file for functions ------------------- */
-#include "header.h"
+#include "Header.h"
 /* ---------------------------- string to number ---------------------------- */
 
 //intro Done
@@ -470,14 +470,6 @@ int menu(int& typeAcc, char id[]) {
 /* -------------------------------------------------------------------------- */
 /*                        INPUT COURSE FROM A CSV FILE                        */
 /* -------------------------------------------------------------------------- */
-
-//ask class
-void inputClassName(char a[]){
-    cin.ignore(100, '\n');
-    cout << "Please enter the name of class: ";
-    cin.get(a, 10, '\n');
-}
-
 //check is exist class
 bool isExistClass(ifstream& in, char className[], char sem[], char year[]){
     char fileAdd[500];
@@ -496,11 +488,11 @@ bool isExistClass(ifstream& in, char className[], char sem[], char year[]){
         int n;
         in >> n;
         char str[10];
-        
+        in.ignore(100, '\n');
         for (int i = 0; i < n; i++){
-            in.ignore(100, '\n');
             in.get(str, 10, '\n');
-            if (isSameStr(str, a)) return true;
+            in.ignore(100, '\n');
+            if (isSameStr(str, className)) return true;
         }
         return false;
     }
@@ -706,11 +698,13 @@ void getNodeSchedule(ifstream& in, Node*& phead, Node*& pcur){
 }
 
 //make address of class
-void makeClassAdd(char nameClass[], char str[]){
-    strcat(str, "D:/Github/CS162-19CTT1-19125059/W02/PMS/class/");
-    strcat(str, nameClass);
-    strcat(str, "/");
-    strcat(str, "Schedule.txt");
+void makeClassAdd(char year[], char semester[], char className[], char fileAdd[]){
+    strcat(fileAdd, "D:/Github/CS162-19CTT1-19125059/ZPMS/");
+    strcat(fileAdd, year);
+    strcat(fileAdd, "/");
+    strcat(fileAdd, semester);
+    strcat(fileAdd, "/");
+    strcat(fileAdd, className);
 }
 
 //import file
@@ -755,20 +749,30 @@ void cleanScheduleNode(Node*& phead){
     }
 }
 
-//input year 
-void inputYSC(char year[], char semester[], char className[]){
-    cin.ignore(100, '\n');
-    cout << "Please enter Year: ";
-    cin.get(year, 20, '\n');
-
-    cin.ignore(100, '\n');
-    cout << "Please enter semester: ";
-    cin.get(semester, 20, '\n');
-
-    cin.ignore(100, '\n');
-    cout << "Please enter Name of class: ";
-    cin.get(className, 20, '\n');
-    cin.ignore(100, '\n');
+//is exist semester
+bool isExistSem(char year[], char sem[]){
+    ifstream in; 
+    char fileAdd[500];
+    strcat(fileAdd, "D:/Github/CS162-19CTT1-19125059/ZPMS/");
+    strcat(fileAdd, year);
+    strcat(fileAdd, "semester.txt");
+    in.open(fileAdd);
+    if (!in.is_open()){
+        cout << "error at check semester function\n";
+        return false;
+    }
+    else{
+        int n;
+        in >> n;
+        char a[20];
+        in.ignore(200, '\n');
+        for (int i = 0; i < n; ++i){
+            in.get(a, 1000, '\n');
+            in.ignore(200, '\n');
+            if (isSameStr(a, sem))  return true;
+        }
+        return false;
+    }
 }
 
 //is exit year
@@ -777,53 +781,137 @@ bool isExistYear(char year[]){
     in.open("D:/Github/CS162-19CTT1-19125059/ZPMS/year.txt");
     if (!in.is_open()){
         cout << "Error opening year.txt\n";
-        return;
+        return false;
     }
     else{
         int n;
         in >> n;
         char a[50];
+        in.ignore(100, '\n');
         for (int i = 0; i < n; i++){
-            in.ignore(100, '\n');
             in.get(a, 20, '\n');
+            in.ignore(100, '\n');
             if (strcmp(a, year) != 0) return false;
         }
     }
     return true;
 }
 
-//a part of input course
-void aPartOfinputCourse(ifstream& in, Node*& phead, Node*& pcur, char a[]){
-    char year[20];
-    //input year
-    inputYear(year);
-
-    //check is exist year
-    if (!isExistYear(year)){
-        system("cls");
-        cout << "We can't find year !\n";
-        cout << "Please input Again: ";
-        return inputCourse();
-    }
-
-    //input from staff
-    inputClassName(a);
-    
-    //check
-    if (!isExistClass(in, a, year)){
-        system("cls");
-        cout << "Wrong Name, Please enter again !\n";
-        return inputCourse();
+//input year - semester - year
+void inputYSC(char year[], char semester[], char className[]){
+    ifstream in;
+    in.open("D:/Github/CS162-19CTT1-19125059/ZPMS/year.txt");
+    if (!in.is_open()){
+        cout << "Error at inputYSC\n";
+        return;
     }
     else{
-        importFile(phead, pcur);
+        system("cls");
+        cout << "==== LIST ====\n";
+        char a[20];
+        int n;
+        in >> n;
+        for (int i = 0; i < n; ++i){
+            in.ignore(100, '\n');
+            in.get(a, 200, '\n');
+            cout << "[" << i + 1 << "]. " << a << '\n';
+        }
+        cout << "==================\n";
+        cout << "Please input year: ";
+        cin.ignore(100, '\n');
+        cin.get(year, 200, '\n');
+        cin.ignore(100, '\n');
     }
+    if (!isExistYear(year)){
+        system("cls");
+        cout << "Wrong!, Please enter again !\n";
+        return inputCourse();
+    }
+    in.close();
+
+    char fileAdd[500];
+    strcat(fileAdd, "D:/Github/CS162-19CTT1-19125059/ZPMS/");
+    strcat(fileAdd, year);
+    strcat(fileAdd, "/");
+    strcat(fileAdd, "semesters.txt");
+    in.open(fileAdd);
+    if (!in.is_open()){
+        cout << "Error at inputYSC\n";
+        return;
+    }
+    else{
+        char a[20];
+        system("cls");
+        int n;
+        in >> n;
+        for (int i = 0; i < n; i++){
+            in.ignore(100, '\n');
+            in.get(a, 200, '\n');
+            cout << "[" << i + 1 << "]. " << a << '\n';
+        }
+        cout << "==================\n";
+        cout << "Please input semester: ";
+        cin.ignore(100, '\n');
+        cin.get(semester, 200, '\n');
+        cin.ignore(100, '\n');
+    }
+    if (!isExistSem(year, semester)){
+        system("cls");
+        cout << "Wrong!, Please enter again !\n";
+        return inputCourse();
+    }
+    in.close();
+
+    char fileAdd1[500];
+    strcat(fileAdd1, "D:/Github/CS162-19CTT1-19125059/ZPMS/");
+    strcat(fileAdd1, year);
+    strcat(fileAdd1, "/");
+    strcat(fileAdd1, semester);
+    strcat(fileAdd1, "/");
+    strcat(fileAdd1, "class.txt");
+    in.open(fileAdd1);
+    if (!in.is_open()){
+        cout << "Error opening\n";
+        return;
+    }
+    else{
+        char a[20];
+        system("cls");
+        int n;
+        in >> n;
+        for (int i = 0; i < n; i++){
+            in.ignore(100, '\n');
+            in.get(a, 200, '\n');
+            cout << "[" << i + 1 << "]. " << a << '\n';
+        }
+        cout << "==================\n";
+        cout << "Please input semester: ";
+        cin.ignore(100, '\n');
+        cin.get(className, 200, '\n');
+        cin.ignore(100, '\n');
+    }
+    if (!isExistClass(in, className, semester, year)){
+        system("cls");
+        cout << "Wrong!, Please enter again !\n";
+        return inputCourse();
+    }
+    in.close();
+}
+
+//a part of input course
+void aPartOfinputCourse(ifstream& in, Node*& phead, Node*& pcur, char a[]){
+    //input year semester class
+    char year[20], semester[20], className[20];
+    inputYSC(year, semester, className);
+
+    //inport file
+    importFile(phead, pcur);
 }
 
 //make file
-void outputSchedule(ofstream& out, Node* phead, char className[]){
+void outputSchedule(ofstream& out, Node* phead, char year[], char semester[], char className[]){
     char fileAdd[500];
-    makeClassAdd(className, fileAdd);
+    makeClassAdd(year, semester, className, fileAdd);
 
     out.open(fileAdd);
     Node* pcur = phead;
@@ -859,8 +947,10 @@ void inputCourse(){
     Node* phead = nullptr;
     Node* pcur = nullptr;
     char className[10];
+    char year[20];
+    char semester[10];
     aPartOfinputCourse(in, phead, pcur, className);
-    outputSchedule(out, phead, className);
+    outputSchedule(out, phead, year, semester, className);
     cleanScheduleNode(phead);
     introDone();
     return;
