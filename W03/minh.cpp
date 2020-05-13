@@ -1,8 +1,13 @@
 
 /* -------------------- this is Minh's file for functions ------------------- */
 #include "Header.h"
-/* ---------------------------- string to number ---------------------------- */
 
+//TODO
+/* -------------------------------------------------------------------------- */
+/*                                  1.1 LOGIN                                 */
+/* -------------------------------------------------------------------------- */
+
+/* ---------------------------- string to number ---------------------------- */
 //intro Done
 void introDone(){
     system("cls");
@@ -467,6 +472,7 @@ int menu(int& typeAcc, char id[]) {
     return 0;
 }
 
+//TODO
 /* -------------------------------------------------------------------------- */
 /*                        INPUT COURSE FROM A CSV FILE                        */
 /* -------------------------------------------------------------------------- */
@@ -960,4 +966,30 @@ void inputCourse(){
     cleanScheduleNode(phead);
     introDone();
     return;
+}
+
+//TODO
+/* -------------------------------------------------------------------------- */
+/*                            3.3 ADD A NEW COURSE                            */
+/* -------------------------------------------------------------------------- */
+
+
+//add a new course
+void addANewCourse(){
+    //create varriable
+
+
+
+
+    //input year semester class
+
+
+
+
+    //input data about the course
+
+
+
+
+    //update the data of schedule.txt file
 }
