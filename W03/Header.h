@@ -129,7 +129,21 @@ struct course{
 
 void Year_Semester();                   //3.1
 
+//W03
 
+struct Year {
+    char* years;
+    char* semesters;
+    Year* pNext;
+};
+
+void create_Year_Semester();
+bool exist_Year(Year*& pHead, int& n, char* year);
+void createNew_Year(Year*& pHead, int& n, char* year);
+void delete_Year(Year*& pHead);
+bool exist_Semester(Year*& pHead, int& n, char* semester, char* year);
+void createNew_Semester(Year*& pHead, int& n, char* semester, char* year);
+void delete_Semester(Year*& pHead);
 
 
 /* ----------------------------- Van's functions ---------------------------- */
@@ -182,6 +196,44 @@ bool changePassword(Student& stu);
 void deleteStudent(Student stu);
 void deleteStuNodes(StuNode*& pHead);
 
+
+bool loadStuFile(Student*& stuArr, int& n);
+void viewStuProf(Student* stuArr, int n, char ID[]);
+bool changeStuPassword(Student& stu);
+void saveStuFile(Student* stuArr, int n);
+
+staff loadStaff();
+bool loadStaFile(staff*& staArr, int& n);
+
+void displayStaff(const staff& sta);
+
+void viewStaProf(staff* staArr, int n, char ID[]);
+
+bool changeStaPassword(staff& sta);
+
+void saveStaff(const staff& sta);
+void saveStaFile(staff* staArr, int n);
+
+void deleteStaff(staff sta);
+
+
+lecture loadLecturer();
+bool loadLecFile(lecture*& lecArr, int& n);
+
+void displayLecturer(const lecture& lec);
+
+void viewLecProf(lecture* lecArr, int n, char ID[]);
+
+bool changeLecPassword(lecture& lec);
+
+void saveLecturer(const lecture& lec);
+void saveLecFile(lecture* lecArr, int n);
+
+void deleteLecturer(lecture lec);
+
+
+void viewProfile(int accType, char ID[]);
+void changePassword(int accType, char ID[]);
 
 
 
