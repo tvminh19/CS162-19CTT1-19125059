@@ -3,3 +3,5 @@ Debug
 a.exe
 header.h.gch
 .vscode
+functiontest.cpp
+maintest.cpp

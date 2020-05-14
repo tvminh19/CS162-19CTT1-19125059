@@ -1,8 +1,13 @@
 
 /* -------------------- this is Minh's file for functions ------------------- */
-#include "header.h"
-/* ---------------------------- string to number ---------------------------- */
+#include "Header.h"
 
+//TODO
+/* -------------------------------------------------------------------------- */
+/*                                  1.1 LOGIN                                 */
+/* -------------------------------------------------------------------------- */
+
+/* ---------------------------- string to number ---------------------------- */
 //intro Done
 void introDone(){
     system("cls");
@@ -467,20 +472,21 @@ int menu(int& typeAcc, char id[]) {
     return 0;
 }
 
+//TODO
 /* -------------------------------------------------------------------------- */
 /*                        INPUT COURSE FROM A CSV FILE                        */
 /* -------------------------------------------------------------------------- */
-
-//ask class
-void inputClassName(char a[]){
-    cin.ignore(100, '\n');
-    cout << "Please enter the name of class: ";
-    cin.get(a, 10, '\n');
-}
-
 //check is exist class
-bool isExistClass(ifstream& in, char a[]){
-    in.open("D:/Github/CS162-19CTT1-19125059/W02/PMS/Class.txt");
+bool isExistClass(char className[], char sem[], char year[]){
+    ifstream in;
+    char fileAdd[500] = {};
+    strcat(fileAdd, "D:/Github/CS162-19CTT1-19125059/ZPMS/");
+    strcat(fileAdd, year);
+    strcat(fileAdd, "/");
+    strcat(fileAdd, sem);
+    strcat(fileAdd, "/");
+    strcat(fileAdd, "class.txt");
+    in.open(fileAdd);
     if (!in.is_open()){
         cout << "Error at checkClassExist function.\n";
         return false;
@@ -489,15 +495,15 @@ bool isExistClass(ifstream& in, char a[]){
         int n;
         in >> n;
         char str[10];
-        
+        in.ignore(100, '\n');
         for (int i = 0; i < n; i++){
-            in.ignore(100, '\n');
             in.get(str, 10, '\n');
-            if (isSameStr(str, a)) return true;
+            in.ignore(100, '\n');
+            if (isSameStr(str, className)) return true;
         }
-        return false;
     }
     in.close();
+    return false;
 }
 
 //ask file address
@@ -510,9 +516,10 @@ void inputFileAddress(char a[]){
 //getNo
 void getNo(ifstream& in, Node*& p, char a[]){
     p->schedule = new schedule;
-    in.get(a, 200, ',');
-    p->schedule->no = ston(a);
-    //cout << p->schedule->no << "\n";
+    //in.get(a, 200, ',');
+    in >> p->schedule->no;
+    // cout << p->schedule->no << "\n";
+    // system("pause");
 }
 
 //get Course ID
@@ -699,11 +706,15 @@ void getNodeSchedule(ifstream& in, Node*& phead, Node*& pcur){
 }
 
 //make address of class
-void makeClassAdd(char nameClass[], char str[]){
-    strcat(str, "D:/Github/CS162-19CTT1-19125059/W02/PMS/class/");
-    strcat(str, nameClass);
-    strcat(str, "/");
-    strcat(str, "Schedule.txt");
+void makeClassAdd(char year[], char semester[], char className[], char fileAdd[]){
+    strcat(fileAdd, "D:/Github/CS162-19CTT1-19125059/ZPMS/");
+    strcat(fileAdd, year);
+    strcat(fileAdd, "/");
+    strcat(fileAdd, semester);
+    strcat(fileAdd, "/");
+    strcat(fileAdd, className);
+    strcat(fileAdd, "/");
+    strcat(fileAdd, "Schedule.txt");
 }
 
 //import file
@@ -748,31 +759,172 @@ void cleanScheduleNode(Node*& phead){
     }
 }
 
-void isExistYear(ifstream& in, char year[]){
+//is exist semester
+bool isExistSem(char year[], char sem[]){
+    ifstream in; 
+    char fileAdd[500];
+    strcat(fileAdd, "D:/Github/CS162-19CTT1-19125059/ZPMS/");
+    strcat(fileAdd, year);
+    strcat(fileAdd, "/");
+    strcat(fileAdd, "semester.txt");
+    in.open(fileAdd);
+    if (!in.is_open()){
+        cout << "error at check semester function\n";
+        return false;
+    }
+    else{
+        int n;
+        in >> n;
+        char a[20];
+        in.ignore(200, '\n');
+        for (int i = 0; i < n; ++i){
+            in.get(a, 1000, '\n');
+            in.ignore(200, '\n');
+            if (isSameStr(a, sem))  return true;
+        }
+        return false;
+    }
+}
 
+//is exit year
+bool isExistYear(char year[]){
+    ifstream in;
+    in.open("D:/Github/CS162-19CTT1-19125059/ZPMS/year.txt");
+    if (!in.is_open()){
+        cout << "Error opening year.txt\n";
+        return false;
+    }
+    else{
+        int n;
+        in >> n;
+        char a[50];
+        in.ignore(100, '\n');
+        for (int i = 0; i < n; i++){
+            in.get(a, 20, '\n');
+            in.ignore(100, '\n');
+            if (strcmp(a, year) != 0) return false;
+        }
+    }
+    return true;
+}
+
+//input year - semester - year
+void inputYSC(char year[], char semester[], char className[]){
+    //year
+    ifstream in;
+    in.open("D:/Github/CS162-19CTT1-19125059/ZPMS/year.txt");
+    if (!in.is_open()){
+        cout << "Error at inputYSC\n";
+        return;
+    }
+    else{
+        system("cls");
+        cout << "==== LIST ====\n";
+        char a[20];
+        int n;
+        in >> n;
+        for (int i = 0; i < n; ++i){
+            in.ignore(100, '\n');
+            in.get(a, 20, '\n');
+            cout << "[" << i + 1 << "]. " << a << '\n';
+        }
+        cout << "==================\n";
+        cout << "Please input year: ";
+        cin.ignore(100, '\n');
+        cin.get(year, 20, '\n');
+    }
+    if (!isExistYear(year)){
+        system("cls");
+        cout << "Wrong!, Please enter again !\n";
+        return inputYSC(year, semester, className);
+    }
+    in.close();
+
+    //semester
+    char fileAdd[499] = {};
+    strcat(fileAdd, "D:/Github/CS162-19CTT1-19125059/ZPMS/");
+    strcat(fileAdd, year);
+    strcat(fileAdd, "/");
+    strcat(fileAdd, "semester.txt");
+
+    in.open(fileAdd);
+    if (!in.is_open()){
+        cout << "Error at input semester\n";
+        return;
+    }
+    else{
+        char a[20];
+        system("cls");
+        cout << "==== LIST ====\n";
+        int n;
+        in >> n;
+        in.ignore(20, '\n');
+        for (int i = 0; i < n; ++i){
+            in.get(a, 20, '\n');
+            in.ignore(20, '\n');
+            cout << "[" << i + 1 << "]. " << a << '\n';
+        }
+        cout << "==================\n";
+        cout << "Please input semester: ";
+        cin.ignore(10, '\n');
+        cin.get(semester, 10, '\n');
+        cout << "semester: " << semester << endl;
+    }
+    if (!isExistSem(year, semester)){
+        system("cls");
+        cout << "Wrong!, Please enter again !\n";
+        return inputYSC(year, semester, className);
+    }
+    in.close();
+
+    char fileAdd1[500] = {};
+    strcat(fileAdd1, "D:/Github/CS162-19CTT1-19125059/ZPMS/");
+    strcat(fileAdd1, year);
+    strcat(fileAdd1, "/");
+    strcat(fileAdd1, semester);
+    strcat(fileAdd1, "/");
+    strcat(fileAdd1, "class.txt");
+    in.open(fileAdd1);
+
+    if (!in.is_open()){
+        cout << "Error opening\n";
+        return;
+    }
+    else{
+        char a[20];
+        system("cls");
+        int n;
+        in >> n;
+        for (int i = 0; i < n; i++){
+            in.ignore(20, '\n');
+            in.get(a, 20, '\n');
+            cout << "[" << i + 1 << "]. " << a << '\n';
+        }
+        cout << "==================\n";
+        cout << "Please input class: ";
+        cin.ignore(20, '\n');
+        cin.get(className, 20, '\n');
+    }
+    if (!isExistClass(className, semester, year)){
+        system("cls");
+        cout << "Wrong!, Please enter again !\n";
+        return inputYSC(year, semester, className);
+    }
+    in.close();
+    return;
 }
 
 //a part of input course
-void aPartOfinputCourse(ifstream& in, Node*& phead, Node*& pcur, char a[]){
-
-    //input from staff
-    inputClassName(a);
-    
-    //check
-    if (!isExistClass(in, a)){
-        system("cls");
-        cout << "Wrong Name, Please enter again !\n";
-        return inputCourse();
-    }
-    else{
-        importFile(phead, pcur);
-    }
+void aPartOfinputCourse(ifstream& in, Node*& phead, Node*& pcur, char year[], char semester[], char className[]){
+    inputYSC(year, semester, className);
+    //inport file
+    importFile(phead, pcur);
 }
 
 //make file
-void outputSchedule(ofstream& out, Node* phead, char className[]){
-    char fileAdd[500];
-    makeClassAdd(className, fileAdd);
+void outputSchedule(ofstream& out, Node* phead, char year[], char semester[], char className[]){
+    char fileAdd[500] = {};
+    makeClassAdd(year, semester, className, fileAdd);
 
     out.open(fileAdd);
     Node* pcur = phead;
@@ -795,11 +947,11 @@ void outputSchedule(ofstream& out, Node* phead, char className[]){
         out << pcur->schedule->Stime.mins << "\n";
         out << pcur->schedule->Etime.hours << "\n";
         out << pcur->schedule->Etime.mins << "\n";
-        out << pcur->schedule->room;
+        out << pcur->schedule->room << "\n";
         pcur = pcur->next;
     }
     out.close();
-}
+} 
 
 //input course
 void inputCourse(){
@@ -808,9 +960,206 @@ void inputCourse(){
     Node* phead = nullptr;
     Node* pcur = nullptr;
     char className[10];
-    aPartOfinputCourse(in, phead, pcur, className);
-    outputSchedule(out, phead, className);
+    char year[20];
+    char semester[10];
+    aPartOfinputCourse(in, phead, pcur, year, semester, className);
+    outputSchedule(out, phead, year, semester, className);
     cleanScheduleNode(phead);
     introDone();
     return;
 }
+
+//TODO
+/* -------------------------------------------------------------------------- */
+/*                            3.3 ADD A NEW COURSE                            */
+/* -------------------------------------------------------------------------- */
+
+
+//clean heap memory
+void cleanInputCourse(schedule& c){
+    delete[] c.courseID;
+    delete[] c.courseName;
+    delete[] c.Class;
+    delete[] c.lec->account;
+    delete[] c.lec->name;
+    delete c.lec;
+    delete[] c.dayofweek;
+    delete[] c.room;
+}
+
+//check if the course is exiting ?
+bool isExistCourse(char courseID[], char year[], char semester[], char className[], char fileAdd[], int& maxno){
+    ifstream in;
+    char a[200];
+    strcat(a, "D:/Github/CS162-19CTT1-19125059/ZPMS/");
+    strcat(a, year);
+    strcat(a, "/");
+    strcat(a, semester);
+    strcat(a, "/");
+    strcat(a, className);
+    strcat(a, "/Schedule.txt");
+    strcpy(fileAdd, a);
+    in.open(fileAdd);
+    maxno = countLine(in, 19);
+    in.close();
+    in.open(fileAdd);
+    if (!in.is_open()){
+        cout << "error openning at isExistCourse function\n";
+        exit(0);
+    }
+    else{
+        char a[200];
+        while (!in.eof()){
+            in.get(a, 200, '\n');
+            in.ignore(200, '\n');
+            if (isSameStr(a, courseID)){
+                in.close();
+                return true;
+            }
+        }
+    }
+    in.close();
+    return false;
+}
+
+//input data of course
+void inputCourseData(schedule& c, char id[], int maxno, char className[]){
+    char a[200];
+    c.no = maxno + 1;
+    
+    c.courseID = new char[strlen(id) + 1];
+    strcpy(c.courseID, id);
+    
+    //cin.ignore(100, '\n');
+    cout << "Course Name: ";
+    cin.get(a, 200, '\n');
+    c.courseName = new char[strlen(a) + 1];
+    strcpy(c.courseName, a);
+
+    c.Class = new char[strlen(className) + 1];
+    strcpy(c.Class, className);
+
+    c.lec = new lecture;
+
+    cout << "Lecturer's username: ";
+    cin.ignore(200, '\n');
+    cin.get(a, 200, '\n');
+    c.lec->account = new char[strlen(a) + 1];
+    strcpy(c.lec->account, a);
+
+    cout << "Lecturer's Name: ";
+    cin.ignore(200, '\n');
+    cin.get(a, 200, '\n');
+    c.lec->name = new char[strlen(a) + 1];
+    strcpy(c.lec->name, a);
+
+    cout << "Gender: (1/0)";
+    cin >> c.lec->gender;
+
+    cout << "Start day: ";
+    cin >> c.Sdate.day;
+    cout << "Start month: ";
+    cin >> c.Sdate.month;
+    cout << "Start year: ";
+    cin  >> c.Sdate.year;
+
+    cout << "End day: ";
+    cin >> c.Edate.day;
+    cout << "End month: ";
+    cin >> c.Edate.month;
+    cout << "End year: ";
+    cin >> c.Edate.year;
+
+    cout << "Day of week: ";
+    cin.ignore(200, '\n');
+    cin.get(a, 200, '\n');
+    c.dayofweek = new char[strlen(a) + 1];
+    strcpy(c.dayofweek, a);
+
+    cout << "start hour: ";
+    cin >> c.Stime.hours;
+    cout << "start minute: ";
+    cin >> c.Stime.mins;
+
+    cout << "End hour: ";
+    cin >> c.Etime.hours;
+    cout << "End minute: ";
+    cin >> c.Etime.mins;
+
+    cout << "Room: ";
+    cin.ignore(200, '\n');
+    cin.get(a, 200, '\n');
+    c.room = new char[strlen(a) + 1];
+    strcpy(c.room, a);
+}
+
+//input data of course
+void inputCourse(schedule& c, char year[], char semester[], char className[], char fileAdd[]){
+    system("cls");
+    cout << "=== PLEASE INPUT SOME INFORMATION ===\n";
+    char id[20];
+    cout << "Course ID: ";
+    cin.ignore(200, '\n');
+    cin.get(id, 20, '\n');
+
+    //check if the course is existing
+    int maxno;
+    if (isExistCourse(id, year, semester, className, fileAdd, maxno)){
+        system("cls");
+        cout << "The course has already create please try again\n";
+        system("pause");
+        inputCourse(c, year, semester, className, fileAdd);
+    }
+    else{
+        cin.ignore(100, '\n');
+        inputCourseData(c, id, maxno, className);
+    }
+}
+
+//update course data
+void updateCourseData(schedule c, char fileAdd[]){
+    ofstream out(fileAdd, ios::app);
+    out << c.no << "\n";
+    out << c.courseID << "\n";
+    out << c.Class << "\n";
+    out << c.lec->account << "\n";
+    out << c.lec->name << "\n";
+    out << c.lec->gender << "\n";
+    out << c.Sdate.day << "\n";
+    out << c.Sdate.month << "\n";
+    out << c.Sdate.year << "\n";
+    out << c.Edate.day << "\n";
+    out << c.Edate.month << "\n";
+    out << c.Edate.year << "\n";
+    out << c.dayofweek << "\n";
+    out << c.Stime.hours << "\n";
+    out << c.Stime.mins << "\n";
+    out << c.Etime.hours << "\n";
+    out << c.Etime.mins << "\n";
+    out << c.room << "\n";
+}
+
+//add a new course
+void addANewCourse(){
+    //create varriable
+    char year[20], semester[20], className[20];
+    char fileAdd[500];
+    schedule c;
+
+    //input year semester class
+    inputYSC(year, semester, className);
+
+    //input data about the course
+    inputCourse(c, year, semester, className, fileAdd);
+
+    //update the data of schedule.txt file
+    updateCourseData(c, fileAdd);
+
+    //clean heap memory
+    cleanInputCourse(c);
+}
+
+//TODO
+/* -------------------------------------------------------------------------- */
+/*                                edit a course                               */
+/* -------------------------------------------------------------------------- */
