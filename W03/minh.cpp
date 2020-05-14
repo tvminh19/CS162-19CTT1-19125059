@@ -132,7 +132,7 @@ void removeLogin(student*& stu, lecture*& lec, staff*& sta, int n1, int n2, int 
 
 /* -------------------------------- load file ------------------------------- */
 void loadStaffFile(ifstream& in, staff*& sta, int& n3){
-    in.open("D:\\Github\\CS162-19CTT1-19125059\\W02\\PMS\\menu\\Staff.txt");
+    in.open("D:\\Github\\CS162-19CTT1-19125059\\ZPMS\\menu\\Staff.txt");
     if (!in.is_open()){
         cout << "error at line 107 of minh.cpp.\n";
         return;
@@ -169,7 +169,7 @@ void loadStaffFile(ifstream& in, staff*& sta, int& n3){
 }
 
 void loadLectureFile(ifstream& in, lecture*& lec, int& n2){
-    in.open("D:\\Github\\CS162-19CTT1-19125059\\W02\\PMS\\menu\\Lecturer.txt");
+    in.open("D:\\Github\\CS162-19CTT1-19125059\\ZPMS\\menu\\Lecturer.txt");
     if (!in.is_open()){
         cout << "error at line 111 of minh.cpp.\n";
         return;
@@ -212,7 +212,7 @@ void loadLectureFile(ifstream& in, lecture*& lec, int& n2){
 }
 
 void loadStudentFile(ifstream& in, student*& stu, int& n1){
-    in.open("D:\\Github\\CS162-19CTT1-19125059\\W02\\PMS\\menu\\Student.txt");
+    in.open("D:\\Github\\CS162-19CTT1-19125059\\ZPMS\\menu\\Student.txt");
     if (!in.is_open()){
         cout << "error at line 154 of minh.cpp.\n";
         return;

@@ -253,8 +253,8 @@ void Staff_course()
 
 	else {
 		notCorrect();
-		Staff_course();
 	}
+	Staff_course();
 	delete[] c;
 }
 
@@ -494,6 +494,7 @@ bool exist_Year(Year*& pHead, int& n, char* year)
 	fin >> n;
 	int m = n;
 	if (m == 0) {
+		fin.close();
 		return false;
 	}
 	else {
@@ -521,6 +522,7 @@ bool exist_Year(Year*& pHead, int& n, char* year)
 			}
 			m--;
 		}
+		fin.close();
 		cur = pHead;
 		while (cur != nullptr) {
 			if (strcmp(cur->years, year) == 0)
@@ -529,8 +531,6 @@ bool exist_Year(Year*& pHead, int& n, char* year)
 		}
 		return false;
 	}
-
-	fin.close();
 }
 
 void createNew_Year(Year*& pHead, int& n, char* year)
@@ -608,6 +608,7 @@ bool exist_Semester(Year*& pHead, int& n, char* semester, char* year)
 	fin >> n;
 	int m = n;
 	if (m == 0) {
+		fin.close();
 		return false;
 	}
 	else {
@@ -635,6 +636,8 @@ bool exist_Semester(Year*& pHead, int& n, char* semester, char* year)
 			}
 			m--;
 		}
+		//delete[] tmpSemester;
+		fin.close();
 		cur = pHead;
 		while (cur != nullptr) {
 			if (strcmp(cur->semesters, semester) == 0)
@@ -643,9 +646,6 @@ bool exist_Semester(Year*& pHead, int& n, char* semester, char* year)
 		}
 		return false;
 	}
-
-	//delete[] tmpSemester;
-	fin.close();
 }
 
 void createNew_Semester(Year*& pHead, int& n, char* semester, char* year)
