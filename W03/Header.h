@@ -129,7 +129,21 @@ struct course{
 
 void Year_Semester();                   //3.1
 
+//W03
 
+struct Year {
+    char* years;
+    char* semesters;
+    Year* pNext;
+};
+
+void create_Year_Semester();
+bool exist_Year(Year*& pHead, int& n, char* year);
+void createNew_Year(Year*& pHead, int& n, char* year);
+void delete_Year(Year*& pHead);
+bool exist_Semester(Year*& pHead, int& n, char* semester, char* year);
+void createNew_Semester(Year*& pHead, int& n, char* semester, char* year);
+void delete_Semester(Year*& pHead);
 
 
 /* ----------------------------- Van's functions ---------------------------- */
