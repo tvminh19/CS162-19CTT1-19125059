@@ -16,7 +16,8 @@ Mon
 30
 9
 30
-I412
+I41
+2
 CM101
 Communication Management
 19CTT1
@@ -34,7 +35,8 @@ Sat
 30
 17
 0
-HT13
+HT1
+3
 PH212
 Physics
 19CTT1
@@ -52,7 +54,8 @@ Wed
 30
 15
 30
-I244
+I24
+4
 MTH252
 Calculus II
 19CTT1
@@ -70,7 +73,8 @@ Tue
 30
 11
 0
-I415
+I41
+5
 BAA00004
 Introduction to Laws
 19CTT1
@@ -88,7 +92,8 @@ Mon
 30
 16
 30
-C226
+C22
+6
 BAA00101
 Marxism and Leninism
 19CTT1
