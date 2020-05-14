@@ -414,12 +414,12 @@ void displayAllroles(int typeAccount)
 
 	//View profile info
 	else if (strcmp(c, "2") == 0) {
-		//1.3
+		viewProfile(typeAccount, ID);
 	}
 
 	//Change password
 	else if (strcmp(c, "3") == 0) {
-		//1.4
+		changePassword(typeAccount, ID);
 	}
 
 	//Logout
