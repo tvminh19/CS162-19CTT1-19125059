@@ -378,7 +378,7 @@ void deleteStuNodes(StuNode*& pHead)
 
 bool loadStuFile(Student*& stuArr, int& n)
 {
-	fi.open("Student.txt");
+	fi.open("D:/Github/CS162-19CTT1-19125059/ZPMS/menu/Student.txt");
 	if (fi.is_open())
 	{
 		fi >> n;
@@ -465,7 +465,7 @@ staff loadStaff()
 
 bool loadStaFile(staff*& staArr, int& n)
 {
-	fi.open("Staff.txt");
+	fi.open("D:/Github/CS162-19CTT1-19125059/ZPMS/menu/Staff.txt");
 	if (fi.is_open())
 	{
 		fi >> n;
@@ -594,7 +594,7 @@ void displayLecturer(const lecture& lec)
 
 bool loadLecFile(lecture*& lecArr, int& n)
 {
-	fi.open("Lecturer.txt");
+	fi.open("D:/Github/CS162-19CTT1-19125059/ZPMS/menu/Lecturer.txt");
 	if (fi.is_open())
 	{
 		fi >> n;
