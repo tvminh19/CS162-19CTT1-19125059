@@ -485,7 +485,7 @@ bool isExistClass(char className[], char sem[], char year[]){
     strcat(fileAdd, "/");
     strcat(fileAdd, sem);
     strcat(fileAdd, "/");
-    strcat(fileAdd, "class.txt");
+    strcat(fileAdd, "Class.txt");
     in.open(fileAdd);
     if (!in.is_open()){
         cout << "Error at checkClassExist function.\n";
@@ -789,9 +789,9 @@ bool isExistSem(char year[], char sem[]){
 //is exit year
 bool isExistYear(char year[]){
     ifstream in;
-    in.open("D:/Github/CS162-19CTT1-19125059/ZPMS/year.txt");
+    in.open("D:/Github/CS162-19CTT1-19125059/ZPMS/Year.txt");
     if (!in.is_open()){
-        cout << "Error opening year.txt\n";
+        cout << "Error opening Year.txt\n";
         return false;
     }
     else{
@@ -812,7 +812,7 @@ bool isExistYear(char year[]){
 void inputYSC(char year[], char semester[], char className[]){
     //year
     ifstream in;
-    in.open("D:/Github/CS162-19CTT1-19125059/ZPMS/year.txt");
+    in.open("D:/Github/CS162-19CTT1-19125059/ZPMS/Year.txt");
     if (!in.is_open()){
         cout << "Error at inputYSC\n";
         return;
@@ -883,7 +883,7 @@ void inputYSC(char year[], char semester[], char className[]){
     strcat(fileAdd1, "/");
     strcat(fileAdd1, semester);
     strcat(fileAdd1, "/");
-    strcat(fileAdd1, "class.txt");
+    strcat(fileAdd1, "Class.txt");
     in.open(fileAdd1);
 
     if (!in.is_open()){
