@@ -18,11 +18,11 @@ void menuStudent()
 	system("cls");
 	string s;
 	cout << "--------------- MENU ---------------" << endl;
-	cout << "0. Back" << endl;
-	cout << "1. Check-in." << endl;
-	cout << "2. View check-in result." << endl;
-	cout << "3. View schedule." << endl;
-	cout << "4. View your scores of a coure." << endl << endl;
+	cout << "[0]. Back" << endl;
+	cout << "[1]. Check-in." << endl;
+	cout << "[2]. View check-in result." << endl;
+	cout << "[3]. View schedule." << endl;
+	cout << "[4]. View your scores of a coure." << endl << endl;
 	cout << "Input your choice (0-4) > ";
 	cin >> s;
 	char* c = new char[s.length() + 1];
@@ -63,14 +63,14 @@ void menuLecturer()
 	string s;
 
 	cout << "----------------------- MENU -----------------------" << endl;
-	cout << "0. Back" << endl;
-	cout << "1. View list of courses in the current semester." << endl;
-	cout << "2. View list of students of a course." << endl;
-	cout << "3. View attendance list of a course." << endl;
-	cout << "4. Edit an attendance." << endl;
-	cout << "5. Import scoreboard of a course from a csv file." << endl;
-	cout << "6. Edit grade of a student." << endl;
-	cout << "7. View a scoreboard." << endl << endl;
+	cout << "[0]. Back" << endl;
+	cout << "[1]. View list of courses in the current semester." << endl;
+	cout << "[2]. View list of students of a course." << endl;
+	cout << "[3]. View attendance list of a course." << endl;
+	cout << "[4]. Edit an attendance." << endl;
+	cout << "[5]. Import scoreboard of a course from a csv file." << endl;
+	cout << "[6]. Edit grade of a student." << endl;
+	cout << "[7]. View a scoreboard." << endl << endl;
 	cout << "Input your choice (0-7) > ";
 	cin >> s;
 	char* c = new char[s.length() + 1];
@@ -125,14 +125,14 @@ void Staff_class()
 	string s;
 
 	cout << "------------- Academic Staff-class -------------" << endl;
-	cout << "0. Back" << endl;
-	cout << "1. Import students of a class from a csv file." << endl;
-	cout << "2. Manually add a new student to a class." << endl;
-	cout << "3. Edit an existing student." << endl;
-	cout << "4. Remove a student." << endl;
-	cout << "5. Change students from class A to class B." << endl;
-	cout << "6. View list of classes." << endl;
-	cout << "7. View list of students in a class." << endl << endl;
+	cout << "[0]. Back" << endl;
+	cout << "[1]. Import students of a class from a csv file." << endl;
+	cout << "[2]. Manually add a new student to a class." << endl;
+	cout << "[3]. Edit an existing student." << endl;
+	cout << "[4]. Remove a student." << endl;
+	cout << "[5]. Change students from class A to class B." << endl;
+	cout << "[6]. View list of classes." << endl;
+	cout << "[7]. View list of students in a class." << endl << endl;
 	cout << "Input your choice (0-7) > ";
 	cin >> s;
 	char* c = new char[s.length() + 1];
@@ -183,19 +183,19 @@ void Staff_course()
 	system("cls");
 	string s;
 
-	cout << "---------------------------- Academic Staff-course ----------------------------" << endl;
-	cout << "0. Back" << endl;
-	cout << "1. Create / Update / Delete / view academic years (2019-2020) and semesters." << endl;
-	cout << "2. From a semester, import courses from a csv file." << endl;
-	cout << "3. Manually add a new course." << endl;
-	cout << "4. Edit an existing course." << endl;
-	cout << "5. Remove a course." << endl;
-	cout << "6. Remove a specific student from a course." << endl;
-	cout << "7. Add a specific student to a course." << endl;
-	cout << "8. View list of courses in the current semester." << endl;
-	cout << "9. View list of students of a course." << endl;
-	cout << "10. View attendance list of a course." << endl;
-	cout << "11. View all lecturers." << endl << endl;
+	cout << "------------------------------ Academic Staff-course ------------------------------" << endl;
+	cout << "[0].  Back" << endl;
+	cout << "[1].  Create / Update / Delete / view academic years (2019-2020) and semesters." << endl;
+	cout << "[2].  From a semester, import courses from a csv file." << endl;
+	cout << "[3].  Manually add a new course." << endl;
+	cout << "[4].  Edit an existing course." << endl;
+	cout << "[5].  Remove a course." << endl;
+	cout << "[6].  Remove a specific student from a course." << endl;
+	cout << "[7].  Add a specific student to a course." << endl;
+	cout << "[8].  View list of courses in the current semester." << endl;
+	cout << "[9].  View list of students of a course." << endl;
+	cout << "[10]. View attendance list of a course." << endl;
+	cout << "[11]. View all lecturers." << endl << endl;
 	cout << "Input your choice (0-11) > ";
 	cin >> s;
 	char* c = new char[s.length() + 1];
@@ -266,9 +266,9 @@ void Staff_scoreboard()
 	string s;
 
 	cout << "---------- Academic Staff-scoreboard ----------" << endl;
-	cout << "0. Back" << endl;
-	cout << "1. Search and view the scoreboard of a course" << endl;
-	cout << "2. Export a scoreboard to a csv file" << endl << endl;
+	cout << "[0]. Back" << endl;
+	cout << "[1]. Search and view the scoreboard of a course" << endl;
+	cout << "[2]. Export a scoreboard to a csv file" << endl << endl;
 	cout << "Input your choice (0-2) > ";
 	cin >> s;
 	char* c = new char[s.length() + 1];
@@ -300,9 +300,9 @@ void Staff_attendanceList()
 	string s;
 
 	cout << "---------- Academic Staff-attendance list ----------" << endl;
-	cout << "0. Back" << endl;
-	cout << "1. Search and view attendance list of a course." << endl;
-	cout << "2. Export a attendance list to a csv file." << endl;
+	cout << "[0]. Back" << endl;
+	cout << "[1]. Search and view attendance list of a course." << endl;
+	cout << "[2]. Export a attendance list to a csv file." << endl;
 	cout << "Input your choice (0-2) > ";
 	cin >> s;
 	char* c = new char[s.length() + 1];
@@ -334,11 +334,11 @@ void menuStaffRole()
 	string s;
 
 	cout << "--------------- MENU ---------------" << endl;
-	cout << "0. Back" << endl;
-	cout << "1. Academic staff-Class." << endl;
-	cout << "2. Academic staff-Course." << endl;
-	cout << "3. Academic staff-Scoreboard." << endl;
-	cout << "4. Academic staff-Attendance list." << endl << endl;
+	cout << "[0]. Back" << endl;
+	cout << "[1]. Academic staff-Class." << endl;
+	cout << "[2]. Academic staff-Course." << endl;
+	cout << "[3]. Academic staff-Scoreboard." << endl;
+	cout << "[4]. Academic staff-Attendance list." << endl << endl;
 	cout << "Input your choice (0-4) > ";
 	cin >> s;
 	char* c = new char[s.length() + 1];
@@ -400,10 +400,10 @@ void displayAllroles(int typeAccount, char ID[])
 
 	//All roles
 	cout << "======== MENU ========" << endl;
-	cout << "1. Show menu" << endl;
-	cout << "2. View profile info" << endl;
-	cout << "3. Change password" << endl;
-	cout << "4. Logout" << endl << endl;
+	cout << "[1]. Show menu" << endl;
+	cout << "[2]. View profile info" << endl;
+	cout << "[3]. Change password" << endl;
+	cout << "[4]. Logout" << endl << endl;
 	cout << "Input your choice (1-4) > ";
 	cin >> s;
 	char* c = new char[s.length() + 1];
@@ -451,11 +451,10 @@ void Year_Semester()
 	string s;
 
 	cout << "-------------------- MENU --------------------" << endl;
-	cout << "0. Back" << endl;
-	cout << "1. Create an academic year and semesters" << endl;
-	cout << "2. Update an academic year and semesters" << endl;
-	cout << "3. Delete an academic year and semesters" << endl;
-	cout << "4. View an academic year and semesters" << endl << endl;
+	cout << "[0]. Back" << endl;
+	cout << "[1]. Create an academic year and semesters" << endl;
+	cout << "[2]. Delete an academic year and semesters" << endl;
+	cout << "[3]. View an academic year and semesters" << endl << endl;
 	cout << "Input your choice (0-4) > ";
 	cin >> s;
 	char* c = new char[s.length() + 1];
@@ -473,14 +472,10 @@ void Year_Semester()
 	}
 
 	else if (strcmp(c, "2") == 0) {
-		//Update
-	}
-
-	else if (strcmp(c, "3") == 0) {
 		//Delete
 	}
 
-	else if (strcmp(c, "4") == 0) {
+	else if (strcmp(c, "3") == 0) {
 		//View
 	}
 
