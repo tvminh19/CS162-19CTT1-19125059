@@ -79,15 +79,15 @@ void addANewCourse();
 //W01
 
 void notCorrect();
-void menuStudent();                     //7
-void menuLecturer();                    //6
-void Staff_class();                     //2
-void Staff_course();                    //3
-void Staff_scoreboard();                //4
-void Staff_attendanceList();            //5
+void menuStudent();                                 //7
+void menuLecturer();                                //6
+void Staff_class();                                 //2
+void Staff_course();                                //3
+void Staff_scoreboard();                            //4
+void Staff_attendanceList();                        //5
 void menuStaffRole();
-void showMenu(int typeAccount);         //1.2
-void displayAllroles(int typeAccount);  //1
+void showMenu(int typeAccount);                     //1.2
+void displayAllroles(int typeAccount, char ID[]);   //1
 
 //W02
 

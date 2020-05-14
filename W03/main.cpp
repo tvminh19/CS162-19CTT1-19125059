@@ -27,7 +27,7 @@ int main() {
     if (accType == 0) return 0;
 
     //show menu after login
-    displayAllroles(accType);
+    displayAllroles(accType, idAfterLogin);
 }
 
 /* ---------------------- this is end of main function ---------------------- */
