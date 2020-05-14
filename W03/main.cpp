@@ -22,7 +22,7 @@ int main() {
     //menu function
     menu(accType, idAfterLogin);
     //accType = 3;
-    
+
     //stop program if wrong account!
     if (accType == 0) return 0;
 

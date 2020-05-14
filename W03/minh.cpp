@@ -12,7 +12,7 @@
 void introDone(){
     system("cls");
     cout << "+=======================================+\n";
-    cout << "+------------------DONE-----------------+\n";
+    cout << "+---------------SUCESSFULLY-------------+\n";
     cout << "+=======================================+\n";
     system("pause");
 }
@@ -1103,7 +1103,7 @@ void inputCourse(schedule& c, char year[], char semester[], char className[], ch
     cin.get(id, 20, '\n');
 
     //check if the course is existing
-    int maxno;
+    int maxno = 0;
     if (isExistCourse(id, year, semester, className, fileAdd, maxno)){
         system("cls");
         cout << "The course has already create please try again\n";

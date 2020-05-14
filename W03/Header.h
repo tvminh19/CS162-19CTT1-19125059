@@ -117,6 +117,13 @@ struct score{
     float total;
 };
 
+struct scoreboard{
+    student* stu;
+    int isActive;
+    score* sco; 
+    int went2class[12];
+};
+
 struct checkin{
     bool w[10];
 };
@@ -166,6 +173,7 @@ struct StuNode
     StuNode* pNext = nullptr;
 };
 
+void introDone();
 char* getID(char str[], int& index);
 char* getsName(char str[], int& index);
 Date getDOB(char str[], int& index);
@@ -240,6 +248,7 @@ void changePassword(int accType, char ID[]);
 /* ----------------------------- this is nothing ---------------------------- */
 struct Node{
     student* stu;
+    scoreboard* scb;
     schedule* schedule;
     Node* next = nullptr;
 };
