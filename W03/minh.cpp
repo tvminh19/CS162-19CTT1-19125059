@@ -1053,7 +1053,7 @@ void inputCourseData(schedule& c, char id[], int maxno, char className[]){
     c.lec->name = new char[strlen(a) + 1];
     strcpy(c.lec->name, a);
 
-    cout << "Gender: (1/0)";
+    cout << "Gender: (1/0): ";
     cin >> c.lec->gender;
 
     cout << "Start day: ";
