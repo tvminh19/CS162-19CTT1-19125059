@@ -30,7 +30,8 @@ void menuStudent()
 
 	if (strcmp(c, "0") == 0) {
 		//Back
-		displayAllroles(1);
+		char a[100];
+		displayAllroles(1, a);
 	}
 
 	else if (strcmp(c, "1") == 0) {
@@ -77,7 +78,8 @@ void menuLecturer()
 
 	if (strcmp(c, "0") == 0) {
 		//Back
-		displayAllroles(2);
+		char a[100];
+		displayAllroles(2, a);
 	}
 
 	else if (strcmp(c, "1") == 0) {
@@ -344,7 +346,8 @@ void menuStaffRole()
 
 	if (strcmp(c, "0") == 0) {
 		//Back
-		displayAllroles(3);
+		char a[100];
+		displayAllroles(3, a);
 	}
 
 	else if (strcmp(c, "1") == 0) {
@@ -434,7 +437,8 @@ void displayAllroles(int typeAccount, char ID[])
 
 	else {
 		notCorrect();
-		displayAllroles(typeAccount);
+		char a[100];
+		displayAllroles(typeAccount, a);
 	}
 	delete[] c;
 }
