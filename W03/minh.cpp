@@ -516,9 +516,10 @@ void inputFileAddress(char a[]){
 //getNo
 void getNo(ifstream& in, Node*& p, char a[]){
     p->schedule = new schedule;
-    in.get(a, 200, ',');
-    p->schedule->no = ston(a);
-    //cout << p->schedule->no << "\n";
+    //in.get(a, 200, ',');
+    in >> p->schedule->no;
+    // cout << p->schedule->no << "\n";
+    // system("pause");
 }
 
 //get Course ID
@@ -946,7 +947,7 @@ void outputSchedule(ofstream& out, Node* phead, char year[], char semester[], ch
         out << pcur->schedule->Stime.mins << "\n";
         out << pcur->schedule->Etime.hours << "\n";
         out << pcur->schedule->Etime.mins << "\n";
-        out << pcur->schedule->room;
+        out << pcur->schedule->room << "\n";
         pcur = pcur->next;
     }
     out.close();
@@ -987,84 +988,34 @@ void cleanInputCourse(schedule& c){
 }
 
 //check if the course is exiting ?
-bool isExistCourse(char courseID[], char year[], char semester[], char className[], char fileAdd[], int maxno){
+bool isExistCourse(char courseID[], char year[], char semester[], char className[], char fileAdd[], int& maxno){
     ifstream in;
-    schedule c;
-    strcat(fileAdd, "D:/Github/CS162-19CTT1-19125059/ZPMS/");
-    strcat(fileAdd, year);
-    strcat(fileAdd, "/");
-    strcat(fileAdd, semester);
-    strcat(fileAdd, "/");
-    strcat(fileAdd, className);
-    strcat(fileAdd, "/Schedule.txt");
+    char a[200];
+    strcat(a, "D:/Github/CS162-19CTT1-19125059/ZPMS/");
+    strcat(a, year);
+    strcat(a, "/");
+    strcat(a, semester);
+    strcat(a, "/");
+    strcat(a, className);
+    strcat(a, "/Schedule.txt");
+    strcpy(fileAdd, a);
+    in.open(fileAdd);
+    maxno = countLine(in, 19);
+    in.close();
     in.open(fileAdd);
     if (!in.is_open()){
-        cout << "error openning ata isExistCourse function\n";
+        cout << "error openning at isExistCourse function\n";
         exit(0);
     }
     else{
         char a[200];
         while (!in.eof()){
-            in >> c.no;
-            maxno = c.no; 
-            
-            in.ignore(200, '\n');
             in.get(a, 200, '\n');
-            c.courseID = new char[strlen(a) + 1];
-            strcpy(c.courseID, a);
-
             in.ignore(200, '\n');
-            in.get(a, 200, '\n');
-            c.courseName = new char[strlen(a) + 1];
-            strcpy(c.courseName, a);
-
-            c.Class = new char[strlen(className) + 1];
-            strcpy(c.Class, className);
-
-            c.lec = new lecture;
-
-            in.ignore(200, '\n');
-            in.get(a, 200, '\n');
-            c.lec->account = new char[strlen(a) + 1];
-            strcpy(c.lec->account, a);
-
-            in.ignore(200, '\n');
-            in.get(a, 200, '\n');
-            c.lec->name = new char[strlen(a) + 1];
-            strcpy(c.lec->name, a);
-
-            in >> c.lec->gender;
-
-            in >> c.Sdate.day;
-            in >> c.Sdate.month;
-            in  >> c.Sdate.year;
-
-            in >> c.Edate.day;
-            in >> c.Edate.month;
-            in >> c.Edate.year;
-
-            in.ignore(200, '\n');
-            in.get(a, 200, '\n');
-            c.dayofweek = new char[strlen(a) + 1];
-            strcpy(c.dayofweek, a);
-
-            in >> c.Stime.hours;
-            in >> c.Stime.mins;
-
-            in >> c.Etime.hours;
-            in >> c.Etime.mins;
-
-            in.ignore(200, '\n');
-            in.get(a, 200, '\n');
-            c.room = new char[strlen(a) + 1];
-            strcpy(c.room, a);
-
-            //delete
-            if (isSameStr(c.courseID, courseID)){
-                cleanInputCourse(c);
+            if (isSameStr(a, courseID)){
+                in.close();
                 return true;
-            } 
-            cleanInputCourse(c);
+            }
         }
     }
     in.close();
@@ -1074,12 +1025,12 @@ bool isExistCourse(char courseID[], char year[], char semester[], char className
 //input data of course
 void inputCourseData(schedule& c, char id[], int maxno, char className[]){
     char a[200];
-    
     c.no = maxno + 1;
     
     c.courseID = new char[strlen(id) + 1];
     strcpy(c.courseID, id);
-
+    
+    //cin.ignore(100, '\n');
     cout << "Course Name: ";
     cin.get(a, 200, '\n');
     c.courseName = new char[strlen(a) + 1];
@@ -1149,7 +1100,7 @@ void inputCourse(schedule& c, char year[], char semester[], char className[], ch
     char id[20];
     cout << "Course ID: ";
     cin.ignore(200, '\n');
-    cin.get(id, 20, '\n'); //ANCHOR
+    cin.get(id, 20, '\n');
 
     //check if the course is existing
     int maxno;
@@ -1157,9 +1108,10 @@ void inputCourse(schedule& c, char year[], char semester[], char className[], ch
         system("cls");
         cout << "The course has already create please try again\n";
         system("pause");
-        return inputCourse(c, year, semester, className, fileAdd);
+        inputCourse(c, year, semester, className, fileAdd);
     }
     else{
+        cin.ignore(100, '\n');
         inputCourseData(c, id, maxno, className);
     }
 }
@@ -1167,7 +1119,6 @@ void inputCourse(schedule& c, char year[], char semester[], char className[], ch
 //update course data
 void updateCourseData(schedule c, char fileAdd[]){
     ofstream out(fileAdd, ios::app);
-    out << "\n";
     out << c.no << "\n";
     out << c.courseID << "\n";
     out << c.Class << "\n";
@@ -1185,7 +1136,7 @@ void updateCourseData(schedule c, char fileAdd[]){
     out << c.Stime.mins << "\n";
     out << c.Etime.hours << "\n";
     out << c.Etime.mins << "\n";
-    out << c.room;
+    out << c.room << "\n";
 }
 
 //add a new course
@@ -1207,3 +1158,8 @@ void addANewCourse(){
     //clean heap memory
     cleanInputCourse(c);
 }
+
+//TODO
+/* -------------------------------------------------------------------------- */
+/*                                edit a course                               */
+/* -------------------------------------------------------------------------- */
