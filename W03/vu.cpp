@@ -52,8 +52,8 @@ void menuStudent()
 
 	else {
 		notCorrect();
-		menuStudent();
 	}
+	menuStudent();
 	delete[] c;
 }
 
@@ -112,8 +112,8 @@ void menuLecturer()
 
 	else {
 		notCorrect();
-		menuLecturer();
 	}
+	menuLecturer();
 	delete[] c;
 }
 
@@ -173,8 +173,8 @@ void Staff_class()
 
 	else {
 		notCorrect();
-		Staff_class();
 	}
+	Staff_class();
 	delete[] c;
 }
 
@@ -289,8 +289,8 @@ void Staff_scoreboard()
 
 	else {
 		notCorrect();
-		Staff_scoreboard();
 	}
+	Staff_scoreboard();
 	delete[] c;
 }
 
@@ -323,8 +323,8 @@ void Staff_attendanceList()
 
 	else {
 		notCorrect();
-		Staff_attendanceList();
 	}
+	Staff_attendanceList();
 	delete[] c;
 }
 
@@ -418,13 +418,13 @@ void displayAllroles(int typeAccount, char ID[])
 	//View profile info
 	else if (strcmp(c, "2") == 0) {
 		//1.3
-		viewProfile(typeAccount, ID);
+		//viewProfile(typeAccount, ID);
 	}
 
 	//Change password
 	else if (strcmp(c, "3") == 0) {
 		//1.4
-		changePassword(typeAccount, ID);
+		//changePassword(typeAccount, ID);
 	}
 
 	//Logout
@@ -481,8 +481,8 @@ void Year_Semester()
 
 	else {
 		notCorrect();
-		Year_Semester();
 	}
+	Year_Semester();
 	delete[] c;
 }
 
@@ -728,7 +728,6 @@ void create_Year_Semester()
 		createNew_Year(pHead, n, year);
 	}
 	else {
-		system("cls");
 		cout << "You already has this year!" << endl;
 	}
 	delete_Year(pHead);
@@ -745,11 +744,12 @@ void create_Year_Semester()
 	Year* pHead1 = nullptr;
 	if (!exist_Semester(pHead1, n, semester, year)) {
 		createNew_Semester(pHead1, n, semester, year);
-		cout << endl << "=== SUCCESSFULLY ===" << endl;
-		Sleep(1000);
+		introDone();
 	}
 	else {
 		cout << "You already has this semester!" << endl;
+		Sleep(500);
+		system("pause");
 	}
 
 	delete[] year;
