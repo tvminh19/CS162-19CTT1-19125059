@@ -1152,6 +1152,9 @@ void addANewCourse(){
     //input data about the course
     inputCourse(c, year, semester, className, fileAdd);
 
+    //show messess
+    introDone();
+
     //update the data of schedule.txt file
     updateCourseData(c, fileAdd);
 
