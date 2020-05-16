@@ -1000,6 +1000,9 @@ bool isExistCourse(char courseID[], char year[], char semester[], char className
     strcat(a, "/Schedule.txt");
     strcpy(fileAdd, a);
     in.open(fileAdd);
+    if (!in.is_open()){
+        ofstream out(fileAdd);
+    }
     maxno = countLine(in, 19);
     in.close();
     in.open(fileAdd);

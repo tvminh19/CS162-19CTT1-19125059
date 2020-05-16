@@ -1,0 +1,114 @@
+1
+CS162
+Introduction to Computer Science
+19CTT1
+dbtien
+Dinh Ba Tien
+1
+16
+3
+20
+25
+5
+20
+Mon
+7
+30
+9
+30
+I41
+2
+CM101
+Communication Management
+19CTT1
+dnvu
+Duong Nguyen Vu
+1
+21
+3
+20
+30
+5
+20
+Sat
+13
+30
+17
+0
+HT1
+3
+PH212
+Physics
+19CTT1
+nhnha
+Nguyen Huu Nha
+1
+18
+3
+20
+27
+5
+20
+Wed
+13
+30
+15
+30
+I24
+4
+MTH252
+Calculus II
+19CTT1
+nhanh
+Nguyen Huu Anh
+1
+17
+3
+20
+26
+5
+20
+Tue
+9
+30
+11
+0
+I41
+5
+BAA00004
+Introduction to Laws
+19CTT1
+dctrang
+Dang Cong Trang
+1
+16
+3
+20
+25
+5
+20
+Mon
+13
+30
+16
+30
+C22
+6
+BAA00101
+Marxism and Leninism
+19CTT1
+nqhuy
+Ngo Quang Huy
+1
+17
+3
+20
+26
+5
+20
+Tue
+13
+30
+16
+30
+HT1
