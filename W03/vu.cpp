@@ -223,6 +223,7 @@ void Staff_course()
 
 	else if (strcmp(c, "4") == 0) {
 		//3.4
+		editcourse();
 	}
 
 	else if (strcmp(c, "5") == 0) {

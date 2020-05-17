@@ -1514,7 +1514,8 @@ void editcourse(){
     loadCourseEdit(year, semester, className, fileAdd, phead, pcur);
 
     //show to edit
-    showCourse(phead);
+    //showCourse(phead);
+    print_Schedule(phead);
 
     //ask and edit
     askNo(phead);

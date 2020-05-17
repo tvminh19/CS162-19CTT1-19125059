@@ -356,7 +356,7 @@ int login(ifstream& in, student*& stu, lecture*& lec, staff*& sta, int& result, 
 
 /* ---------------------------- log out functions --------------------------- */
 void logout() {
-    return;
+    exit(0);
 }
 
 /* ---------------------------------- menu ---------------------------------- */
