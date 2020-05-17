@@ -426,6 +426,7 @@ void displayAllroles(int typeAccount, char ID[])
 	//Change password
 	else if (strcmp(c, "3") == 0) {
 		//1.4
+		system("cls");
 		changePassword(typeAccount, ID);
 	}
 
@@ -439,9 +440,9 @@ void displayAllroles(int typeAccount, char ID[])
 
 	else {
 		notCorrect();
-		char a[100];
-		displayAllroles(typeAccount, a);
 	}
+	char a[100];
+	displayAllroles(typeAccount, a);
 	delete[] c;
 }
 

@@ -139,7 +139,7 @@ void displayStudent(const Student& stu)
 	cout << "Name: " << stu.sName << '\n';
 	cout << "DOB: "; displayDate(stu.DOB);
 	cout << "Class: " << stu.sClass << '\n';
-	cout << "Gender: "; if (stu.gender) cout << "Female\n"; else cout << "Male\n";
+	cout << "Gender: "; if (stu.gender == 0) cout << "Female\n"; else cout << "Male\n";
 }
 
 bool importClass(StuNode*& pHead, int& n)
@@ -389,6 +389,7 @@ bool loadStuFile(Student*& stuArr, int& n)
 		fi.close();
 		return true;
 	}
+	fi.close();
 	return false;
 }
 
@@ -420,7 +421,10 @@ bool changeStuPassword(Student& stu)
 		cin.getline(pass2, 1000, '\n');
 		if (sameStr(pass, pass2))
 			break;
-		cout << "The new passwords don't match! Try again!\n";
+		else{
+			system("cls");
+			cout << "The new passwords don't match! Try again!\n";
+		}
 	}
 
 	delete[] stu.password;
@@ -430,7 +434,7 @@ bool changeStuPassword(Student& stu)
 
 void saveStuFile(Student* stuArr, int n)
 {
-	fo.open("Student.txt");
+	fo.open("D:/Github/CS162-19CTT1-19125059/ZPMS/menu/Student.txt");
 	if (fo.is_open())
 	{
 		fo << n << '\n';
@@ -476,6 +480,7 @@ bool loadStaFile(staff*& staArr, int& n)
 		fi.close();
 		return true;
 	}
+	fi.close();
 	return false;
 }
 
@@ -490,7 +495,7 @@ void displayStaff(const staff& sta)
 {
 	cout << "Account: " << sta.account << '\n';
 	cout << "Name: " << sta.name << '\n';
-	cout << "Gender: "; if (sta.gender) cout << "Female\n"; else cout << "Male\n";
+	cout << "Gender: "; if (sta.gender == 0) cout << "Female\n"; else cout << "Male\n";
 }
 
 void viewStaProf(staff* staArr, int n, char ID[])
@@ -521,7 +526,10 @@ bool changeStaPassword(staff& sta)
 		cin.getline(pass2, 1000, '\n');
 		if (sameStr(pass, pass2))
 			break;
-		cout << "The new passwords don't match! Try again!\n";
+		else{
+			system("cls");
+			cout << "The new passwords don't match! Try again!\n";
+		}
 	}
 
 	delete[] sta.password;
@@ -539,7 +547,7 @@ void saveStaff(const staff& sta)
 
 void saveStaFile(staff* staArr, int n)
 {
-	fo.open("Staff.txt");
+	fo.open("D:/Github/CS162-19CTT1-19125059/ZPMS/menu/Staff.txt");
 	if (fo.is_open())
 	{
 		fo << n << '\n';
@@ -589,7 +597,7 @@ void displayLecturer(const lecture& lec)
 	cout << "Account: " << lec.account << '\n';
 	cout << "Name: " << lec.name << '\n';
 	cout << "Academy: " << lec.academy << '\n';
-	cout << "Gender: "; if (lec.gender) cout << "Female\n"; else cout << "Male\n";
+	cout << "Gender: "; if (lec.gender == 0) cout << "Female\n"; else cout << "Male\n";
 }
 
 bool loadLecFile(lecture*& lecArr, int& n)
@@ -605,6 +613,7 @@ bool loadLecFile(lecture*& lecArr, int& n)
 		fi.close();
 		return true;
 	}
+	fi.close();
 	return false;
 }
 
@@ -636,7 +645,10 @@ bool changeLecPassword(lecture& lec)
 		cin.getline(pass2, 1000, '\n');
 		if (sameStr(pass, pass2))
 			break;
-		cout << "The new passwords don't match! Try again!\n";
+		else{
+			system("cls");
+			cout << "The new passwords don't match! Try again!\n";
+		}
 	}
 
 	delete[] lec.password;
@@ -655,7 +667,7 @@ void saveLecturer(const lecture& lec)
 
 void saveLecFile(lecture* lecArr, int n)
 {
-	fo.open("Lecturer.txt");
+	fo.open("D:/Github/CS162-19CTT1-19125059/ZPMS/menu/Lecturer.txt");
 	if (fo.is_open())
 	{
 		fo << n << '\n';
@@ -669,6 +681,8 @@ void saveLecFile(lecture* lecArr, int n)
 void viewProfile(int accType, char ID[])
 {
 	int n;
+	system("cls");
+	cout << "=== information === \n";
 	if (accType == 1)
 	{
 		Student* stuArr = nullptr;
@@ -683,7 +697,7 @@ void viewProfile(int accType, char ID[])
 		}
 		else cout << "Can't open student file!\n";
 	}
-	if (accType == 3)
+	else if (accType == 3)
 	{
 		staff* staArr = nullptr;
 
@@ -697,7 +711,7 @@ void viewProfile(int accType, char ID[])
 		}
 		else cout << "Can't open staff file!\n";
 	}
-	if (accType == 2)
+	else if (accType == 2)
 	{
 		lecture* lecArr = nullptr;
 
@@ -711,12 +725,15 @@ void viewProfile(int accType, char ID[])
 		}
 		else cout << "Can't open lecturer file!\n";
 	}
+	cout << "===================\n";
+	system("pause");
 }
 
 
 
 void changePassword(int accType, char ID[])
 {
+	cin.get();
 	int n;
 	if (accType == 1)
 	{
@@ -730,6 +747,7 @@ void changePassword(int accType, char ID[])
 					if (changeStuPassword(stuArr[i]))
 						cout << "Change password successfully!\n";
 					else cout << "Failed to change password!\n";
+					system("pause");
 				}
 
 			saveStuFile(stuArr, n);
