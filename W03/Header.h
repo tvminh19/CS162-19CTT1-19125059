@@ -152,6 +152,14 @@ bool exist_Semester(Year*& pHead, int& n, char* semester, char* year);
 void createNew_Semester(Year*& pHead, int& n, char* semester, char* year);
 void delete_Semester(Year*& pHead);
 
+void delete_Year_Semester();
+bool Year_exist(Year*& pHead);
+void Semester_exist(Year*& pHead);
+void nextStep(Year*& pHead, Year*& pHead1, char* your_choice, char* year);
+
+void view_Year_Semester();
+void view_Semester();
+
 
 /* ----------------------------- Van's functions ---------------------------- */
 // W02
