@@ -3,6 +3,7 @@
 #include <iostream>
 #include <fstream>
 #include <string.h>
+#include <iomanip>
 #include <string>
 #include <cstring>
 #include <conio.h>
@@ -139,7 +140,12 @@ struct course{
 void Year_Semester();                   //3.1
 
 //W03
-
+struct Node{
+    student* stu;
+    scoreboard* scb;
+    schedule* schedule;
+    Node* next = nullptr;
+};
 struct Year {
     char* years;
     char* semesters;
@@ -276,11 +282,6 @@ void changePassword(int accType, char ID[]);
 
 
 /* ----------------------------- this is nothing ---------------------------- */
-struct Node{
-    student* stu;
-    scoreboard* scb;
-    schedule* schedule;
-    Node* next = nullptr;
-};
+//ANCHOR
 
 #endif //function
