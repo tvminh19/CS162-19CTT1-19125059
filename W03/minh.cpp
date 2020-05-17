@@ -1172,216 +1172,225 @@ void addANewCourse(){
 
 //show for edit course
 void showCourse(Node* phead){
+    system("cls");
     while (phead){
-        cout << "| ";
+        cout << "|";
         cout << phead->schedule->no;
-        cout << " | ";
+        cout << "|";
         cout << phead->schedule->courseID;
-        cout << " | ";
+        cout << "|";
         cout << phead->schedule->courseName;
-        cout << " | ";
+        cout << "|";
         cout << phead->schedule->lec->account;
-        cout << " | ";
+        cout << "|";
         cout << phead->schedule->lec->name;
-        cout << " | ";
+        cout << "|";
         cout << phead->schedule->lec->gender;
-        cout << " | ";
+        cout << "|";
         cout << phead->schedule->Sdate.day;
-        cout << " | ";
+        cout << "|";
         cout << phead->schedule->Sdate.month;
-        cout << " | ";
+        cout << "|";
         cout << phead->schedule->Sdate.year;
-        cout << " | ";
+        cout << "|";
         cout << phead->schedule->Edate.day;
-        cout << " | ";
+        cout << "|";
         cout << phead->schedule->Edate.month;
-        cout << " | ";
+        cout << "|";
         cout << phead->schedule->Edate.year;
-        cout << " | ";
+        cout << "|";
         cout << phead->schedule->dayofweek;
-        cout << " | ";
+        cout << "|";
         cout << phead->schedule->Stime.hours;
-        cout << " | ";
+        cout << "|";
         cout << phead->schedule->Stime.mins;
-        cout << " | ";
+        cout << "|";
         cout << phead->schedule->Etime.hours;
-        cout << " | ";
+        cout << "|";
         cout << phead->schedule->Etime.mins;
-        cout << " | ";
+        cout << "|";
         cout << phead->schedule->room;
-        cout << " |\n";
+        cout << "|\n";
         system("pause");
         phead = phead->next;
     }
 }
 
 //load node 
-void loadNodeEdit(ifstream& in, Node*& phead, Node*& pcur){
+void loadNodeEdit(Node*& phead, Node*& pcur, char fileAdd[]){
     char a[50];
-    if (!phead){
-        phead = new Node;
+    ifstream in(fileAdd);
+    while (!in.eof()){
+        if (!phead){
+            phead = new Node;
+            //data
+            //#no
+            phead->schedule = new schedule;
 
-        //data
-        //#no
-        in >> phead->schedule->no;
+            in >> phead->schedule->no;
+        
+            //course id
+            in.ignore(50, '\n');
+            in.get(a, 50, '\n');
+            phead->schedule->courseID = new char[strlen(a) + 1];
+            strcpy(phead->schedule->courseID, a);
 
-        //course id
-        in.get(a, 50, '\n');
-        phead->schedule->courseID = new char[strlen(a) + 1];
-        strcpy(a, phead->schedule->courseID);
+            //course name
+            in.ignore(50, '\n');
+            in.get(a, 50, '\n');
+            phead->schedule->courseName = new char[strlen(a) + 1];
+            strcpy(phead->schedule->courseName, a);
 
-        //course name
-        in.ignore(50, '\n');
-        in.get(a, 50, '\n');
-        phead->schedule->courseName = new char[strlen(a) + 1];
-        strcpy(a, phead->schedule->courseName);
+            //class
+            in.ignore(50, '\n');
+            in.get(a, 50, '\n');
+            phead->schedule->Class = new char[strlen(a) + 1];
+            strcpy(phead->schedule->Class, a);
 
-        //class
-        in.ignore(50, '\n');
-        in.get(a, 50, '\n');
-        phead->schedule->Class = new char[strlen(a) + 1];
-        strcpy(a, phead->schedule->Class);
+            phead->schedule->lec = new lecture;
+            
+            //lecture username
+            in.ignore(50, '\n');
+            in.get(a, 50, '\n');
+            phead->schedule->lec->account = new char[strlen(a) + 1];
+            strcpy(phead->schedule->lec->account, a);
 
-        phead->schedule->lec = new lecture;
+            //lecture name
+            in.ignore(50, '\n');
+            in.get(a, 50, '\n');
+            phead->schedule->lec->name = new char[strlen(a) + 1];
+            strcpy(phead->schedule->lec->name, a);
 
-        //lecture username
-        in.ignore(50, '\n');
-        in.get(a, 50, '\n');
-        phead->schedule->lec->account = new char[strlen(a) + 1];
-        strcpy(phead->schedule->lec->account, a);
+            //lecturer gender
+            in >> phead->schedule->lec->gender;
 
-        //lecture name
-        in.ignore(50, '\n');
-        in.get(a, 50, '\n');
-        phead->schedule->lec->name = new char[strlen(a) + 1];
-        strcpy(phead->schedule->lec->name, a);
+            //day month year start
+            in >> phead->schedule->Sdate.day;
+            in >> phead->schedule->Sdate.month;
+            in >> phead->schedule->Sdate.year;
 
-        //lecturer gender
-        in >> phead->schedule->lec->gender;
+            //day month year end
+            in >> phead->schedule->Edate.day;
+            in >> phead->schedule->Edate.month;
+            in >> phead->schedule->Edate.year;
 
-        //day month year start
-        in >> phead->schedule->Sdate.day;
-        in >> phead->schedule->Sdate.month;
-        in >> phead->schedule->Sdate.year;
+            //day of week
+            in.ignore(50, '\n');
+            in.get(a, 50, '\n');
+            phead->schedule->dayofweek = new char[strlen(a) + 1];
+            strcpy(phead->schedule->dayofweek, a);
 
-        //day month year end
-        in >> phead->schedule->Edate.day;
-        in >> phead->schedule->Edate.month;
-        in >> phead->schedule->Edate.year;
+            //time start
+            in >> phead->schedule->Stime.hours;
+            in >> phead->schedule->Stime.mins;
 
-        //day of week
-        in.ignore(50, '\n');
-        in.get(a, 50, '\n');
-        phead->schedule->dayofweek = new char[strlen(a) + 1];
-        strcpy(a, phead->schedule->dayofweek);
+            //time end
+            in >> phead->schedule->Etime.hours;
+            in >> phead->schedule->Etime.mins;
 
-        //time start
-        in >> phead->schedule->Stime.hours;
-        in >> phead->schedule->Stime.mins;
+            //room
+            in.ignore(50, '\n');
+            in.get(a, 50, '\n');
+            phead->schedule->room = new char[strlen(a) + 1];
+            strcpy(phead->schedule->room, a);
 
-        //time end
-        in >> phead->schedule->Etime.hours;
-        in >> phead->schedule->Etime.mins;
+            //update
+            pcur = phead;
+            phead->next = nullptr;
+        }
+        else{
+            pcur->next = new Node;
+            pcur = pcur->next;
 
-        //room
-        in.ignore(50, '\n');
-        in.get(a, 50, '\n');
-        phead->schedule->room = new char[strlen(a) + 1];
-        strcpy(a, phead->schedule->room);
+            pcur->schedule = new schedule;
+            //data
+            //#no
+            in >> pcur->schedule->no;
 
-        //update
-        pcur = phead;
-        phead->next = nullptr;
-    }
-    else{
-        pcur->next = new Node;
-        pcur = pcur->next;
+            //course id
+            in.ignore(50, '\n');
+            in.get(a, 50, '\n');
+            pcur->schedule->courseID = new char[strlen(a) + 1];
+            strcpy(pcur->schedule->courseID, a);
 
-        //data
-        //#no
-        in >> pcur->schedule->no;
+            //course name
+            in.ignore(50, '\n');
+            in.get(a, 50, '\n');
+            pcur->schedule->courseName = new char[strlen(a) + 1];
+            strcpy(pcur->schedule->courseName, a);
 
-        //course id
-        in.ignore(50, '\n');
-        in.get(a, 50, '\n');
-        pcur->schedule->courseID = new char[strlen(a) + 1];
-        strcpy(a, pcur->schedule->courseID);
+            //class
+            in.ignore(50, '\n');
+            in.get(a, 50, '\n');
+            pcur->schedule->Class = new char[strlen(a) + 1];
+            strcpy(pcur->schedule->Class, a);
 
-        //course name
-        in.ignore(50, '\n');
-        in.get(a, 50, '\n');
-        pcur->schedule->courseName = new char[strlen(a) + 1];
-        strcpy(a, pcur->schedule->courseName);
+            pcur->schedule->lec = new lecture;
 
-        //class
-        in.ignore(50, '\n');
-        in.get(a, 50, '\n');
-        pcur->schedule->Class = new char[strlen(a) + 1];
-        strcpy(a, pcur->schedule->Class);
+            //lecture username
+            in.ignore(50, '\n');
+            in.get(a, 50, '\n');
+            pcur->schedule->lec->account = new char[strlen(a) + 1];
+            strcpy(pcur->schedule->lec->account, a);
 
-        pcur->schedule->lec = new lecture;
+            //lecture name
+            in.ignore(50, '\n');
+            in.get(a, 50, '\n');
+            pcur->schedule->lec->name = new char[strlen(a) + 1];
+            strcpy(pcur->schedule->lec->name, a);
 
-        //lecture username
-        in.ignore(50, '\n');
-        in.get(a, 50, '\n');
-        pcur->schedule->lec->account = new char[strlen(a) + 1];
-        strcpy(pcur->schedule->lec->account, a);
+            //lecturer gender
+            in >> pcur->schedule->lec->gender;
 
-        //lecture name
-        in.ignore(50, '\n');
-        in.get(a, 50, '\n');
-        pcur->schedule->lec->name = new char[strlen(a) + 1];
-        strcpy(pcur->schedule->lec->name, a);
+            //day month year start
+            in >> pcur->schedule->Sdate.day;
+            in >> pcur->schedule->Sdate.month;
+            in >> pcur->schedule->Sdate.year;
 
-        //lecturer gender
-        in >> pcur->schedule->lec->gender;
+            //day month year end
+            in >> pcur->schedule->Edate.day;
+            in >> pcur->schedule->Edate.month;
+            in >> pcur->schedule->Edate.year;
 
-        //day month year start
-        in >> pcur->schedule->Sdate.day;
-        in >> pcur->schedule->Sdate.month;
-        in >> pcur->schedule->Sdate.year;
+            //day of week
+            in.ignore(50, '\n');
+            in.get(a, 50, '\n');
+            pcur->schedule->dayofweek = new char[strlen(a) + 1];
+            strcpy(pcur->schedule->dayofweek, a);
 
-        //day month year end
-        in >> pcur->schedule->Edate.day;
-        in >> pcur->schedule->Edate.month;
-        in >> pcur->schedule->Edate.year;
+            //time start
+            in >> pcur->schedule->Stime.hours;
+            in >> pcur->schedule->Stime.mins;
 
-        //day of week
-        in.ignore(50, '\n');
-        in.get(a, 50, '\n');
-        pcur->schedule->dayofweek = new char[strlen(a) + 1];
-        strcpy(a, pcur->schedule->dayofweek);
+            //time end
+            in >> pcur->schedule->Etime.hours;
+            in >> pcur->schedule->Etime.mins;
 
-        //time start
-        in >> pcur->schedule->Stime.hours;
-        in >> pcur->schedule->Stime.mins;
+            //room
+            in.ignore(50, '\n');
+            in.get(a, 50, '\n');
+            pcur->schedule->room = new char[strlen(a) + 1];
+            strcpy(pcur->schedule->room, a);
 
-        //time end
-        in >> pcur->schedule->Etime.hours;
-        in >> pcur->schedule->Etime.mins;
-
-        //room
-        in.ignore(50, '\n');
-        in.get(a, 50, '\n');
-        pcur->schedule->room = new char[strlen(a) + 1];
-        strcpy(a, pcur->schedule->room);
-
-        //update
-        pcur->next = nullptr;
+            //update
+            pcur->next = nullptr;
+        }
     }
 }
 
 //load file to edit
 void loadCourseEdit(char year[], char semester[], char className[], char fileAdd[],Node*& phead, Node*& pcur){
-    ifstream in;
-    in.open(fileAdd);
+    ifstream in(fileAdd);
     if (!in.is_open()){
-        cout << "Error loading file at loadcourseedit\n";
-        exit(0);
+        system("cls");
+        cout << "Wrong please input again\n";
+        system("pause");
+        editcourse();
     }
     else{
-        loadNodeEdit(in, phead, pcur);
+        loadNodeEdit(phead, pcur, fileAdd);
     }
+    in.close();
 }
 
 //edit course
@@ -1490,7 +1499,7 @@ void askNo(Node*& phead){
 //edit course
 void editcourse(){
     //varriable
-    char year[20], semester[20], className[20], fileAdd[500];
+    char year[20], semester[20], className[20], fileAdd[500] = {};
     Node* phead = nullptr;
     Node* pcur = nullptr;
     ofstream out;
@@ -1500,7 +1509,7 @@ void editcourse(){
 
     //make file add
     makeClassAdd(year, semester, className, fileAdd);
-
+    
     //load file
     loadCourseEdit(year, semester, className, fileAdd, phead, pcur);
 
@@ -1513,6 +1522,9 @@ void editcourse(){
     //update
     outputSchedule(out, phead, year, semester, className);
 
+    //clean
+    cleanScheduleNode(phead);
+    
     //show "OK"
     introDone();
 }

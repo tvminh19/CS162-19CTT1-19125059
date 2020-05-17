@@ -248,7 +248,7 @@ int resultLogin(ifstream& in, int& result, int& countLogin, bool sexual, char na
             system("cls");
             cout << "You have " << countLogin << " time(s) to try!\n";
             countLogin--;
-            return login(in, stu, lec, sta, result, countLogin); //TODO
+            return login(in, stu, lec, sta, result, countLogin);
         }
         else {
             outro();
