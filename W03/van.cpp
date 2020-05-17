@@ -295,32 +295,6 @@ bool loginStu(StuNode* pHead, char userName[], char password[], StuNode*& pStu)
 }
 
 
-bool changePassword(Student& stu)
-{
-	if (stu.password == nullptr)
-		return false;
-	cout << "Enter the old password: ";
-	char pass[1005];
-	cin.getline(pass, 1000, '\n');
-	if (!sameStr(pass, stu.password))
-		return false;
-	while (1)
-	{
-		cout << "Enter the new password: ";
-		cin.getline(pass, 1000, '\n');
-		char pass2[1005];
-		cout << "Enter the new password again to confirm: ";
-		cin.getline(pass2, 1000, '\n');
-		if (sameStr(pass, pass2))
-			break;
-		cout << "The new passwords don't match! Try again!\n";
-	}
-
-	delete[] stu.password;
-	stu.password = cpyStr(pass);
-	return true;
-}
-
 void saveDate(Date date)
 {
 	fo << date.year << ' ';
@@ -335,7 +309,7 @@ void saveStudent(const Student& stu)
 	fo << stu.sName << '\n';
 	saveDate(stu.DOB);
 	fo << stu.sClass << '\n';
-	fo << stu.gender << "\n\n";
+	fo << stu.gender << "\n";
 }
 
 void saveClass(StuNode* pHead, const int& n)
@@ -443,6 +417,7 @@ void saveStuFile(Student* stuArr, int n)
 		fo.close();
 	}
 	else cout << "Can't open student file!\n";
+	fo.close();
 }
 
 staff loadStaff()
@@ -733,7 +708,6 @@ void viewProfile(int accType, char ID[])
 
 void changePassword(int accType, char ID[])
 {
-	cin.get();
 	int n;
 	if (accType == 1)
 	{
@@ -771,6 +745,7 @@ void changePassword(int accType, char ID[])
 					else cout << "Failed to change password!\n";
 				}
 
+
 			saveStaFile(staArr, n);
 			for (int i = 1; i <= n; i++)
 				deleteStaff(staArr[i]);
@@ -791,6 +766,7 @@ void changePassword(int accType, char ID[])
 						cout << "Change password successfully!\n";
 					else cout << "Failed to change password!\n";
 				}
+
 
 			saveLecFile(lecArr, n);
 			for (int i = 1; i <= n; i++)

@@ -427,6 +427,7 @@ void displayAllroles(int typeAccount, char ID[])
 	else if (strcmp(c, "3") == 0) {
 		//1.4
 		system("cls");
+		cin.ignore();
 		changePassword(typeAccount, ID);
 	}
 
@@ -435,7 +436,8 @@ void displayAllroles(int typeAccount, char ID[])
 		//1.5
 		cin.ignore();
 		char id[20];
-		menu(typeAccount, id);
+		int ta;
+		menu(ta, id);
 	}
 
 	else {
