@@ -1170,9 +1170,53 @@ void addANewCourse(){
 /*                                edit a course                               */
 /* -------------------------------------------------------------------------- */
 
+//show for edit course
+void showCourse(Node* phead){
+    while (phead){
+        cout << "| ";
+        cout << phead->schedule->no;
+        cout << " | ";
+        cout << phead->schedule->courseID;
+        cout << " | ";
+        cout << phead->schedule->courseName;
+        cout << " | ";
+        cout << phead->schedule->lec->account;
+        cout << " | ";
+        cout << phead->schedule->lec->name;
+        cout << " | ";
+        cout << phead->schedule->lec->gender;
+        cout << " | ";
+        cout << phead->schedule->Sdate.day;
+        cout << " | ";
+        cout << phead->schedule->Sdate.month;
+        cout << " | ";
+        cout << phead->schedule->Sdate.year;
+        cout << " | ";
+        cout << phead->schedule->Edate.day;
+        cout << " | ";
+        cout << phead->schedule->Edate.month;
+        cout << " | ";
+        cout << phead->schedule->Edate.year;
+        cout << " | ";
+        cout << phead->schedule->dayofweek;
+        cout << " | ";
+        cout << phead->schedule->Stime.hours;
+        cout << " | ";
+        cout << phead->schedule->Stime.mins;
+        cout << " | ";
+        cout << phead->schedule->Etime.hours;
+        cout << " | ";
+        cout << phead->schedule->Etime.mins;
+        cout << " | ";
+        cout << phead->schedule->room;
+        cout << " |\n";
+        system("pause");
+        phead = phead->next;
+    }
+}
+
 //load node 
-void loadNodeEdit(Node*& phead, Node*& pcur){
-    ifstream in;
+void loadNodeEdit(ifstream& in, Node*& phead, Node*& pcur){
     char a[50];
     if (!phead){
         phead = new Node;
@@ -1258,6 +1302,7 @@ void loadNodeEdit(Node*& phead, Node*& pcur){
         in >> pcur->schedule->no;
 
         //course id
+        in.ignore(50, '\n');
         in.get(a, 50, '\n');
         pcur->schedule->courseID = new char[strlen(a) + 1];
         strcpy(a, pcur->schedule->courseID);
@@ -1335,15 +1380,120 @@ void loadCourseEdit(char year[], char semester[], char className[], char fileAdd
         exit(0);
     }
     else{
-        //load node
-
+        loadNodeEdit(in, phead, pcur);
     }
 }
+
+//edit course
+void editCo(Node*& p){
+    char a[200];
+    system("cls");
+    cout << "=== EDIT ===\n";
+    
+    cout << "Course ID: ";
+    cin.get(a, 200, '\n');
+    delete[] p->schedule->courseID;
+    p->schedule->courseID = new char[strlen(a) + 1];
+    strcpy(p->schedule->courseID, a);
+    
+    cout << "Course Name: ";
+    cin.ignore(200, '\n');
+    cin.get(a, 200, '\n');
+    delete[] p->schedule->courseName;
+    p->schedule->courseName = new char[strlen(a) + 1];
+    strcpy(p->schedule->courseName, a);
+
+    p->schedule->lec = new lecture;
+
+    cout << "Lecturer's username: ";
+    cin.ignore(200, '\n');
+    cin.get(a, 200, '\n');
+    delete[] p->schedule->lec->account;
+    p->schedule->lec->account = new char[strlen(a) + 1];
+    strcpy(p->schedule->lec->account, a);
+
+    cout << "Lecturer's Name: ";
+    cin.ignore(200, '\n');
+    cin.get(a, 200, '\n');
+    delete[] p->schedule->lec->name;
+    p->schedule->lec->name = new char[strlen(a) + 1];
+    strcpy(p->schedule->lec->name, a);
+
+    cout << "Gender: (1/0): ";
+    cin >> p->schedule->lec->gender;
+
+    cout << "Start day: ";
+    cin >> p->schedule->Sdate.day;
+    cout << "Start month: ";
+    cin >> p->schedule->Sdate.month;
+    cout << "Start year: ";
+    cin  >> p->schedule->Sdate.year;
+
+    cout << "End day: ";
+    cin >> p->schedule->Edate.day;
+    cout << "End month: ";
+    cin >> p->schedule->Edate.month;
+    cout << "End year: ";
+    cin >> p->schedule->Edate.year;
+
+    cout << "Day of week: ";
+    cin.ignore(200, '\n');
+    cin.get(a, 200, '\n');
+    delete[] p->schedule->dayofweek;
+    p->schedule->dayofweek = new char[strlen(a) + 1];
+    strcpy(p->schedule->dayofweek, a);
+
+    cout << "start hour: ";
+    cin >> p->schedule->Stime.hours;
+    cout << "start minute: ";
+    cin >> p->schedule->Stime.mins;
+
+    cout << "End hour: ";
+    cin >> p->schedule->Etime.hours;
+    cout << "End minute: ";
+    cin >> p->schedule->Etime.mins;
+
+    cout << "Room: ";
+    cin.ignore(200, '\n');
+    cin.get(a, 200, '\n');
+    delete[] p->schedule->room;
+    p->schedule->room = new char[strlen(a) + 1];
+    strcpy(p->schedule->room, a);
+}
+
+//ask no 
+void askNo(Node*& phead){
+    //ask in4
+    cout << "\n";
+    cout << "> Please input #NO to edit: ";
+    int no;
+    cin >> no;
+    
+    //edit
+    Node* pcur = phead;
+    while (pcur){
+        if (pcur->schedule->no == no){
+            //edit
+            editCo(pcur);
+            exit(0);
+        }
+        pcur = pcur->next;
+    }
+    system("cls");
+    showCourse(phead);
+    cout << "\n";
+    cout << "\nPlease input Again: ";
+    askNo(phead);
+}
+
 
 //edit course
 void editcourse(){
     //varriable
     char year[20], semester[20], className[20], fileAdd[500];
+    Node* phead = nullptr;
+    Node* pcur = nullptr;
+    ofstream out;
 
     //input year semester class
     inputYSC(year, semester, className);
@@ -1352,10 +1502,17 @@ void editcourse(){
     makeClassAdd(year, semester, className, fileAdd);
 
     //load file
+    loadCourseEdit(year, semester, className, fileAdd, phead, pcur);
 
-    //edit
+    //show to edit
+    showCourse(phead);
+
+    //ask and edit
+    askNo(phead);
 
     //update
+    outputSchedule(out, phead, year, semester, className);
 
     //show "OK"
+    introDone();
 }

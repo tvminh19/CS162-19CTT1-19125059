@@ -73,6 +73,8 @@ void inputCourse();
 //3.3 input a new course
 void addANewCourse();
 
+//3.4 edit a course
+void editcourse();
 
 
 /* ------------------------------ Vu's funtions ----------------------------- */
