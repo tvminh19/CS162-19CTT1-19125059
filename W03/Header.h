@@ -162,6 +162,26 @@ void nextStep(Year*& pHead, Year*& pHead1, char* your_choice, char* year);
 void view_Year_Semester();
 void view_Semester();
 
+void view_Courses();
+void output_Schedule(char year[], char semester[], char className[]);
+void delete_ScheduleNode(Node*& phead);
+void print_Schedule(Node* pHead);
+void get_Schedule(char v[], Node*& pHead);
+void get_No(ifstream& in, Node*& p, char a[]);
+void get_CourseID(ifstream& in, Node*& p, char a[]);
+void get_CourseName(ifstream& in, Node*& p, char a[]);
+void get_ClassName(ifstream& in, Node*& p, char a[]);
+void get_LecUserName(ifstream& in, Node*& p, char a[]);
+void get_LecName(ifstream& in, Node*& p, char a[]);
+void get_LecGender(ifstream& in, Node*& p, char a[]);
+void get_Sdate(ifstream& in, Node*& p, char a[]);
+void get_Edate(ifstream& in, Node*& p, char a[]);
+void get_DayOfWeek(ifstream& in, Node*& p, char a[]);
+void get_STime(ifstream& in, Node*& p, char a[]);
+void get_ETime(ifstream& in, Node*& p, char a[]);
+void get_Room(ifstream& in, Node*& p, char a[]);
+void input_YSC(char year[], char semester[], char className[]);
+
 
 /* ----------------------------- Van's functions ---------------------------- */
 // W02
