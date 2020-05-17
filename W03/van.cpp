@@ -683,7 +683,7 @@ void viewProfile(int accType, char ID[])
 		}
 		else cout << "Can't open student file!\n";
 	}
-	if (accType == 2)
+	if (accType == 3)
 	{
 		staff* staArr = nullptr;
 
@@ -697,7 +697,7 @@ void viewProfile(int accType, char ID[])
 		}
 		else cout << "Can't open staff file!\n";
 	}
-	if (accType == 3)
+	if (accType == 2)
 	{
 		lecture* lecArr = nullptr;
 
@@ -739,7 +739,7 @@ void changePassword(int accType, char ID[])
 		}
 		else cout << "Can't open student file!\n";
 	}
-	if (accType == 2)
+	if (accType == 3)
 	{
 		staff* staArr = nullptr;
 
@@ -760,7 +760,7 @@ void changePassword(int accType, char ID[])
 		}
 		else cout << "Can't open staff file!\n";
 	}
-	if (accType == 3)
+	if (accType == 2)
 	{
 		lecture* lecArr = nullptr;
 
