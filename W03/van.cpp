@@ -102,6 +102,31 @@ char* genPassword(Date DOB)
 	return pass;
 }
 
+void inputAndHidePass(char password[])
+{
+	int ch;
+	int pos = 0;
+	while (ch = getch()) {
+		if (ch == 8 && strlen(password) - 1 == 0) {
+			continue;
+		}
+		else if (ch == 13) {
+			break;
+		}
+		else if (ch == 8 && strlen(password) > 0) {
+			password[pos--] = '\0';
+			cout << "\b \b";
+		}
+		else {
+			cout << "*";
+			password[pos++] = ch;
+		}
+	}
+	password[pos] = '\0';
+	cout << "\n";
+	return;
+}
+
 Student importStudent(char str[])
 {
 	Student stu;
@@ -383,19 +408,19 @@ bool changeStuPassword(Student& stu)
 		return false;
 	cout << "Enter the old password: ";
 	char pass[1005];
-	cin.getline(pass, 1000, '\n');
+	inputAndHidePass(pass);
 	if (!sameStr(pass, stu.password))
 		return false;
 	while (1)
 	{
 		cout << "Enter the new password: ";
-		cin.getline(pass, 1000, '\n');
+		inputAndHidePass(pass);
 		char pass2[1005];
 		cout << "Enter the new password again to confirm: ";
-		cin.getline(pass2, 1000, '\n');
+		inputAndHidePass(pass2);
 		if (sameStr(pass, pass2))
 			break;
-		else{
+		else {
 			system("cls");
 			cout << "The new passwords don't match! Try again!\n";
 		}
@@ -489,19 +514,19 @@ bool changeStaPassword(staff& sta)
 		return false;
 	cout << "Enter the old password: ";
 	char pass[1005];
-	cin.getline(pass, 1000, '\n');
+	inputAndHidePass(pass);
 	if (!sameStr(pass, sta.password))
 		return false;
 	while (1)
 	{
 		cout << "Enter the new password: ";
-		cin.getline(pass, 1000, '\n');
+		inputAndHidePass(pass);
 		char pass2[1005];
 		cout << "Enter the new password again to confirm: ";
-		cin.getline(pass2, 1000, '\n');
+		inputAndHidePass(pass2);
 		if (sameStr(pass, pass2))
 			break;
-		else{
+		else {
 			system("cls");
 			cout << "The new passwords don't match! Try again!\n";
 		}
@@ -608,19 +633,19 @@ bool changeLecPassword(lecture& lec)
 		return false;
 	cout << "Enter the old password: ";
 	char pass[1005];
-	cin.getline(pass, 1000, '\n');
+	inputAndHidePass(pass);
 	if (!sameStr(pass, lec.password))
 		return false;
 	while (1)
 	{
 		cout << "Enter the new password: ";
-		cin.getline(pass, 1000, '\n');
+		inputAndHidePass(pass);
 		char pass2[1005];
 		cout << "Enter the new password again to confirm: ";
-		cin.getline(pass2, 1000, '\n');
+		inputAndHidePass(pass2);
 		if (sameStr(pass, pass2))
 			break;
-		else{
+		else {
 			system("cls");
 			cout << "The new passwords don't match! Try again!\n";
 		}
@@ -775,4 +800,5 @@ void changePassword(int accType, char ID[])
 		}
 		else cout << "Can't open lecturer file!\n";
 	}
+	system("pause");
 }
