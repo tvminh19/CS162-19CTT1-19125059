@@ -189,6 +189,13 @@ void get_Room(ifstream& in, Node*& p, char a[]);
 void input_YSC(char year[], char semester[], char className[]);
 
 
+void get_password(ifstream& in, Node*& p, char a[]);
+void get_academy(ifstream& in, Node*& p, char a[]);
+void view_Lecturers();
+void print_Lecturers(Node* pHead);
+void get_Lecturer(Node*& pHead);
+void delete_NodeLecturer(Node*& pHead);
+
 /* ----------------------------- Van's functions ---------------------------- */
 // W02
 
