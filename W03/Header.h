@@ -17,6 +17,7 @@ using namespace std;
 /* ----------------------------- Minh's funtions ---------------------------- */
 //W00
 //W01
+void blank_line(const char *file_name);
 bool isSameStr(char a[], char b[]);
 
 struct Date {

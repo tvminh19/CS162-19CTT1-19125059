@@ -8,6 +8,27 @@
 /* -------------------------------------------------------------------------- */
 
 /* ---------------------------- string to number ---------------------------- */
+//blank text
+void blank_line(const char *file_name)
+{   
+  ifstream fin(file_name);    
+  
+  ofstream fout;                
+  fout.open("temp.txt", ios::out);
+  
+  string str;
+  while(getline(fin,str))
+  { 
+    while (str.length()==0 ) 
+       getline(fin,str);   
+  
+    fout<<str<<endl;
+  }
+  fout.close();  
+  fin.close();  
+  remove(file_name);        
+  rename("temp.txt", file_name);
+}
 //intro Done
 void introDone(){
     system("cls");
@@ -1511,6 +1532,7 @@ void editcourse(){
     makeClassAdd(year, semester, className, fileAdd);
     
     //load file
+    blank_line(fileAdd);
     loadCourseEdit(year, semester, className, fileAdd, phead, pcur);
 
     //show to edit
