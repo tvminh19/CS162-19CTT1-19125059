@@ -20,34 +20,34 @@ using namespace std;
 bool isSameStr(char a[], char b[]);
 
 struct Date {
-    int day;
-    int month;
-    int year;
+	int day;
+	int month;
+	int year;
 };
 
 struct student {
-    char* account;
-    char* password;
-    char* name;
-    char* dob;
-    char* className;
-    int gender;
-    int isActive;
+	char* account;
+	char* password;
+	char* name;
+	char* dob;
+	char* className;
+	int gender;
+	int isActive;
 };
 
 struct lecture {
-    char* account; //username
-    char* password;
-    char* name;
-    char* academy;
-    int gender;
+	char* account; //username
+	char* password;
+	char* name;
+	char* academy;
+	int gender;
 };
 
 struct staff {
-    char* account;
-    char* password;
-    char* name;
-    int gender;
+	char* account;
+	char* password;
+	char* name;
+	int gender;
 };
 
 //menu function
@@ -95,61 +95,61 @@ void displayAllroles(int typeAccount, char ID[]);   //1
 //W02
 
 struct Time {
-    int hours;
-    int mins;
+	int hours;
+	int mins;
 };
 
 struct schedule {
-    int no;
-    char* courseID;
-    char* courseName;
-    char* Class;
-    lecture* lec;
-    Date Sdate;
-    Date Edate;
-    char* dayofweek;
-    Time Stime;
-    Time Etime;
-    char* room;
+	int no;
+	char* courseID;
+	char* courseName;
+	char* Class;
+	lecture* lec;
+	Date Sdate;
+	Date Edate;
+	char* dayofweek;
+	Time Stime;
+	Time Etime;
+	char* room;
 };
 
 struct score {
-    float midterm;
-    float final;
-    float bonus;
-    float total;
+	float midterm;
+	float final;
+	float bonus;
+	float total;
 };
 
 struct scoreboard {
-    student* stu;
-    int isActive;
-    score* sco;
-    int went2class[12];
+	student* stu;
+	int isActive;
+	score* sco;
+	int went2class[12];
 };
 
 struct checkin {
-    bool w[10];
+	bool w[10];
 };
 struct course {
-    student* stu;
-    score* sco;
-    checkin* ck;
-    char* timeStudy[10];
+	student* stu;
+	score* sco;
+	checkin* ck;
+	char* timeStudy[10];
 };
 
 void Year_Semester();                   //3.1
 
 //W03
 struct Node {
-    student* stu;
-    scoreboard* scb;
-    schedule* schedule;
-    Node* next = nullptr;
+	student* stu;
+	scoreboard* scb;
+	schedule* schedule;
+	Node* next = nullptr;
 };
 struct Year {
-    char* years;
-    char* semesters;
-    Year* pNext;
+	char* years;
+	char* semesters;
+	Year* pNext;
 };
 
 void create_Year_Semester();
@@ -204,19 +204,19 @@ void delete_NodeLecturer(Node*& pHead);
 
 struct Student
 {
-    char* userName;
-    char* password;
-    char* ID;
-    char* sName;
-    Date DOB; 
-    char* sClass;
-    int gender; // 1 if female
+	char* userName;
+	char* password;
+	char* ID;
+	char* sName;
+	Date DOB;
+	char* sClass;
+	int gender; // 1 if female
 };
 
 struct StuNode
 {
-    Student stu;
-    StuNode* pNext = nullptr;
+	Student stu;
+	StuNode* pNext = nullptr;
 };
 
 void introDone();
@@ -226,6 +226,8 @@ Date getDOB(char str[], int& index);
 char* getsClass(char str[], int& index);
 char* genPassword(Date DOB);
 void createAccount(Student& stu);
+
+void inputAndHidePass(char password[]);
 
 void displayAccount(const Student& stu);
 void displayStudent(const Student& stu);
@@ -244,7 +246,6 @@ Student loadStudent();
 void loadClass(StuNode*& pHead, int& n);
 
 bool loginStu(StuNode* pHead, char userName[], char password[], StuNode*& pStu);
-bool changePassword(Student& stu);
 
 
 void deleteStudent(Student stu);

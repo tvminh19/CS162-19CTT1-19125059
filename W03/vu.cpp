@@ -439,13 +439,14 @@ void displayAllroles(int typeAccount, char ID[])
 		char id[20];
 		int ta;
 		menu(ta, id);
+		return;
 	}
 
 	else {
 		notCorrect();
 	}
 	char a[100];
-	displayAllroles(typeAccount, a);
+	displayAllroles(typeAccount, ID);
 	delete[] c;
 }
 
