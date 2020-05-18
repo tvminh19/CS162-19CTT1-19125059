@@ -94,12 +94,12 @@ void displayAllroles(int typeAccount, char ID[]);   //1
 
 //W02
 
-struct Time{
+struct Time {
     int hours;
     int mins;
 };
 
-struct schedule{
+struct schedule {
     int no;
     char* courseID;
     char* courseName;
@@ -113,24 +113,24 @@ struct schedule{
     char* room;
 };
 
-struct score{
+struct score {
     float midterm;
     float final;
     float bonus;
     float total;
 };
 
-struct scoreboard{
+struct scoreboard {
     student* stu;
     int isActive;
-    score* sco; 
+    score* sco;
     int went2class[12];
 };
 
-struct checkin{
+struct checkin {
     bool w[10];
 };
-struct course{
+struct course {
     student* stu;
     score* sco;
     checkin* ck;
@@ -140,7 +140,7 @@ struct course{
 void Year_Semester();                   //3.1
 
 //W03
-struct Node{
+struct Node {
     student* stu;
     scoreboard* scb;
     schedule* schedule;
@@ -161,9 +161,12 @@ void createNew_Semester(Year*& pHead, int& n, char* semester, char* year);
 void delete_Semester(Year*& pHead);
 
 void delete_Year_Semester();
-bool Year_exist(Year*& pHead);
-void Semester_exist(Year*& pHead);
-void nextStep(Year*& pHead, Year*& pHead1, char* your_choice, char* year);
+bool Year_exist(Year*& pHead, int& n);
+void Semester_exist(Year*& pHead, int& n, int& m);
+void nextStep(Year*& pHead, Year*& pHead1, char* your_choice, char* year, int& n, int& m);
+void delete_AYear(Year*& pHead, int& n, char* year);
+void delete_ASemester(Year*& pHead1, int& m, char* semester, char* year);
+void input_your_choice(char* your_choice);
 
 void view_Year_Semester();
 void view_Semester();
@@ -188,13 +191,13 @@ void get_ETime(ifstream& in, Node*& p, char a[]);
 void get_Room(ifstream& in, Node*& p, char a[]);
 void input_YSC(char year[], char semester[], char className[]);
 
-
 void get_password(ifstream& in, Node*& p, char a[]);
 void get_academy(ifstream& in, Node*& p, char a[]);
 void view_Lecturers();
 void print_Lecturers(Node* pHead);
 void get_Lecturer(Node*& pHead);
 void delete_NodeLecturer(Node*& pHead);
+
 
 /* ----------------------------- Van's functions ---------------------------- */
 // W02

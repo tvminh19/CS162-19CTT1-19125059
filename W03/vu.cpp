@@ -478,7 +478,7 @@ void Year_Semester()
 
 	else if (strcmp(c, "2") == 0) {
 		//Delete
-		//delete_Year_Semester();
+		delete_Year_Semester();
 	}
 
 	else if (strcmp(c, "3") == 0) {
@@ -745,12 +745,11 @@ void create_Year_Semester()
 	delete[] semester;
 	delete_Semester(pHead1);
 }
-//----------------------------------------------------------------------------------------------------
-bool Year_exist(Year*& pHead)
+//2.1.2
+bool Year_exist(Year*& pHead, int& n)
 {
 	ifstream fin;
 	fin.open("D:\\Github\\CS162-19CTT1-19125059\\ZPMS\\year.txt");
-	int n;
 	fin >> n;
 	if (n == 0) {
 		fin.close();
@@ -788,7 +787,7 @@ bool Year_exist(Year*& pHead)
 	}
 }
 
-void Semester_exist(Year*& pHead)
+void Semester_exist(Year*& pHead, int& n, int& m)
 {
 	cout << endl << "Input your choice (year) > ";
 	char u[100];
@@ -802,21 +801,28 @@ void Semester_exist(Year*& pHead)
 	strcat(v, dirD);
 	strcat(v, year);
 	strcat(v, "\\semester.txt");
+	Year* pHead1 = nullptr;
+	char* your_choice = nullptr;
 
 	ifstream fin;
 	fin.open(v);
-
-	int m;
 	fin >> m;
 	if (m == 0) {
-		cout << "There are no semesters existed" << endl;
 		fin.close();
-		return;
+		system("cls");
+		cout << "There are no semesters existed" << endl;
+		cout << "[" << m + 1 << "]. Year " << year << endl << endl;
+		cout << "Input your choice (year or a semester) > ";
+		char e[100];
+		cin.ignore();
+		cin.get(e, 100, '\n');
+		your_choice = new char[strlen(e) + 1];
+		strcpy(your_choice, e);
+		nextStep(pHead, pHead1, your_choice, year, n, m);
 	}
 	else {
 		system("cls");
 		cout << "----- Delete Year or Semester -----" << endl;
-		Year* pHead1 = nullptr;
 		Year* cur = pHead1;
 		for (int i = 1; i <= m; ++i) {
 			if (pHead1 == nullptr) {
@@ -844,37 +850,138 @@ void Semester_exist(Year*& pHead)
 		}
 		fin.close();
 		cout << "[" << m + 1 << "]. Year " << year << endl << endl;
-		cout << endl << "Input your choice (year or a semester) > ";
+		cout << "Input your choice (year or a semester) > ";
 		char e[100];
 		cin.ignore();
 		cin.get(e, 100, '\n');
-		char* your_choice = new char[strlen(e) + 1];
+		your_choice = new char[strlen(e) + 1];
 		strcpy(your_choice, e);
-
-		nextStep(pHead, pHead1, your_choice, year);
+		//here
+		nextStep(pHead, pHead1, your_choice, year, n, m);
 
 		delete[] your_choice;
 	}
-
 	delete[] year;
+	if (pHead1 != nullptr) {
+		delete_Semester(pHead1);
+	}
 }
 
-void nextStep(Year*& pHead, Year*& pHead1, char* your_choice, char* year)
+void input_your_choice(char* your_choice)
 {
+	char e[100];
+	cin.ignore();
+	cin.get(e, 100, '\n');
+	your_choice = new char[strlen(e) + 1];
+	strcpy(your_choice, e);
+}
+
+void delete_AYear(Year*& pHead, int& n, char* year)
+{
+	if (pHead == nullptr)
+		return;
+	Year* cur = pHead;
+
+	if (strcmp(pHead->years, year) == 0) {
+		pHead = pHead->pNext;
+		delete[] cur->years;
+		delete cur;
+		cur = pHead;
+	}
+	while (cur->pNext != nullptr) {
+		if (strcmp(cur->pNext->years, year) == 0) {
+			Year* tmp = cur->pNext;
+			cur->pNext = tmp->pNext;
+			delete[] tmp->years;
+			delete tmp;
+			break;
+		}
+		cur = cur->pNext;
+	}
+	ofstream fout;
+	fout.open("D:\\Github\\CS162-19CTT1-19125059\\ZPMS\\year.txt");
+	n -= 1;
+	fout << n << endl;
+	if (n == 0) {
+		fout.close();
+		return;
+	}
+
+	Year* pcur = pHead;
+	while (pcur != nullptr) {
+		fout << pcur->years << endl;
+		pcur = pcur->pNext;
+	}
+
+	fout.close();
+}
+
+void delete_ASemester(Year*& pHead1, int& m, char* semester, char* year)
+{
+	if (pHead1 == nullptr)
+		return;
+
+	Year* cur = pHead1;
+	if (strcmp(pHead1->semesters, semester) == 0) {
+		pHead1 = pHead1->pNext;
+		delete[] cur->semesters;
+		delete cur;
+		cur = pHead1;
+	}
+	while (cur != nullptr && cur->pNext != nullptr) {
+		if (strcmp(cur->pNext->semesters, semester) == 0) {
+			Year* tmp = cur->pNext;
+			cur->pNext = tmp->pNext;
+			delete[] tmp->semesters;
+			delete tmp;
+			break;
+		}
+		cur = cur->pNext;
+	}
 	char dirD[] = "D:\\Github\\CS162-19CTT1-19125059\\ZPMS\\";
 	char c[500] = "";
 	strcat(c, dirD);
 	strcat(c, year);
+	strcat(c, "\\");
+	strcat(c, "semester.txt");
+
+	ofstream fout;
+	fout.open(c);
+	m -= 1;
+	fout << m << endl;
+	if (m == 0) {
+		fout.close();
+		return;
+	}
+
+	Year* pcur = pHead1;
+	while (pcur != nullptr) {
+		fout << pcur->semesters << endl;
+		pcur = pcur->pNext;
+	}
+
+	fout.close();
+}
+
+void nextStep(Year*& pHead, Year*& pHead1, char* your_choice, char* year, int& n, int& m)
+{
+	char dirD[] = "D:\\Github\\CS162-19CTT1-19125059\\ZPMS\\";
+	char c[500] = "";
+	strcat(c, "RD /S /Q ");
+	strcat(c, dirD);
+	strcat(c, year);
 
 	if (strcmp(your_choice, year) == 0) {
-		RemoveDirectoryA(c);
+		system(c);
+		delete_AYear(pHead, n, your_choice);
 	}
 	else {
 		strcat(c, "\\");
 		strcat(c, your_choice);
-		RemoveDirectoryA(c);
+		system(c);
+		delete_ASemester(pHead1, m, your_choice, year);
 	}
-	delete_Semester(pHead1);
+	introDone();
 }
 
 void delete_Year_Semester()
@@ -882,16 +989,17 @@ void delete_Year_Semester()
 	system("cls");
 
 	Year* pHead = nullptr;
-	if (!Year_exist(pHead)) {
+	int n, m;
+	if (!Year_exist(pHead, n)) {
 		cout << "There are no years existed" << endl;
 		//Year_Semester();
 	}
 	else {
-		Semester_exist(pHead);
+		Semester_exist(pHead, n, m);
 	}
 	delete_Year(pHead);
 }
-//----------------------------------------------------------------------------------------------------
+//2.1.3
 void view_Semester(char* year)
 {
 	char dirD[] = "D:\\Github\\CS162-19CTT1-19125059\\ZPMS\\";
@@ -950,7 +1058,8 @@ void view_Year_Semester()
 {
 	system("cls");
 	Year* pHead = nullptr;
-	if (!Year_exist(pHead)) {
+	int n;
+	if (!Year_exist(pHead, n)) {
 		cout << "There are no years existed." << endl;
 	}
 	else {
