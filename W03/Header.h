@@ -170,7 +170,7 @@ void delete_ASemester(Year*& pHead1, int& m, char* semester, char* year);
 void input_your_choice(char* your_choice);
 
 void view_Year_Semester();
-void view_Semester();
+void view_Semester(char* year);
 
 void view_Courses();
 void output_Schedule(char year[], char semester[], char className[]);
@@ -192,12 +192,24 @@ void get_ETime(ifstream& in, Node*& p, char a[]);
 void get_Room(ifstream& in, Node*& p, char a[]);
 void input_YSC(char year[], char semester[], char className[]);
 
+//W04
+
 void get_password(ifstream& in, Node*& p, char a[]);
 void get_academy(ifstream& in, Node*& p, char a[]);
 void view_Lecturers();
 void print_Lecturers(Node* pHead);
 void get_Lecturer(Node*& pHead);
 void delete_NodeLecturer(Node*& pHead);
+
+void view_Student();
+void show_course(Node*& pHead, char year[], char semester[], char className[]);
+void show_schedule(Node* pHead);
+void student_course(Node*& pHead1, char year[], char semester[], char className[]);
+void get_student_course(char v[], Node*& pHead1);
+void get_StuID(ifstream& in, Node*& p, char a[]);
+void get_StuName(ifstream& in, Node*& p, char a[]);
+void print_S_C(Node* pHead1);
+void delete_S_C(Node*& pHead1);
 
 
 /* ----------------------------- Van's functions ---------------------------- */
