@@ -100,6 +100,7 @@ void menuLecturer()
 
 	else if (strcmp(c, "5") == 0) {
 		//6.5
+		//import_scoreboard();
 	}
 
 	else if (strcmp(c, "6") == 0) {
@@ -108,6 +109,7 @@ void menuLecturer()
 
 	else if (strcmp(c, "7") == 0) {
 		//6.7
+		view_scoreboard();
 	}
 
 	else {
@@ -285,6 +287,7 @@ void Staff_scoreboard()
 
 	else if (strcmp(c, "1") == 0) {
 		//4.1
+		view_scoreboard();
 	}
 
 	else if (strcmp(c, "2") == 0) {
@@ -689,14 +692,14 @@ void createNew_Semester(Year*& pHead, int& n, char* semester, char* year)
 	fout.close();
 }
 
-void delete_Semester(Year*& pHead)
+void delete_Semester(Year*& pHead1)
 {
-	Year* cur = pHead;
-	while (pHead != nullptr) {
-		pHead = pHead->pNext;
+	Year* cur = pHead1;
+	while (pHead1 != nullptr) {
+		pHead1 = pHead1->pNext;
 		delete[] cur->semesters;
 		delete cur;
-		cur = pHead;
+		cur = pHead1;
 	}
 }
 
@@ -742,10 +745,11 @@ void create_Year_Semester()
 		Sleep(500);
 		system("pause");
 	}
-
+	delete_Semester(pHead1);
 	delete[] year;
 	delete[] semester;
-	delete_Semester(pHead1);
+
+	system("pause");
 }
 //2.1.2
 bool Year_exist(Year*& pHead, int& n)
@@ -1694,5 +1698,304 @@ void view_Student()
 	Node* pHead1 = nullptr;
 	student_course(pHead1, year, semester, className);
 	delete_S_C(pHead1);
+	system("pause");
+}
+//6.5
+//-----------------------------------------------------------------------------------
+void inputFile_Address(char*& b)
+{
+	char d[200];
+	cout << "Input file address: ";
+	cin.ignore();
+	cin.get(d, 200, '\n');
+	b = new char[strlen(d) + 1];
+	strcpy(b, d);
+	ifstream fin;
+	fin.open(b);
+	if (!fin.is_open()) {
+		cout << "Wrong file address!!" << endl;
+		delete[] b;
+		inputFile_Address(b);
+	}
+	else {
+		introDone();
+	}
+	fin.close();
+}
+
+void get_stu_ID(ifstream& in, Node*& p, char a[])
+{
+	in.ignore(200, ',');
+	in.get(a, 200, ',');
+	p->scb->stu->account = new char[strlen(a) + 1];
+	strcpy(p->scb->stu->account, a);
+}
+
+void get_stu_name(ifstream& in, Node*& p, char a[])
+{
+	in.ignore(200, ',');
+	in.get(a, 200, ',');
+	p->stu->name = new char[strlen(a) + 1];
+	strcpy(p->stu->name, a);
+}
+
+void get_midterm(ifstream& in, Node*& p)
+{
+	in.ignore(200, ',');
+	in >> p->scb->sco->midterm;
+}
+
+void get_final(ifstream& in, Node*& p)
+{
+	in.ignore(200, ',');
+	in >> p->scb->sco->final;
+}
+
+void get_bonus(ifstream& in, Node*& p)
+{
+	in.ignore(200, ',');
+	in >> p->scb->sco->bonus;
+}
+
+void get_total(ifstream& in, Node*& p)
+{
+	in.ignore(200, ',');
+	in >> p->scb->sco->total;
+}
+
+void get_scoreborad(char* b, Node*& pHead)
+{
+	ifstream fin;
+	fin.open(b);
+	cin.ignore(500, '\n');
+	Node* cur = pHead;
+
+	while (!fin.eof()) {
+		char a[100];
+		if (pHead == nullptr) {
+			get_No(fin, pHead, a);
+			pHead->scb = new scoreboard;
+			pHead->scb->stu = new student;
+			get_stu_ID(fin, pHead, a);
+			get_stu_name(fin, pHead, a);
+			pHead->scb->sco = new score;
+			get_midterm(fin, pHead);
+			get_final(fin, pHead);
+			get_bonus(fin, pHead);
+			get_total(fin, pHead);
+			fin.ignore(100, '\n');
+		}
+		else {
+			cur->next = new Node;
+			cur = cur->next;
+
+			get_No(fin, cur, a);
+			cur->scb = new scoreboard;
+			cur->scb->stu = new student;
+			get_stu_ID(fin, cur, a);
+			get_stu_name(fin, cur, a);
+			cur->scb->sco = new score;
+			get_midterm(fin, cur);
+			get_final(fin, cur);
+			get_bonus(fin, cur);
+			get_total(fin, cur);
+			fin.ignore(100, '\n');
+		}
+	}
+
+	fin.close();
+}
+
+void delete_S_B(Node*& pHead)
+{
+	Node* cur = pHead;
+	while (pHead != nullptr) {
+		pHead = pHead->next;
+		delete[] cur->scb->stu->account;
+		delete[] cur->scb->stu->name;
+		delete cur->scb->sco;
+		delete cur->scb->stu;
+		delete cur->scb;
+		cur = pHead;
+	}
+}
+
+void import_scoreboard()
+{
+	char year[20];
+	char semester[10];
+	char className[10];
+	input_YSC(year, semester, className);
+
+	char* b = nullptr;
+	inputFile_Address(b);
+	Node* pHead = nullptr;
+	get_scoreborad(b, pHead);
+
+	delete[] b;
+	delete_S_B(pHead);
+}
+//-------------------------------------------------------------------------------------
+void get_stuaccount(ifstream& in, Node*& p, char a[])
+{
+	in.ignore(100, '\n');
+	in.get(a, 200, '\n');
+	p->scb->stu->account = new char[strlen(a) + 1];
+	strcpy(p->scb->stu->account, a);
+}
+void get_stuname(ifstream& in, Node*& p, char a[])
+{
+	in.ignore(100, '\n');
+	in.get(a, 200, '\n');
+	p->scb->stu->name = new char[strlen(a) + 1];
+	strcpy(p->scb->stu->name, a);
+}
+
+void get_Midterm(ifstream& in, Node*& p)
+{
+	in.ignore(200, '\n');
+	in >> p->scb->sco->midterm;
+}
+
+void get_Final(ifstream& in, Node*& p)
+{
+	in.ignore(200, '\n');
+	in >> p->scb->sco->final;
+}
+
+void get_Bonus(ifstream& in, Node*& p)
+{
+	in.ignore(200, '\n');
+	in >> p->scb->sco->bonus;
+}
+
+void get_Total(ifstream& in, Node*& p)
+{
+	in.ignore(200, '\n');
+	in >> p->scb->sco->total;
+}
+
+void get_S_B(char v[], Node*& pHead1)
+{
+	ifstream fin;
+	fin.open(v);
+	int n;
+	fin.ignore(200, '\n');
+	fin >> n;
+
+	Node* cur = pHead1;
+	for (int i = 0; i < n; ++i) {
+		char a[100];
+		if (pHead1 == nullptr) {
+			pHead1 = new Node;
+			pHead1->scb = new scoreboard;
+			pHead1->scb->stu = new student;
+			get_stuaccount(fin, pHead1, a);
+			fin.ignore(100, '\n');
+			get_stuname(fin, pHead1, a);
+			fin.ignore(100, '\n');
+			fin.ignore(100, '\n');
+			pHead1->scb->sco = new score;
+			get_Midterm(fin, pHead1);
+			get_Final(fin, pHead1);
+			get_Bonus(fin, pHead1);
+			get_Total(fin, pHead1);
+			for (int j = 0; j < 10; ++j)
+				fin.ignore(100, '\n');
+			cur = pHead1;
+			cur->next = nullptr;
+		}
+		else {
+			cur->next = new Node;
+			cur = cur->next;
+
+			cur->scb = new scoreboard;
+			cur->scb->stu = new student;
+			get_stuaccount(fin, cur, a);
+			fin.ignore(100, '\n');
+			get_stuname(fin, cur, a);
+			fin.ignore(100, '\n');
+			fin.ignore(100, '\n');
+			cur->scb->sco = new score;
+			get_Midterm(fin, cur);
+			get_Final(fin, cur);
+			get_Bonus(fin, cur);
+			get_Total(fin, cur);
+			for (int j = 0; j < 10; ++j)
+				fin.ignore(100, '\n');
+			cur->next = nullptr;
+		}
+	}
+	fin.close();
+}
+
+void print_S_B(Node* pHead1)
+{
+	system("cls");
+	int t = 0;
+	cout << setw(5) << left << "No";
+	cout << setw(15) << left << "ID";
+	cout << setw(30) << left << "Student Name";
+	cout << setw(10) << left << "Midterm";
+	cout << setw(10) << left << "Final";
+	cout << setw(10) << left << "Bonus";
+	cout << setw(10) << left << "Total" << endl;
+	cout << setfill('-');
+	cout << setw(90) << "-" << endl;
+	cout << setfill(' ');
+
+	Node* cur = pHead1;
+	while (cur != nullptr) {
+		t += 1;
+		cout << setw(5) << left << t;
+		cout << setw(15) << left << cur->scb->stu->account;
+		cout << setw(30) << left << cur->scb->stu->name;
+		cout << setw(10) << left << cur->scb->sco->midterm;
+		cout << setw(10) << left << cur->scb->sco->final;
+		cout << setw(10) << left << cur->scb->sco->bonus;
+		cout << setw(10) << left << cur->scb->sco->total << endl;
+		cur = cur->next;
+	}
+	cout << endl;
+}
+
+void Stu_S_B(Node*& pHead1, char year[], char semester[], char className[])
+{
+	cout << endl << "Input your choice (course) > ";
+	char c[100];
+	cin.ignore();
+	cin.get(c, 100, '\n');
+	char* course = new char[strlen(c) + 1];
+	strcpy(course, c);
+
+	char dirD[] = "D:\\Github\\CS162-19CTT1-19125059\\ZPMS\\";
+	char v[500] = "";
+	strcat(v, dirD);
+	strcat(v, year);
+	strcat(v, "\\");
+	strcat(v, semester);
+	strcat(v, "\\");
+	strcat(v, className);
+	strcat(v, "\\");
+	strcat(v, course);
+	strcat(v, ".txt");
+
+	get_S_B(v, pHead1);
+	print_S_B(pHead1);
+}
+
+void view_scoreboard()
+{
+	char year[20];
+	char semester[10];
+	char className[10];
+	input_YSC(year, semester, className);
+	Node* pHead = nullptr;
+	show_course(pHead, year, semester, className);
+	delete_ScheduleNode(pHead);
+
+	Node* pHead1 = nullptr;
+	Stu_S_B(pHead1, year, semester, className);
+	delete_S_B(pHead1);
 	system("pause");
 }

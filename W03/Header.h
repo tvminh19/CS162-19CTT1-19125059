@@ -17,7 +17,7 @@ using namespace std;
 /* ----------------------------- Minh's funtions ---------------------------- */
 //W00
 //W01
-void blank_line(const char *file_name);
+void blank_line(const char* file_name);
 bool isSameStr(char a[], char b[]);
 
 struct Date {
@@ -159,7 +159,7 @@ void createNew_Year(Year*& pHead, int& n, char* year);
 void delete_Year(Year*& pHead);
 bool exist_Semester(Year*& pHead, int& n, char* semester, char* year);
 void createNew_Semester(Year*& pHead, int& n, char* semester, char* year);
-void delete_Semester(Year*& pHead);
+void delete_Semester(Year*& pHead1);
 
 void delete_Year_Semester();
 bool Year_exist(Year*& pHead, int& n);
@@ -210,6 +210,29 @@ void get_StuID(ifstream& in, Node*& p, char a[]);
 void get_StuName(ifstream& in, Node*& p, char a[]);
 void print_S_C(Node* pHead1);
 void delete_S_C(Node*& pHead1);
+
+
+void import_scoreboard();
+void inputFile_Address(char*& b);
+void get_scoreborad(char* b, Node*& pHead);
+void get_stu_ID(ifstream& in, Node*& p, char a[]);
+void get_stu_name(ifstream& in, Node*& p, char a[]);
+void get_midterm(ifstream& in, Node*& p);
+void get_final(ifstream& in, Node*& p);
+void get_bonus(ifstream& in, Node*& p);
+void get_total(ifstream& in, Node*& p);
+void delete_S_B(Node*& pHead);
+
+void view_scoreboard();
+void Stu_S_B(Node*& pHead1, char year[], char semester[], char className[]);
+void get_S_B(char v[], Node*& pHead1);
+void get_stuaccount(ifstream& in, Node*& p, char a[]);
+void get_stuname(ifstream& in, Node*& p, char a[]);
+void get_Midterm(ifstream& in, Node*& p);
+void get_Final(ifstream& in, Node*& p);
+void get_Bonus(ifstream& in, Node*& p);
+void get_Total(ifstream& in, Node*& p);
+void print_S_B(Node* pHead1);
 
 
 /* ----------------------------- Van's functions ---------------------------- */
