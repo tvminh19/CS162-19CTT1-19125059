@@ -2,20 +2,20 @@
 dbtien
 abcdef
 Dinh Ba Tien
-Dr
+Tien si
 1
 nmhuy
 abcdef
 Nguyen Minh Huy
-MSc
+Thac si
 1
 nhminh
 abcdef
 Nguyen Hai Minh
-MSc
+Thac si
 1
 dnvu
 dnvu
 Duong Nguyen Vu
-Prof
+GS
 1
