@@ -78,6 +78,10 @@ void addANewCourse();
 //3.4 edit a course
 void editcourse();
 
+bool isExistYear(char year[]);
+bool isExistSem(char year[], char sem[]);
+bool isExistClass(char className[], char sem[], char year[]);
+void inputYSC(char year[], char semester[], char className[]);
 
 /* ------------------------------ Vu's funtions ----------------------------- */
 //W01
@@ -272,8 +276,18 @@ void displayClass(StuNode* pHead, const int& n);
 Student importStudent(char str[]);
 bool importClass(StuNode*& pHead, int& n);
 
+void takeFileAdd(char fileAdd[]);
+void create_Year_Semester_Class(char*& year, char*& semester);
+
+void mergeList(StuNode*& pH1, StuNode* pH2);
+
 void saveStudent(const Student& stu);
-void saveClass(StuNode* pHead, const int& n);
+void saveClass(StuNode* pHead, const int& n, char fileAdd[]);
+
+void importAndSave();
+
+bool findStuNode(StuNode* pHead, StuNode* pStu);
+void mergeList(StuNode*& pH1, StuNode*& pH2, int& added);
 
 char* cpyStr(char str[]);
 bool sameStr(char* str1, char* str2);

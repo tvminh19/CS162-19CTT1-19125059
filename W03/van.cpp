@@ -167,9 +167,28 @@ void displayStudent(const Student& stu)
 	cout << "Gender: "; if (stu.gender == 0) cout << "Female\n"; else cout << "Male\n";
 }
 
+void takeFileAdd(char fileAdd[])
+{
+	char str[205];
+	cin.getline(str, 200, '\n');
+	int id = 0;
+	for (int i = 0; i < strlen(str); i++)
+		if (str[i] == '\\')
+		{
+			fileAdd[id++] = '\\';
+			fileAdd[id++] = '\\';
+		}
+		else fileAdd[id++] = str[i];
+	fileAdd[id] = '\0';
+}
+
 bool importClass(StuNode*& pHead, int& n)
 {
-	fi.open("19CTT1-Student.csv");
+	char csvAdd[205];
+	cout << "We are going to import a csv file of a class.\n";
+	cout << "Enter the csv file address: ";
+	takeFileAdd(csvAdd);
+	fi.open(csvAdd);
 	if (fi.is_open())
 	{
 		fi.ignore(1000, '\n'); // ignore the title row first
@@ -205,7 +224,7 @@ bool importClass(StuNode*& pHead, int& n)
 	}
 	else
 	{
-		cout << "Can't open csv file to import!\n";
+		cout << "Can't open csv file to import!\nThe file path might be incorrect!\nPlease enter the right path!\n";
 		return false;
 	}
 }
@@ -262,9 +281,9 @@ Student loadStudent()
 	return stu;
 }
 
-void loadClass(StuNode*& pHead, int& n)
+void loadClass(StuNode*& pHead, int& n, char fileAdd[])
 {
-	fi.open("19CTT1-Student.txt");
+	fi.open(fileAdd);
 	if (fi.is_open())
 	{
 		fi >> n;
@@ -337,23 +356,224 @@ void saveStudent(const Student& stu)
 	fo << stu.gender << "\n";
 }
 
-void saveClass(StuNode* pHead, const int& n)
+void saveClass(StuNode* pHead, const int& n, char fileAdd[])
 {
-	fo.open("19CTT1-Student.txt");
-	if (fo.is_open())
+	fo.open(fileAdd);
+	fo << n << '\n';
+	StuNode* pCur = pHead;
+	while (pCur != nullptr)
 	{
-		fo << n << '\n';
-		StuNode* pCur = pHead;
-		while (pCur != nullptr)
-		{
-			saveStudent(pCur->stu);
-			pCur = pCur->pNext;
-		}
-		fo.close();
+		saveStudent(pCur->stu);
+		pCur = pCur->pNext;
 	}
-	else cout << "Can't open txt file to save the class!\n";
+	fo.close();
 }
 
+void create_Year_Semester_Class(char*& year, char*& semester)
+{
+	system("cls");
+
+	char tmpY[500];
+	cout << "Year: ";
+	cin.ignore(1000, '\n');              //Notice this shit
+	cin.get(tmpY, 500, '\n');
+	year = new char[strlen(tmpY) + 1];
+	strcpy(year, tmpY);
+	int n = 0;
+
+	// YEAR
+	Year* pHead = NULL;
+	if (!exist_Year(pHead, n, year))
+	{
+		// create new year
+		createNew_Year(pHead, n, year);
+		cout << "New year folder is created!\n";
+	}
+	else
+	{
+		cout << "Please continue!\n" << endl;
+	}
+	delete_Year(pHead);
+
+	// SEMESTER
+	char tmpS[500];
+	cout << "Semester: ";
+	cin.ignore(100, '\n');
+	cin.get(tmpS, 500, '\n');
+	semester = new char[strlen(tmpS) + 1];
+	strcpy(semester, tmpS);
+
+	n = 0;
+	Year* pHead1 = NULL;
+	if (!exist_Semester(pHead1, n, semester, year))
+	{
+		createNew_Semester(pHead1, n, semester, year);
+		cout << "New semester folder is created!\n";
+		//introDone();
+	}
+	else
+	{
+		cout << "Please continue!\n" << endl;
+		// Sleep(500);
+		// system("pause");
+	}
+	delete_Semester(pHead1);
+}
+
+bool findStuNode(StuNode* pHead, StuNode* pStu)
+{
+	StuNode* pCur = pHead;
+	while (pCur != nullptr)
+	{
+		if (sameStr(pCur->stu.ID, pStu->stu.ID))
+			return true;
+		pCur = pCur->pNext;
+	}
+	return false;
+}
+
+void mergeList(StuNode*& pH1, StuNode*& pH2, int& added)
+{
+	if (pH1 == nullptr)
+	{
+		pH1 = pH2;
+		pH2 = nullptr;
+		return;
+	}
+	if (pH2 == nullptr)
+		return;
+	StuNode* pCur = pH1;
+	while (pCur->pNext != nullptr)
+		pCur = pCur->pNext;					   // at the end of the whole big list...
+
+	while (pH2 != nullptr && !findStuNode(pH1, pH2))
+	{
+		StuNode* pTmp = pH2;
+		pH2 = pH2->pNext;
+		pCur->pNext = pTmp;
+		pCur = pCur->pNext;
+		pCur->pNext = nullptr;
+		added++;
+	}
+
+	if (pH2 == nullptr)
+		return;
+	StuNode* pCur2 = pH2;
+	while (pCur2->pNext != nullptr)
+	{
+		if (!findStuNode(pH1, pCur2->pNext))
+		{
+			StuNode* pTmp = pCur2->pNext;
+			pCur2->pNext = pTmp->pNext;
+			pTmp->pNext = nullptr;
+			pCur->pNext = pTmp;
+			pCur = pCur->pNext;
+			added++;
+		}
+		else pCur2 = pCur2->pNext;
+	}
+}
+
+void importAndSave()
+{
+	char year[15], seme[11], className[15];
+
+	inputYSC(year, seme, className);
+
+	char dirD[] = "D:\\Github\\CS162-19CTT1-19125059\\ZPMS\\";
+	char d[500] = "";
+	strcat(d, dirD);
+	strcat(d, year);
+	strcat(d, "\\");
+	strcat(d, seme);
+
+	char tmp[500] = "";
+	strcat(tmp, d);
+	strcat(tmp, "\\Class.txt");
+
+	fo.open(tmp);
+	fo.close();
+
+	int n;
+	char** classList;
+	bool exist = false;
+	fi.open(tmp);
+	fi >> n;
+	fi.get();
+	cout << n << "\n";
+	classList = new char* [n + 2];
+	for (int i = 1; i <= n; i++)
+		classList[i] = new char[15];
+
+	cout << "Still works thou2!\n";
+	for (int i = 1; i <= n; i++)
+		fi.getline(classList[i], 14, '\n');
+	for (int i = 1; i <= n; i++)
+		if (sameStr(classList[i], className))
+		{
+			exist = true;
+			break;
+		}
+		else cout << "Can't open input file!\n";
+	fi.close();
+
+	cout << "Still works thou3!\n";
+
+	if (!exist)
+	{
+		fo.open(tmp);
+		fo << n + 1 << '\n';
+		for (int i = 1; i <= n; i++)
+			fo << classList[i] << '\n';
+		fo << className << '\n';
+		fo.close();
+
+		strcat(d, "\\");
+		strcat(d, className);
+		CreateDirectoryA(d, NULL);
+		cout << "New class folder is created!\n";
+
+		StuNode* pHead = nullptr;
+		int n_stu, n_all;
+		importClass(pHead, n_stu);
+
+		strcat(d, "\\");
+		strcat(d, "Student.txt");
+
+		saveClass(pHead, n_stu, d);    // Individual class saved.
+
+		char loginStuAdd[] = { "D:\\Github\\CS162-19CTT1-19125059\\ZPMS\\menu\\Student.txt" };
+		StuNode* pAll = nullptr;
+		loadClass(pAll, n_all, loginStuAdd);
+		int added = 0;
+
+		mergeList(pAll, pHead, added);
+		n_all += added;
+		n -= added;
+		cout << "These students has the ID that is already in the list! Please check again!\n";
+		displayClass(pHead, n);
+		system("pause");
+
+		saveClass(pAll, n_all, loginStuAdd);
+
+		introDone();
+
+		deleteStuNodes(pAll);
+		deleteStuNodes(pHead);
+	}
+	else
+	{
+		cout << "The class already exists!\n";
+		system("pause");
+	}
+
+	for (int i = 1; i <= n; i++)
+		delete[] classList[i];
+	delete[] classList;
+
+	delete[] year;
+	delete[] seme;
+}
 
 void deleteStudent(Student stu)
 {
@@ -802,3 +1022,6 @@ void changePassword(int accType, char ID[])
 	}
 	system("pause");
 }
+
+//2.1 - 2.2
+

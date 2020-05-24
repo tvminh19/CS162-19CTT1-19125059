@@ -9,25 +9,25 @@
 
 /* ---------------------------- string to number ---------------------------- */
 //blank text
-void blank_line(const char *file_name)
-{   
-  ifstream fin(file_name);    
-  
-  ofstream fout;                
-  fout.open("temp.txt", ios::out);
-  
-  string str;
-  while(getline(fin,str))
-  { 
-    while (str.length()==0 ) 
-       getline(fin,str);   
-  
-    fout<<str<<endl;
-  }
-  fout.close();  
-  fin.close();  
-  remove(file_name);        
-  rename("temp.txt", file_name);
+void blank_line(const char* file_name)
+{
+	ifstream fin(file_name);
+
+	ofstream fout;
+	fout.open("temp.txt", ios::out);
+
+	string str;
+	while (getline(fin, str))
+	{
+		while (str.length() == 0)
+			getline(fin, str);
+
+		fout << str << endl;
+	}
+	fout.close();
+	fin.close();
+	remove(file_name);
+	rename("temp.txt", file_name);
 }
 //intro Done
 void introDone() {
@@ -520,7 +520,10 @@ bool isExistClass(char className[], char sem[], char year[]) {
 		for (int i = 0; i < n; i++) {
 			in.get(str, 10, '\n');
 			in.ignore(100, '\n');
-			if (isSameStr(str, className)) return true;
+			if (isSameStr(str, className)) {
+				in.close();
+				return true;
+			}
 		}
 	}
 	in.close();
@@ -787,7 +790,7 @@ bool isExistSem(char year[], char sem[]) {
 	strcat(fileAdd, "D:/Github/CS162-19CTT1-19125059/ZPMS/");
 	strcat(fileAdd, year);
 	strcat(fileAdd, "/");
-	strcat(fileAdd, "semester.txt");
+	strcat(fileAdd, "Semester.txt");
 	in.open(fileAdd);
 	if (!in.is_open()) {
 		cout << "error at check semester function\n";
@@ -801,8 +804,12 @@ bool isExistSem(char year[], char sem[]) {
 		for (int i = 0; i < n; ++i) {
 			in.get(a, 1000, '\n');
 			in.ignore(200, '\n');
-			if (isSameStr(a, sem))  return true;
+			if (isSameStr(a, sem)) {
+				in.close();
+				return true;
+			}
 		}
+		in.close();
 		return false;
 	}
 }
@@ -823,10 +830,14 @@ bool isExistYear(char year[]) {
 		for (int i = 0; i < n; i++) {
 			in.get(a, 20, '\n');
 			in.ignore(100, '\n');
-			if (strcmp(a, year) != 0) return false;
+			if (strcmp(a, year) == 0) {
+				in.close();
+				return true;
+			}
 		}
 	}
-	return true;
+	in.close();
+	return false;
 }
 
 //input year - semester - year
@@ -853,20 +864,20 @@ void inputYSC(char year[], char semester[], char className[]) {
 		cout << "Please input year: ";
 		cin.ignore(100, '\n');
 		cin.get(year, 20, '\n');
+		in.close();
 	}
 	if (!isExistYear(year)) {
 		system("cls");
 		cout << "Wrong!, Please enter again !\n";
 		return inputYSC(year, semester, className);
 	}
-	in.close();
 
 	//semester
 	char fileAdd[499] = {};
 	strcat(fileAdd, "D:/Github/CS162-19CTT1-19125059/ZPMS/");
 	strcat(fileAdd, year);
 	strcat(fileAdd, "/");
-	strcat(fileAdd, "semester.txt");
+	strcat(fileAdd, "Semester.txt");
 
 	in.open(fileAdd);
 	if (!in.is_open()) {
@@ -889,14 +900,14 @@ void inputYSC(char year[], char semester[], char className[]) {
 		cout << "Please input semester: ";
 		cin.ignore(10, '\n');
 		cin.get(semester, 10, '\n');
-		cout << "semester: " << semester << endl;
+		//	cout << "semester: " << semester << endl;
+		in.close();
 	}
 	if (!isExistSem(year, semester)) {
 		system("cls");
 		cout << "Wrong!, Please enter again !\n";
 		return inputYSC(year, semester, className);
 	}
-	in.close();
 
 	char fileAdd1[500] = {};
 	strcat(fileAdd1, "D:/Github/CS162-19CTT1-19125059/ZPMS/");
@@ -925,13 +936,13 @@ void inputYSC(char year[], char semester[], char className[]) {
 		cout << "Please input class: ";
 		cin.ignore(20, '\n');
 		cin.get(className, 20, '\n');
+		in.close();
 	}
 	if (!isExistClass(className, semester, year)) {
 		system("cls");
 		cout << "Wrong!, Please enter again !\n";
 		return inputYSC(year, semester, className);
 	}
-	in.close();
 	return;
 }
 
@@ -1517,36 +1528,36 @@ void askNo(Node*& phead) {
 }
 
 //edit course
-void editcourse(){
-    //varriable
-    char year[20], semester[20], className[20], fileAdd[500] = {};
-    Node* phead = nullptr;
-    Node* pcur = nullptr;
-    ofstream out;
+void editcourse() {
+	//varriable
+	char year[20], semester[20], className[20], fileAdd[500] = {};
+	Node* phead = nullptr;
+	Node* pcur = nullptr;
+	ofstream out;
 
-    //input year semester class
-    inputYSC(year, semester, className);
+	//input year semester class
+	inputYSC(year, semester, className);
 
-    //make file add
-    makeClassAdd(year, semester, className, fileAdd);
-    
-    //load file
-    blank_line(fileAdd);
-    loadCourseEdit(year, semester, className, fileAdd, phead, pcur);
+	//make file add
+	makeClassAdd(year, semester, className, fileAdd);
 
-    //show to edit
-    //showCourse(phead);
-    print_Schedule(phead);
+	//load file
+	blank_line(fileAdd);
+	loadCourseEdit(year, semester, className, fileAdd, phead, pcur);
 
-    //ask and edit
-    askNo(phead);
+	//show to edit
+	//showCourse(phead);
+	print_Schedule(phead);
 
-    //update
-    outputSchedule(out, phead, year, semester, className);
+	//ask and edit
+	askNo(phead);
 
-    //clean
-    cleanScheduleNode(phead);
-    
-    //show "OK"
-    introDone();
+	//update
+	outputSchedule(out, phead, year, semester, className);
+
+	//clean
+	cleanScheduleNode(phead);
+
+	//show "OK"
+	introDone();
 }
