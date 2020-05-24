@@ -520,7 +520,10 @@ bool isExistClass(char className[], char sem[], char year[]) {
 		for (int i = 0; i < n; i++) {
 			in.get(str, 10, '\n');
 			in.ignore(100, '\n');
-			if (isSameStr(str, className)) return true;
+			if (isSameStr(str, className)){
+				in.close();
+				return true;
+			}
 		}
 	}
 	in.close();
@@ -803,8 +806,9 @@ bool isExistSem(char year[], char sem[]) {
 			in.ignore(200, '\n');
 			if (isSameStr(a, sem))  return true;
 		}
-		return false;
 	}
+	in.close();
+	return false;
 }
 
 //is exit year
@@ -823,10 +827,14 @@ bool isExistYear(char year[]) {
 		for (int i = 0; i < n; i++) {
 			in.get(a, 20, '\n');
 			in.ignore(100, '\n');
-			if (strcmp(a, year) != 0) return false;
+			if (isSameStr(a, year)){
+				in.close();
+				return true;
+			}
 		}
 	}
-	return true;
+	in.close();
+	return false;
 }
 
 //input year - semester - year
@@ -866,12 +874,12 @@ void inputYSC(char year[], char semester[], char className[]) {
 	strcat(fileAdd, "D:/Github/CS162-19CTT1-19125059/ZPMS/");
 	strcat(fileAdd, year);
 	strcat(fileAdd, "/");
-	strcat(fileAdd, "semester.txt");
+	strcat(fileAdd, "Semester.txt");
 
 	in.open(fileAdd);
 	if (!in.is_open()) {
 		cout << "Error at input semester\n";
-		return;
+		exit(0);
 	}
 	else {
 		char a[20];
