@@ -147,6 +147,7 @@ void Staff_class()
 
 	else if (strcmp(c, "1") == 0) {
 		//2.1
+		importAndSave();
 	}
 
 	else if (strcmp(c, "2") == 0) {
