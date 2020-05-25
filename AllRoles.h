@@ -4,6 +4,12 @@
 #include "staff.h"
 #include "lecturer.h"
 
+struct Date {
+	int day;
+	int month;
+	int year;
+};
+
 //1.1 login
 int menu(int& typeAcc, char id[]);
 void introLogin();
@@ -31,7 +37,18 @@ void deleteStudent(Student stu);
 bool loadStaFile(staff*& staArr, int& n);
 void viewStaProf(staff* staArr, int n, char ID[]);
 void deleteStaff(staff sta);
-
+bool loadLecFile(lecture*& lecArr, int& n);
+void viewLecProf(lecture* lecArr, int n, char ID[]);
+void deleteLecturer(lecture lec);
+bool sameStr(char* str1, char* str2);
+void displayStudent(const Student& stu);
+staff loadStaff(ifstream& fi);
+void displayStaff(const staff& sta);
+Student loadStudent(ifstream& fi);
+lecture loadLecturer(ifstream& fi);
+char* cpyStr(char str[]);
+void displayLecturer(const lecture& lec);
+void displayDate(Date date);
 
 
 
