@@ -27,9 +27,6 @@
     <ClInclude Include="score.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="attendance.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="lecturer.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -37,6 +34,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="header.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="staff.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -148,6 +148,9 @@
     </ClCompile>
     <ClCompile Include="STUviewScore.cpp">
       <Filter>Resource Files</Filter>
+    </ClCompile>
+    <ClCompile Include="attendance.h">
+      <Filter>Header Files</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

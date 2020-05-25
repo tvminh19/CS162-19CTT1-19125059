@@ -1,2 +1,8 @@
-﻿  Source.cpp
+﻿  attendance.h
+  login.cpp
+D:\Github\CS162-19CTT1-19125059\login.cpp(101,20): warning C4018: '<': signed/unsigned mismatch
+D:\Github\CS162-19CTT1-19125059\login.cpp(111,20): warning C4018: '<': signed/unsigned mismatch
+D:\Github\CS162-19CTT1-19125059\login.cpp(122,20): warning C4018: '<': signed/unsigned mismatch
+  main.cpp
+  Generating Code...
   CS162-19CTT1-19125059.vcxproj -> D:\Github\CS162-19CTT1-19125059\Debug\CS162-19CTT1-19125059.exe

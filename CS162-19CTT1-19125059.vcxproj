@@ -146,6 +146,7 @@
     <ClCompile Include="LECviewListOfCourses.cpp" />
     <ClCompile Include="LECviewListOfStudentCourse.cpp" />
     <ClCompile Include="LECviewScoreBoard.cpp" />
+    <ClCompile Include="attendance.h" />
     <ClCompile Include="STAaddNewCourse.cpp" />
     <ClCompile Include="STAaddNewStudent.cpp" />
     <ClCompile Include="STAaddStudentToCourse.cpp" />
@@ -180,7 +181,7 @@
     <ClInclude Include="allroles.h" />
     <ClInclude Include="courses.h" />
     <ClInclude Include="class.h" />
-    <ClInclude Include="attendance.h" />
+    <ClInclude Include="staff.h" />
     <ClInclude Include="header.h" />
     <ClInclude Include="students.h" />
     <ClInclude Include="lecturer.h" />
