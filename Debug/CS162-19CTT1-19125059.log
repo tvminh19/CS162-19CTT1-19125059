@@ -1,8 +1,4 @@
-﻿  LECeditAttendance.cpp
-  STAchangeStudentAB.cpp
-  STAviewListCourses.cpp
-  STAviewListOfStudentInCourse.cpp
-  changePass.cpp
+﻿  changePass.cpp
   login.cpp
 D:\Github\CS162-19CTT1-19125059\login.cpp(101,20): warning C4018: '<': signed/unsigned mismatch
 D:\Github\CS162-19CTT1-19125059\login.cpp(111,20): warning C4018: '<': signed/unsigned mismatch
@@ -10,4 +6,5 @@ D:\Github\CS162-19CTT1-19125059\login.cpp(122,20): warning C4018: '<': signed/un
   main.cpp
   viewInfo.cpp
   Generating Code...
+  LINK : D:\Github\CS162-19CTT1-19125059\Debug\CS162-19CTT1-19125059.exe not found or not built by the last incremental link; performing full link
   CS162-19CTT1-19125059.vcxproj -> D:\Github\CS162-19CTT1-19125059\Debug\CS162-19CTT1-19125059.exe
