@@ -10,6 +10,12 @@ struct student {
 	int isActive;
 };
 
+struct Date {
+	int day;
+	int month;
+	int year;
+};
+
 struct Student
 {
 	char* userName;

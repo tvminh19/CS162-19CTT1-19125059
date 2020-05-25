@@ -4,12 +4,6 @@
 #include "staff.h"
 #include "lecturer.h"
 
-struct Date {
-	int day;
-	int month;
-	int year;
-};
-
 //1.1 login
 int menu(int& typeAcc, char id[]);
 void introLogin();
@@ -29,7 +23,7 @@ void logout();
 void removeLogin(student*& stu, lecture*& lec, staff*& sta, int n1, int n2, int n3);
 void timeNow();
 
-//1.2 view info
+//1.3 view info
 void viewProfile(int accType, char ID[]);
 bool loadStuFile(Student*& stuArr, int& n);
 void viewStuProf(Student* stuArr, int n, char ID[]);
@@ -49,6 +43,24 @@ lecture loadLecturer(ifstream& fi);
 char* cpyStr(char str[]);
 void displayLecturer(const lecture& lec);
 void displayDate(Date date);
+
+// 1.4 Change Password
+void changePassword(int accType, char ID[]);
+
+bool changeStuPassword(Student& stu);
+void saveStuFile(Student* stuArr, int n);
+void saveStudent(const Student& stu, ofstream& fo);
+
+bool changeStaPassword(staff& sta);
+void saveStaFile(staff* staArr, int n);
+void saveStaff(const staff& sta, ofstream& fo);
+
+bool changeLecPassword(lecture& lec);
+void saveLecFile(lecture* lecArr, int n);
+void saveLecturer(const lecture& lec, ofstream& fo);
+
+void inputAndHidePass(char password[]);
+void saveDate(Date date, ofstream& fo);
 
 
 

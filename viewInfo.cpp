@@ -1,5 +1,6 @@
 #include "allroles.h"
 
+
 void viewProfile(int accType, char ID[])
 {
 	int n;
