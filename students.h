@@ -9,3 +9,14 @@ struct student {
 	int gender;
 	int isActive;
 };
+
+struct Student
+{
+	char* userName;
+	char* password;
+	char* ID;
+	char* sName;
+	Date DOB;
+	char* sClass;
+	int gender; // 1 if female
+};

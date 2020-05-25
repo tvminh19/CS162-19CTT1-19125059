@@ -23,8 +23,14 @@ void logout();
 void removeLogin(student*& stu, lecture*& lec, staff*& sta, int n1, int n2, int n3);
 void timeNow();
 
-
-
+//1.2 view info
+void viewProfile(int accType, char ID[]);
+bool loadStuFile(Student*& stuArr, int& n);
+void viewStuProf(Student* stuArr, int n, char ID[]);
+void deleteStudent(Student stu);
+bool loadStaFile(staff*& staArr, int& n);
+void viewStaProf(staff* staArr, int n, char ID[]);
+void deleteStaff(staff sta);
 
 
 
