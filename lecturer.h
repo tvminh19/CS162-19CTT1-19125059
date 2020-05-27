@@ -1,6 +1,7 @@
 #pragma once
 
 #include "header.h"
+#include "courses.h"
 
 struct lecture {
 	char* account; //username

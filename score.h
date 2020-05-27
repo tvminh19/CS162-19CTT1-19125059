@@ -2,6 +2,7 @@
 #include "header.h"
 #include "score.h"
 #include "students.h"
+#include "courses.h"
 
 struct score {
 	float midterm;

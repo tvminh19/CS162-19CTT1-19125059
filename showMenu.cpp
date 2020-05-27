@@ -1,5 +1,11 @@
 /* -------------------- this is Vu's file for functions ------------------- */
-#include "Header.h"
+#include "header.h"
+#include "courses.h"
+#include "students.h"
+#include "lecturer.h"
+#include "score.h"
+#include "AllRoles.h"
+#include "staff.h"
 
 //W01----------------------------------------------------------------------------------------------------
 

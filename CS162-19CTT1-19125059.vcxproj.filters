@@ -152,5 +152,8 @@
     <ClCompile Include="attendance.h">
       <Filter>Header Files</Filter>
     </ClCompile>
+    <ClCompile Include="STAexportScore.cpp">
+      <Filter>Resource Files</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

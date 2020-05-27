@@ -155,6 +155,7 @@
     <ClCompile Include="STAeditCourse.cpp" />
     <ClCompile Include="STAeditStudent.cpp" />
     <ClCompile Include="STAexportAttendance.cpp" />
+    <ClCompile Include="STAexportScore.cpp" />
     <ClCompile Include="STAimportCourses.cpp" />
     <ClCompile Include="STAimportStudents.cpp" />
     <ClCompile Include="logout.cpp" />

@@ -21,3 +21,7 @@ struct Student
 	char* sClass;
 	int gender; // 1 if female
 };
+
+struct checkin {
+	bool w[10];
+};
