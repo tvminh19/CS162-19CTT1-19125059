@@ -23,7 +23,21 @@ void logout();
 void removeLogin(student*& stu, lecture*& lec, staff*& sta, int n1, int n2, int n3);
 void timeNow();
 
-//1.2 view info
+//1.2 show menu
+void notCorrect();
+void menuStudent();                                 //7
+void menuLecturer();                                //6
+void Staff_class();                                 //2
+void Staff_course();                                //3
+void Staff_scoreboard();                            //4
+void Staff_attendanceList();                        //5
+void menuStaffRole();
+void showMenu(int typeAccount);                     //1.2
+void displayAllroles(int typeAccount, char ID[]);   //1
+void Year_Semester();								//3.1
+
+
+//1.3 view info
 void viewProfile(int accType, char ID[]);
 bool loadStuFile(Student*& stuArr, int& n);
 void viewStuProf(Student* stuArr, int n, char ID[]);
@@ -43,51 +57,3 @@ lecture loadLecturer(ifstream& fi);
 char* cpyStr(char str[]);
 void displayLecturer(const lecture& lec);
 void displayDate(Date date);
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
