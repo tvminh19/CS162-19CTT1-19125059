@@ -1,21 +1,10 @@
-﻿  login.cpp
-D:\Github\CS162-19CTT1-19125059\students.h(19,10): error C3646: 'DOB': unknown override specifier
-D:\Github\CS162-19CTT1-19125059\students.h(19,10): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+﻿  STAimportCourses.cpp
+D:\Github\CS162-19CTT1-19125059\STAimportCourses.cpp(308,20): warning C4018: '<': signed/unsigned mismatch
+D:\Github\CS162-19CTT1-19125059\STAimportCourses.cpp(516,20): warning C4018: '<': signed/unsigned mismatch
+  login.cpp
 D:\Github\CS162-19CTT1-19125059\login.cpp(101,20): warning C4018: '<': signed/unsigned mismatch
-D:\Github\CS162-19CTT1-19125059\login.cpp(111,20): warning C4018: '<': signed/unsigned mismatch
-D:\Github\CS162-19CTT1-19125059\login.cpp(122,20): warning C4018: '<': signed/unsigned mismatch
+  logout.cpp
   main.cpp
-D:\Github\CS162-19CTT1-19125059\students.h(19,10): error C3646: 'DOB': unknown override specifier
-D:\Github\CS162-19CTT1-19125059\students.h(19,10): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
   viewInfo.cpp
-D:\Github\CS162-19CTT1-19125059\students.h(19,10): error C3646: 'DOB': unknown override specifier
-D:\Github\CS162-19CTT1-19125059\students.h(19,10): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
-D:\Github\CS162-19CTT1-19125059\viewInfo.cpp(174,15): error C2039: 'DOB': is not a member of 'Student'
-D:\Github\CS162-19CTT1-19125059\students.h(13): message : see declaration of 'Student'
-D:\Github\CS162-19CTT1-19125059\viewInfo.cpp(174,31): error C2039: 'DOB': is not a member of 'Student'
-D:\Github\CS162-19CTT1-19125059\students.h(13): message : see declaration of 'Student'
-D:\Github\CS162-19CTT1-19125059\viewInfo.cpp(174,48): error C2039: 'DOB': is not a member of 'Student'
-D:\Github\CS162-19CTT1-19125059\students.h(13): message : see declaration of 'Student'
-D:\Github\CS162-19CTT1-19125059\viewInfo.cpp(204,38): error C2039: 'DOB': is not a member of 'Student'
-D:\Github\CS162-19CTT1-19125059\students.h(13): message : see declaration of 'Student'
   Generating Code...
+  CS162-19CTT1-19125059.vcxproj -> D:\Github\CS162-19CTT1-19125059\Debug\CS162-19CTT1-19125059.exe

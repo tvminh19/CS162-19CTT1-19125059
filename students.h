@@ -1,4 +1,5 @@
 #pragma once
+#include "header.h"
 
 struct student {
 	char* account;

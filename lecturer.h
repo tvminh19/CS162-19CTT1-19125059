@@ -1,5 +1,4 @@
 #pragma once
-
 struct lecture {
 	char* account; //username
 	char* password;

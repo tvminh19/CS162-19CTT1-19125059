@@ -6,3 +6,12 @@ struct staff {
 	char* name;
 	int gender;
 };
+
+
+
+
+
+
+
+
+

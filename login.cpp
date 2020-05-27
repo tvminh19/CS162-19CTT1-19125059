@@ -105,26 +105,6 @@ bool safeInput(char a[]) {
 	return true;
 }
 
-//conver strong to number
-int ston(char a[]) {
-	int sum = 0;
-	for (int i = 0; i < strlen(a); ++i) {
-		a[i] -= '0';
-		sum += a[i];
-		sum *= 10;
-	}
-	return sum / 10;
-}
-
-/* --------------------------- check exist account -------------------------- */
-bool isSameStr(char a[], char b[]) {
-	if (strlen(a) != strlen(b)) return false;
-	for (int i = 0; i < strlen(a); ++i) {
-		if (a[i] != b[i]) return false;
-	}
-	return true;
-}
-
 void loadLoginFile(ifstream& in, student*& stu, lecture*& lec, staff*& sta, int& n1, int& n2, int& n3) {
 	loadStudentFile(in, stu, n1);
 	loadLectureFile(in, lec, n2);
@@ -391,11 +371,6 @@ void outro() {
 	cout << "+ Thank for using +\n";
 	cout << "===================\n";
 	system("pause");
-}
-
-/* ---------------------------- log out functions --------------------------- */
-void logout() {
-	exit(0);
 }
 
 /* ------------------ remove heap memory in login functions ----------------- */

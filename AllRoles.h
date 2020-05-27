@@ -4,12 +4,6 @@
 #include "staff.h"
 #include "lecturer.h"
 
-struct Date {
-	int day;
-	int month;
-	int year;
-};
-
 //1.1 login
 int menu(int& typeAcc, char id[]);
 void introLogin();
