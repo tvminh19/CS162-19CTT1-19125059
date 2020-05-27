@@ -1,26 +1,60 @@
 ﻿  LECviewScoreBoard.cpp
-D:\Github\CS162-19CTT1-19125059\score.h(23,14): error C2065: 'Node': undeclared identifier
-D:\Github\CS162-19CTT1-19125059\score.h(23,21): error C2065: 'pHead1': undeclared identifier
-D:\Github\CS162-19CTT1-19125059\score.h(23,34): error C2062: type 'char' unexpected
-D:\Github\CS162-19CTT1-19125059\score.h(24,28): error C2061: syntax error: identifier 'Node'
-D:\Github\CS162-19CTT1-19125059\score.h(25,39): error C2061: syntax error: identifier 'Node'
-D:\Github\CS162-19CTT1-19125059\score.h(26,36): error C2061: syntax error: identifier 'Node'
-D:\Github\CS162-19CTT1-19125059\score.h(27,36): error C2061: syntax error: identifier 'Node'
-D:\Github\CS162-19CTT1-19125059\score.h(28,34): error C2061: syntax error: identifier 'Node'
-D:\Github\CS162-19CTT1-19125059\score.h(29,34): error C2061: syntax error: identifier 'Node'
-D:\Github\CS162-19CTT1-19125059\score.h(30,34): error C2061: syntax error: identifier 'Node'
-D:\Github\CS162-19CTT1-19125059\score.h(31,16): error C2065: 'Node': undeclared identifier
-D:\Github\CS162-19CTT1-19125059\score.h(31,22): error C2065: 'pHead1': undeclared identifier
-D:\Github\CS162-19CTT1-19125059\score.h(31,28): error C2182: 'print_S_B': illegal use of type 'void'
 D:\Github\CS162-19CTT1-19125059\courses.h(12,9): error C2143: syntax error: missing ';' before '*'
 D:\Github\CS162-19CTT1-19125059\courses.h(12,9): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
 D:\Github\CS162-19CTT1-19125059\courses.h(12,14): error C2238: unexpected token(s) preceding ';'
-D:\Github\CS162-19CTT1-19125059\lecturer.h(24,6): error C2365: 'print_S_B': redefinition; previous definition was 'data variable'
-D:\Github\CS162-19CTT1-19125059\score.h(31): message : see declaration of 'print_S_B'
-D:\Github\CS162-19CTT1-19125059\LECviewScoreBoard.cpp(96,6): error C2365: 'print_S_B': redefinition; previous definition was 'data variable'
-D:\Github\CS162-19CTT1-19125059\score.h(31): message : see declaration of 'print_S_B'
-D:\Github\CS162-19CTT1-19125059\LECviewScoreBoard.cpp(148,2): error C2064: term does not evaluate to a function taking 1 arguments
-D:\Github\CS162-19CTT1-19125059\LECviewScoreBoard.cpp(163,2): error C3861: 'delete_S_B': identifier not found
+D:\Github\CS162-19CTT1-19125059\courses.h(23,12): error C2143: syntax error: missing ';' before '*'
+D:\Github\CS162-19CTT1-19125059\courses.h(23,12): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+D:\Github\CS162-19CTT1-19125059\courses.h(23,17): error C2238: unexpected token(s) preceding ';'
+D:\Github\CS162-19CTT1-19125059\LECviewScoreBoard.cpp(7,8): error C2039: 'scb': is not a member of 'Node'
+D:\Github\CS162-19CTT1-19125059\courses.h(21): message : see declaration of 'Node'
+D:\Github\CS162-19CTT1-19125059\LECviewScoreBoard.cpp(8,15): error C2039: 'scb': is not a member of 'Node'
+D:\Github\CS162-19CTT1-19125059\courses.h(21): message : see declaration of 'Node'
+D:\Github\CS162-19CTT1-19125059\LECviewScoreBoard.cpp(14,8): error C2039: 'scb': is not a member of 'Node'
+D:\Github\CS162-19CTT1-19125059\courses.h(21): message : see declaration of 'Node'
+D:\Github\CS162-19CTT1-19125059\LECviewScoreBoard.cpp(15,15): error C2039: 'scb': is not a member of 'Node'
+D:\Github\CS162-19CTT1-19125059\courses.h(21): message : see declaration of 'Node'
+D:\Github\CS162-19CTT1-19125059\LECviewScoreBoard.cpp(21,14): error C2039: 'scb': is not a member of 'Node'
+D:\Github\CS162-19CTT1-19125059\courses.h(21): message : see declaration of 'Node'
+D:\Github\CS162-19CTT1-19125059\LECviewScoreBoard.cpp(27,14): error C2039: 'scb': is not a member of 'Node'
+D:\Github\CS162-19CTT1-19125059\courses.h(21): message : see declaration of 'Node'
+D:\Github\CS162-19CTT1-19125059\LECviewScoreBoard.cpp(33,14): error C2039: 'scb': is not a member of 'Node'
+D:\Github\CS162-19CTT1-19125059\courses.h(21): message : see declaration of 'Node'
+D:\Github\CS162-19CTT1-19125059\LECviewScoreBoard.cpp(39,14): error C2039: 'scb': is not a member of 'Node'
+D:\Github\CS162-19CTT1-19125059\courses.h(21): message : see declaration of 'Node'
+D:\Github\CS162-19CTT1-19125059\LECviewScoreBoard.cpp(55,16): error C2039: 'scb': is not a member of 'Node'
+D:\Github\CS162-19CTT1-19125059\courses.h(21): message : see declaration of 'Node'
+D:\Github\CS162-19CTT1-19125059\LECviewScoreBoard.cpp(56,15): error C2039: 'scb': is not a member of 'Node'
+D:\Github\CS162-19CTT1-19125059\courses.h(21): message : see declaration of 'Node'
+D:\Github\CS162-19CTT1-19125059\LECviewScoreBoard.cpp(62,15): error C2039: 'scb': is not a member of 'Node'
+D:\Github\CS162-19CTT1-19125059\courses.h(21): message : see declaration of 'Node'
+D:\Github\CS162-19CTT1-19125059\LECviewScoreBoard.cpp(76,13): error C2039: 'scb': is not a member of 'Node'
+D:\Github\CS162-19CTT1-19125059\courses.h(21): message : see declaration of 'Node'
+D:\Github\CS162-19CTT1-19125059\LECviewScoreBoard.cpp(77,12): error C2039: 'scb': is not a member of 'Node'
+D:\Github\CS162-19CTT1-19125059\courses.h(21): message : see declaration of 'Node'
+D:\Github\CS162-19CTT1-19125059\LECviewScoreBoard.cpp(83,12): error C2039: 'scb': is not a member of 'Node'
+D:\Github\CS162-19CTT1-19125059\courses.h(21): message : see declaration of 'Node'
+D:\Github\CS162-19CTT1-19125059\LECviewScoreBoard.cpp(115,39): error C2039: 'scb': is not a member of 'Node'
+D:\Github\CS162-19CTT1-19125059\courses.h(21): message : see declaration of 'Node'
+D:\Github\CS162-19CTT1-19125059\LECviewScoreBoard.cpp(116,39): error C2039: 'scb': is not a member of 'Node'
+D:\Github\CS162-19CTT1-19125059\courses.h(21): message : see declaration of 'Node'
+D:\Github\CS162-19CTT1-19125059\LECviewScoreBoard.cpp(117,39): error C2039: 'scb': is not a member of 'Node'
+D:\Github\CS162-19CTT1-19125059\courses.h(21): message : see declaration of 'Node'
+D:\Github\CS162-19CTT1-19125059\LECviewScoreBoard.cpp(118,39): error C2039: 'scb': is not a member of 'Node'
+D:\Github\CS162-19CTT1-19125059\courses.h(21): message : see declaration of 'Node'
+D:\Github\CS162-19CTT1-19125059\LECviewScoreBoard.cpp(119,39): error C2039: 'scb': is not a member of 'Node'
+D:\Github\CS162-19CTT1-19125059\courses.h(21): message : see declaration of 'Node'
+D:\Github\CS162-19CTT1-19125059\LECviewScoreBoard.cpp(120,39): error C2039: 'scb': is not a member of 'Node'
+D:\Github\CS162-19CTT1-19125059\courses.h(21): message : see declaration of 'Node'
+D:\Github\CS162-19CTT1-19125059\LECviewScoreBoard.cpp(172,20): error C2039: 'scb': is not a member of 'Node'
+D:\Github\CS162-19CTT1-19125059\courses.h(21): message : see declaration of 'Node'
+D:\Github\CS162-19CTT1-19125059\LECviewScoreBoard.cpp(173,20): error C2039: 'scb': is not a member of 'Node'
+D:\Github\CS162-19CTT1-19125059\courses.h(21): message : see declaration of 'Node'
+D:\Github\CS162-19CTT1-19125059\LECviewScoreBoard.cpp(174,18): error C2039: 'scb': is not a member of 'Node'
+D:\Github\CS162-19CTT1-19125059\courses.h(21): message : see declaration of 'Node'
+D:\Github\CS162-19CTT1-19125059\LECviewScoreBoard.cpp(175,18): error C2039: 'scb': is not a member of 'Node'
+D:\Github\CS162-19CTT1-19125059\courses.h(21): message : see declaration of 'Node'
+D:\Github\CS162-19CTT1-19125059\LECviewScoreBoard.cpp(176,18): error C2039: 'scb': is not a member of 'Node'
+D:\Github\CS162-19CTT1-19125059\courses.h(21): message : see declaration of 'Node'
   STAimportCourses.cpp
 D:\Github\CS162-19CTT1-19125059\score.h(23,14): error C2065: 'Node': undeclared identifier
 D:\Github\CS162-19CTT1-19125059\score.h(23,21): error C2065: 'pHead1': undeclared identifier
@@ -35,63 +69,41 @@ D:\Github\CS162-19CTT1-19125059\score.h(30,34): error C2061: syntax error: ident
 D:\Github\CS162-19CTT1-19125059\score.h(31,16): error C2065: 'Node': undeclared identifier
 D:\Github\CS162-19CTT1-19125059\score.h(31,22): error C2065: 'pHead1': undeclared identifier
 D:\Github\CS162-19CTT1-19125059\score.h(31,28): error C2182: 'print_S_B': illegal use of type 'void'
-D:\Github\CS162-19CTT1-19125059\lecturer.h(16,14): error C2065: 'Node': undeclared identifier
-D:\Github\CS162-19CTT1-19125059\lecturer.h(16,21): error C2065: 'pHead1': undeclared identifier
-D:\Github\CS162-19CTT1-19125059\lecturer.h(16,34): error C2062: type 'char' unexpected
-D:\Github\CS162-19CTT1-19125059\lecturer.h(17,28): error C2061: syntax error: identifier 'Node'
-D:\Github\CS162-19CTT1-19125059\lecturer.h(18,39): error C2061: syntax error: identifier 'Node'
-D:\Github\CS162-19CTT1-19125059\lecturer.h(19,36): error C2061: syntax error: identifier 'Node'
-D:\Github\CS162-19CTT1-19125059\lecturer.h(20,36): error C2061: syntax error: identifier 'Node'
-D:\Github\CS162-19CTT1-19125059\lecturer.h(21,34): error C2061: syntax error: identifier 'Node'
-D:\Github\CS162-19CTT1-19125059\lecturer.h(22,34): error C2061: syntax error: identifier 'Node'
+D:\Github\CS162-19CTT1-19125059\lecturer.h(18,14): error C2065: 'Node': undeclared identifier
+D:\Github\CS162-19CTT1-19125059\lecturer.h(18,21): error C2065: 'pHead1': undeclared identifier
+D:\Github\CS162-19CTT1-19125059\lecturer.h(18,34): error C2062: type 'char' unexpected
+D:\Github\CS162-19CTT1-19125059\lecturer.h(19,28): error C2061: syntax error: identifier 'Node'
+D:\Github\CS162-19CTT1-19125059\lecturer.h(20,39): error C2061: syntax error: identifier 'Node'
+D:\Github\CS162-19CTT1-19125059\lecturer.h(21,36): error C2061: syntax error: identifier 'Node'
+D:\Github\CS162-19CTT1-19125059\lecturer.h(22,36): error C2061: syntax error: identifier 'Node'
 D:\Github\CS162-19CTT1-19125059\lecturer.h(23,34): error C2061: syntax error: identifier 'Node'
-D:\Github\CS162-19CTT1-19125059\lecturer.h(24,16): error C2065: 'Node': undeclared identifier
-D:\Github\CS162-19CTT1-19125059\lecturer.h(24,22): error C2065: 'pHead1': undeclared identifier
-D:\Github\CS162-19CTT1-19125059\lecturer.h(24,28): error C2182: 'print_S_B': illegal use of type 'void'
-D:\Github\CS162-19CTT1-19125059\lecturer.h(24,6): error C2374: 'print_S_B': redefinition; multiple initialization
+D:\Github\CS162-19CTT1-19125059\lecturer.h(24,34): error C2061: syntax error: identifier 'Node'
+D:\Github\CS162-19CTT1-19125059\lecturer.h(25,34): error C2061: syntax error: identifier 'Node'
+D:\Github\CS162-19CTT1-19125059\lecturer.h(26,16): error C2065: 'Node': undeclared identifier
+D:\Github\CS162-19CTT1-19125059\lecturer.h(26,22): error C2065: 'pHead1': undeclared identifier
+D:\Github\CS162-19CTT1-19125059\lecturer.h(26,28): error C2182: 'print_S_B': illegal use of type 'void'
+D:\Github\CS162-19CTT1-19125059\lecturer.h(26,6): error C2374: 'print_S_B': redefinition; multiple initialization
 D:\Github\CS162-19CTT1-19125059\score.h(31): message : see declaration of 'print_S_B'
+D:\Github\CS162-19CTT1-19125059\lecturer.h(27,17): error C2065: 'Node': undeclared identifier
+D:\Github\CS162-19CTT1-19125059\lecturer.h(27,24): error C2065: 'pHead': undeclared identifier
+D:\Github\CS162-19CTT1-19125059\lecturer.h(27,29): error C2182: 'delete_S_B': illegal use of type 'void'
 D:\Github\CS162-19CTT1-19125059\STAimportCourses.cpp(308,20): warning C4018: '<': signed/unsigned mismatch
 D:\Github\CS162-19CTT1-19125059\STAimportCourses.cpp(516,20): warning C4018: '<': signed/unsigned mismatch
-  logout.cpp
   login.cpp
-D:\Github\CS162-19CTT1-19125059\score.h(23,14): error C2065: 'Node': undeclared identifier
-D:\Github\CS162-19CTT1-19125059\score.h(23,21): error C2065: 'pHead1': undeclared identifier
-D:\Github\CS162-19CTT1-19125059\score.h(23,34): error C2062: type 'char' unexpected
-D:\Github\CS162-19CTT1-19125059\score.h(24,28): error C2061: syntax error: identifier 'Node'
-D:\Github\CS162-19CTT1-19125059\score.h(25,39): error C2061: syntax error: identifier 'Node'
-D:\Github\CS162-19CTT1-19125059\score.h(26,36): error C2061: syntax error: identifier 'Node'
-D:\Github\CS162-19CTT1-19125059\score.h(27,36): error C2061: syntax error: identifier 'Node'
-D:\Github\CS162-19CTT1-19125059\score.h(28,34): error C2061: syntax error: identifier 'Node'
-D:\Github\CS162-19CTT1-19125059\score.h(29,34): error C2061: syntax error: identifier 'Node'
-D:\Github\CS162-19CTT1-19125059\score.h(30,34): error C2061: syntax error: identifier 'Node'
-D:\Github\CS162-19CTT1-19125059\score.h(31,16): error C2065: 'Node': undeclared identifier
-D:\Github\CS162-19CTT1-19125059\score.h(31,22): error C2065: 'pHead1': undeclared identifier
-D:\Github\CS162-19CTT1-19125059\score.h(31,28): error C2182: 'print_S_B': illegal use of type 'void'
 D:\Github\CS162-19CTT1-19125059\courses.h(12,9): error C2143: syntax error: missing ';' before '*'
 D:\Github\CS162-19CTT1-19125059\courses.h(12,9): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
 D:\Github\CS162-19CTT1-19125059\courses.h(12,14): error C2238: unexpected token(s) preceding ';'
-D:\Github\CS162-19CTT1-19125059\lecturer.h(24,6): error C2365: 'print_S_B': redefinition; previous definition was 'data variable'
-D:\Github\CS162-19CTT1-19125059\score.h(31): message : see declaration of 'print_S_B'
+D:\Github\CS162-19CTT1-19125059\courses.h(23,12): error C2143: syntax error: missing ';' before '*'
+D:\Github\CS162-19CTT1-19125059\courses.h(23,12): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+D:\Github\CS162-19CTT1-19125059\courses.h(23,17): error C2238: unexpected token(s) preceding ';'
 D:\Github\CS162-19CTT1-19125059\login.cpp(101,20): warning C4018: '<': signed/unsigned mismatch
   main.cpp
-D:\Github\CS162-19CTT1-19125059\score.h(23,14): error C2065: 'Node': undeclared identifier
-D:\Github\CS162-19CTT1-19125059\score.h(23,21): error C2065: 'pHead1': undeclared identifier
-D:\Github\CS162-19CTT1-19125059\score.h(23,34): error C2062: type 'char' unexpected
-D:\Github\CS162-19CTT1-19125059\score.h(24,28): error C2061: syntax error: identifier 'Node'
-D:\Github\CS162-19CTT1-19125059\score.h(25,39): error C2061: syntax error: identifier 'Node'
-D:\Github\CS162-19CTT1-19125059\score.h(26,36): error C2061: syntax error: identifier 'Node'
-D:\Github\CS162-19CTT1-19125059\score.h(27,36): error C2061: syntax error: identifier 'Node'
-D:\Github\CS162-19CTT1-19125059\score.h(28,34): error C2061: syntax error: identifier 'Node'
-D:\Github\CS162-19CTT1-19125059\score.h(29,34): error C2061: syntax error: identifier 'Node'
-D:\Github\CS162-19CTT1-19125059\score.h(30,34): error C2061: syntax error: identifier 'Node'
-D:\Github\CS162-19CTT1-19125059\score.h(31,16): error C2065: 'Node': undeclared identifier
-D:\Github\CS162-19CTT1-19125059\score.h(31,22): error C2065: 'pHead1': undeclared identifier
-D:\Github\CS162-19CTT1-19125059\score.h(31,28): error C2182: 'print_S_B': illegal use of type 'void'
 D:\Github\CS162-19CTT1-19125059\courses.h(12,9): error C2143: syntax error: missing ';' before '*'
 D:\Github\CS162-19CTT1-19125059\courses.h(12,9): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
 D:\Github\CS162-19CTT1-19125059\courses.h(12,14): error C2238: unexpected token(s) preceding ';'
-D:\Github\CS162-19CTT1-19125059\lecturer.h(24,6): error C2365: 'print_S_B': redefinition; previous definition was 'data variable'
-D:\Github\CS162-19CTT1-19125059\score.h(31): message : see declaration of 'print_S_B'
+D:\Github\CS162-19CTT1-19125059\courses.h(23,12): error C2143: syntax error: missing ';' before '*'
+D:\Github\CS162-19CTT1-19125059\courses.h(23,12): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+D:\Github\CS162-19CTT1-19125059\courses.h(23,17): error C2238: unexpected token(s) preceding ';'
   showMenu.cpp
 D:\Github\CS162-19CTT1-19125059\score.h(23,14): error C2065: 'Node': undeclared identifier
 D:\Github\CS162-19CTT1-19125059\score.h(23,21): error C2065: 'pHead1': undeclared identifier
@@ -106,26 +118,24 @@ D:\Github\CS162-19CTT1-19125059\score.h(30,34): error C2061: syntax error: ident
 D:\Github\CS162-19CTT1-19125059\score.h(31,16): error C2065: 'Node': undeclared identifier
 D:\Github\CS162-19CTT1-19125059\score.h(31,22): error C2065: 'pHead1': undeclared identifier
 D:\Github\CS162-19CTT1-19125059\score.h(31,28): error C2182: 'print_S_B': illegal use of type 'void'
-D:\Github\CS162-19CTT1-19125059\lecturer.h(16,14): error C2065: 'Node': undeclared identifier
-D:\Github\CS162-19CTT1-19125059\lecturer.h(16,21): error C2065: 'pHead1': undeclared identifier
-D:\Github\CS162-19CTT1-19125059\lecturer.h(16,34): error C2062: type 'char' unexpected
-D:\Github\CS162-19CTT1-19125059\lecturer.h(17,28): error C2061: syntax error: identifier 'Node'
-D:\Github\CS162-19CTT1-19125059\lecturer.h(18,39): error C2061: syntax error: identifier 'Node'
-D:\Github\CS162-19CTT1-19125059\lecturer.h(19,36): error C2061: syntax error: identifier 'Node'
-D:\Github\CS162-19CTT1-19125059\lecturer.h(20,36): error C2061: syntax error: identifier 'Node'
-D:\Github\CS162-19CTT1-19125059\lecturer.h(21,34): error C2061: syntax error: identifier 'Node'
-D:\Github\CS162-19CTT1-19125059\lecturer.h(22,34): error C2061: syntax error: identifier 'Node'
+D:\Github\CS162-19CTT1-19125059\lecturer.h(18,14): error C2065: 'Node': undeclared identifier
+D:\Github\CS162-19CTT1-19125059\lecturer.h(18,21): error C2065: 'pHead1': undeclared identifier
+D:\Github\CS162-19CTT1-19125059\lecturer.h(18,34): error C2062: type 'char' unexpected
+D:\Github\CS162-19CTT1-19125059\lecturer.h(19,28): error C2061: syntax error: identifier 'Node'
+D:\Github\CS162-19CTT1-19125059\lecturer.h(20,39): error C2061: syntax error: identifier 'Node'
+D:\Github\CS162-19CTT1-19125059\lecturer.h(21,36): error C2061: syntax error: identifier 'Node'
+D:\Github\CS162-19CTT1-19125059\lecturer.h(22,36): error C2061: syntax error: identifier 'Node'
 D:\Github\CS162-19CTT1-19125059\lecturer.h(23,34): error C2061: syntax error: identifier 'Node'
-D:\Github\CS162-19CTT1-19125059\lecturer.h(24,16): error C2065: 'Node': undeclared identifier
-D:\Github\CS162-19CTT1-19125059\lecturer.h(24,22): error C2065: 'pHead1': undeclared identifier
-D:\Github\CS162-19CTT1-19125059\lecturer.h(24,28): error C2182: 'print_S_B': illegal use of type 'void'
-D:\Github\CS162-19CTT1-19125059\lecturer.h(24,6): error C2374: 'print_S_B': redefinition; multiple initialization
+D:\Github\CS162-19CTT1-19125059\lecturer.h(24,34): error C2061: syntax error: identifier 'Node'
+D:\Github\CS162-19CTT1-19125059\lecturer.h(25,34): error C2061: syntax error: identifier 'Node'
+D:\Github\CS162-19CTT1-19125059\lecturer.h(26,16): error C2065: 'Node': undeclared identifier
+D:\Github\CS162-19CTT1-19125059\lecturer.h(26,22): error C2065: 'pHead1': undeclared identifier
+D:\Github\CS162-19CTT1-19125059\lecturer.h(26,28): error C2182: 'print_S_B': illegal use of type 'void'
+D:\Github\CS162-19CTT1-19125059\lecturer.h(26,6): error C2374: 'print_S_B': redefinition; multiple initialization
 D:\Github\CS162-19CTT1-19125059\score.h(31): message : see declaration of 'print_S_B'
-D:\Github\CS162-19CTT1-19125059\showMenu.cpp(156,3): error C3861: 'importAndSave': identifier not found
-D:\Github\CS162-19CTT1-19125059\showMenu.cpp(225,3): error C3861: 'inputCourse': identifier not found
-D:\Github\CS162-19CTT1-19125059\showMenu.cpp(230,3): error C3861: 'addANewCourse': identifier not found
-D:\Github\CS162-19CTT1-19125059\showMenu.cpp(235,3): error C3861: 'editcourse': identifier not found
-D:\Github\CS162-19CTT1-19125059\showMenu.cpp(443,3): error C3861: 'changePassword': identifier not found
+D:\Github\CS162-19CTT1-19125059\lecturer.h(27,17): error C2065: 'Node': undeclared identifier
+D:\Github\CS162-19CTT1-19125059\lecturer.h(27,24): error C2065: 'pHead': undeclared identifier
+D:\Github\CS162-19CTT1-19125059\lecturer.h(27,29): error C2182: 'delete_S_B': illegal use of type 'void'
   STAupdateYearSemester.cpp
 D:\Github\CS162-19CTT1-19125059\score.h(23,14): error C2065: 'Node': undeclared identifier
 D:\Github\CS162-19CTT1-19125059\score.h(23,21): error C2065: 'pHead1': undeclared identifier
@@ -140,21 +150,24 @@ D:\Github\CS162-19CTT1-19125059\score.h(30,34): error C2061: syntax error: ident
 D:\Github\CS162-19CTT1-19125059\score.h(31,16): error C2065: 'Node': undeclared identifier
 D:\Github\CS162-19CTT1-19125059\score.h(31,22): error C2065: 'pHead1': undeclared identifier
 D:\Github\CS162-19CTT1-19125059\score.h(31,28): error C2182: 'print_S_B': illegal use of type 'void'
-D:\Github\CS162-19CTT1-19125059\lecturer.h(16,14): error C2065: 'Node': undeclared identifier
-D:\Github\CS162-19CTT1-19125059\lecturer.h(16,21): error C2065: 'pHead1': undeclared identifier
-D:\Github\CS162-19CTT1-19125059\lecturer.h(16,34): error C2062: type 'char' unexpected
-D:\Github\CS162-19CTT1-19125059\lecturer.h(17,28): error C2061: syntax error: identifier 'Node'
-D:\Github\CS162-19CTT1-19125059\lecturer.h(18,39): error C2061: syntax error: identifier 'Node'
-D:\Github\CS162-19CTT1-19125059\lecturer.h(19,36): error C2061: syntax error: identifier 'Node'
-D:\Github\CS162-19CTT1-19125059\lecturer.h(20,36): error C2061: syntax error: identifier 'Node'
-D:\Github\CS162-19CTT1-19125059\lecturer.h(21,34): error C2061: syntax error: identifier 'Node'
-D:\Github\CS162-19CTT1-19125059\lecturer.h(22,34): error C2061: syntax error: identifier 'Node'
+D:\Github\CS162-19CTT1-19125059\lecturer.h(18,14): error C2065: 'Node': undeclared identifier
+D:\Github\CS162-19CTT1-19125059\lecturer.h(18,21): error C2065: 'pHead1': undeclared identifier
+D:\Github\CS162-19CTT1-19125059\lecturer.h(18,34): error C2062: type 'char' unexpected
+D:\Github\CS162-19CTT1-19125059\lecturer.h(19,28): error C2061: syntax error: identifier 'Node'
+D:\Github\CS162-19CTT1-19125059\lecturer.h(20,39): error C2061: syntax error: identifier 'Node'
+D:\Github\CS162-19CTT1-19125059\lecturer.h(21,36): error C2061: syntax error: identifier 'Node'
+D:\Github\CS162-19CTT1-19125059\lecturer.h(22,36): error C2061: syntax error: identifier 'Node'
 D:\Github\CS162-19CTT1-19125059\lecturer.h(23,34): error C2061: syntax error: identifier 'Node'
-D:\Github\CS162-19CTT1-19125059\lecturer.h(24,16): error C2065: 'Node': undeclared identifier
-D:\Github\CS162-19CTT1-19125059\lecturer.h(24,22): error C2065: 'pHead1': undeclared identifier
-D:\Github\CS162-19CTT1-19125059\lecturer.h(24,28): error C2182: 'print_S_B': illegal use of type 'void'
-D:\Github\CS162-19CTT1-19125059\lecturer.h(24,6): error C2374: 'print_S_B': redefinition; multiple initialization
+D:\Github\CS162-19CTT1-19125059\lecturer.h(24,34): error C2061: syntax error: identifier 'Node'
+D:\Github\CS162-19CTT1-19125059\lecturer.h(25,34): error C2061: syntax error: identifier 'Node'
+D:\Github\CS162-19CTT1-19125059\lecturer.h(26,16): error C2065: 'Node': undeclared identifier
+D:\Github\CS162-19CTT1-19125059\lecturer.h(26,22): error C2065: 'pHead1': undeclared identifier
+D:\Github\CS162-19CTT1-19125059\lecturer.h(26,28): error C2182: 'print_S_B': illegal use of type 'void'
+D:\Github\CS162-19CTT1-19125059\lecturer.h(26,6): error C2374: 'print_S_B': redefinition; multiple initialization
 D:\Github\CS162-19CTT1-19125059\score.h(31): message : see declaration of 'print_S_B'
+D:\Github\CS162-19CTT1-19125059\lecturer.h(27,17): error C2065: 'Node': undeclared identifier
+D:\Github\CS162-19CTT1-19125059\lecturer.h(27,24): error C2065: 'pHead': undeclared identifier
+D:\Github\CS162-19CTT1-19125059\lecturer.h(27,29): error C2182: 'delete_S_B': illegal use of type 'void'
   STAviewAllLecturer.cpp
 D:\Github\CS162-19CTT1-19125059\score.h(23,14): error C2065: 'Node': undeclared identifier
 D:\Github\CS162-19CTT1-19125059\score.h(23,21): error C2065: 'pHead1': undeclared identifier
@@ -169,40 +182,31 @@ D:\Github\CS162-19CTT1-19125059\score.h(30,34): error C2061: syntax error: ident
 D:\Github\CS162-19CTT1-19125059\score.h(31,16): error C2065: 'Node': undeclared identifier
 D:\Github\CS162-19CTT1-19125059\score.h(31,22): error C2065: 'pHead1': undeclared identifier
 D:\Github\CS162-19CTT1-19125059\score.h(31,28): error C2182: 'print_S_B': illegal use of type 'void'
-D:\Github\CS162-19CTT1-19125059\lecturer.h(16,14): error C2065: 'Node': undeclared identifier
-D:\Github\CS162-19CTT1-19125059\lecturer.h(16,21): error C2065: 'pHead1': undeclared identifier
-D:\Github\CS162-19CTT1-19125059\lecturer.h(16,34): error C2062: type 'char' unexpected
-D:\Github\CS162-19CTT1-19125059\lecturer.h(17,28): error C2061: syntax error: identifier 'Node'
-D:\Github\CS162-19CTT1-19125059\lecturer.h(18,39): error C2061: syntax error: identifier 'Node'
-D:\Github\CS162-19CTT1-19125059\lecturer.h(19,36): error C2061: syntax error: identifier 'Node'
-D:\Github\CS162-19CTT1-19125059\lecturer.h(20,36): error C2061: syntax error: identifier 'Node'
-D:\Github\CS162-19CTT1-19125059\lecturer.h(21,34): error C2061: syntax error: identifier 'Node'
-D:\Github\CS162-19CTT1-19125059\lecturer.h(22,34): error C2061: syntax error: identifier 'Node'
+D:\Github\CS162-19CTT1-19125059\lecturer.h(18,14): error C2065: 'Node': undeclared identifier
+D:\Github\CS162-19CTT1-19125059\lecturer.h(18,21): error C2065: 'pHead1': undeclared identifier
+D:\Github\CS162-19CTT1-19125059\lecturer.h(18,34): error C2062: type 'char' unexpected
+D:\Github\CS162-19CTT1-19125059\lecturer.h(19,28): error C2061: syntax error: identifier 'Node'
+D:\Github\CS162-19CTT1-19125059\lecturer.h(20,39): error C2061: syntax error: identifier 'Node'
+D:\Github\CS162-19CTT1-19125059\lecturer.h(21,36): error C2061: syntax error: identifier 'Node'
+D:\Github\CS162-19CTT1-19125059\lecturer.h(22,36): error C2061: syntax error: identifier 'Node'
 D:\Github\CS162-19CTT1-19125059\lecturer.h(23,34): error C2061: syntax error: identifier 'Node'
-D:\Github\CS162-19CTT1-19125059\lecturer.h(24,16): error C2065: 'Node': undeclared identifier
-D:\Github\CS162-19CTT1-19125059\lecturer.h(24,22): error C2065: 'pHead1': undeclared identifier
-D:\Github\CS162-19CTT1-19125059\lecturer.h(24,28): error C2182: 'print_S_B': illegal use of type 'void'
-D:\Github\CS162-19CTT1-19125059\lecturer.h(24,6): error C2374: 'print_S_B': redefinition; multiple initialization
+D:\Github\CS162-19CTT1-19125059\lecturer.h(24,34): error C2061: syntax error: identifier 'Node'
+D:\Github\CS162-19CTT1-19125059\lecturer.h(25,34): error C2061: syntax error: identifier 'Node'
+D:\Github\CS162-19CTT1-19125059\lecturer.h(26,16): error C2065: 'Node': undeclared identifier
+D:\Github\CS162-19CTT1-19125059\lecturer.h(26,22): error C2065: 'pHead1': undeclared identifier
+D:\Github\CS162-19CTT1-19125059\lecturer.h(26,28): error C2182: 'print_S_B': illegal use of type 'void'
+D:\Github\CS162-19CTT1-19125059\lecturer.h(26,6): error C2374: 'print_S_B': redefinition; multiple initialization
 D:\Github\CS162-19CTT1-19125059\score.h(31): message : see declaration of 'print_S_B'
+D:\Github\CS162-19CTT1-19125059\lecturer.h(27,17): error C2065: 'Node': undeclared identifier
+D:\Github\CS162-19CTT1-19125059\lecturer.h(27,24): error C2065: 'pHead': undeclared identifier
+D:\Github\CS162-19CTT1-19125059\lecturer.h(27,29): error C2182: 'delete_S_B': illegal use of type 'void'
   viewInfo.cpp
-D:\Github\CS162-19CTT1-19125059\score.h(23,14): error C2065: 'Node': undeclared identifier
-D:\Github\CS162-19CTT1-19125059\score.h(23,21): error C2065: 'pHead1': undeclared identifier
-D:\Github\CS162-19CTT1-19125059\score.h(23,34): error C2062: type 'char' unexpected
-D:\Github\CS162-19CTT1-19125059\score.h(24,28): error C2061: syntax error: identifier 'Node'
-D:\Github\CS162-19CTT1-19125059\score.h(25,39): error C2061: syntax error: identifier 'Node'
-D:\Github\CS162-19CTT1-19125059\score.h(26,36): error C2061: syntax error: identifier 'Node'
-D:\Github\CS162-19CTT1-19125059\score.h(27,36): error C2061: syntax error: identifier 'Node'
-D:\Github\CS162-19CTT1-19125059\score.h(28,34): error C2061: syntax error: identifier 'Node'
-D:\Github\CS162-19CTT1-19125059\score.h(29,34): error C2061: syntax error: identifier 'Node'
-D:\Github\CS162-19CTT1-19125059\score.h(30,34): error C2061: syntax error: identifier 'Node'
-D:\Github\CS162-19CTT1-19125059\score.h(31,16): error C2065: 'Node': undeclared identifier
-D:\Github\CS162-19CTT1-19125059\score.h(31,22): error C2065: 'pHead1': undeclared identifier
-D:\Github\CS162-19CTT1-19125059\score.h(31,28): error C2182: 'print_S_B': illegal use of type 'void'
 D:\Github\CS162-19CTT1-19125059\courses.h(12,9): error C2143: syntax error: missing ';' before '*'
 D:\Github\CS162-19CTT1-19125059\courses.h(12,9): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
 D:\Github\CS162-19CTT1-19125059\courses.h(12,14): error C2238: unexpected token(s) preceding ';'
-D:\Github\CS162-19CTT1-19125059\lecturer.h(24,6): error C2365: 'print_S_B': redefinition; previous definition was 'data variable'
-D:\Github\CS162-19CTT1-19125059\score.h(31): message : see declaration of 'print_S_B'
+D:\Github\CS162-19CTT1-19125059\courses.h(23,12): error C2143: syntax error: missing ';' before '*'
+D:\Github\CS162-19CTT1-19125059\courses.h(23,12): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+D:\Github\CS162-19CTT1-19125059\courses.h(23,17): error C2238: unexpected token(s) preceding ';'
   STAviewListCourses.cpp
 D:\Github\CS162-19CTT1-19125059\score.h(23,14): error C2065: 'Node': undeclared identifier
 D:\Github\CS162-19CTT1-19125059\score.h(23,21): error C2065: 'pHead1': undeclared identifier
@@ -217,21 +221,24 @@ D:\Github\CS162-19CTT1-19125059\score.h(30,34): error C2061: syntax error: ident
 D:\Github\CS162-19CTT1-19125059\score.h(31,16): error C2065: 'Node': undeclared identifier
 D:\Github\CS162-19CTT1-19125059\score.h(31,22): error C2065: 'pHead1': undeclared identifier
 D:\Github\CS162-19CTT1-19125059\score.h(31,28): error C2182: 'print_S_B': illegal use of type 'void'
-D:\Github\CS162-19CTT1-19125059\lecturer.h(16,14): error C2065: 'Node': undeclared identifier
-D:\Github\CS162-19CTT1-19125059\lecturer.h(16,21): error C2065: 'pHead1': undeclared identifier
-D:\Github\CS162-19CTT1-19125059\lecturer.h(16,34): error C2062: type 'char' unexpected
-D:\Github\CS162-19CTT1-19125059\lecturer.h(17,28): error C2061: syntax error: identifier 'Node'
-D:\Github\CS162-19CTT1-19125059\lecturer.h(18,39): error C2061: syntax error: identifier 'Node'
-D:\Github\CS162-19CTT1-19125059\lecturer.h(19,36): error C2061: syntax error: identifier 'Node'
-D:\Github\CS162-19CTT1-19125059\lecturer.h(20,36): error C2061: syntax error: identifier 'Node'
-D:\Github\CS162-19CTT1-19125059\lecturer.h(21,34): error C2061: syntax error: identifier 'Node'
-D:\Github\CS162-19CTT1-19125059\lecturer.h(22,34): error C2061: syntax error: identifier 'Node'
+D:\Github\CS162-19CTT1-19125059\lecturer.h(18,14): error C2065: 'Node': undeclared identifier
+D:\Github\CS162-19CTT1-19125059\lecturer.h(18,21): error C2065: 'pHead1': undeclared identifier
+D:\Github\CS162-19CTT1-19125059\lecturer.h(18,34): error C2062: type 'char' unexpected
+D:\Github\CS162-19CTT1-19125059\lecturer.h(19,28): error C2061: syntax error: identifier 'Node'
+D:\Github\CS162-19CTT1-19125059\lecturer.h(20,39): error C2061: syntax error: identifier 'Node'
+D:\Github\CS162-19CTT1-19125059\lecturer.h(21,36): error C2061: syntax error: identifier 'Node'
+D:\Github\CS162-19CTT1-19125059\lecturer.h(22,36): error C2061: syntax error: identifier 'Node'
 D:\Github\CS162-19CTT1-19125059\lecturer.h(23,34): error C2061: syntax error: identifier 'Node'
-D:\Github\CS162-19CTT1-19125059\lecturer.h(24,16): error C2065: 'Node': undeclared identifier
-D:\Github\CS162-19CTT1-19125059\lecturer.h(24,22): error C2065: 'pHead1': undeclared identifier
-D:\Github\CS162-19CTT1-19125059\lecturer.h(24,28): error C2182: 'print_S_B': illegal use of type 'void'
-D:\Github\CS162-19CTT1-19125059\lecturer.h(24,6): error C2374: 'print_S_B': redefinition; multiple initialization
+D:\Github\CS162-19CTT1-19125059\lecturer.h(24,34): error C2061: syntax error: identifier 'Node'
+D:\Github\CS162-19CTT1-19125059\lecturer.h(25,34): error C2061: syntax error: identifier 'Node'
+D:\Github\CS162-19CTT1-19125059\lecturer.h(26,16): error C2065: 'Node': undeclared identifier
+D:\Github\CS162-19CTT1-19125059\lecturer.h(26,22): error C2065: 'pHead1': undeclared identifier
+D:\Github\CS162-19CTT1-19125059\lecturer.h(26,28): error C2182: 'print_S_B': illegal use of type 'void'
+D:\Github\CS162-19CTT1-19125059\lecturer.h(26,6): error C2374: 'print_S_B': redefinition; multiple initialization
 D:\Github\CS162-19CTT1-19125059\score.h(31): message : see declaration of 'print_S_B'
+D:\Github\CS162-19CTT1-19125059\lecturer.h(27,17): error C2065: 'Node': undeclared identifier
+D:\Github\CS162-19CTT1-19125059\lecturer.h(27,24): error C2065: 'pHead': undeclared identifier
+D:\Github\CS162-19CTT1-19125059\lecturer.h(27,29): error C2182: 'delete_S_B': illegal use of type 'void'
   STAviewListOfStudentInCourse.cpp
 D:\Github\CS162-19CTT1-19125059\score.h(23,14): error C2065: 'Node': undeclared identifier
 D:\Github\CS162-19CTT1-19125059\score.h(23,21): error C2065: 'pHead1': undeclared identifier
@@ -246,19 +253,22 @@ D:\Github\CS162-19CTT1-19125059\score.h(30,34): error C2061: syntax error: ident
 D:\Github\CS162-19CTT1-19125059\score.h(31,16): error C2065: 'Node': undeclared identifier
 D:\Github\CS162-19CTT1-19125059\score.h(31,22): error C2065: 'pHead1': undeclared identifier
 D:\Github\CS162-19CTT1-19125059\score.h(31,28): error C2182: 'print_S_B': illegal use of type 'void'
-D:\Github\CS162-19CTT1-19125059\lecturer.h(16,14): error C2065: 'Node': undeclared identifier
-D:\Github\CS162-19CTT1-19125059\lecturer.h(16,21): error C2065: 'pHead1': undeclared identifier
-D:\Github\CS162-19CTT1-19125059\lecturer.h(16,34): error C2062: type 'char' unexpected
-D:\Github\CS162-19CTT1-19125059\lecturer.h(17,28): error C2061: syntax error: identifier 'Node'
-D:\Github\CS162-19CTT1-19125059\lecturer.h(18,39): error C2061: syntax error: identifier 'Node'
-D:\Github\CS162-19CTT1-19125059\lecturer.h(19,36): error C2061: syntax error: identifier 'Node'
-D:\Github\CS162-19CTT1-19125059\lecturer.h(20,36): error C2061: syntax error: identifier 'Node'
-D:\Github\CS162-19CTT1-19125059\lecturer.h(21,34): error C2061: syntax error: identifier 'Node'
-D:\Github\CS162-19CTT1-19125059\lecturer.h(22,34): error C2061: syntax error: identifier 'Node'
+D:\Github\CS162-19CTT1-19125059\lecturer.h(18,14): error C2065: 'Node': undeclared identifier
+D:\Github\CS162-19CTT1-19125059\lecturer.h(18,21): error C2065: 'pHead1': undeclared identifier
+D:\Github\CS162-19CTT1-19125059\lecturer.h(18,34): error C2062: type 'char' unexpected
+D:\Github\CS162-19CTT1-19125059\lecturer.h(19,28): error C2061: syntax error: identifier 'Node'
+D:\Github\CS162-19CTT1-19125059\lecturer.h(20,39): error C2061: syntax error: identifier 'Node'
+D:\Github\CS162-19CTT1-19125059\lecturer.h(21,36): error C2061: syntax error: identifier 'Node'
+D:\Github\CS162-19CTT1-19125059\lecturer.h(22,36): error C2061: syntax error: identifier 'Node'
 D:\Github\CS162-19CTT1-19125059\lecturer.h(23,34): error C2061: syntax error: identifier 'Node'
-D:\Github\CS162-19CTT1-19125059\lecturer.h(24,16): error C2065: 'Node': undeclared identifier
-D:\Github\CS162-19CTT1-19125059\lecturer.h(24,22): error C2065: 'pHead1': undeclared identifier
-D:\Github\CS162-19CTT1-19125059\lecturer.h(24,28): error C2182: 'print_S_B': illegal use of type 'void'
-D:\Github\CS162-19CTT1-19125059\lecturer.h(24,6): error C2374: 'print_S_B': redefinition; multiple initialization
+D:\Github\CS162-19CTT1-19125059\lecturer.h(24,34): error C2061: syntax error: identifier 'Node'
+D:\Github\CS162-19CTT1-19125059\lecturer.h(25,34): error C2061: syntax error: identifier 'Node'
+D:\Github\CS162-19CTT1-19125059\lecturer.h(26,16): error C2065: 'Node': undeclared identifier
+D:\Github\CS162-19CTT1-19125059\lecturer.h(26,22): error C2065: 'pHead1': undeclared identifier
+D:\Github\CS162-19CTT1-19125059\lecturer.h(26,28): error C2182: 'print_S_B': illegal use of type 'void'
+D:\Github\CS162-19CTT1-19125059\lecturer.h(26,6): error C2374: 'print_S_B': redefinition; multiple initialization
 D:\Github\CS162-19CTT1-19125059\score.h(31): message : see declaration of 'print_S_B'
+D:\Github\CS162-19CTT1-19125059\lecturer.h(27,17): error C2065: 'Node': undeclared identifier
+D:\Github\CS162-19CTT1-19125059\lecturer.h(27,24): error C2065: 'pHead': undeclared identifier
+D:\Github\CS162-19CTT1-19125059\lecturer.h(27,29): error C2182: 'delete_S_B': illegal use of type 'void'
   Generating Code...

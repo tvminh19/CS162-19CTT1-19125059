@@ -163,3 +163,17 @@ void view_scoreboard()
 	delete_S_B(pHead1);
 	system("pause");
 }
+
+void delete_S_B(Node*& pHead)
+{
+	Node* cur = pHead;
+	while (pHead != nullptr) {
+		pHead = pHead->next;
+		delete[] cur->scb->stu->account;
+		delete[] cur->scb->stu->name;
+		delete cur->scb->sco;
+		delete cur->scb->stu;
+		delete cur->scb;
+		cur = pHead;
+	}
+}

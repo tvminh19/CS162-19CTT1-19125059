@@ -153,7 +153,7 @@ void Staff_class()
 
 	else if (strcmp(c, "1") == 0) {
 		//2.1
-		importAndSave();
+		//importAndSave();
 	}
 
 	else if (strcmp(c, "2") == 0) {
@@ -222,17 +222,17 @@ void Staff_course()
 
 	else if (strcmp(c, "2") == 0) {
 		//3.2
-		inputCourse();
+		//inputCourse();
 	}
 
 	else if (strcmp(c, "3") == 0) {
 		//3.3
-		addANewCourse();
+		//addANewCourse();
 	}
 
 	else if (strcmp(c, "4") == 0) {
 		//3.4
-		editcourse();
+		//editcourse();
 	}
 
 	else if (strcmp(c, "5") == 0) {
@@ -440,7 +440,7 @@ void displayAllroles(int typeAccount, char ID[])
 		//1.4
 		system("cls");
 		cin.ignore();
-		changePassword(typeAccount, ID);
+		//changePassword(typeAccount, ID);
 	}
 
 	//Logout
