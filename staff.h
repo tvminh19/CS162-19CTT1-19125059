@@ -1,4 +1,5 @@
-#pragma once
+#ifndef _STAFF_H_
+#define _STAFF_H_
 
 struct staff {
 	char* account;
@@ -7,6 +8,8 @@ struct staff {
 	int gender;
 };
 
+
+#endif // !_STAFF_H_
 
 
 

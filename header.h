@@ -1,4 +1,6 @@
-#pragma once
+#ifndef _HEADER_H_
+#define _HEADER_H_
+
 #include <iostream>
 #include <fstream>
 #include <string.h>
@@ -36,4 +38,6 @@ bool isSameStr(char a[], char b[]);
 int ston(char a[]);
 void logout();
 void outro();
+
+#endif // !_HEADER_H_
 

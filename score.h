@@ -1,6 +1,8 @@
-#pragma once
+#ifndef _SCORE_H_
+#define _SCORE_H_
+
+
 #include "header.h"
-#include "score.h"
 #include "students.h"
 #include "courses.h"
 
@@ -29,3 +31,7 @@ void get_Final(ifstream& in, Node*& p);
 void get_Bonus(ifstream& in, Node*& p);
 void get_Total(ifstream& in, Node*& p);
 void print_S_B(Node* pHead1);
+
+
+
+#endif // !_SCORE_H_

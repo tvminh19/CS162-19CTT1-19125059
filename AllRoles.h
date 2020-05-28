@@ -1,4 +1,6 @@
-#pragma once
+#ifndef _ALLROLES_H_
+#define _ALLROLES_H_
+
 #include "header.h"
 #include "students.h"
 #include "staff.h"
@@ -75,3 +77,6 @@ void saveLecturer(const lecture& lec, ofstream& fo);
 
 void inputAndHidePass(char password[]);
 void saveDate(Date date, ofstream& fo);
+
+
+#endif // !_ALLROLES_H_

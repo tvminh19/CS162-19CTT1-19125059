@@ -1,4 +1,5 @@
-#pragma once
+#ifndef _LECTURER_H_
+#define _LECTURER_H_
 
 #include "header.h"
 #include "students.h"
@@ -25,3 +26,7 @@ void get_Bonus(ifstream& in, Node*& p);
 void get_Total(ifstream& in, Node*& p);
 void print_S_B(Node* pHead1);
 void delete_S_B(Node*& pHead);
+
+
+
+#endif // !_LECTURER_H_

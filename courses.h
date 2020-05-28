@@ -1,4 +1,6 @@
-#pragma once
+#ifndef _COURSES_H_
+#define _COURSES_H_
+
 #include "header.h"
 #include "score.h"
 #include "students.h"
@@ -111,3 +113,7 @@ void view_Lecturers();
 void print_Lecturers(Node* pHead);
 void get_Lecturer(Node*& pHead);
 void delete_NodeLecturer(Node*& pHead);
+
+
+
+#endif // !_COURSES_H_

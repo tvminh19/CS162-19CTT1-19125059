@@ -1,4 +1,6 @@
-#pragma once
+#ifndef _STUDENTS_H_
+#define _STUDENTS_H_
+
 #include "header.h"
 
 struct student {
@@ -25,3 +27,6 @@ struct Student
 struct checkin {
 	bool w[10];
 };
+
+
+#endif // !_STUDENTS_H_
