@@ -4,6 +4,7 @@
 /* ------------------------------------o0o----------------------------------- */
 
 #include "allRoles.h"
+#include "header.h"
 
 /* -------------------------- this is main function ------------------------- */
 int main() {
@@ -27,7 +28,7 @@ int main() {
 	if (accType == 0) return 0;
 
 	//show menu after login
-	//displayAllroles(accType, idAfterLogin);
+	displayAllroles(accType, idAfterLogin);
 }
 
 /* ---------------------- this is end of main function ---------------------- */

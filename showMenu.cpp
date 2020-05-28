@@ -440,16 +440,14 @@ void displayAllroles(int typeAccount, char ID[])
 		//1.4
 		system("cls");
 		cin.ignore();
-		//changePassword(typeAccount, ID);
+		changePassword(typeAccount, ID);
 	}
 
 	//Logout
 	else if (strcmp(c, "4") == 0) {
 		//1.5
-		cin.ignore();
-		char id[20];
-		int ta;
-		menu(ta, id);
+		cin.ignore(100, '\n');
+		logout();
 		return;
 	}
 

@@ -108,7 +108,7 @@ struct Node {
 	Node* next = nullptr;
 };
 
-
+int main();
 void introDone();
 void inputYSC(char year[], char semester[], char className[]);
 bool isSameStr(char a[], char b[]);

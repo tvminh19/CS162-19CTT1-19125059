@@ -47,8 +47,7 @@ int menu(int& typeAcc, char id[]) {
 	}
 	else {
 		outro();
-		typeAcc = 0;
-		logout();
+		exit(0);
 	}
 	return 0;
 }
@@ -218,10 +217,10 @@ int resultLogin(ifstream& in, int& result, int& countLogin, bool gender, char na
 		cout << "===========================================\n";
 		timeNow();
 		if (gender) {
-			cout << "Mr.";
+			cout << "Mr. ";
 		}
 		else {
-			cout << "Ms.";
+			cout << "Ms. ";
 		}
 		cout << nameLogin << "!" << endl;
 		cout << "===========================================\n";
