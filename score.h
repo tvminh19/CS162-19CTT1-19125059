@@ -1,10 +1,9 @@
 #ifndef _SCORE_H_
 #define _SCORE_H_
 
-
 #include "header.h"
-#include "students.h"
 #include "courses.h"
+#include "students.h"
 
 struct score {
 	float midterm;

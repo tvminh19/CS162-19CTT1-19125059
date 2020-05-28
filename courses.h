@@ -6,6 +6,7 @@
 #include "students.h"
 #include "lecturer.h"
 
+
 struct schedule {
 	int no;
 	char* courseID;
