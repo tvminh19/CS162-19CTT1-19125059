@@ -122,5 +122,8 @@ int ston(char a[]);
 void logout();
 void outro();
 
+//return date
+Date dateOfWeek(Date root, int dOfWeek);
+
 #endif // !_HEADER_H_
 
