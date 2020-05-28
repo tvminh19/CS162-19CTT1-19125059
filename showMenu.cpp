@@ -1,5 +1,6 @@
 /* -------------------- this is Vu's file for functions ------------------- */
 #include "header.h"
+#include "class.h"
 #include "courses.h"
 #include "students.h"
 #include "lecturer.h"
@@ -153,7 +154,7 @@ void Staff_class()
 
 	else if (strcmp(c, "1") == 0) {
 		//2.1
-		//importAndSave();
+		importAndSave();
 	}
 
 	else if (strcmp(c, "2") == 0) {
