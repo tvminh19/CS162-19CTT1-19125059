@@ -57,3 +57,21 @@ lecture loadLecturer(ifstream& fi);
 char* cpyStr(char str[]);
 void displayLecturer(const lecture& lec);
 void displayDate(Date date);
+
+// 1.4 Change Password
+void changePassword(int accType, char ID[]);
+
+bool changeStuPassword(Student& stu);
+void saveStuFile(Student* stuArr, int n);
+void saveStudent(const Student& stu, ofstream& fo);
+
+bool changeStaPassword(staff& sta);
+void saveStaFile(staff* staArr, int n);
+void saveStaff(const staff& sta, ofstream& fo);
+
+bool changeLecPassword(lecture& lec);
+void saveLecFile(lecture* lecArr, int n);
+void saveLecturer(const lecture& lec, ofstream& fo);
+
+void inputAndHidePass(char password[]);
+void saveDate(Date date, ofstream& fo);
