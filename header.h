@@ -108,6 +108,12 @@ struct Node {
 	Node* next = nullptr;
 };
 
+struct StuNode
+{
+	Student stu;
+	StuNode* pNext = nullptr;
+};
+
 int main();
 void introDone();
 void inputYSC(char year[], char semester[], char className[]);
