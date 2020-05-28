@@ -5,20 +5,6 @@
 #include "courses.h"
 #include "students.h"
 
-struct score {
-	float midterm;
-	float final;
-	float bonus;
-	float total;
-};
-
-struct scoreboard {
-	student* stu;
-	int isActive;
-	score* sco;
-	int went2class[12];
-};
-
 //4.1 Search and view the scoreboard of a course.
 void view_scoreboard();
 void Stu_S_B(Node*& pHead1, char year[], char semester[], char className[]);

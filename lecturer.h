@@ -1,16 +1,9 @@
-#pragma once
+#ifndef _lecturer_h_
+#define _lecturer_h_
 
 #include "header.h"
 #include "students.h"
 #include "courses.h"
-
-struct lecture {
-	char* account; //username
-	char* password;
-	char* name;
-	char* academy;
-	int gender;
-};
 
 //6.7 View a scoreboard
 void view_scoreboard();
@@ -24,3 +17,7 @@ void get_Total(ifstream& in, Node*& p);
 void print_S_B(Node* pHead1);
 void delete_S_B(Node*& pHead);
 void get_S_B(char v[], Node*& pHead1);
+
+
+
+#endif

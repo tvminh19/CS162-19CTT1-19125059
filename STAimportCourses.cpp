@@ -1,3 +1,4 @@
+#include "header.h"
 #include "courses.h"
 
 void inputCourse() {

@@ -6,28 +6,6 @@
 #include "students.h"
 #include "lecturer.h"
 
-
-struct schedule {
-	int no;
-	char* courseID;
-	char* courseName;
-	char* Class;
-	lecture* lec;
-	Date Sdate;
-	Date Edate;
-	char* dayofweek;
-	Time Stime;
-	Time Etime;
-	char* room;
-};
-
-struct Node {
-	student* stu;
-	scoreboard* scb;
-	schedule* schedule;
-	Node* next = nullptr;
-};
-
 //3.1 Create / delete / view academic years and semesters.
 void create_Year_Semester();
 bool exist_Year(Year*& pHead, int& n, char* year);
