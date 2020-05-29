@@ -27,7 +27,7 @@ int countLine(ifstream& in, int group) {
 //check if the course is exiting ?
 bool isExistCourse(char courseID[], char year[], char semester[], char className[], char fileAdd[], int& maxno) {
 	ifstream in;
-	char a[200];
+	char a[200] = {};
 	strcat(a, "D:/Github/CS162-19CTT1-19125059/ZPMS/");
 	strcat(a, year);
 	strcat(a, "/");
@@ -38,7 +38,8 @@ bool isExistCourse(char courseID[], char year[], char semester[], char className
 	strcpy(fileAdd, a);
 	in.open(fileAdd);
 	if (!in.is_open()) {
-		ofstream out(fileAdd);
+		cout << "Error open schedule.txt.\n";
+		exit(0);
 	}
 	maxno = countLine(in, 19);
 	in.close();
@@ -159,8 +160,10 @@ void inputCourse(schedule& c, char year[], char semester[], char className[], ch
 //update course data
 void updateCourseData(schedule c, char fileAdd[]) {
 	ofstream out(fileAdd, ios::app);
+	out << "\n";
 	out << c.no << "\n";
 	out << c.courseID << "\n";
+	out << c.courseName << "\n";
 	out << c.Class << "\n";
 	out << c.lec->account << "\n";
 	out << c.lec->name << "\n";
@@ -176,7 +179,7 @@ void updateCourseData(schedule c, char fileAdd[]) {
 	out << c.Stime.mins << "\n";
 	out << c.Etime.hours << "\n";
 	out << c.Etime.mins << "\n";
-	out << c.room << "\n";
+	out << c.room;
 }
 
 //add a new course
