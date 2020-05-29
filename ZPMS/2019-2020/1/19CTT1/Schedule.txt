@@ -56,24 +56,24 @@ Wed
 30
 I24
 4
-MTH252
-Calculus II
+MMMM
+KHOK
 19CTT1
-nhanh
-Nguyen Huu Anh
+NHTRNHAT
+NGUYEN HU TRI NHAT
 1
-17
+1
+2
 3
-20
-26
+4
 5
-20
-Tue
-9
-30
-11
-0
-I41
+6
+MON
+1
+2
+3
+4
+I96
 5
 BAA00004
 Introduction to Laws
@@ -113,21 +113,21 @@ Tue
 30
 HT1
 7
-CM111
-COMP
+cm122
+khong can hoc
 19CTT1
-lhlong
-la hoang long
+dnvu
+dnvu
 1
 1
 2
 3
+4
+5
+6
+mn
+1
 2
 3
 4
-mon
-2
-3
-3
-4
-i99
+i69

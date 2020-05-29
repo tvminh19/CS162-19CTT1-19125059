@@ -270,7 +270,7 @@ void askNo(Node*& phead) {
 		if (pcur->schedule->no == no) {
 			//edit
 			editCo(pcur);
-			exit(0);
+			return;
 		}
 		pcur = pcur->next;
 	}
@@ -284,6 +284,7 @@ void askNo(Node*& phead) {
 //edit course
 void editcourse() {
 	//varriable
+	ofstream out;
 	char year[20], semester[20], className[20], fileAdd[500] = {};
 	Node* phead = nullptr;
 	Node* pcur = nullptr;
