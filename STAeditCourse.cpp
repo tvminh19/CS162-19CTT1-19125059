@@ -1,52 +1,6 @@
 #include "header.h"
 #include "courses.h"
 
-//show for edit course
-void showCourse(Node* phead) {
-	system("cls");
-	while (phead) {
-		cout << "|";
-		cout << phead->schedule->no;
-		cout << "|";
-		cout << phead->schedule->courseID;
-		cout << "|";
-		cout << phead->schedule->courseName;
-		cout << "|";
-		cout << phead->schedule->lec->account;
-		cout << "|";
-		cout << phead->schedule->lec->name;
-		cout << "|";
-		cout << phead->schedule->lec->gender;
-		cout << "|";
-		cout << phead->schedule->Sdate.day;
-		cout << "|";
-		cout << phead->schedule->Sdate.month;
-		cout << "|";
-		cout << phead->schedule->Sdate.year;
-		cout << "|";
-		cout << phead->schedule->Edate.day;
-		cout << "|";
-		cout << phead->schedule->Edate.month;
-		cout << "|";
-		cout << phead->schedule->Edate.year;
-		cout << "|";
-		cout << phead->schedule->dayofweek;
-		cout << "|";
-		cout << phead->schedule->Stime.hours;
-		cout << "|";
-		cout << phead->schedule->Stime.mins;
-		cout << "|";
-		cout << phead->schedule->Etime.hours;
-		cout << "|";
-		cout << phead->schedule->Etime.mins;
-		cout << "|";
-		cout << phead->schedule->room;
-		cout << "|\n";
-		system("pause");
-		phead = phead->next;
-	}
-}
-
 //load node 
 void loadNodeEdit(Node*& phead, Node*& pcur, char fileAdd[]) {
 	char a[50];
@@ -231,6 +185,7 @@ void editCo(Node*& p) {
 	cout << "=== EDIT ===\n";
 
 	cout << "Course ID: ";
+	cin.ignore(200, '\n');
 	cin.get(a, 200, '\n');
 	delete[] p->schedule->courseID;
 	p->schedule->courseID = new char[strlen(a) + 1];
@@ -243,7 +198,7 @@ void editCo(Node*& p) {
 	p->schedule->courseName = new char[strlen(a) + 1];
 	strcpy(p->schedule->courseName, a);
 
-	p->schedule->lec = new lecture;
+	//p->schedule->lec = new lecture;
 
 	cout << "Lecturer's username: ";
 	cin.ignore(200, '\n');
@@ -320,7 +275,7 @@ void askNo(Node*& phead) {
 		pcur = pcur->next;
 	}
 	system("cls");
-	showCourse(phead);
+	print_Schedule(phead);
 	cout << "\n";
 	cout << "\nPlease input Again: ";
 	askNo(phead);
@@ -332,7 +287,7 @@ void editcourse() {
 	char year[20], semester[20], className[20], fileAdd[500] = {};
 	Node* phead = nullptr;
 	Node* pcur = nullptr;
-	ofstream out;
+
 
 	//input year semester class
 	inputYSC(year, semester, className);
@@ -344,7 +299,6 @@ void editcourse() {
 	loadCourseEdit(year, semester, className, fileAdd, phead, pcur);
 
 	//show to edit
-	//showCourse(phead);
 	print_Schedule(phead);
 
 	//ask and edit

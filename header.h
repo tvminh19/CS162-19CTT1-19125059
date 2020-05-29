@@ -128,4 +128,3 @@ int countLine(ifstream& in, int group);
 Date dateOfWeek(Date root, int dOfWeek);
 
 #endif // !_HEADER_H_
-
