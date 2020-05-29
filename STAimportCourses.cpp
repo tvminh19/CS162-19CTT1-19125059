@@ -120,7 +120,7 @@ void inputYSC(char year[], char semester[], char className[]) {
 	strcat(fileAdd, "D:/Github/CS162-19CTT1-19125059/ZPMS/");
 	strcat(fileAdd, year);
 	strcat(fileAdd, "/");
-	strcat(fileAdd, "semester.txt");
+	strcat(fileAdd, "Semester.txt");
 
 	in.open(fileAdd);
 	if (!in.is_open()) {
@@ -143,7 +143,7 @@ void inputYSC(char year[], char semester[], char className[]) {
 		cout << "Please input semester: ";
 		cin.ignore(10, '\n');
 		cin.get(semester, 10, '\n');
-		cout << "semester: " << semester << endl;
+		//cout << "Semester: " << semester << endl;
 	}
 	if (!isExistSem(year, semester)) {
 		system("cls");
@@ -249,11 +249,11 @@ bool isExistYear(char year[]) {
 //is exist semester
 bool isExistSem(char year[], char sem[]) {
 	ifstream in;
-	char fileAdd[500];
+	char fileAdd[500] = {};
 	strcat(fileAdd, "D:/Github/CS162-19CTT1-19125059/ZPMS/");
 	strcat(fileAdd, year);
 	strcat(fileAdd, "/");
-	strcat(fileAdd, "semester.txt");
+	strcat(fileAdd, "Semester.txt");
 	in.open(fileAdd);
 	if (!in.is_open()) {
 		cout << "error at check semester function\n";
@@ -267,8 +267,12 @@ bool isExistSem(char year[], char sem[]) {
 		for (int i = 0; i < n; ++i) {
 			in.get(a, 1000, '\n');
 			in.ignore(200, '\n');
-			if (isSameStr(a, sem))  return true;
+			if (isSameStr(a, sem)) {
+				in.close();
+				return true;
+			}
 		}
+		in.close();
 		return false;
 	}
 }

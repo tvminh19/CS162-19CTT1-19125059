@@ -26,7 +26,8 @@ void input_your_choice(char* your_choice);
 void view_Year_Semester();
 void view_Semester(char* year);
 
-//3.2
+//3.2 IMPORT COURSES
+void inputCourse();
 void aPartOfinputCourse(ifstream& in, Node*& phead, Node*& pcur, char year[], char semester[], char className[]);
 void outputSchedule(ofstream& out, Node* phead, char year[], char semester[], char className[]);
 void cleanScheduleNode(Node*& phead);
@@ -50,6 +51,22 @@ void getDayOfWeek(ifstream& in, Node*& p, char a[]);
 void getSTime(ifstream& in, Node*& p, char a[]);
 void getETime(ifstream& in, Node*& p, char a[]);
 void getRoom(ifstream& in, Node*& p, char a[]);
+
+//3.3 add a new course
+void addANewCourse();
+void updateCourseData(schedule c, char fileAdd[]);
+void inputCourse(schedule& c, char year[], char semester[], char className[], char fileAdd[]);
+void inputCourseData(schedule& c, char id[], int maxno, char className[]);
+bool isExistCourse(char courseID[], char year[], char semester[], char className[], char fileAdd[], int& maxno);
+void cleanInputCourse(schedule& c);
+
+//3.4 edit course
+void editcourse();
+void askNo(Node*& phead);
+void editCo(Node*& p);
+void loadCourseEdit(char year[], char semester[], char className[], char fileAdd[], Node*& phead, Node*& pcur);
+void loadNodeEdit(Node*& phead, Node*& pcur, char fileAdd[]);
+void showCourse(Node* phead);
 
 //3.8 View list of courses in the current semester.
 void view_Courses();

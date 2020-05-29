@@ -223,17 +223,17 @@ void Staff_course()
 
 	else if (strcmp(c, "2") == 0) {
 		//3.2
-		//inputCourse();
+		inputCourse();
 	}
 
 	else if (strcmp(c, "3") == 0) {
 		//3.3
-		//addANewCourse();
+		addANewCourse();
 	}
 
 	else if (strcmp(c, "4") == 0) {
 		//3.4
-		//editcourse();
+		editcourse();
 	}
 
 	else if (strcmp(c, "5") == 0) {

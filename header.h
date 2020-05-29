@@ -13,6 +13,7 @@
 #include <windows.h>
 #include <ctime>
 #pragma warning (disable : 4996)
+#pragma warning (suppress : 4996)
 using namespace std;
 
 struct Time {
@@ -121,6 +122,7 @@ bool isSameStr(char a[], char b[]);
 int ston(char a[]);
 void logout();
 void outro();
+int countLine(ifstream& in, int group);
 
 //return date
 Date dateOfWeek(Date root, int dOfWeek);
