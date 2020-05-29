@@ -330,6 +330,7 @@ void Staff_attendanceList()
 
 	else if (strcmp(c, "1") == 0) {
 		//5.1
+		viewAttendance(); 
 	}
 
 	else if (strcmp(c, "2") == 0) {

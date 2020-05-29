@@ -77,7 +77,7 @@ struct scoreboard {
 	student* stu;
 	int isActive;
 	score* sco;
-	int went2class[12];
+	int went2class[10];
 };
 
 struct lecture {
