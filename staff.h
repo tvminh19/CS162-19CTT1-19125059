@@ -12,6 +12,10 @@ void getNodeScoreBoard(ifstream& in, Node*& phead, Node*& pcur);
 char* courseDir(char year[], char semester[], char className[], char course[]);
 void askCourse(Node*& phead, char a[]);
 
+//5.1 export attendance list to csv file
+void exportAttLs();
+void createExportFile(char fileAdd[], Node* phead, int numStu);
+
 #endif // !_STAFF_H_
 
 

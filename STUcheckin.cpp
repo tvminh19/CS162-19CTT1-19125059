@@ -1,4 +1,5 @@
 #include "header.h"
+#include "students.h"
 
 //is leap year
 bool isLeapYear(int y) {
@@ -32,3 +33,19 @@ Date dateOfWeek(Date root, int dOfWeek) {
 	}
 	return root;
 }
+
+/* -------------------------------------------------------------------------- */
+/*                              student check in                              */
+/* -------------------------------------------------------------------------- */
+
+
+
+
+
+
+
+
+
+
+
+

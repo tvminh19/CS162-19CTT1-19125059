@@ -335,6 +335,7 @@ void Staff_attendanceList()
 
 	else if (strcmp(c, "2") == 0) {
 		//5.2
+		exportAttLs();
 	}
 
 	else {
