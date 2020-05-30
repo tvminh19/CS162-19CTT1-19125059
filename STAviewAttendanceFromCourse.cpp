@@ -74,7 +74,7 @@ void getNodeScoreBoard(ifstream& in, Node*& phead, Node*& pcur){
 		phead->scb->stu->dob = new char[strlen(a) + 1];
 		strcpy(phead->scb->stu->dob, a);
 
-		//is acctive?;
+		//is active?
 		in >> phead->scb->isActive;
 
 		//score

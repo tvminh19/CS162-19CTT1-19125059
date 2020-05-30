@@ -18,11 +18,11 @@ int main() {
 		 */
 		 //save the user ID after Login
 	int accType;
-	char idAfterLogin[20];
+	char idAfterLogin[20] = "19125059";
 
 	//menu function
-	menu(accType, idAfterLogin);
-	//accType = 1;
+	//menu(accType, idAfterLogin);
+	accType = 1;
 
 	//stop program if wrong account!
 	if (accType == 0) return 0;
