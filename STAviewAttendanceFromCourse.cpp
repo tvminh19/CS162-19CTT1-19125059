@@ -163,7 +163,6 @@ void loadCourseFile(char fileAdd[], Node*& phead, Date& root, Time& Stime, Time&
 		in >> Etime.mins;
 
 		in >> numStu;
-
 		for (int i = 0; i < numStu; ++i){
 			//get Node scoreboard
 			getNodeScoreBoard(in, phead, pcur);
