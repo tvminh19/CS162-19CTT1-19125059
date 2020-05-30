@@ -11,6 +11,7 @@ void zetoon(Node* phead, char id[], int numOfWeek);
 int numOfStuWeek(Date root, Date now);
 Date getTimeNow();
 void updateCourse(char fileAdd[], Node* phead, Date root, Time Stime, Time Etime, int numStu);
+void loadCourseFile(char fileAdd[], Node*& phead, Date& root, Time& Stime, Time& Etime, int& numStu);
 
 
 #endif // !_STUDENTS_H_

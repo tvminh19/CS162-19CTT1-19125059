@@ -74,15 +74,15 @@ void getNodeScoreBoard(ifstream& in, Node*& phead, Node*& pcur){
 		phead->scb->stu->dob = new char[strlen(a) + 1];
 		strcpy(phead->scb->stu->dob, a);
 
-		//is acctive?
+		//is acctive?;
 		in >> phead->scb->isActive;
 
 		//score
 		phead->scb->sco = new score;
 
-		in >> phead->scb->sco->bonus;
 		in >> phead->scb->sco->midterm;
 		in >> phead->scb->sco->final;
+		in >> phead->scb->sco->bonus;
 		in >> phead->scb->sco->total;
 
 		//check attendance
@@ -129,9 +129,9 @@ void getNodeScoreBoard(ifstream& in, Node*& phead, Node*& pcur){
 		//score
 		pcur->scb->sco = new score;
 
-		in >> pcur->scb->sco->bonus;
 		in >> pcur->scb->sco->midterm;
 		in >> pcur->scb->sco->final;
+		in >> pcur->scb->sco->bonus;
 		in >> pcur->scb->sco->total;
 
 		//check attendance
@@ -240,10 +240,11 @@ void cleanScoreBoard(Node*& phead){
 	while (phead){
 		pcur = phead->next;
 
-		delete phead->scb->stu->account;
-		delete phead->scb->stu->password;
-		delete phead->scb->stu->name;
-		delete phead->scb->stu->dob;
+		delete[] phead->scb->stu->account;
+		delete[] phead->scb->stu->password;
+		delete[] phead->scb->stu->name;
+		delete[] phead->scb->stu->dob;
+		delete phead->scb->sco;
 		delete phead->scb->stu;
 
 		phead = pcur;

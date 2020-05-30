@@ -181,7 +181,7 @@ void StuCheckin(char id[]) {
 	//open and load to struct
 	int numStu;
 	loadCourseFile(fileAdd, phead, root, Stime, Etime, numStu);
-
+	
 	//doing
 	tick(phead, id, root);
 

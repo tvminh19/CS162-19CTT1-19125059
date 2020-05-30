@@ -1,15 +1,15 @@
-2020 04 06 13 30 17 30
+2020 4 6 13 30 17 30
 46
 19125021
 20010219
 Nguyen Thanh Dat
 2001 02 19
-1
+-842150451
 0
 0
 0
 0
-1
+0
 0
 0
 0
@@ -23,7 +23,7 @@ Nguyen Thanh Dat
 20010926
 Mai Quoc Khanh
 2001 09 26
-1
+-842150451
 0
 0
 0
@@ -42,7 +42,7 @@ Mai Quoc Khanh
 20011001
 Le Tran Hoang Lam
 2001 10 01
-1
+-842150451
 0
 0
 0
@@ -61,7 +61,7 @@ Le Tran Hoang Lam
 20011011
 Cao Thien Tri
 2001 10 11
-1
+-842150451
 0
 0
 0
@@ -80,7 +80,7 @@ Cao Thien Tri
 20011130
 Truong Hoang Vu
 2001 11 30
-1
+-842150451
 0
 0
 0
@@ -99,7 +99,7 @@ Truong Hoang Vu
 20010621
 Dinh Dang Dinh
 2001 06 21
-1
+-842150451
 0
 0
 0
@@ -118,7 +118,7 @@ Dinh Dang Dinh
 20010127
 Bui Quang Huy
 2001 01 27
-1
+-842150451
 0
 0
 0
@@ -137,7 +137,7 @@ Bui Quang Huy
 20010119
 Vuong Hy
 2001 01 19
-1
+-842150451
 0
 0
 0
@@ -156,7 +156,7 @@ Vuong Hy
 20010620
 Quach Minh Khoi
 2001 06 20
-1
+-842150451
 0
 0
 0
@@ -175,7 +175,7 @@ Quach Minh Khoi
 20010604
 Trinh Van Minh
 2001 06 04
-1
+-842150451
 0
 0
 0
@@ -194,7 +194,7 @@ Trinh Van Minh
 20010120
 Nguyen Thanh Ngan
 2001 01 20
-1
+-842150451
 0
 0
 0
@@ -213,7 +213,7 @@ Nguyen Thanh Ngan
 20011207
 Nguyen Phu Van
 2001 12 07
-1
+-842150451
 0
 0
 0
@@ -232,7 +232,7 @@ Nguyen Phu Van
 20010308
 Pham Quang Vu
 2001 03 08
-1
+-842150451
 0
 0
 0
@@ -251,7 +251,7 @@ Pham Quang Vu
 20010115
 Duong Bao Chan
 2001 01 15
-1
+-842150451
 0
 0
 0
@@ -270,7 +270,7 @@ Duong Bao Chan
 20010504
 Thai Ngoc Thanh Dat
 2001 05 04
-1
+-842150451
 0
 0
 0
@@ -289,7 +289,7 @@ Thai Ngoc Thanh Dat
 20010109
 Tran Hai Anh Dien
 2001 01 09
-1
+-842150451
 0
 0
 0
@@ -308,7 +308,7 @@ Tran Hai Anh Dien
 20010801
 Vo Khuong Duy
 2001 08 01
-1
+-842150451
 0
 0
 0
@@ -327,7 +327,7 @@ Vo Khuong Duy
 20011028
 Pham Thi Ngoc Ha
 2001 10 28
-1
+-842150451
 0
 0
 0
@@ -346,7 +346,7 @@ Pham Thi Ngoc Ha
 20011122
 Nguyen Hoang Hieu
 2001 11 22
-1
+-842150451
 0
 0
 0
@@ -365,7 +365,7 @@ Nguyen Hoang Hieu
 20010123
 Nguyen Cung Hoang Huy
 2001 01 23
-1
+-842150451
 0
 0
 0
@@ -384,7 +384,7 @@ Nguyen Cung Hoang Huy
 20010513
 Phan Dinh Huy
 2001 05 13
-1
+-842150451
 0
 0
 0
@@ -403,7 +403,7 @@ Phan Dinh Huy
 20010614
 Nguyen Dinh Khanh
 2001 06 14
-1
+-842150451
 0
 0
 0
@@ -422,7 +422,7 @@ Nguyen Dinh Khanh
 20010315
 Duong Van Khoa
 2001 03 15
-1
+-842150451
 0
 0
 0
@@ -441,7 +441,7 @@ Duong Van Khoa
 20010923
 Ta Ngoc Minh Khoa
 2001 09 23
-1
+-842150451
 0
 0
 0
@@ -460,7 +460,7 @@ Ta Ngoc Minh Khoa
 20010925
 Nguyen Truong Lam
 2001 09 25
-1
+-842150451
 0
 0
 0
@@ -479,7 +479,7 @@ Nguyen Truong Lam
 20010716
 Pham Thien Long
 2001 07 16
-1
+-842150451
 0
 0
 0
@@ -498,7 +498,7 @@ Pham Thien Long
 20010821
 Huynh Tuan Luc
 2001 08 21
-1
+-842150451
 0
 0
 0
@@ -517,7 +517,7 @@ Huynh Tuan Luc
 20010403
 Tran Minh Nhut
 2001 04 03
-1
+-842150451
 0
 0
 0
@@ -536,7 +536,7 @@ Tran Minh Nhut
 20010201
 Nguyen Lam Vinh Phu
 2001 02 01
-1
+-842150451
 0
 0
 0
@@ -555,7 +555,7 @@ Nguyen Lam Vinh Phu
 20010903
 Dinh Duy Phuoc
 2001 09 03
-1
+-842150451
 0
 0
 0
@@ -574,7 +574,7 @@ Dinh Duy Phuoc
 20011008
 Le Chau Nhat Quang
 2001 10 08
-1
+-842150451
 0
 0
 0
@@ -593,7 +593,7 @@ Le Chau Nhat Quang
 20010424
 Nguyen Duy Anh Quoc
 2001 04 24
-1
+-842150451
 0
 0
 0
@@ -612,7 +612,7 @@ Nguyen Duy Anh Quoc
 20010208
 Nguyen Hoang Son
 2001 02 08
-1
+-842150451
 0
 0
 0
@@ -631,7 +631,7 @@ Nguyen Hoang Son
 20011231
 Nguyen Cong Tai
 2001 12 31
-1
+-842150451
 0
 0
 0
@@ -650,7 +650,7 @@ Nguyen Cong Tai
 20010123
 Nguyen Duc Thang
 2001 01 23
-1
+-842150451
 0
 0
 0
@@ -669,7 +669,7 @@ Nguyen Duc Thang
 20010504
 Nguyen Minh Thu
 2001 05 04
-1
+-842150451
 0
 0
 0
@@ -688,7 +688,7 @@ Nguyen Minh Thu
 20010408
 Nguyen Van Tien
 2001 04 08
-1
+-842150451
 0
 0
 0
@@ -707,7 +707,7 @@ Nguyen Van Tien
 20011102
 Ho Ngoc Ton
 2001 11 02
-1
+-842150451
 0
 0
 0
@@ -726,7 +726,7 @@ Ho Ngoc Ton
 20011113
 Vu Ngoc Tuan
 2001 11 13
-1
+-842150451
 0
 0
 0
@@ -745,7 +745,7 @@ Vu Ngoc Tuan
 20010415
 Do Thanh Tung
 2001 04 15
-1
+-842150451
 0
 0
 0
@@ -764,7 +764,7 @@ Do Thanh Tung
 20010913
 Mai Thi Cam Van
 2001 09 13
-1
+-842150451
 0
 0
 0
@@ -783,7 +783,7 @@ Mai Thi Cam Van
 20010911
 Le Dac Vien
 2001 09 11
-1
+-842150451
 0
 0
 0
@@ -802,7 +802,7 @@ Le Dac Vien
 19950112
 Pham Dang Quang Vinh
 1995 01 12
-1
+-842150451
 0
 0
 0
@@ -821,7 +821,7 @@ Pham Dang Quang Vinh
 20010119
 Le Thanh Danh
 2001 01 19
-1
+-842150451
 0
 0
 0
@@ -840,7 +840,7 @@ Le Thanh Danh
 20010228
 Le Thi Kim My
 2001 02 28
-1
+-842150451
 0
 0
 0
@@ -859,7 +859,7 @@ Le Thi Kim My
 20000810
 Nguyen Minh Thu
 2000 08 10
-1
+-842150451
 0
 0
 0
