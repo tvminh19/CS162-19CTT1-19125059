@@ -20,7 +20,7 @@ void notCorrect()
 	system("cls");
 }
 
-void menuStudent()
+void menuStudent(char ID[])
 {
 	system("cls");
 	string s;
@@ -43,6 +43,7 @@ void menuStudent()
 
 	else if (strcmp(c, "1") == 0) {
 		//7.1
+		StuCheckin(ID);
 	}
 
 	else if (strcmp(c, "2") == 0) {
@@ -60,7 +61,7 @@ void menuStudent()
 	else {
 		notCorrect();
 	}
-	menuStudent();
+	menuStudent(ID);
 	delete[] c;
 }
 
@@ -390,13 +391,13 @@ void menuStaffRole()
 	delete[] c;
 }
 
-void showMenu(int typeAccount)
+void showMenu(int typeAccount, char ID[])
 {
 	system("cls");
 
 	//student
 	if (typeAccount == 1) {
-		menuStudent();
+		menuStudent(ID);
 	}
 
 	//lecturer
@@ -429,7 +430,7 @@ void displayAllroles(int typeAccount, char ID[])
 	//Show menu
 	if (strcmp(c, "1") == 0) {
 		//1.2
-		showMenu(typeAccount);
+		showMenu(typeAccount, ID);
 	}
 
 	//View profile info
