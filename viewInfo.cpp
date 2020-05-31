@@ -162,6 +162,7 @@ Student loadStudent(ifstream& fi)
 	fi.getline(tmp, 1000, '\n');
 	//fi.get();
 	stu.ID = cpyStr(tmp);
+	//cout << stu.ID << '\n';
 
 	fi.getline(tmp, 1000, '\n');
 	//fi.get();
@@ -179,7 +180,7 @@ Student loadStudent(ifstream& fi)
 	stu.sClass = cpyStr(tmp);
 
 	fi >> stu.gender;
-	fi.get();
+	//fi.get();
 
 	return stu;
 }

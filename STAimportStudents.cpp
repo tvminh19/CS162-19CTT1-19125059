@@ -32,14 +32,15 @@ void importAndSave()
 	char loginStuAdd[] = { "D:/Github/CS162-19CTT1-19125059/ZPMS/menu/Student.txt" };
 	StuNode* pAll = nullptr;
 	loadClass(pAll, n_all, loginStuAdd);
+
 	int added = 0;
 
 	mergeList(pAll, pHead, added);
 	n_all += added;
 	n_stu -= added;
-	if(n_stu > 0)
-	cout << "These students has the ID that is already in the list! Please check again: \n";
+	if (n_stu > 0)
 	{
+		cout << "These students have the ID that is already in the list! Please check again: \n";
 		displayClass(pHead, n_stu);
 		system("pause");
 	}
@@ -62,7 +63,6 @@ bool importClass(StuNode*& pHead, int& n)
 	if (fi.is_open())
 	{
 		fi.ignore(1000, '\n'); // ignore the title row first
-		fi.get();
 
 		char str[1005];
 		StuNode* pCur = nullptr;
@@ -71,7 +71,7 @@ bool importClass(StuNode*& pHead, int& n)
 		while (!fi.eof())
 		{
 			fi.getline(str, 1000, '\n');
-			fi.get();
+			//cout << "|" << str << "|" << '\n';
 			++n;
 			if (pHead == nullptr)
 			{
@@ -94,6 +94,7 @@ bool importClass(StuNode*& pHead, int& n)
 	}
 	else
 	{
+		fi.close();
 		cout << "Can't open csv file to import!\nThe file path might be incorrect!\nPlease enter the right path!\n";
 		return false;
 	}
@@ -202,13 +203,14 @@ char* getsClass(char str[], int& index)
 
 	//cout << stu.sClass << '\n';
 
-	index = len + 1;  // move over the next comma
+	index += len + 1;  // move over the next comma
 	return sClass;
 }
 
 int getGender(char str[], int& index)
 {
-	return str[index] - '0'; // 1 is male, 0 is female
+	//cout << "|" << str[index] << "|\n";
+	return (str[index] - '0'); // 1 is male, 0 is female
 }
 
 char* genPassword(Date DOB)
@@ -279,6 +281,12 @@ void mergeList(StuNode*& pH1, StuNode*& pH2, int& added)
 {
 	if (pH1 == nullptr)
 	{
+		StuNode* pTmp2 = pH2;
+		while (pTmp2 != nullptr)
+		{
+			added++;
+			pTmp2 = pTmp2->pNext;
+		}
 		pH1 = pH2;
 		pH2 = nullptr;
 		return;
