@@ -10,8 +10,9 @@ void importAndSave()
 	char year[15], seme[11], className[15];
 
 	inputYSC(year, seme, className);
+	cin.get();
 
-	char dirD[] = "D:/Github/CS162-19CTT1-19125059/ZPMS/";
+	char dirD[] = { "D:/Github/CS162-19CTT1-19125059/ZPMS/" };
 	char d[505] = "";
 	strcat_s(d, 500, dirD);
 	strcat_s(d, 500, year);
@@ -19,7 +20,7 @@ void importAndSave()
 	strcat_s(d, 500, seme);
 	strcat_s(d, 500, "/");
 	strcat_s(d, 500, className);
-	strcat_s(d, 500, "\\");
+	strcat_s(d, 500, "/");
 	strcat_s(d, 500, "Student.txt");
 
 	StuNode* pHead = nullptr;
@@ -36,9 +37,12 @@ void importAndSave()
 	mergeList(pAll, pHead, added);
 	n_all += added;
 	n_stu -= added;
-	cout << "These students has the ID that is already in the list! Please check again!\n";
-	displayClass(pHead, n_stu);
-	system("pause");
+	if(n_stu > 0)
+	cout << "These students has the ID that is already in the list! Please check again: \n";
+	{
+		displayClass(pHead, n_stu);
+		system("pause");
+	}
 
 	saveClass(pAll, n_all, loginStuAdd);
 

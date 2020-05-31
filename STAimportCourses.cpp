@@ -49,10 +49,7 @@ void outputSchedule(ofstream& out, Node* phead, char year[], char semester[], ch
 		out << pcur->schedule->Stime.mins << "\n";
 		out << pcur->schedule->Etime.hours << "\n";
 		out << pcur->schedule->Etime.mins << "\n";
-		if (pcur->next)
-			out << pcur->schedule->room << "\n";
-		else
-			out << pcur->schedule->room;
+		out << pcur->schedule->room << "\n";
 		pcur = pcur->next;
 	}
 	out.close();
@@ -111,12 +108,14 @@ void inputYSC(char year[], char semester[], char className[]) {
 		cin.ignore(100, '\n');
 		cin.get(year, 20, '\n');
 	}
+
+	in.close();
+
 	if (!isExistYear(year)) {
 		system("cls");
 		cout << "Wrong!, Please enter again !\n";
 		return inputYSC(year, semester, className);
 	}
-	in.close();
 
 	//semester
 	char fileAdd[499] = {};
@@ -146,14 +145,14 @@ void inputYSC(char year[], char semester[], char className[]) {
 		cout << "Please input semester: ";
 		cin.ignore(10, '\n');
 		cin.get(semester, 10, '\n');
-		//cout << "Semester: " << semester << endl;
 	}
+    in.close();
+
 	if (!isExistSem(year, semester)) {
 		system("cls");
 		cout << "Wrong!, Please enter again !\n";
 		return inputYSC(year, semester, className);
 	}
-	in.close();
 
 	char fileAdd1[500] = {};
 	strcat(fileAdd1, "D:/Github/CS162-19CTT1-19125059/ZPMS/");
@@ -163,6 +162,8 @@ void inputYSC(char year[], char semester[], char className[]) {
 	strcat(fileAdd1, "/");
 	strcat(fileAdd1, "Class.txt");
 	in.open(fileAdd1);
+
+	cout << fileAdd1 << '\n';
 
 	if (!in.is_open()) {
 		cout << "Error opening\n";
@@ -183,12 +184,13 @@ void inputYSC(char year[], char semester[], char className[]) {
 		cin.ignore(20, '\n');
 		cin.get(className, 20, '\n');
 	}
+	in.close();
+
 	if (!isExistClass(className, semester, year)) {
 		system("cls");
 		cout << "Wrong!, Please enter again !\n";
 		return inputYSC(year, semester, className);
 	}
-	in.close();
 	return;
 }
 
@@ -243,16 +245,21 @@ bool isExistYear(char year[]) {
 		for (int i = 0; i < n; i++) {
 			in.get(a, 20, '\n');
 			in.ignore(100, '\n');
-			if (strcmp(a, year) != 0) return false;
+			if (isSameStr(a, year))
+			{
+				in.close();
+				return true;
+			}
 		}
 	}
-	return true;
+	in.close();
+	return false;
 }
 
 //is exist semester
 bool isExistSem(char year[], char sem[]) {
 	ifstream in;
-	char fileAdd[500] = {};
+	char fileAdd[500] = {""};
 	strcat(fileAdd, "D:/Github/CS162-19CTT1-19125059/ZPMS/");
 	strcat(fileAdd, year);
 	strcat(fileAdd, "/");
@@ -283,7 +290,7 @@ bool isExistSem(char year[], char sem[]) {
 //check is exist class
 bool isExistClass(char className[], char sem[], char year[]) {
 	ifstream in;
-	char fileAdd[500] = {};
+	char fileAdd[500] = {""};
 	strcat(fileAdd, "D:/Github/CS162-19CTT1-19125059/ZPMS/");
 	strcat(fileAdd, year);
 	strcat(fileAdd, "/");
@@ -303,7 +310,10 @@ bool isExistClass(char className[], char sem[], char year[]) {
 		for (int i = 0; i < n; i++) {
 			in.get(str, 10, '\n');
 			in.ignore(100, '\n');
-			if (isSameStr(str, className)) return true;
+			if (isSameStr(str, className)) {
+				in.close();
+				return true;
+			}
 		}
 	}
 	in.close();
