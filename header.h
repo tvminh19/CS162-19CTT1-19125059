@@ -123,6 +123,7 @@ int ston(char a[]);
 void logout();
 void outro();
 int countLine(ifstream& in, int group);
+void ntoa(int n, char a[]);
 
 //return date
 Date dateOfWeek(Date root, int dOfWeek);

@@ -12,6 +12,6 @@ int numOfStuWeek(Date root, Date now);
 Date getTimeNow();
 void updateCourse(char fileAdd[], Node* phead, Date root, Time Stime, Time Etime, int numStu);
 void loadCourseFile(char fileAdd[], Node*& phead, Date& root, Time& Stime, Time& Etime, int& numStu);
-
+void toKnowSemAndYear(Date now, char year[], char sem[]);
 
 #endif // !_STUDENTS_H_

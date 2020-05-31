@@ -40,6 +40,49 @@ Date dateOfWeek(Date root, int dOfWeek) {
 /*                              student check in                              */
 /* -------------------------------------------------------------------------- */
 
+//ask class
+void inputC(char year[], char semester[], char className[]) {
+	ifstream in;
+	char fileAdd1[500] = {};
+	strcat(fileAdd1, "D:/Github/CS162-19CTT1-19125059/ZPMS/");
+	strcat(fileAdd1, year);
+	strcat(fileAdd1, "/");
+	strcat(fileAdd1, semester);
+	strcat(fileAdd1, "/");
+	strcat(fileAdd1, "Class.txt");
+	in.open(fileAdd1);
+
+	if (!in.is_open()) {
+		cout << "Error opening\n";
+		return;
+	}
+	else {
+		char a[20];
+		system("cls");
+		int n;
+		in >> n;
+
+		for (int i = 0; i < n; i++) {
+			in.ignore(20, '\n');
+			in.get(a, 20, '\n');
+			cout << "[" << i + 1 << "]. " << a << '\n';
+		}
+		cout << "==================\n";
+		cout << "Please input class: ";
+		cin.ignore(20, '\n');
+		cin.get(className, 20, '\n');
+	}
+	in.close();
+
+	if (!isExistClass(className, semester, year)) {
+		system("cls");
+		cout << "Wrong!, Please enter again !\n";
+		return inputC(year, semester, className);
+	}
+	return;
+}
+
+
 //get time now
 Date getTimeNow(){
 	Date now;
@@ -53,11 +96,11 @@ Date getTimeNow(){
 
 //num of week
 int numOfStuWeek(Date root, Date now){
-	int days = 0;
-	for (int i = root.month; i <= now.month; ++i){
-		days += dayOfMonth(i, root.year);
+	for (int i = 0; i < 10; ++i) {
+		if (ABcompare(dateOfWeek(root, i), now) == 0)
+			return i;
 	}
-	return root.day - now.day + days;
+	return -1;
 }
 
 //change 0-1
@@ -90,7 +133,7 @@ void tick(Node* phead, char id[], Date root){
 	Date now = getTimeNow();
 
 	//safe date
-	if (ABcompare(root, now) == 1){
+	if (ABcompare(root, now) == -1){
 		cout << "You don't have permission NOW!\n";
 		return;
 	}
@@ -146,6 +189,54 @@ void updateCourse(char fileAdd[], Node* phead, Date root, Time Stime, Time Etime
 	}
 }
 
+//number to char
+void ntoa(int n, char a[]) {
+	int m = n;
+	int count = 0;
+	while (m) {
+		count++;
+		m /= 10;
+	}
+
+	m = n;
+	for (int i = count - 1; i >= 0; --i) {
+		int k = m % 10;
+		char t = k + '0';
+		a[i] = t;
+		m /= 10;
+	}
+	a[count] = '\0';
+}
+
+//to know semester and year
+void toKnowSemAndYear(Date now, char year[], char sem[]) {
+	//semester
+	if (now.month <= 12 && now.month >= 10)
+		strcpy(sem, "1");
+	else if (now.month <= 5 && now.month >= 2 && now.day - 18 > 0)
+		strcpy(sem, "2");
+	else if (now.month <= 8 && now.month >= 5 && now.day - 18 <= 0)
+		strcpy(sem, "3");
+	else
+		strcpy(sem, "0");
+
+	//year
+	char rightYear[50] = {};
+	char t[50];
+
+	int yearLess = now.year - 1;
+	ntoa(yearLess, t);
+
+	strcat(rightYear, t);
+	strcat(rightYear, "-");
+
+	ntoa(now.year, t);
+	strcat(rightYear, t);
+
+	strcpy(year, rightYear);
+	year[strlen(year)] = '\0';
+}
+
 //checkin
 void StuCheckin(char id[]) {
 	//set variable
@@ -156,8 +247,26 @@ void StuCheckin(char id[]) {
 	Date root;
 	Time Stime, Etime;
 	
-	//input year semester class course
-	inputYSC(year, semester, className);
+	//to know year and semester
+	Date a = getTimeNow();
+	toKnowSemAndYear(a, year, semester);
+
+	//course it not open
+	if (!isExistSem(year, semester)) {
+		system("cls");
+		cout << "Semester is not update! Please tell staff.\n";
+		return;
+	}
+
+	//safe
+	if (strcmp(semester, "0") == 0) {
+		cout << "You can not checkin now !\n";
+		system("pause");
+		return;
+	}
+
+	//input class
+	inputC(year, semester, className);
 
 	//make file address
 	makeClassAdd(year, semester, className, fileAdd);

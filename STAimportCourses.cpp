@@ -529,8 +529,10 @@ void getRoom(ifstream& in, Node*& p, char a[]) {
 }
 
 //conver strong to number
-int ston(char a[]) {
+int ston(char b[]) {
 	int sum = 0;
+	char a[100];
+	strcpy(a, b);
 	for (int i = 0; i < strlen(a); ++i) {
 		a[i] -= '0';
 		sum += a[i];
