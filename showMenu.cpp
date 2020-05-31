@@ -301,6 +301,7 @@ void Staff_scoreboard()
 
 	else if (strcmp(c, "2") == 0) {
 		//4.2
+		export_Score();
 	}
 
 	else {
