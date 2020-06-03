@@ -113,7 +113,7 @@ void editStudent()
 	else
 	{
 		system("cls");
-		cout << "Can't find the student in the server or in the student list!\n";
+		cout << "Can't find the student on the server or on the student list!\n";
 		system("pause");
 	}
 

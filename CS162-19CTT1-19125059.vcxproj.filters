@@ -155,5 +155,8 @@
     <ClCompile Include="STAexportScore.cpp">
       <Filter>Resource Files</Filter>
     </ClCompile>
+    <ClCompile Include="STAviewListOFStudentInClass.cpp">
+      <Filter>Resource Files</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
