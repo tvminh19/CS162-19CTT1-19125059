@@ -160,10 +160,12 @@ void Staff_class()
 
 	else if (strcmp(c, "2") == 0) {
 		//2.2
+		addNewStudent();
 	}
 
 	else if (strcmp(c, "3") == 0) {
 		//2.3
+		editStudent();
 	}
 
 	else if (strcmp(c, "4") == 0) {

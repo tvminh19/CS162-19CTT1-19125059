@@ -19,5 +19,18 @@ void displayClass(StuNode* pHead, const int& n);
 void deleteStuNodes(StuNode*& pHead);
 bool findStuNode(StuNode* pHead, StuNode* pStu);
 
+//2.2 Manually add a student to the class
+
+void addNewStudent();
+Student inputStudent();
+void addStuNode(StuNode*& pHead, StuNode* pNew);
+bool stuNodeExists(StuNode* pHead, char* ID);
+StuNode* removeStuNode(StuNode*& pHead, char* ID, bool& res);
+
+//2.3 Edit a student in a class
+
+void editStudent();
+StuNode* findStuNode(StuNode* pHead, char* ID);
+
 #endif // !_CLASS_H_
 
