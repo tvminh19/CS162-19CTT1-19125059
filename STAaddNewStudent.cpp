@@ -20,7 +20,7 @@ void addNewStudent()
 	strcat_s(d, 500, "/");
 	strcat_s(d, 500, "Student.txt");
 	char serverAdd[] = { "D:/Github/CS162-19CTT1-19125059/ZPMS/menu/Student.txt" };
-	
+
 	StuNode* pClass = nullptr, * pServer = nullptr;
 	int nClass, nServer;
 	loadClass(pClass, nClass, d);
@@ -143,7 +143,7 @@ void addStuNode(StuNode*& pHead, StuNode* pNew)
 	pCur = pCur->pNext;
 	pCur->pNext = nullptr;
 }
-	
+
 bool stuNodeExists(StuNode* pHead, char* ID)
 {
 	StuNode* pCur = pHead;

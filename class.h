@@ -32,5 +32,18 @@ StuNode* removeStuNode(StuNode*& pHead, char* ID, bool& res);
 void editStudent();
 StuNode* findStuNode(StuNode* pHead, char* ID);
 
+//2.4 Remove a student
+void removeStudent();
+
+//2.5 Change student from class A to class B
+void changeStudentClass();
+
+//2.6 View list of classes
+void displayClassList();
+
+//2.7 View list of students in a class
+void displayStudentsInClass();
+
+
 #endif // !_CLASS_H_
 
