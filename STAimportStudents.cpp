@@ -2,9 +2,6 @@
 #include "allroles.h"
 #include "class.h"
 
-ifstream fi;
-ofstream fo;
-
 void importAndSave()
 {
 	char year[15], seme[11], className[15];
@@ -55,6 +52,7 @@ void importAndSave()
 
 bool importClass(StuNode*& pHead, int& n)
 {
+	ifstream fi;
 	char csvAdd[205];
 	cout << "We are going to import a csv file of a class.\n";
 	cout << "Enter the csv file address: ";
@@ -232,6 +230,7 @@ char* genPassword(Date DOB)
 
 void saveClass(StuNode* pHead, const int& n, char fileAdd[])
 {
+	ofstream fo;
 	fo.open(fileAdd);
 	fo << n << '\n';
 	StuNode* pCur = pHead;
@@ -245,6 +244,7 @@ void saveClass(StuNode* pHead, const int& n, char fileAdd[])
 
 void loadClass(StuNode*& pHead, int& n, char fileAdd[])
 {
+	ifstream fi;
 	fi.open(fileAdd);
 	if (fi.is_open())
 	{
