@@ -108,7 +108,7 @@ void menuLecturer()
 
 	else if (strcmp(c, "5") == 0) {
 		//6.5
-		//import_scoreboard();
+		import_scoreboard();
 	}
 
 	else if (strcmp(c, "6") == 0) {

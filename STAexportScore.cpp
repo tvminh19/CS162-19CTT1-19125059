@@ -1,5 +1,6 @@
 #include "header.h"
 #include "score.h"
+#include "lecturer.h"
 
 void export_score_csv(Node*& pHead1, char className[], char* course)
 {

@@ -148,6 +148,20 @@ void Stu_S_B(Node*& pHead1, char year[], char semester[], char className[])
 	print_S_B(pHead1);
 }
 
+void delete_S_B(Node*& pHead)
+{
+	Node* cur = pHead;
+	while (pHead != nullptr) {
+		pHead = pHead->next;
+		delete[] cur->scb->stu->account;
+		delete[] cur->scb->stu->name;
+		delete cur->scb->sco;
+		delete cur->scb->stu;
+		delete cur->scb;
+		cur = pHead;
+	}
+}
+
 void view_scoreboard()
 {
 	char year[20];
@@ -162,18 +176,4 @@ void view_scoreboard()
 	Stu_S_B(pHead1, year, semester, className);
 	delete_S_B(pHead1);
 	system("pause");
-}
-
-void delete_S_B(Node*& pHead)
-{
-	Node* cur = pHead;
-	while (pHead != nullptr) {
-		pHead = pHead->next;
-		delete[] cur->scb->stu->account;
-		delete[] cur->scb->stu->name;
-		delete cur->scb->sco;
-		delete cur->scb->stu;
-		delete cur->scb;
-		cur = pHead;
-	}
 }
