@@ -100,6 +100,7 @@ void menuLecturer()
 
 	else if (strcmp(c, "3") == 0) {
 		//6.3
+		viewAttendance();
 	}
 
 	else if (strcmp(c, "4") == 0) {
