@@ -93,10 +93,12 @@ void menuLecturer()
 
 	else if (strcmp(c, "1") == 0) {
 		//6.1
+		view_Courses();
 	}
 
 	else if (strcmp(c, "2") == 0) {
 		//6.2
+		void view_Student();
 	}
 
 	else if (strcmp(c, "3") == 0) {
