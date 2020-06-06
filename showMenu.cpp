@@ -56,6 +56,7 @@ void menuStudent(char ID[])
 
 	else if (strcmp(c, "4") == 0) {
 		//7.4
+		view_result(ID);
 	}
 
 	else {

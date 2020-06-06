@@ -14,4 +14,8 @@ void updateCourse(char fileAdd[], Node* phead, Date root, Time Stime, Time Etime
 void loadCourseFile(char fileAdd[], Node*& phead, Date& root, Time& Stime, Time& Etime, int& numStu);
 void toKnowSemAndYear(Date now, char year[], char sem[]);
 
+//7.4 View his/her scores of a course.
+bool check_stuaccount(Node* pHead1, char ID[]);
+void view_result(char ID[]);
+
 #endif // !_STUDENTS_H_
