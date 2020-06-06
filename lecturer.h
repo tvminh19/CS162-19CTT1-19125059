@@ -11,6 +11,11 @@ void import_scoreboard();
 void inputFile_Address(char*& b);
 void change_scoreboard(char* b, Node*& pHead);
 
+//6.6 Edit grade of a student
+bool check_ID_exist(Node*& pHead1, char* tmp_ID);
+void change_score(Node*& pHead1);
+void edit_grade();
+
 
 //6.7 View a scoreboard
 void view_scoreboard();
