@@ -113,6 +113,7 @@ void menuLecturer()
 
 	else if (strcmp(c, "6") == 0) {
 		//6.6
+		edit_grade();
 	}
 
 	else if (strcmp(c, "7") == 0) {
