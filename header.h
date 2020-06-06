@@ -25,6 +25,7 @@ struct Time {
 struct Year {
 	char* years;
 	char* semesters;
+	char* className;
 	Year* pNext;
 };
 

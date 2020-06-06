@@ -26,6 +26,10 @@ void input_your_choice(char* your_choice);
 void view_Year_Semester();
 void view_Semester(char* year);
 
+bool exist_Class(Year*& pHead, int& n, char* semester, char* year, char* className);
+void createNew_Class(Year*& pHead, int& n, char* semester, char* year, char* className);
+void delete_Class(Year*& pHead2);
+
 //3.2 IMPORT COURSES
 void inputCourse();
 void aPartOfinputCourse(ifstream& in, Node*& phead, Node*& pcur, char year[], char semester[], char className[]);

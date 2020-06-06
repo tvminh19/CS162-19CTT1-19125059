@@ -67,7 +67,7 @@ void createNew_Year(Year*& pHead, int& n, char* year)
 		}
 		cur = new Year;
 		cur->years = year;
-		fout << cur->years << endl;
+		fout << cur->years;
 		cur->pNext = nullptr;
 	}
 	fout.close();
@@ -174,7 +174,7 @@ void createNew_Semester(Year*& pHead, int& n, char* semester, char* year)
 		}
 		cur = new Year;
 		cur->semesters = semester;
-		fout << cur->semesters << endl;
+		fout << cur->semesters;
 		cur->pNext = nullptr;
 	}
 	fout.close();
@@ -203,6 +203,117 @@ void delete_Semester(Year*& pHead1)
 	}
 }
 
+bool exist_Class(Year*& pHead, int& n, char* semester, char* year, char* className)
+{
+	char dirD[] = "D:\\Github\\CS162-19CTT1-19125059\\ZPMS\\";
+	char c[500] = "";
+	strcat(c, dirD);
+	strcat(c, year);
+	strcat(c, "\\");
+	strcat(c, semester);
+	strcat(c, "\\class.txt");
+
+	ifstream fin;
+	fin.open(c);
+	fin >> n;
+	int m = n;
+	if (m == 0) {
+		fin.close();
+		return false;
+	}
+	else {
+		Year* cur = pHead;
+		while (m > 0) {
+			if (pHead == nullptr) {
+				pHead = new Year;
+				char c[15];
+				fin.ignore();
+				fin.get(c, 15, '\n');
+				pHead->className = new char[strlen(c) + 1];
+				strcpy(pHead->className, c);
+				cur = pHead;
+				pHead->pNext = nullptr;
+			}
+			else {
+				cur->pNext = new Year;
+				cur = cur->pNext;
+				char c[15];
+				fin.ignore();
+				fin.get(c, 15, '\n');
+				cur->className = new char[strlen(c) + 1];
+				strcpy(cur->className, c);
+				cur->pNext = nullptr;
+			}
+			m--;
+		}
+		fin.close();
+		cur = pHead;
+		while (cur != nullptr) {
+			if (strcmp(cur->className, className) == 0)
+				return true;
+			cur = cur->pNext;
+		}
+		return false;
+	}
+}
+
+void createNew_Class(Year*& pHead, int& n, char* semester, char* year, char* className)
+{
+	char dirD[] = "D:\\Github\\CS162-19CTT1-19125059\\ZPMS\\";
+	char c[500] = "";
+	strcat(c, dirD);
+	strcat(c, year);
+	strcat(c, "\\");
+	strcat(c, semester);
+	strcat(c, "\\class.txt");
+
+	ofstream fout;
+	fout.open(c);
+
+	Year* cur = pHead;
+	n += 1;
+	fout << n << endl;
+
+	if (pHead == nullptr) {
+		pHead = new Year;
+		pHead->className = className;
+		pHead->pNext = nullptr;
+		fout << pHead->className;
+	}
+	else {
+		while (cur != nullptr) {
+			fout << cur->className << endl;
+			cur = cur->pNext;
+		}
+		cur = new Year;
+		cur->className = className;
+		fout << cur->className;
+		cur->pNext = nullptr;
+	}
+	fout.close();
+
+	char d[500] = "";
+	strcat(d, dirD);
+	strcat(d, year);
+	strcat(d, "\\");
+	strcat(d, semester);
+	strcat(d, "\\");
+	strcat(d, className);
+	CreateDirectoryA(d, NULL);
+
+}
+
+void delete_Class(Year*& pHead2)
+{
+	Year* cur = pHead2;
+	while (pHead2 != nullptr) {
+		pHead2 = pHead2->pNext;
+		delete[] cur->className;
+		delete cur;
+		cur = pHead2;
+	}
+}
+
 void create_Year_Semester()
 {
 	system("cls");
@@ -224,7 +335,6 @@ void create_Year_Semester()
 	else {
 		cout << "You already has this year!" << endl;
 	}
-	delete_Year(pHead);
 
 	// SEMESTER
 	char tmpS[500];
@@ -238,19 +348,43 @@ void create_Year_Semester()
 	Year* pHead1 = nullptr;
 	if (!exist_Semester(pHead1, n, semester, year)) {
 		createNew_Semester(pHead1, n, semester, year);
-		introDone();
 	}
 	else {
 		cout << "You already has this semester!" << endl;
+	}
+
+
+	//CLASS
+	char tmpC[500];
+	cout << "Class: ";
+	cin.ignore(100, '\n');
+	cin.get(tmpC, 500, '\n');
+	char* className = new char[strlen(tmpS) + 1];
+	strcpy(className, tmpC);
+
+	n = 0;
+	Year* pHead2 = nullptr;
+	if (!exist_Class(pHead2, n, semester, year, className)) {
+		createNew_Class(pHead2, n, semester, year, className);
+		introDone();
+	}
+	else {
+		cout << "You already has this class!" << endl;
 		Sleep(500);
 		system("pause");
 	}
+
+	delete_Year(pHead);
 	delete_Semester(pHead1);
+	delete_Class(pHead2);
+
 	delete[] year;
 	delete[] semester;
+	delete[] className;
 
 	system("pause");
 }
+
 //2.1.2
 bool Year_exist(Year*& pHead, int& n)
 {
