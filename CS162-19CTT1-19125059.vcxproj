@@ -169,6 +169,7 @@
     <ClCompile Include="STAupdateYearSemester.cpp" />
     <ClCompile Include="STAviewAllLecturer.cpp" />
     <ClCompile Include="STAviewAttendanceFromCourse.cpp" />
+    <ClCompile Include="STAviewListOFStudentInClass.cpp" />
     <ClCompile Include="STUcheckin.cpp" />
     <ClCompile Include="STUviewCheckinResult.cpp" />
     <ClCompile Include="STUviewSchedule.cpp" />

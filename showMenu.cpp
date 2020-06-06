@@ -108,7 +108,7 @@ void menuLecturer()
 
 	else if (strcmp(c, "5") == 0) {
 		//6.5
-		//import_scoreboard();
+		import_scoreboard();
 	}
 
 	else if (strcmp(c, "6") == 0) {
@@ -160,26 +160,32 @@ void Staff_class()
 
 	else if (strcmp(c, "2") == 0) {
 		//2.2
+		addNewStudent();
 	}
 
 	else if (strcmp(c, "3") == 0) {
 		//2.3
+		editStudent();
 	}
 
 	else if (strcmp(c, "4") == 0) {
 		//2.4
+		removeStudent();
 	}
 
 	else if (strcmp(c, "5") == 0) {
 		//2.5
+		changeStudentClass();
 	}
 
 	else if (strcmp(c, "6") == 0) {
 		//2.6
+		displayClassList();
 	}
 
 	else if (strcmp(c, "7") == 0) {
 		//2.7
+		displayStudentsInClass();
 	}
 
 	else {
@@ -302,6 +308,7 @@ void Staff_scoreboard()
 
 	else if (strcmp(c, "2") == 0) {
 		//4.2
+		export_Score();
 	}
 
 	else {
@@ -332,7 +339,7 @@ void Staff_attendanceList()
 
 	else if (strcmp(c, "1") == 0) {
 		//5.1
-		viewAttendance(); 
+		viewAttendance();
 	}
 
 	else if (strcmp(c, "2") == 0) {

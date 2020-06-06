@@ -16,6 +16,7 @@
 #pragma warning (suppress : 4996)
 using namespace std;
 
+
 struct Time {
 	int hours;
 	int mins;

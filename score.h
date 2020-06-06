@@ -17,6 +17,10 @@ void get_Bonus(ifstream& in, Node*& p);
 void get_Total(ifstream& in, Node*& p);
 void print_S_B(Node* pHead1);
 
+//4.2 Export a scoreboard to a csv file.
+void export_Score();
+void score_course(Node*& pHead1, char year[], char semester[], char className[]);
+void export_score_csv(Node*& pHead1, char className[], char* course);
 
 
 #endif // !_SCORE_H_
