@@ -135,6 +135,7 @@ void delete_ScheduleNode(Node*& phead)
 
 void print_Schedule(Node* pHead)
 {
+	system("cls");
 	cout << setw(5) << left << "No";
 	cout << setw(15) << left << "Course ID";
 	cout << setw(40) << left << "Course name";

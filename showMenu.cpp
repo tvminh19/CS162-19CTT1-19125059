@@ -261,6 +261,7 @@ void Staff_course()
 
 	else if (strcmp(c, "10") == 0) {
 		//3.10
+		viewAttendance();
 	}
 
 	else if (strcmp(c, "11") == 0) {

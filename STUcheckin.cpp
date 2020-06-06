@@ -104,11 +104,13 @@ int numOfStuWeek(Date root, Date now){
 }
 
 //change 0-1
-void zetoon(Node* phead, char id[], int numOfWeek){
-	while (phead){
-		if (isSameStr(phead->scb->stu->name, id)){
-			phead->scb->went2class[numOfWeek] = 1;
+void zetoon(Node*& phead, char id[], int numOfWeek){
+	Node* pcur = phead;
+	while (pcur){
+		if (isSameStr(pcur->scb->stu->account, id)){
+			pcur->scb->went2class[numOfWeek] = 1;
 		}
+		pcur = pcur->next;
 	}
 }
 
@@ -128,12 +130,12 @@ int ABcompare(Date a, Date b){
 }
 
 //tick
-void tick(Node* phead, char id[], Date root){
+void tick(Node*& phead, char id[], Date root){
 	//
 	Date now = getTimeNow();
 
 	//safe date
-	if (ABcompare(root, now) == -1){
+	if (ABcompare(root, now) == 1){
 		cout << "You don't have permission NOW!\n";
 		return;
 	}
@@ -169,11 +171,11 @@ void updateCourse(char fileAdd[], Node* phead, Date root, Time Stime, Time Etime
 		out << phead->scb->stu->password << "\n";
 		out << phead->scb->stu->name << "\n";
 		out << phead->scb->stu->dob << "\n";
-		out << phead->scb->stu->isActive << "\n";
-		out << phead->scb->sco->bonus << "\n";
+		out << phead->scb->isActive << "\n";
 		out << phead->scb->sco->midterm << "\n";
 		out << phead->scb->sco->final << "\n";
 		out << phead->scb->sco->total << "\n";
+		out << phead->scb->sco->bonus << "\n";
 		for (int j = 0; j < 9; ++j){
 			out << phead->scb->went2class[j] << "\n";
 		}
@@ -187,6 +189,7 @@ void updateCourse(char fileAdd[], Node* phead, Date root, Time Stime, Time Etime
 		//
 		phead = phead->next;
 	}
+	out.close();
 }
 
 //number to char
@@ -255,6 +258,7 @@ void StuCheckin(char id[]) {
 	if (!isExistSem(year, semester)) {
 		system("cls");
 		cout << "Semester is not update! Please tell staff.\n";
+		system("pause");
 		return;
 	}
 

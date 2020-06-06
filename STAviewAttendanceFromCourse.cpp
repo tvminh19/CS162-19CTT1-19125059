@@ -169,6 +169,7 @@ void loadCourseFile(char fileAdd[], Node*& phead, Date& root, Time& Stime, Time&
 		}
 	}
 	in.close();
+	return;
 }
 
 //ask number of week
