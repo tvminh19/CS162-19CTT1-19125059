@@ -9,7 +9,7 @@
 void choose_course(Node*& pHead1, char year[], char semester[], char className[], char v[]);
 void import_scoreboard();
 void inputFile_Address(char*& b);
-void change_scoreborad(char* b, Node*& pHead);
+void change_scoreboard(char* b, Node*& pHead);
 
 
 //6.7 View a scoreboard

@@ -23,7 +23,7 @@ void inputFile_Address(char*& b)
 	fin.close();
 }
 
-void change_scoreborad(char* b, Node*& pHead)
+void change_scoreboard(char* b, Node*& pHead)
 {
 	ifstream fin;
 	fin.open(b);
@@ -94,7 +94,7 @@ void import_scoreboard()
 
 	char* b = nullptr;
 	inputFile_Address(b);
-	change_scoreborad(b, pHead1);
+	change_scoreboard(b, pHead1);
 	updateCourse(v, pHead1, root, Stime, Etime, numStu);
 
 	delete[] b;
