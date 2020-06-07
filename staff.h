@@ -16,6 +16,11 @@ void askCourse(Node*& phead, char a[]);
 void exportAttLs();
 void createExportFile(char fileAdd[], Node* phead, int numStu);
 
+//6.4 Edit an attendance
+void editAttendance();
+void askNumAndEdit(Node* phead, Date root, Time Stime, Time Etime, int numStu);
+void editAttendanceList(int numOfWeek, Node* phead, Date root, Time Stime, Time Etime, int numStu);
+
 #endif // !_STAFF_H_
 
 
