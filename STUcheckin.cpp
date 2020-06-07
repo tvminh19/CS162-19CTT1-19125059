@@ -21,7 +21,7 @@ int dayOfMonth(int m, int y) {
 //return date
 Date dateOfWeek(Date root, int dOfWeek) {
 	for (int i = 0; i < dOfWeek; ++i) {
-		if (dayOfMonth(root.month, root.year) - root.day <= 7) {
+		if (dayOfMonth(root.month, root.year) - root.day < 7) {
 			root.day = 7 - (dayOfMonth(root.month, root.year) - root.day);
 			root.month++;
 		}
@@ -109,6 +109,7 @@ void zetoon(Node*& phead, char id[], int numOfWeek){
 	while (pcur){
 		if (isSameStr(pcur->scb->stu->account, id)){
 			pcur->scb->went2class[numOfWeek] = 1;
+			return;
 		}
 		pcur = pcur->next;
 	}
@@ -130,27 +131,27 @@ int ABcompare(Date a, Date b){
 }
 
 //tick
-void tick(Node*& phead, char id[], Date root){
+bool tick(Node*& phead, char id[], Date root){
 	//
 	Date now = getTimeNow();
 
 	//safe date
 	if (ABcompare(root, now) == 1){
 		cout << "You don't have permission NOW!\n";
-		return;
+		return false;
 	}
 
 	//numofweek
 	int NumOfWeek = numOfStuWeek(root, now);
-
 	//safe week
-	if (NumOfWeek >= 10){
+	if (NumOfWeek >= 10 or NumOfWeek == -1){
 		cout << "You don't have permission NOW!\n";
-		return;
+		return false;
 	}
 
 	//change 0-1
 	zetoon(phead, id, NumOfWeek);
+	return true;
 }
 
 //update course.txt
@@ -185,8 +186,6 @@ void updateCourse(char fileAdd[], Node* phead, Date root, Time Stime, Time Etime
 		else{
 			out << phead->scb->went2class[9];
 		}
-
-		//
 		phead = phead->next;
 	}
 	out.close();
@@ -288,6 +287,16 @@ void StuCheckin(char id[]) {
 	//make dir to course
 	strcpy(fileAdd, courseDir(year, semester, className, course));
 
+	//safe
+	ifstream in(fileAdd);
+	if (!in.is_open()) {
+		system("cls");
+		cleanScheduleNode(phead);
+		cout << "Database of course is not exist!\n";
+		system("pause");
+		return;
+	}
+
 	//clean heap memory
 	cleanScheduleNode(phead);
 
@@ -296,7 +305,11 @@ void StuCheckin(char id[]) {
 	loadCourseFile(fileAdd, phead, root, Stime, Etime, numStu);
 	
 	//doing
-	tick(phead, id, root);
+	if (!tick(phead, id, root)) {
+		system("pause");
+		cleanScoreBoard(phead);
+		return;
+	}
 
 	//update
 	updateCourse(fileAdd, phead, root, Stime, Etime, numStu);

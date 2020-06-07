@@ -48,10 +48,12 @@ void menuStudent(char ID[])
 
 	else if (strcmp(c, "2") == 0) {
 		//7.2
+		StuViewCheckin(ID);
 	}
 
 	else if (strcmp(c, "3") == 0) {
 		//7.3
+		StuViewCheckin();
 	}
 
 	else if (strcmp(c, "4") == 0) {
