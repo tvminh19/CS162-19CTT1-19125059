@@ -143,6 +143,7 @@ void inputCourse(schedule& c, char year[], char semester[], char className[], ch
 	cin.ignore(200, '\n');
 	cin.get(id, 20, '\n');
 
+
 	//check if the course is existing
 	int maxno = 0;
 	if (isExistCourse(id, year, semester, className, fileAdd, maxno)) {
@@ -152,6 +153,19 @@ void inputCourse(schedule& c, char year[], char semester[], char className[], ch
 		inputCourse(c, year, semester, className, fileAdd);
 	}
 	else {
+		//
+		char ad[200] = {};
+		strcat(ad, "D:/Github/CS162-19CTT1-19125059/ZPMS/");
+		strcat(ad, year);
+		strcat(ad, "/");
+		strcat(ad, semester);
+		strcat(ad, "/");
+		strcat(ad, className);
+		strcat(ad, "/");
+		strcat(ad, id);
+		strcat(ad, ".txt");
+		ofstream out(ad);
+		//
 		cin.ignore(100, '\n');
 		inputCourseData(c, id, maxno, className);
 	}

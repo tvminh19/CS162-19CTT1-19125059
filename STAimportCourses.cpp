@@ -1,6 +1,19 @@
 #include "header.h"
 #include "courses.h"
 
+//make add to make file
+void makedirCo(char ad[], char year[], char semester[], char className[], char id[]) {
+	strcat(ad, "D:/Github/CS162-19CTT1-19125059/ZPMS/");
+	strcat(ad, year);
+	strcat(ad, "/");
+	strcat(ad, semester);
+	strcat(ad, "/");
+	strcat(ad, className);
+	strcat(ad, "/");
+	strcat(ad, id);
+	strcat(ad, ".txt");
+}
+
 void inputCourse() {
 	ifstream in;
 	ofstream out;
@@ -10,6 +23,15 @@ void inputCourse() {
 	char year[20];
 	char semester[10];
 	aPartOfinputCourse(in, phead, pcur, year, semester, className);
+	//
+	Node* tmp = phead;
+	while (tmp){
+		char ad[200] = {};
+		makedirCo(ad, year, semester, className, tmp->schedule->courseID);
+		ofstream out(ad);
+		tmp = tmp->next;
+	}
+	//
 	outputSchedule(out, phead, year, semester, className);
 	cleanScheduleNode(phead);
 	introDone();

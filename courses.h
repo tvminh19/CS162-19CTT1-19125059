@@ -32,6 +32,7 @@ void delete_Class(Year*& pHead2);
 
 //3.2 IMPORT COURSES
 void inputCourse();
+void makedirCo(char ad[], char year[], char semester[], char className[], char id[]);
 void aPartOfinputCourse(ifstream& in, Node*& phead, Node*& pcur, char year[], char semester[], char className[]);
 void outputSchedule(ofstream& out, Node* phead, char year[], char semester[], char className[]);
 void cleanScheduleNode(Node*& phead);
@@ -77,6 +78,15 @@ void removeCourse();
 int askNotorm(Node*& phead, char fileAddcp[]);
 void rmcourse(Node*& phead, int no);
 void updateCo(char fileAdd[], Node* phead);
+
+//3.6 remove student from course
+void askstu(char id[], Node*& phead);
+void removeStufromCo();
+void viewstu(Node* phead);
+
+//3.7 add student to course
+void addStuToCo();
+void addStu(Node*& phead);
 
 //3.8 View list of courses in the current semester.
 void view_Courses();

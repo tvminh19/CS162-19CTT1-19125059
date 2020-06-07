@@ -257,10 +257,12 @@ void Staff_course()
 
 	else if (strcmp(c, "6") == 0) {
 		//3.6
+		removeStufromCo();
 	}
 
 	else if (strcmp(c, "7") == 0) {
 		//3.7
+		addStuToCo();
 	}
 
 	else if (strcmp(c, "8") == 0) {
