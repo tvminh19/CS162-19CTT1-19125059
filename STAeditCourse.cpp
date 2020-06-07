@@ -184,12 +184,12 @@ void editCo(Node*& p) {
 	system("cls");
 	cout << "=== EDIT ===\n";
 
-	cout << "Course ID: ";
-	cin.ignore(200, '\n');
-	cin.get(a, 200, '\n');
-	delete[] p->schedule->courseID;
-	p->schedule->courseID = new char[strlen(a) + 1];
-	strcpy(p->schedule->courseID, a);
+	//cout << "Course ID: ";
+	//cin.ignore(200, '\n');
+	//cin.get(a, 200, '\n');
+	//delete[] p->schedule->courseID;
+	//p->schedule->courseID = new char[strlen(a) + 1];
+	//strcpy(p->schedule->courseID, a);
 
 	cout << "Course Name: ";
 	cin.ignore(200, '\n');

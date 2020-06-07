@@ -72,6 +72,12 @@ void loadCourseEdit(char year[], char semester[], char className[], char fileAdd
 void loadNodeEdit(Node*& phead, Node*& pcur, char fileAdd[]);
 void showCourse(Node* phead);
 
+//3.5 remove course
+void removeCourse();
+int askNotorm(Node*& phead, char fileAddcp[]);
+void rmcourse(Node*& phead, int no);
+void updateCo(char fileAdd[], Node* phead);
+
 //3.8 View list of courses in the current semester.
 void view_Courses();
 void output_Schedule(char year[], char semester[], char className[]);

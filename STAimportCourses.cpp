@@ -49,7 +49,10 @@ void outputSchedule(ofstream& out, Node* phead, char year[], char semester[], ch
 		out << pcur->schedule->Stime.mins << "\n";
 		out << pcur->schedule->Etime.hours << "\n";
 		out << pcur->schedule->Etime.mins << "\n";
-		out << pcur->schedule->room << "\n";
+		if (pcur->next)
+			out << pcur->schedule->room << "\n";
+		else
+			out << pcur->schedule->room;
 		pcur = pcur->next;
 	}
 	out.close();

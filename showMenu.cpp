@@ -252,6 +252,7 @@ void Staff_course()
 
 	else if (strcmp(c, "5") == 0) {
 		//3.5
+		removeCourse();
 	}
 
 	else if (strcmp(c, "6") == 0) {

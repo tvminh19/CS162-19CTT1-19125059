@@ -4,6 +4,7 @@
 #include <iostream>
 #include <fstream>
 #include <string.h>
+#include <stdio.h>
 #include <iomanip>
 #include <string>
 #include <cstring>
