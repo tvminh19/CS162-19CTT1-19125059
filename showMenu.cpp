@@ -110,6 +110,7 @@ void menuLecturer()
 
 	else if (strcmp(c, "4") == 0) {
 		//6.4
+		editAttendance();
 	}
 
 	else if (strcmp(c, "5") == 0) {
