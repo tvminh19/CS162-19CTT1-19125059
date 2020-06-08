@@ -13,7 +13,7 @@ void cleanInputCourse(schedule& c) {
 	delete[] c.room;
 }
 
-//count line
+//count line..
 int countLine(ifstream& in, int group) {
 	char a[200];
 	int count = 0;

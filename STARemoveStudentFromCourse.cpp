@@ -3,7 +3,7 @@
 #include "students.h"
 #include "staff.h"
 
-//ask id student
+//ask id student..
 void askstu(char id[], Node*& phead) {
 	cout << "ID of student: ";
 	cin.ignore(100, '\n');
