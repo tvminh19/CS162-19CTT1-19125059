@@ -353,7 +353,6 @@ void create_Year_Semester()
 		cout << "You already has this semester!" << endl;
 	}
 
-
 	//CLASS
 	char tmpC[500];
 	cout << "Class: ";
@@ -377,10 +376,6 @@ void create_Year_Semester()
 	delete_Year(pHead);
 	delete_Semester(pHead1);
 	delete_Class(pHead2);
-
-	delete[] year;
-	delete[] semester;
-	delete[] className;
 
 	system("pause");
 }
