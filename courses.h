@@ -56,6 +56,7 @@ void getDayOfWeek(ifstream& in, Node*& p, char a[]);
 void getSTime(ifstream& in, Node*& p, char a[]);
 void getETime(ifstream& in, Node*& p, char a[]);
 void getRoom(ifstream& in, Node*& p, char a[]);
+void makeZeroFile(char ad[], StuNode* phead2, Node* phead, int numStu);
 
 //3.3 add a new course
 void addANewCourse();
