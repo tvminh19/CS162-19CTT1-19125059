@@ -1,5 +1,47 @@
 #include "header.h"
 #include "courses.h"
+#include "allroles.h"
+#include "class.h"
+
+void inputCourse() {
+	ifstream in;
+	ofstream out;
+	Node* phead = nullptr;
+	Node* pcur = nullptr;
+	char className[10];
+	char year[20];
+	char semester[10];
+	aPartOfinputCourse(in, phead, pcur, year, semester, className);
+
+	//take data of student
+	StuNode* phead2 = nullptr;
+	int n;
+	char fileClass[200] = {};
+	strcat(fileClass, "D:/Github/CS162-19CTT1-19125059/ZPMS/");
+	strcat(fileClass, year);
+	strcat(fileClass, "/");
+	strcat(fileClass, semester);
+	strcat(fileClass, "/");
+	strcat(fileClass, className);
+	strcat(fileClass, "/Student.txt");
+	loadClass(phead2, n, fileClass);
+
+	//
+	Node* tmp = phead;
+	while (tmp){
+		char ad[200] = {};
+		makedirCo(ad, year, semester, className, tmp->schedule->courseID);
+		//add function make update course
+		makeZeroFile(ad, phead2, tmp, n);
+		tmp = tmp->next;
+	}
+	deleteStuNodes(phead2);
+	//
+	outputSchedule(out, phead, year, semester, className);
+	cleanScheduleNode(phead);
+	introDone();
+	return;
+}
 
 //make add to make file
 void makedirCo(char ad[], char year[], char semester[], char className[], char id[]) {
@@ -14,28 +56,30 @@ void makedirCo(char ad[], char year[], char semester[], char className[], char i
 	strcat(ad, ".txt");
 }
 
-void inputCourse() {
-	ifstream in;
-	ofstream out;
-	Node* phead = nullptr;
-	Node* pcur = nullptr;
-	char className[10];
-	char year[20];
-	char semester[10];
-	aPartOfinputCourse(in, phead, pcur, year, semester, className);
-	//
-	Node* tmp = phead;
-	while (tmp){
-		char ad[200] = {};
-		makedirCo(ad, year, semester, className, tmp->schedule->courseID);
-		ofstream out(ad);
-		tmp = tmp->next;
+void makeZeroFile(char ad[], StuNode* phead2, Node* phead, int numStu) {
+	ofstream out(ad);
+	out << phead->schedule->Sdate.year << " ";
+	out << phead->schedule->Sdate.month << " ";
+	out << phead->schedule->Sdate.day << " ";
+	out << phead->schedule->Stime.hours << " ";
+	out << phead->schedule->Stime.mins << " ";
+	out << phead->schedule->Etime.hours << " ";
+	out << phead->schedule->Etime.mins << "\n";
+	out << numStu << "\n";
+	while (phead2) {
+		out << phead2->stu.ID << "\n";
+		out << phead2->stu.password << "\n";
+		out << phead2->stu.sName << "\n";
+		out << phead2->stu.DOB.year << " ";
+		out << phead2->stu.DOB.month << " ";
+		out << phead2->stu.DOB.day << "\n";
+		out << "1" << "\n";
+		for (int j = 0; j < 14; j++) {
+			out << "0" << "\n";
+		}
+		phead2 = phead2->pNext;
 	}
-	//
-	outputSchedule(out, phead, year, semester, className);
-	cleanScheduleNode(phead);
-	introDone();
-	return;
+	out.close();
 }
 
 //a part of input course

@@ -3,7 +3,7 @@
 #include "students.h"
 #include "staff.h"
 
-//add in4 stu
+//add in4 stu..
 void addStu(Node*& phead) {
 	Node* tmp = new Node;
 	tmp->scb = new scoreboard;
