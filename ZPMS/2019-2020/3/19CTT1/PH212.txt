@@ -1,9 +1,9 @@
-2020 4 5 13 30 17 30
+2020 6 3 13 30 15 30
 46
 19125021
 20010219
 Nguyen Thanh Dat
-2001 02 19
+2001 2 19
 1
 0
 0
@@ -22,7 +22,7 @@ Nguyen Thanh Dat
 19125024
 20010926
 Mai Quoc Khanh
-2001 09 26
+2001 9 26
 1
 0
 0
@@ -40,8 +40,8 @@ Mai Quoc Khanh
 0
 19125026
 20011001
-Le Tran Hoang Lam
-2001 10 01
+Le Tran Hoàng Lam
+2001 10 1
 1
 0
 0
@@ -98,7 +98,7 @@ Truong Hoang Vu
 19125039
 20010621
 Dinh Dang Dinh
-2001 06 21
+2001 6 21
 1
 0
 0
@@ -117,7 +117,7 @@ Dinh Dang Dinh
 19125047
 20010127
 Bui Quang Huy
-2001 01 27
+2001 1 27
 1
 0
 0
@@ -136,7 +136,7 @@ Bui Quang Huy
 19125049
 20010119
 Vuong Hy
-2001 01 19
+2001 1 19
 1
 0
 0
@@ -155,7 +155,7 @@ Vuong Hy
 19125054
 20010620
 Quach Minh Khoi
-2001 06 20
+2001 6 20
 1
 0
 0
@@ -174,14 +174,14 @@ Quach Minh Khoi
 19125059
 20010604
 Trinh Van Minh
-2001 06 04
+2001 6 4
 1
 0
 0
 0
 0
 0
-0
+1
 0
 0
 0
@@ -193,7 +193,7 @@ Trinh Van Minh
 19125060
 20010120
 Nguyen Thanh Ngan
-2001 01 20
+2001 1 20
 1
 0
 0
@@ -212,7 +212,7 @@ Nguyen Thanh Ngan
 19125076
 20011207
 Nguyen Phu Van
-2001 12 07
+2001 12 7
 1
 0
 0
@@ -231,7 +231,7 @@ Nguyen Phu Van
 19125077
 20010308
 Pham Quang Vu
-2001 03 08
+2001 3 8
 1
 0
 0
@@ -250,7 +250,7 @@ Pham Quang Vu
 19125080
 20010115
 Duong Bao Chan
-2001 01 15
+2001 1 15
 1
 0
 0
@@ -269,7 +269,7 @@ Duong Bao Chan
 19125083
 20010504
 Thai Ngoc Thanh Dat
-2001 05 04
+2001 5 4
 1
 0
 0
@@ -288,7 +288,7 @@ Thai Ngoc Thanh Dat
 19125084
 20010109
 Tran Hai Anh Dien
-2001 01 09
+2001 1 9
 1
 0
 0
@@ -307,7 +307,7 @@ Tran Hai Anh Dien
 19125087
 20010801
 Vo Khuong Duy
-2001 08 01
+2001 8 1
 1
 0
 0
@@ -364,7 +364,7 @@ Nguyen Hoang Hieu
 19125094
 20010123
 Nguyen Cung Hoang Huy
-2001 01 23
+2001 1 23
 1
 0
 0
@@ -383,7 +383,7 @@ Nguyen Cung Hoang Huy
 19125095
 20010513
 Phan Dinh Huy
-2001 05 13
+2001 5 13
 1
 0
 0
@@ -402,7 +402,7 @@ Phan Dinh Huy
 19125098
 20010614
 Nguyen Dinh Khanh
-2001 06 14
+2001 6 14
 1
 0
 0
@@ -421,7 +421,7 @@ Nguyen Dinh Khanh
 19125099
 20010315
 Duong Van Khoa
-2001 03 15
+2001 3 15
 1
 0
 0
@@ -440,7 +440,7 @@ Duong Van Khoa
 19125100
 20010923
 Ta Ngoc Minh Khoa
-2001 09 23
+2001 9 23
 1
 0
 0
@@ -459,7 +459,7 @@ Ta Ngoc Minh Khoa
 19125101
 20010925
 Nguyen Truong Lam
-2001 09 25
+2001 9 25
 1
 0
 0
@@ -478,7 +478,7 @@ Nguyen Truong Lam
 19125104
 20010716
 Pham Thien Long
-2001 07 16
+2001 7 16
 1
 0
 0
@@ -497,7 +497,7 @@ Pham Thien Long
 19125106
 20010821
 Huynh Tuan Luc
-2001 08 21
+2001 8 21
 1
 0
 0
@@ -516,7 +516,7 @@ Huynh Tuan Luc
 19125111
 20010403
 Tran Minh Nhut
-2001 04 03
+2001 4 3
 1
 0
 0
@@ -535,7 +535,7 @@ Tran Minh Nhut
 19125114
 20010201
 Nguyen Lam Vinh Phu
-2001 02 01
+2001 2 1
 1
 0
 0
@@ -554,7 +554,7 @@ Nguyen Lam Vinh Phu
 19125115
 20010903
 Dinh Duy Phuoc
-2001 09 03
+2001 9 3
 1
 0
 0
@@ -573,7 +573,7 @@ Dinh Duy Phuoc
 19125116
 20011008
 Le Chau Nhat Quang
-2001 10 08
+2001 10 8
 1
 0
 0
@@ -592,7 +592,7 @@ Le Chau Nhat Quang
 19125117
 20010424
 Nguyen Duy Anh Quoc
-2001 04 24
+2001 4 24
 1
 0
 0
@@ -611,7 +611,7 @@ Nguyen Duy Anh Quoc
 19125118
 20010208
 Nguyen Hoang Son
-2001 02 08
+2001 2 8
 1
 0
 0
@@ -649,7 +649,7 @@ Nguyen Cong Tai
 19125121
 20010123
 Nguyen Duc Thang
-2001 01 23
+2001 1 23
 1
 0
 0
@@ -668,7 +668,7 @@ Nguyen Duc Thang
 19125123
 20010504
 Nguyen Minh Thu
-2001 05 04
+2001 5 4
 1
 0
 0
@@ -687,7 +687,7 @@ Nguyen Minh Thu
 19125124
 20010408
 Nguyen Van Tien
-2001 04 08
+2001 4 8
 1
 0
 0
@@ -706,7 +706,7 @@ Nguyen Van Tien
 19125125
 20011102
 Ho Ngoc Ton
-2001 11 02
+2001 11 2
 1
 0
 0
@@ -744,7 +744,7 @@ Vu Ngoc Tuan
 19125129
 20010415
 Do Thanh Tung
-2001 04 15
+2001 4 15
 1
 0
 0
@@ -763,7 +763,7 @@ Do Thanh Tung
 19125130
 20010913
 Mai Thi Cam Van
-2001 09 13
+2001 9 13
 1
 0
 0
@@ -782,7 +782,7 @@ Mai Thi Cam Van
 19125131
 20010911
 Le Dac Vien
-2001 09 11
+2001 9 11
 1
 0
 0
@@ -801,7 +801,7 @@ Le Dac Vien
 19125132
 19950112
 Pham Dang Quang Vinh
-1995 01 12
+1995 1 12
 1
 0
 0
@@ -820,7 +820,7 @@ Pham Dang Quang Vinh
 19125135
 20010119
 Le Thanh Danh
-2001 01 19
+2001 1 19
 1
 0
 0
@@ -839,7 +839,7 @@ Le Thanh Danh
 19125136
 20010228
 Le Thi Kim My
-2001 02 28
+2001 2 28
 1
 0
 0
@@ -858,7 +858,7 @@ Le Thi Kim My
 18125146
 20000810
 Nguyen Minh Thu
-2000 08 10
+2000 8 10
 1
 0
 0

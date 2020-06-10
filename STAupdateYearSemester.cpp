@@ -358,7 +358,7 @@ void create_Year_Semester()
 	cout << "Class: ";
 	cin.ignore(100, '\n');
 	cin.get(tmpC, 500, '\n');
-	char* className = new char[strlen(tmpS) + 1];
+	char* className = new char[strlen(tmpC) + 1];
 	strcpy(className, tmpC);
 
 	n = 0;

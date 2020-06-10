@@ -175,8 +175,8 @@ void updateCourse(char fileAdd[], Node* phead, Date root, Time Stime, Time Etime
 		out << phead->scb->isActive << "\n";
 		out << phead->scb->sco->midterm << "\n";
 		out << phead->scb->sco->final << "\n";
-		out << phead->scb->sco->total << "\n";
 		out << phead->scb->sco->bonus << "\n";
+		out << phead->scb->sco->total << "\n";
 		for (int j = 0; j < 9; ++j){
 			out << phead->scb->went2class[j] << "\n";
 		}

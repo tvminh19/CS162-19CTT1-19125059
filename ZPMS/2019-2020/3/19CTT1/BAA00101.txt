@@ -1,14 +1,14 @@
-20 6 5 7 30 9 30
+20 3 17 13 30 16 30
 46
 19125021
 20010219
 Nguyen Thanh Dat
 2001 2 19
 1
-7.2
-8.7
-8.3
-8.1
+0
+0
+0
+0
 0
 0
 0
@@ -24,10 +24,10 @@ Nguyen Thanh Dat
 Mai Quoc Khanh
 2001 9 26
 1
-7.9
-9
-8.3
-8.4
+0
+0
+0
+0
 0
 0
 0
@@ -43,10 +43,10 @@ Mai Quoc Khanh
 Le Tran Hoàng Lam
 2001 10 1
 1
-7.6
-10
-7.2
-8.3
+0
+0
+0
+0
 0
 0
 0
@@ -62,10 +62,10 @@ Le Tran Hoàng Lam
 Cao Thien Tri
 2001 10 11
 1
-10
-9.6
-8
-9.2
+0
+0
+0
+0
 0
 0
 0
@@ -81,10 +81,10 @@ Cao Thien Tri
 Truong Hoang Vu
 2001 11 30
 1
-7.9
-7.3
-8.8
-8
+0
+0
+0
+0
 0
 0
 0
@@ -100,10 +100,10 @@ Truong Hoang Vu
 Dinh Dang Dinh
 2001 6 21
 1
-9.4
-7.1
-9.8
-8.8
+0
+0
+0
+0
 0
 0
 0
@@ -119,10 +119,10 @@ Dinh Dang Dinh
 Bui Quang Huy
 2001 1 27
 1
-7.8
-9.4
-8.5
-8.6
+0
+0
+0
+0
 0
 0
 0
@@ -138,10 +138,10 @@ Bui Quang Huy
 Vuong Hy
 2001 1 19
 1
-7.2
-9
-8.2
-8.1
+0
+0
+0
+0
 0
 0
 0
@@ -157,10 +157,10 @@ Vuong Hy
 Quach Minh Khoi
 2001 6 20
 1
-9.5
-8.5
-9.3
-9.1
+0
+0
+0
+0
 0
 0
 0
@@ -176,10 +176,10 @@ Quach Minh Khoi
 Trinh Van Minh
 2001 6 4
 1
-7.6
-8.4
-7.5
-7.8
+0
+0
+0
+0
 0
 0
 0
@@ -195,10 +195,10 @@ Trinh Van Minh
 Nguyen Thanh Ngan
 2001 1 20
 1
-7.2
-8.8
-8.5
-8.2
+0
+0
+0
+0
 0
 0
 0
@@ -214,10 +214,10 @@ Nguyen Thanh Ngan
 Nguyen Phu Van
 2001 12 7
 1
-9.7
-8.5
-8
-8.7
+0
+0
+0
+0
 0
 0
 0
@@ -233,10 +233,10 @@ Nguyen Phu Van
 Pham Quang Vu
 2001 3 8
 1
-10
-8.3
-7.2
-8.5
+0
+0
+0
+0
 0
 0
 0
@@ -252,10 +252,10 @@ Pham Quang Vu
 Duong Bao Chan
 2001 1 15
 1
-9
-8
-7.3
-8.1
+0
+0
+0
+0
 0
 0
 0
@@ -271,10 +271,10 @@ Duong Bao Chan
 Thai Ngoc Thanh Dat
 2001 5 4
 1
-7.2
-9.9
-10
-9
+0
+0
+0
+0
 0
 0
 0
@@ -290,10 +290,10 @@ Thai Ngoc Thanh Dat
 Tran Hai Anh Dien
 2001 1 9
 1
-7.3
-8.4
-7.1
-7.6
+0
+0
+0
+0
 0
 0
 0
@@ -309,10 +309,10 @@ Tran Hai Anh Dien
 Vo Khuong Duy
 2001 8 1
 1
-8
-7.3
-8.5
-7.9
+0
+0
+0
+0
 0
 0
 0
@@ -328,10 +328,10 @@ Vo Khuong Duy
 Pham Thi Ngoc Ha
 2001 10 28
 1
-7.8
-7.7
-8.6
-8
+0
+0
+0
+0
 0
 0
 0
@@ -347,10 +347,10 @@ Pham Thi Ngoc Ha
 Nguyen Hoang Hieu
 2001 11 22
 1
-8.1
-8.1
-8.7
-8.3
+0
+0
+0
+0
 0
 0
 0
@@ -366,10 +366,10 @@ Nguyen Hoang Hieu
 Nguyen Cung Hoang Huy
 2001 1 23
 1
-8.9
-9.9
-9.3
-9.4
+0
+0
+0
+0
 0
 0
 0
@@ -385,10 +385,10 @@ Nguyen Cung Hoang Huy
 Phan Dinh Huy
 2001 5 13
 1
-7.4
-7.9
-8.7
-8
+0
+0
+0
+0
 0
 0
 0
@@ -404,10 +404,10 @@ Phan Dinh Huy
 Nguyen Dinh Khanh
 2001 6 14
 1
-7.9
-8.2
-8
-8
+0
+0
+0
+0
 0
 0
 0
@@ -423,10 +423,10 @@ Nguyen Dinh Khanh
 Duong Van Khoa
 2001 3 15
 1
-8.2
-7.1
-9.5
-8.3
+0
+0
+0
+0
 0
 0
 0
@@ -442,10 +442,10 @@ Duong Van Khoa
 Ta Ngoc Minh Khoa
 2001 9 23
 1
-8
-7.6
-8.7
-8.1
+0
+0
+0
+0
 0
 0
 0
@@ -461,10 +461,10 @@ Ta Ngoc Minh Khoa
 Nguyen Truong Lam
 2001 9 25
 1
-8.2
-9.1
-8.7
-8.7
+0
+0
+0
+0
 0
 0
 0
@@ -480,10 +480,10 @@ Nguyen Truong Lam
 Pham Thien Long
 2001 7 16
 1
-10
-7.6
-7
-8.2
+0
+0
+0
+0
 0
 0
 0
@@ -499,10 +499,10 @@ Pham Thien Long
 Huynh Tuan Luc
 2001 8 21
 1
-7
-7.8
-7.2
-7.3
+0
+0
+0
+0
 0
 0
 0
@@ -518,10 +518,10 @@ Huynh Tuan Luc
 Tran Minh Nhut
 2001 4 3
 1
-9.4
-7.3
-9.6
-8.8
+0
+0
+0
+0
 0
 0
 0
@@ -537,10 +537,10 @@ Tran Minh Nhut
 Nguyen Lam Vinh Phu
 2001 2 1
 1
-7.7
-7.8
-8
-7.8
+0
+0
+0
+0
 0
 0
 0
@@ -556,10 +556,10 @@ Nguyen Lam Vinh Phu
 Dinh Duy Phuoc
 2001 9 3
 1
-8.6
-8.7
-7.1
-8.1
+0
+0
+0
+0
 0
 0
 0
@@ -575,10 +575,10 @@ Dinh Duy Phuoc
 Le Chau Nhat Quang
 2001 10 8
 1
-9
-8.4
-7.5
-8.3
+0
+0
+0
+0
 0
 0
 0
@@ -594,10 +594,10 @@ Le Chau Nhat Quang
 Nguyen Duy Anh Quoc
 2001 4 24
 1
-8.7
-7.8
-8.8
-8.4
+0
+0
+0
+0
 0
 0
 0
@@ -613,10 +613,10 @@ Nguyen Duy Anh Quoc
 Nguyen Hoang Son
 2001 2 8
 1
-8.6
-8.8
-7.8
-8.4
+0
+0
+0
+0
 0
 0
 0
@@ -632,10 +632,10 @@ Nguyen Hoang Son
 Nguyen Cong Tai
 2001 12 31
 1
-8.3
-8.1
-7.8
-8.1
+0
+0
+0
+0
 0
 0
 0
@@ -651,10 +651,10 @@ Nguyen Cong Tai
 Nguyen Duc Thang
 2001 1 23
 1
-8.8
-9.2
-9
-9
+0
+0
+0
+0
 0
 0
 0
@@ -670,10 +670,10 @@ Nguyen Duc Thang
 Nguyen Minh Thu
 2001 5 4
 1
-7.7
-8.4
-8.2
-8.1
+0
+0
+0
+0
 0
 0
 0
@@ -689,10 +689,10 @@ Nguyen Minh Thu
 Nguyen Van Tien
 2001 4 8
 1
-7.3
-9.3
-8.9
-8.5
+0
+0
+0
+0
 0
 0
 0
@@ -708,10 +708,10 @@ Nguyen Van Tien
 Ho Ngoc Ton
 2001 11 2
 1
-8.7
-9.6
-9.9
-9.4
+0
+0
+0
+0
 0
 0
 0
@@ -727,10 +727,10 @@ Ho Ngoc Ton
 Vu Ngoc Tuan
 2001 11 13
 1
-9.4
-8.4
-9
-8.9
+0
+0
+0
+0
 0
 0
 0
@@ -746,10 +746,10 @@ Vu Ngoc Tuan
 Do Thanh Tung
 2001 4 15
 1
-8.5
-9.6
-7.7
-8.6
+0
+0
+0
+0
 0
 0
 0
@@ -765,10 +765,10 @@ Do Thanh Tung
 Mai Thi Cam Van
 2001 9 13
 1
-7.5
-7
-9.5
-8
+0
+0
+0
+0
 0
 0
 0
@@ -784,10 +784,10 @@ Mai Thi Cam Van
 Le Dac Vien
 2001 9 11
 1
-8.4
-7.3
-7.9
-7.9
+0
+0
+0
+0
 0
 0
 0
@@ -803,10 +803,10 @@ Le Dac Vien
 Pham Dang Quang Vinh
 1995 1 12
 1
-7.8
-8.8
-8.6
-8.4
+0
+0
+0
+0
 0
 0
 0
@@ -822,10 +822,10 @@ Pham Dang Quang Vinh
 Le Thanh Danh
 2001 1 19
 1
-9.7
-8.7
-9.2
-9.2
+0
+0
+0
+0
 0
 0
 0
@@ -841,10 +841,10 @@ Le Thanh Danh
 Le Thi Kim My
 2001 2 28
 1
-8.3
-8.7
-8.1
-8.4
+0
+0
+0
+0
 0
 0
 0
@@ -860,10 +860,10 @@ Le Thi Kim My
 Nguyen Minh Thu
 2000 8 10
 1
-9.6
-8.5
-8.9
-9
+0
+0
+0
+0
 0
 0
 0

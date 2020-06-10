@@ -4,11 +4,9 @@
 
 void export_score_csv(Node*& pHead1, char className[], char* course)
 {
-	char dirD[] = "D:\\Github\\CS162-19CTT1-19125059\\ZPMS\\2019-2020\\1\\19CTT1\\";
+	char dirD[] = "D:\\Github\\";
 	char v[500] = "";
 	strcat(v, dirD);
-	strcat(v, className);
-	strcat(v, "-");
 	strcat(v, course);
 	strcat(v, "-Score.csv");
 	ofstream fout;
