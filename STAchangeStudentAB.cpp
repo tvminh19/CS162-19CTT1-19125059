@@ -47,9 +47,21 @@ void changeStudentClass()
 	loadClass(pClassB, nClassB, dB);
 	loadClass(pServer, nServer, serverAdd);
 
+	system("cls");
+	cout << "Student list of " << classNameA << '\n';
+
+	int id_tmp = 0;
+	StuNode* pTmp = pClassA;
+	while (pTmp != nullptr)
+	{
+		cout << "#" << ++id_tmp << '\n';
+		displayStudent(pTmp->stu);
+		pTmp = pTmp->pNext;
+		cout << '\n';
+	}
+
 	char ID[55];
 	bool resCl = false, resSe = false;
-	system("cls");
 	cout << "Input the ID of the student that you want to transfer: ";
 	cin.getline(ID, 50, '\n');
 
@@ -66,9 +78,12 @@ void changeStudentClass()
 
 		addStuNode(pClassB, pStuClassA);
 		nClassB++;
+
+		introDone();
 	}
 	else
 	{
+		addStuNode(pClassA, pStuClassA);			  // added back in... (if failed)
 		system("cls");
 		cout << "Sorry... We can't find the student on the student list or on the server!\n";
 		system("pause");
@@ -77,8 +92,6 @@ void changeStudentClass()
 	saveClass(pClassA, nClassA, dA);
 	saveClass(pClassB, nClassB, dB);
 	saveClass(pServer, nServer, serverAdd);
-
-	introDone();
 
 	deleteStuNodes(pClassA);
 	deleteStuNodes(pClassB);

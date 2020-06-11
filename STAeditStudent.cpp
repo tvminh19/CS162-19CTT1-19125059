@@ -26,8 +26,19 @@ void editStudent()
 	loadClass(pClass, nClass, d);
 	loadClass(pServer, nServer, serverAdd);
 
-	char ID[55];
 	system("cls");
+	cout << "Student list of " << className << '\n';
+	int id_tmp = 0;
+	StuNode* pTmp = pClass;
+	while (pTmp != nullptr)
+	{
+		cout << "#" << ++id_tmp << '\n';
+		displayStudent(pTmp->stu);
+		pTmp = pTmp->pNext;
+		cout << '\n';
+	}
+
+	char ID[55];
 	cout << "Input the ID of the student that you want to edit: ";
 	cin.getline(ID, 50, '\n');
 	StuNode* pStuClass = findStuNode(pClass, ID);

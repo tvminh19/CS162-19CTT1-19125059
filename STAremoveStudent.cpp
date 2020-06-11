@@ -26,9 +26,21 @@ void removeStudent()
 	loadClass(pClass, nClass, d);
 	loadClass(pServer, nServer, serverAdd);
 
+	system("cls");
+	cout << "Student list of " << className << '\n';
+
+	int id_tmp = 0;
+	StuNode* pTmp = pClass;
+	while (pTmp != nullptr)
+	{
+		cout << "#" << ++id_tmp << '\n';
+		displayStudent(pTmp->stu);
+		pTmp = pTmp->pNext;
+		cout << '\n';
+	}
+
 	char ID[55];
 	bool resCl = false, resSe = false;
-	system("cls");
 	cout << "Input the ID of the student that you want to remove: ";
 	cin.getline(ID, 50, '\n');
 	StuNode* pStuClass = removeStuNode(pClass, ID, resCl);
@@ -67,9 +79,12 @@ void removeStudent()
 			pStuServer->stu.sClass = cpyStr(unknwn);
 			break;
 		}
+
+		introDone();
 	}
 	else
 	{
+		addStuNode(pClass, pStuClass);
 		system("cls");
 		cout << "Sorry... We can't find the student on the student list or on the server!\n";
 		system("pause");
@@ -77,8 +92,6 @@ void removeStudent()
 
 	saveClass(pClass, nClass, d);
 	saveClass(pServer, nServer, serverAdd);
-
-	introDone();
 
 	deleteStuNodes(pClass);
 	deleteStuNodes(pServer);
